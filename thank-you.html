@@ -341,7 +341,10 @@
             box-shadow: 0 0 0 #D32F2F;
             animation: fill 0.4s ease-in-out 0.4s forwards, scale 0.3s ease-in-out 0.9s both, glow 2s ease-in-out 1.2s infinite;
             filter: drop-shadow(0 0 10px rgba(211, 47, 47, 0.3));
-            position: relative;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             z-index: 10;
         }
 
@@ -371,10 +374,10 @@
 
         @keyframes scale {
             0%, 100% {
-                transform: none;
+                transform: translate(-50%, -50%);
             }
             50% {
-                transform: scale3d(1.15, 1.15, 1);
+                transform: translate(-50%, -50%) scale3d(1.15, 1.15, 1);
             }
         }
 
@@ -452,33 +455,6 @@
             color: #6D2415;
             margin-bottom: 20px;
             line-height: 1.6;
-        }
-
-        .payment-info {
-            background: white;
-            border-radius: 8px;
-            padding: 16px;
-            margin-bottom: 20px;
-            text-align: left;
-        }
-
-        .payment-info strong {
-            color: #1a1a1a;
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        .upi-id {
-            font-family: 'Monaco', 'Courier New', monospace;
-            font-size: 1.125rem;
-            color: #D32F2F;
-            font-weight: 600;
-            background: #FFF5F5;
-            padding: 12px;
-            border-radius: 6px;
-            word-break: break-all;
-            margin-bottom: 20px;
-            border: 1px solid #FFCDD2;
         }
 
         .amount-input-group {
@@ -672,12 +648,7 @@
         <!-- Payment Section -->
         <div class="payment-section">
             <h2>Next Step: Complete Payment</h2>
-            <p>To confirm your order, please make the payment using UPI:</p>
-
-            <div class="payment-info">
-                <strong>Pay to UPI ID:</strong>
-                <div class="upi-id">8017795017@superyes</div>
-            </div>
+            <p>To confirm your order, please enter the amount and proceed with UPI payment:</p>
 
             <div class="amount-input-group">
                 <label for="amount">Enter Amount (₹)</label>
