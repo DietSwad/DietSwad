@@ -43,25 +43,25 @@ nav {
     font-family: 'Playfair Display', serif;
     font-size: 1.8rem;
     font-weight: 700;
-    color: #2d5016;
+    color: #6D2415;
     letter-spacing: 0.5px;
 }
 
 .nav-cta {
     padding: 12px 30px;
-    background: linear-gradient(135deg, #4caf50 0%, #2d5016 100%);
+    background: linear-gradient(135deg, #D32F2F 0%, #6D2415 100%);
     color: white;
     text-decoration: none;
     border-radius: 30px;
     font-weight: 600;
     font-size: 0.9rem;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+    box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3);
 }
 
 .nav-cta:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 25px rgba(76, 175, 80, 0.4);
+    box-shadow: 0 6px 25px rgba(211, 47, 47, 0.4);
 }
 
 /* Hero Section */
@@ -98,8 +98,8 @@ nav {
 .hero-badge {
     display: inline-block;
     padding: 8px 20px;
-    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
-    color: #2d5016;
+    background: linear-gradient(135deg, #FFEBEE 0%, #FFCDD2 100%);
+    color: #6D2415;
     border-radius: 30px;
     font-size: 0.85rem;
     font-weight: 600;
@@ -117,7 +117,7 @@ nav {
 }
 
 .hero h1 .highlight {
-    background: linear-gradient(135deg, #4caf50 0%, #2d5016 100%);
+    background: linear-gradient(135deg, #D32F2F 0%, #6D2415 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -125,7 +125,7 @@ nav {
 
 .hero-subtitle {
     font-size: 1.2rem;
-    color: #5a6c57;
+    color: #5a5a5a;
     margin-bottom: 30px;
     line-height: 1.8;
 }
@@ -147,7 +147,7 @@ nav {
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     font-size: 0.9rem;
     font-weight: 500;
-    color: #2d5016;
+    color: #6D2415;
 }
 
 .feature-pill span {
@@ -162,38 +162,38 @@ nav {
 
 .primary-btn {
     padding: 18px 40px;
-    background: linear-gradient(135deg, #4caf50 0%, #2d5016 100%);
+    background: linear-gradient(135deg, #D32F2F 0%, #6D2415 100%);
     color: white;
     text-decoration: none;
     border-radius: 30px;
     font-weight: 600;
     font-size: 1rem;
     transition: all 0.3s ease;
-    box-shadow: 0 8px 25px rgba(76, 175, 80, 0.3);
+    box-shadow: 0 8px 25px rgba(211, 47, 47, 0.3);
     display: inline-block;
 }
 
 .primary-btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 12px 35px rgba(76, 175, 80, 0.4);
+    box-shadow: 0 12px 35px rgba(211, 47, 47, 0.4);
 }
 
 .secondary-btn {
     padding: 18px 40px;
     background: white;
-    color: #2d5016;
+    color: #6D2415;
     text-decoration: none;
     border-radius: 30px;
     font-weight: 600;
     font-size: 1rem;
     transition: all 0.3s ease;
-    border: 2px solid #e8f5e9;
+    border: 2px solid #FFEBEE;
     display: inline-block;
 }
 
 .secondary-btn:hover {
-    background: #f8fdf8;
-    border-color: #4caf50;
+    background: #FFEBEE;
+    border-color: #D32F2F;
 }
 
 .hero-image-container {
@@ -217,14 +217,14 @@ nav {
     border-radius: 30px;
     overflow: hidden;
     height: 500px;
-    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+    background: linear-gradient(135deg, #FFEBEE 0%, #FFCDD2 100%);
     box-shadow: 0 20px 60px rgba(0,0,0,0.1);
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: 'Playfair Display', serif;
     font-size: 2rem;
-    color: #2d5016;
+    color: #6D2415;
     text-align: center;
     padding: 40px;
 }
@@ -265,12 +265,12 @@ nav {
     font-family: 'Playfair Display', serif;
     font-size: 3rem;
     font-weight: 700;
-    color: #4caf50;
+    color: #D32F2F;
     margin-bottom: 10px;
 }
 
 .stat-item p {
-    color: #5a6c57;
+    color: #5a5a5a;
     font-weight: 500;
 }
 
@@ -288,8 +288,8 @@ nav {
 .section-badge {
     display: inline-block;
     padding: 8px 20px;
-    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
-    color: #2d5016;
+    background: linear-gradient(135deg, #FFEBEE 0%, #FFCDD2 100%);
+    color: #6D2415;
     border-radius: 30px;
     font-size: 0.85rem;
     font-weight: 600;
@@ -307,7 +307,7 @@ nav {
 
 .section-subtitle {
     font-size: 1.2rem;
-    color: #5a6c57;
+    color: #5a5a5a;
     max-width: 600px;
     margin: 0 auto;
 }
@@ -332,14 +332,14 @@ nav {
 
 .feature-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 50px rgba(76, 175, 80, 0.15);
+    box-shadow: 0 15px 50px rgba(211, 47, 47, 0.15);
 }
 
 .feature-icon {
     width: 80px;
     height: 80px;
     margin: 0 auto 25px;
-    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+    background: linear-gradient(135deg, #FFEBEE 0%, #FFCDD2 100%);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -355,7 +355,7 @@ nav {
 }
 
 .feature-card p {
-    color: #5a6c57;
+    color: #5a5a5a;
     line-height: 1.8;
 }
 
@@ -383,19 +383,19 @@ nav {
 
 .product-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 60px rgba(76, 175, 80, 0.2);
+    box-shadow: 0 20px 60px rgba(211, 47, 47, 0.2);
 }
 
 .product-image-container {
     position: relative;
     height: 300px;
-    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+    background: linear-gradient(135deg, #FFEBEE 0%, #FFCDD2 100%);
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: 'Playfair Display', serif;
     font-size: 1.8rem;
-    color: #2d5016;
+    color: #6D2415;
     padding: 30px;
     text-align: center;
 }
@@ -405,7 +405,7 @@ nav {
     top: 20px;
     right: 20px;
     padding: 8px 16px;
-    background: #4caf50;
+    background: #D32F2F;
     color: white;
     border-radius: 20px;
     font-size: 0.75rem;
@@ -424,7 +424,7 @@ nav {
 }
 
 .product-content p {
-    color: #5a6c57;
+    color: #5a5a5a;
     margin-bottom: 25px;
     line-height: 1.8;
 }
@@ -438,10 +438,10 @@ nav {
 
 .product-feature {
     padding: 6px 12px;
-    background: #f8fdf8;
+    background: #FFEBEE;
     border-radius: 15px;
     font-size: 0.85rem;
-    color: #2d5016;
+    color: #6D2415;
     font-weight: 500;
 }
 
@@ -457,7 +457,7 @@ nav {
     font-family: 'Playfair Display', serif;
     font-size: 2rem;
     font-weight: 700;
-    color: #4caf50;
+    color: #D32F2F;
 }
 
 .price-old {
@@ -469,7 +469,7 @@ nav {
 
 .product-btn {
     padding: 12px 30px;
-    background: linear-gradient(135deg, #4caf50 0%, #2d5016 100%);
+    background: linear-gradient(135deg, #D32F2F 0%, #6D2415 100%);
     color: white;
     text-decoration: none;
     border-radius: 25px;
@@ -481,7 +481,7 @@ nav {
 
 .product-btn:hover {
     transform: scale(1.05);
-    box-shadow: 0 5px 20px rgba(76, 175, 80, 0.3);
+    box-shadow: 0 5px 20px rgba(211, 47, 47, 0.3);
 }
 
 /* Testimonials */
@@ -500,9 +500,9 @@ nav {
 
 .testimonial-card {
     padding: 40px;
-    background: #f8fdf8;
+    background: #FFF5F5;
     border-radius: 20px;
-    border-left: 4px solid #4caf50;
+    border-left: 4px solid #D32F2F;
 }
 
 .testimonial-text {
@@ -523,7 +523,7 @@ nav {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #4caf50 0%, #2d5016 100%);
+    background: linear-gradient(135deg, #D32F2F 0%, #6D2415 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -539,14 +539,14 @@ nav {
 }
 
 .author-info p {
-    color: #5a6c57;
+    color: #5a5a5a;
     font-size: 0.9rem;
 }
 
 /* CTA Section */
 .cta-section {
     padding: 100px 20px;
-    background: linear-gradient(135deg, #2d5016 0%, #4caf50 100%);
+    background: linear-gradient(135deg, #6D2415 0%, #D32F2F 100%);
     color: white;
     text-align: center;
     position: relative;
@@ -587,7 +587,7 @@ nav {
 .cta-white-btn {
     padding: 20px 50px;
     background: white;
-    color: #2d5016;
+    color: #6D2415;
     text-decoration: none;
     border-radius: 30px;
     font-weight: 600;
@@ -606,7 +606,7 @@ nav {
 footer {
     padding: 80px 20px 40px;
     background: #1a1a1a;
-    color: #c8e6c9;
+    color: #FFCDD2;
 }
 
 .footer-content {
@@ -620,7 +620,7 @@ footer {
 .footer-brand h3 {
     font-family: 'Playfair Display', serif;
     font-size: 2rem;
-    color: #4caf50;
+    color: #D32F2F;
     margin-bottom: 20px;
 }
 
@@ -638,19 +638,19 @@ footer {
 .social-link {
     width: 40px;
     height: 40px;
-    background: rgba(76, 175, 80, 0.1);
+    background: rgba(211, 47, 47, 0.1);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #4caf50;
+    color: #D32F2F;
     text-decoration: none;
     transition: all 0.3s ease;
     font-size: 1.2rem;
 }
 
 .social-link:hover {
-    background: #4caf50;
+    background: #D32F2F;
     color: white;
     transform: translateY(-3px);
 }
@@ -670,14 +670,14 @@ footer {
 }
 
 .footer-section ul li a {
-    color: #c8e6c9;
+    color: #FFCDD2;
     text-decoration: none;
     opacity: 0.8;
     transition: all 0.3s ease;
 }
 
 .footer-section ul li a:hover {
-    color: #4caf50;
+    color: #D32F2F;
     opacity: 1;
     padding-left: 5px;
 }
@@ -685,7 +685,7 @@ footer {
 .footer-bottom {
     text-align: center;
     padding-top: 40px;
-    border-top: 1px solid rgba(200, 230, 201, 0.1);
+    border-top: 1px solid rgba(255, 205, 210, 0.1);
     opacity: 0.7;
 }
 
