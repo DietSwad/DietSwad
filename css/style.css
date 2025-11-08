@@ -362,8 +362,8 @@ nav {
 }
 
 .vegetarian-icon {
-    background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
-    border: 3px solid #4CAF50;
+    background: transparent;
+    border: none;
 }
 
 .veg-symbol {
