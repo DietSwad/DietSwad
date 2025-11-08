@@ -97,11 +97,11 @@ nav {
 
 .hero-badge {
     display: inline-block;
-    padding: 8px 20px;
+    padding: 10px 24px;
     background: linear-gradient(135deg, #FFEBEE 0%, #FFCDD2 100%);
     color: #6D2415;
     border-radius: 30px;
-    font-size: 0.85rem;
+    font-size: 1rem;
     font-weight: 600;
     margin-bottom: 20px;
     letter-spacing: 0.5px;
@@ -222,11 +222,13 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem;
-    color: #6D2415;
-    text-align: center;
-    padding: 40px;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 30px;
 }
 
 .hero-image::before {
@@ -249,7 +251,7 @@ nav {
 /* Stats Section */
 .stats {
     padding: 80px 20px;
-    background: #f8fdf8;
+    background: linear-gradient(135deg, #FFEBEE 0%, #FFF5F5 100%);
 }
 
 .stats-grid {
@@ -287,11 +289,11 @@ nav {
 
 .section-badge {
     display: inline-block;
-    padding: 8px 20px;
+    padding: 10px 24px;
     background: linear-gradient(135deg, #FFEBEE 0%, #FFCDD2 100%);
     color: #6D2415;
     border-radius: 30px;
-    font-size: 0.85rem;
+    font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 20px;
     letter-spacing: 0.5px;
@@ -347,6 +349,15 @@ nav {
     font-size: 2.5rem;
 }
 
+.vegetarian-icon {
+    background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+    border: 3px solid #4CAF50;
+}
+
+.veg-symbol {
+    font-size: 2.5rem;
+}
+
 .feature-card h3 {
     font-family: 'Playfair Display', serif;
     font-size: 1.5rem;
@@ -362,7 +373,7 @@ nav {
 /* Products Section */
 .products-section {
     padding: 100px 20px;
-    background: linear-gradient(135deg, #f8fdf8 0%, #ffffff 100%);
+    background: linear-gradient(135deg, #FFF5F5 0%, #ffffff 100%);
 }
 
 .products-grid {
@@ -393,11 +404,13 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
-    color: #6D2415;
-    padding: 30px;
-    text-align: center;
+    overflow: hidden;
+}
+
+.product-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .product-badge {
@@ -460,6 +473,13 @@ nav {
     color: #D32F2F;
 }
 
+.weight-info {
+    display: block;
+    font-size: 0.85rem;
+    color: #5a5a5a;
+    margin-top: 5px;
+}
+
 .price-old {
     font-size: 1.2rem;
     color: #999;
@@ -482,6 +502,135 @@ nav {
 .product-btn:hover {
     transform: scale(1.05);
     box-shadow: 0 5px 20px rgba(211, 47, 47, 0.3);
+}
+
+/* Hampers Section */
+.hampers-section {
+    padding: 100px 20px;
+    background: linear-gradient(135deg, #FFF5F5 0%, #ffffff 100%);
+}
+
+.hamper-info-card {
+    max-width: 900px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 25px;
+    padding: 60px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.hamper-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+}
+
+.hamper-description {
+    font-size: 1.2rem;
+    color: #5a5a5a;
+    margin-bottom: 50px;
+    line-height: 1.8;
+}
+
+.hamper-features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+.hamper-feature {
+    text-align: center;
+}
+
+.hamper-feature-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 20px;
+    background: linear-gradient(135deg, #FFEBEE 0%, #FFCDD2 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+}
+
+.hamper-feature h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+}
+
+.hamper-feature p {
+    color: #5a5a5a;
+    font-size: 1rem;
+}
+
+.hamper-cta {
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 2px solid #FFEBEE;
+}
+
+.hamper-note {
+    font-size: 1rem;
+    color: #5a5a5a;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+.hamper-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.whatsapp-btn {
+    padding: 18px 35px;
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+}
+
+.whatsapp-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(37, 211, 102, 0.4);
+}
+
+.phone-btn {
+    padding: 18px 35px;
+    background: linear-gradient(135deg, #D32F2F 0%, #6D2415 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 8px 25px rgba(211, 47, 47, 0.3);
+}
+
+.phone-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(211, 47, 47, 0.4);
+}
+
+.whatsapp-icon, .phone-icon {
+    font-size: 1.2rem;
 }
 
 /* Testimonials */
@@ -636,23 +785,29 @@ footer {
 }
 
 .social-link {
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     background: rgba(211, 47, 47, 0.1);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #D32F2F;
     text-decoration: none;
     transition: all 0.3s ease;
-    font-size: 1.2rem;
+    overflow: hidden;
+    padding: 8px;
+}
+
+.social-link img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .social-link:hover {
-    background: #D32F2F;
-    color: white;
+    background: rgba(211, 47, 47, 0.2);
     transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(211, 47, 47, 0.3);
 }
 
 .footer-section h4 {
@@ -713,6 +868,10 @@ footer {
         font-size: 2.2rem;
     }
 
+    .section-badge {
+        font-size: 0.95rem;
+    }
+
     .footer-content {
         grid-template-columns: 1fr;
         gap: 40px;
@@ -720,6 +879,18 @@ footer {
 
     .cta-section h2 {
         font-size: 2rem;
+    }
+
+    .hamper-info-card {
+        padding: 40px 30px;
+    }
+
+    .hamper-content h3 {
+        font-size: 1.8rem;
+    }
+
+    .hamper-description {
+        font-size: 1.1rem;
     }
 }
 
@@ -764,6 +935,31 @@ footer {
     .primary-btn, .secondary-btn {
         width: 100%;
         text-align: center;
+    }
+
+    .hamper-info-card {
+        padding: 30px 20px;
+    }
+
+    .hamper-content h3 {
+        font-size: 1.5rem;
+    }
+
+    .hamper-description {
+        font-size: 1rem;
+    }
+
+    .hamper-features-grid {
+        gap: 30px;
+    }
+
+    .hamper-buttons {
+        flex-direction: column;
+    }
+
+    .whatsapp-btn, .phone-btn {
+        width: 100%;
+        justify-content: center;
     }
 }
 
