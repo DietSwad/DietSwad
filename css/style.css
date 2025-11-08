@@ -39,6 +39,18 @@ nav {
     padding: 0 30px;
 }
 
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-image {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+}
+
 .logo-text {
     font-family: 'Playfair Display', serif;
     font-size: 1.8rem;
@@ -901,6 +913,10 @@ footer {
 
     .nav-container {
         padding: 0 20px;
+    }
+
+    .logo-image {
+        height: 40px;
     }
 
     .logo-text {
