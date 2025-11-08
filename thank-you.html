@@ -458,33 +458,6 @@
             line-height: 1.6;
         }
 
-        .amount-input-group {
-            margin-bottom: 20px;
-        }
-
-        .amount-input-group label {
-            display: block;
-            text-align: left;
-            color: #6D2415;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        .amount-input-group input {
-            width: 100%;
-            padding: 14px;
-            font-size: 1.125rem;
-            border: 2px solid #FFCDD2;
-            border-radius: 8px;
-            font-family: 'Inter', sans-serif;
-            transition: border-color 0.3s;
-        }
-
-        .amount-input-group input:focus {
-            outline: none;
-            border-color: #D32F2F;
-        }
-
         .pay-button {
             display: inline-block;
             background: linear-gradient(135deg, #D32F2F 0%, #6D2415 100%);
@@ -566,12 +539,7 @@
         .error-message {
             color: #dc2626;
             font-size: 0.875rem;
-            margin-top: 8px;
-            display: none;
-        }
-
-        .error-message.show {
-            display: block;
+            font-weight: 500;
         }
     </style>
 </head>
@@ -579,7 +547,7 @@
     <div class="container">
         <!-- Logo -->
         <div class="logo-container">
-            <img src="refference_pics/long logo small.png" alt="Diet Swad Logo" class="logo">
+            <img src="refference_pics/logo.jpg" alt="Diet Swad Logo" class="logo">
         </div>
 
         <!-- Animated Checkmark with Effects -->
@@ -649,20 +617,14 @@
         <!-- Payment Section -->
         <div class="payment-section">
             <h2>Next Step: Complete Payment</h2>
-            <p>To confirm your order, please enter the amount and proceed with UPI payment:</p>
+            <p>To confirm your order, please proceed with UPI payment for the following amount:</p>
 
-            <div class="amount-input-group">
-                <label for="amount">Enter Amount (₹)</label>
-                <input
-                    type="number"
-                    id="amount"
-                    placeholder="Enter payment amount"
-                    min="1"
-                    step="1"
-                    inputmode="numeric"
-                >
-                <div class="error-message" id="error-message">Please enter a valid amount</div>
+            <div style="background: white; border-radius: 8px; padding: 20px; margin-bottom: 20px; border: 2px solid #D32F2F;">
+                <p style="margin: 0; font-size: 0.875rem; color: #6D2415;">Payment Amount</p>
+                <p style="margin: 8px 0 0 0; font-size: 2rem; font-weight: 700; color: #D32F2F;">₹<span id="displayAmount">0</span></p>
             </div>
+
+            <div class="error-message" id="error-message" style="display: none; text-align: center; margin-bottom: 16px;">Invalid amount. Please check the payment link.</div>
 
             <button class="pay-button" id="payButton" onclick="initiatePayment()">
                 Pay via UPI
@@ -679,19 +641,40 @@
     </div>
 
     <script>
-        function initiatePayment() {
-            const amountInput = document.getElementById('amount');
-            const errorMessage = document.getElementById('error-message');
-            const amount = amountInput.value.trim();
+        // Get amount from URL parameter
+        let paymentAmount = 0;
 
-            // Validate amount
-            if (!amount || amount <= 0 || isNaN(amount)) {
-                errorMessage.classList.add('show');
-                amountInput.focus();
+        function getAmountFromURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const amount = urlParams.get('AMOUNT');
+            return amount ? parseFloat(amount) : null;
+        }
+
+        function initializePage() {
+            const amount = getAmountFromURL();
+            const displayElement = document.getElementById('displayAmount');
+            const errorMessage = document.getElementById('error-message');
+            const payButton = document.getElementById('payButton');
+
+            if (amount && amount > 0 && !isNaN(amount)) {
+                // Valid amount found
+                paymentAmount = amount;
+                displayElement.textContent = paymentAmount.toFixed(2);
+                payButton.disabled = false;
+                errorMessage.style.display = 'none';
+            } else {
+                // Invalid or missing amount
+                displayElement.textContent = '0';
+                payButton.disabled = true;
+                errorMessage.style.display = 'block';
+            }
+        }
+
+        function initiatePayment() {
+            if (!paymentAmount || paymentAmount <= 0) {
+                alert('Invalid payment amount. Please check your payment link.');
                 return;
             }
-
-            errorMessage.classList.remove('show');
 
             // UPI payment details
             const upiId = '8017795017@superyes';
@@ -699,39 +682,19 @@
             const currency = 'INR';
 
             // Create UPI deep link
-            const upiUrl = `upi://pay?pa=${upiId}&pn=${encodeURIComponent(payeeName)}&am=${amount}&cu=${currency}&tn=${encodeURIComponent('Diet Swad Order Payment')}`;
+            const upiUrl = `upi://pay?pa=${upiId}&pn=${encodeURIComponent(payeeName)}&am=${paymentAmount}&cu=${currency}&tn=${encodeURIComponent('Diet Swad Order Payment')}`;
 
             // Try to open UPI app
             window.location.href = upiUrl;
 
             // Fallback: Show message if UPI app doesn't open
             setTimeout(() => {
-                alert('If the UPI app did not open, please manually pay ₹' + amount + ' to UPI ID: 8017795017@superyes');
+                alert('If the UPI app did not open, please manually pay ₹' + paymentAmount.toFixed(2) + ' to UPI ID: 8017795017@superyes');
             }, 2000);
         }
 
-        // Enable button when amount is entered
-        document.getElementById('amount').addEventListener('input', function() {
-            const payButton = document.getElementById('payButton');
-            const errorMessage = document.getElementById('error-message');
-
-            if (this.value && this.value > 0) {
-                payButton.disabled = false;
-                errorMessage.classList.remove('show');
-            } else {
-                payButton.disabled = true;
-            }
-        });
-
-        // Handle Enter key press
-        document.getElementById('amount').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                initiatePayment();
-            }
-        });
-
-        // Disable button initially
-        document.getElementById('payButton').disabled = true;
+        // Initialize page when DOM is loaded
+        document.addEventListener('DOMContentLoaded', initializePage);
     </script>
 </body>
 </html>
