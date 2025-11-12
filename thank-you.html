@@ -458,37 +458,6 @@
             line-height: 1.6;
         }
 
-        .pay-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #D32F2F 0%, #6D2415 100%);
-            color: white;
-            padding: 16px 40px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.125rem;
-            border: none;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 4px 12px rgba(211, 47, 47, 0.4);
-            width: 100%;
-        }
-
-        .pay-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(211, 47, 47, 0.5);
-        }
-
-        .pay-button:active {
-            transform: translateY(0);
-        }
-
-        .pay-button:disabled {
-            background: #9ca3af;
-            cursor: not-allowed;
-            box-shadow: none;
-        }
-
         .contact-info {
             background: linear-gradient(135deg, #FFF5F5 0%, #FFEBEE 100%);
             border: 2px solid #FFCDD2;
@@ -626,9 +595,29 @@
 
             <div class="error-message" id="error-message" style="display: none; text-align: center; margin-bottom: 16px;">Invalid amount. Please check the payment link.</div>
 
-            <button class="pay-button" id="payButton" onclick="initiatePayment()">
-                Pay via UPI
-            </button>
+            <!-- QR Code Payment Section -->
+            <div style="background: white; border-radius: 12px; padding: 24px; border: 2px solid #D32F2F;">
+                <h3 style="font-family: 'Playfair Display', serif; color: #6D2415; margin-bottom: 20px; font-size: 1.25rem;">Scan QR Code to Pay</h3>
+
+                <div style="display: flex; justify-content: center; margin-bottom: 20px;">
+                    <img src="refference_pics/QR.jpg" alt="UPI Payment QR Code" style="max-width: 250px; width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);">
+                </div>
+
+                <div style="background: #FFF5F5; border-radius: 8px; padding: 16px; margin-top: 16px;">
+                    <div style="margin-bottom: 12px;">
+                        <p style="margin: 0; font-size: 0.875rem; color: #6D2415; font-weight: 600;">UPI ID:</p>
+                        <p style="margin: 4px 0 0 0; font-size: 1.125rem; color: #D32F2F; font-weight: 500; word-break: break-all;">rinkuguptarrr@okicici</p>
+                    </div>
+                    <div>
+                        <p style="margin: 0; font-size: 0.875rem; color: #6D2415; font-weight: 600;">UPI Number:</p>
+                        <p style="margin: 4px 0 0 0; font-size: 1.125rem; color: #D32F2F; font-weight: 500;">9830193006</p>
+                    </div>
+                </div>
+
+                <p style="margin-top: 16px; font-size: 0.875rem; color: #6D2415; text-align: center; line-height: 1.5;">
+                    Scan the QR code with any UPI app or use the UPI ID/Number above to complete your payment manually.
+                </p>
+            </div>
         </div>
 
         <!-- Contact Information -->
@@ -654,43 +643,17 @@
             const amount = getAmountFromURL();
             const displayElement = document.getElementById('displayAmount');
             const errorMessage = document.getElementById('error-message');
-            const payButton = document.getElementById('payButton');
 
             if (amount && amount > 0 && !isNaN(amount)) {
                 // Valid amount found
                 paymentAmount = amount;
                 displayElement.textContent = paymentAmount.toFixed(2);
-                payButton.disabled = false;
                 errorMessage.style.display = 'none';
             } else {
                 // Invalid or missing amount
                 displayElement.textContent = '0';
-                payButton.disabled = true;
                 errorMessage.style.display = 'block';
             }
-        }
-
-        function initiatePayment() {
-            if (!paymentAmount || paymentAmount <= 0) {
-                alert('Invalid payment amount. Please check your payment link.');
-                return;
-            }
-
-            // UPI payment details
-            const upiId = 'rinkuguptarrr@okicici';
-            const payeeName = 'Rinku Gupta';
-            const currency = 'INR';
-
-            // Create UPI deep link
-            const upiUrl = `upi://pay?pa=${upiId}&pn=${encodeURIComponent(payeeName)}&am=${paymentAmount}&cu=${currency}&tn=${encodeURIComponent('Diet Swad Order Payment')}`;
-
-            // Try to open UPI app
-            window.location.href = upiUrl;
-
-            // Fallback: Show message if UPI app doesn't open
-            setTimeout(() => {
-                alert('If the UPI app did not open, please manually pay ₹' + paymentAmount.toFixed(2) + ' to UPI ID: rinkuguptarrr@okicici');
-            }, 2000);
         }
 
         // Initialize page when DOM is loaded
