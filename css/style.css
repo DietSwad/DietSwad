@@ -855,6 +855,53 @@ footer {
     padding-left: 5px;
 }
 
+/* FSSAI Footer Section */
+.footer-fssai {
+    max-width: 1200px;
+    margin: 0 auto 40px;
+    padding: 40px 20px;
+    border-top: 1px solid rgba(255, 205, 210, 0.1);
+    border-bottom: 1px solid rgba(255, 205, 210, 0.1);
+}
+
+.fssai-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.fssai-logo-container {
+    flex-shrink: 0;
+}
+
+.fssai-logo {
+    height: 80px;
+    width: auto;
+    object-fit: contain;
+    filter: brightness(1.2);
+}
+
+.fssai-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+.fssai-license {
+    color: white;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.fssai-manufacturer {
+    color: #FFCDD2;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
 .footer-bottom {
     text-align: center;
     padding-top: 40px;
@@ -913,6 +960,28 @@ footer {
 }
 
 @media (max-width: 640px) {
+    .fssai-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .fssai-logo {
+        height: 60px;
+    }
+
+    .fssai-info {
+        min-width: auto;
+    }
+
+    .fssai-license {
+        font-size: 1rem;
+    }
+
+    .fssai-manufacturer {
+        font-size: 0.85rem;
+    }
+
     nav {
         padding: 15px 0;
     }
