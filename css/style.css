@@ -1386,6 +1386,13 @@ footer {
         padding: 15px 40px;
         font-size: 1rem;
         width: 100%;
+        text-align: center;
+    }
+
+    .modal-cta {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .product-buttons {
@@ -1396,6 +1403,8 @@ footer {
     .product-details-btn {
         flex: 1;
         min-width: 120px;
+        font-size: 0.8rem;
+        padding: 10px 16px;
     }
 
     .product-btn {
