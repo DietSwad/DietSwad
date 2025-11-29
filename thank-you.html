@@ -699,10 +699,27 @@
         // Get amount from URL parameter
         let paymentAmount = 0;
 
+        // Azure Function endpoint - REPLACE WITH YOUR ACTUAL FUNCTION URL
+        const AZURE_FUNCTION_URL = 'https://ds-meta-capi-epdmafgfdpfydpes.centralindia-01.azurewebsites.net/api/meta-event';
+        // Optional: Add function key if required
+        const FUNCTION_KEY = ''; // Leave empty if using ANONYMOUS auth level
+
         function getAmountFromURL() {
             const urlParams = new URLSearchParams(window.location.search);
             const amount = urlParams.get('AMOUNT');
             return amount ? parseFloat(amount) : null;
+        }
+
+        function getURLParameter(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param) || '';
+        }
+
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+            return '';
         }
 
         function initializePage() {
@@ -715,10 +732,81 @@
                 paymentAmount = amount;
                 displayElement.textContent = paymentAmount.toFixed(2);
                 errorMessage.style.display = 'none';
+
+                // Send conversion event to Azure Function
+                sendConversionEvent();
             } else {
                 // Invalid or missing amount
                 displayElement.textContent = '0';
                 errorMessage.style.display = 'block';
+            }
+        }
+
+        function sendConversionEvent() {
+            try {
+                // Get URL parameters
+                const amount = getURLParameter('AMOUNT');
+                const name = getURLParameter('Name');
+                const phone = getURLParameter('PhoneNumber');
+                const email = getURLParameter('email');
+                const product = getURLParameter('product');
+                const quantity = getURLParameter('Quantity');
+                const fbclid = getURLParameter('fbclid');
+                const ctwa_clid = getURLParameter('ctwa_clid');
+                const utm_source = getURLParameter('utm_source');
+                const utm_medium = getURLParameter('utm_medium');
+                const utm_campaign = getURLParameter('utm_campaign');
+
+                // Get Facebook cookies
+                const fbp = getCookie('_fbp');
+                const fbc = getCookie('_fbc');
+
+                // Prepare event data
+                const eventData = {
+                    event_name: 'Purchase',
+                    email: email,
+                    phone: phone,
+                    name: name,
+                    amount: parseFloat(amount),
+                    currency: 'INR',
+                    product: product,
+                    quantity: quantity,
+                    fbp: fbp,
+                    fbclid: fbclid || (fbc ? fbc.split('.').pop() : ''),
+                    ctwa_clid: ctwa_clid,
+                    utm_source: utm_source,
+                    utm_medium: utm_medium,
+                    utm_campaign: utm_campaign,
+                    event_source_url: window.location.href
+                };
+
+                console.log('Sending conversion event:', eventData);
+
+                // Build request URL
+                let requestURL = AZURE_FUNCTION_URL;
+                if (FUNCTION_KEY) {
+                    requestURL += `?code=${FUNCTION_KEY}`;
+                }
+
+                // Send to Azure Function
+                fetch(requestURL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(eventData)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Conversion event sent successfully:', data);
+                })
+                .catch(error => {
+                    console.error('Error sending conversion event:', error);
+                    // Silently fail - don't disrupt user experience
+                });
+
+            } catch (error) {
+                console.error('Error in sendConversionEvent:', error);
             }
         }
 
