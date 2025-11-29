@@ -24,6 +24,36 @@
     src="https://www.facebook.com/tr?id=1480791526509702&ev=PageView&noscript=1"
     /></noscript>
     <!-- End Meta Pixel Code -->
+
+    <!-- UTM Parameter Handler -->
+    <script>
+        // Extract and store UTM parameters on page load
+        window.utmParams = (function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const params = {
+                utm_campaign: urlParams.get('utm_campaign') || 'Direct',
+                utm_source: urlParams.get('utm_source') || 'Website',
+                utm_medium: urlParams.get('utm_medium') || 'Organic',
+                fbclid: urlParams.get('fbclid') || ''
+            };
+            return params;
+        })();
+
+        // Function to append UTM params to URLs
+        function addUtmParams(url, productName) {
+            const urlObj = new URL(url);
+            if (productName) {
+                urlObj.searchParams.set('product', productName);
+            }
+            urlObj.searchParams.set('utm_campaign', window.utmParams.utm_campaign);
+            urlObj.searchParams.set('utm_source', window.utmParams.utm_source);
+            urlObj.searchParams.set('utm_medium', window.utmParams.utm_medium);
+            if (window.utmParams.fbclid) {
+                urlObj.searchParams.set('fbclid', window.utmParams.fbclid);
+            }
+            return urlObj.toString();
+        }
+    </script>
 </head>
 <body>
     <!-- Navigation -->
@@ -32,7 +62,7 @@
             <div class="logo-container">
                 <img src="refference_pics/flat logo.jpg" alt="Diet Swad Logo" class="logo-image">
             </div>
-            <a href="https://tally.so/r/3XVpeY" class="nav-cta">Order Now</a>
+            <a href="#" class="nav-cta" onclick="event.preventDefault(); window.location.href = addUtmParams('https://tally.so/r/3XVpeY');">Order&nbsp;Now</a>
         </div>
     </nav>
 
@@ -57,7 +87,7 @@
                 </div>
 
                 <div class="hero-cta-group">
-                    <a href="https://tally.so/r/3XVpeY" class="primary-btn">Order Now</a>
+                    <a href="#" class="primary-btn" onclick="event.preventDefault(); window.location.href = addUtmParams('https://tally.so/r/3XVpeY');">Order&nbsp;Now</a>
                     <a href="#products" class="secondary-btn">Explore Products</a>
                 </div>
             </div>
@@ -162,7 +192,7 @@
 
             <div class="products-grid">
                 <!-- Product 1: Power Bites -->
-                <div class="product-card">
+                <div class="product-card" data-product="power-bites">
                     <div class="product-image-container" style="background: linear-gradient(135deg, #F8BBD0 0%, #F48FB1 100%);">
                         <span class="product-badge">BESTSELLER</span>
                         <img src="refference_pics/Power bites.png" alt="Power Bites">
@@ -183,13 +213,16 @@
                                 <span class="price">₹399</span>
                                 <span class="weight-info">180g • 12 pcs</span>
                             </div>
-                            <a href="https://tally.so/r/3XVpeY?product=Power%20Bites" class="product-btn">Order Now</a>
+                            <div class="product-buttons">
+                                <button class="product-details-btn" onclick="openProductModal('power-bites')">Product Details</button>
+                                <a href="#" class="product-btn" onclick="event.preventDefault(); window.location.href = addUtmParams('https://tally.so/r/3XVpeY', 'Power Bites');">Order&nbsp;Now</a>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Product 2: Royal Bites -->
-                <div class="product-card">
+                <div class="product-card" data-product="royal-bites">
                     <div class="product-image-container" style="background: linear-gradient(135deg, #FFCCBC 0%, #FFAB91 100%);">
                         <span class="product-badge">WHOLESOME</span>
                         <img src="refference_pics/Royal bites.png" alt="Royal Bites">
@@ -210,13 +243,16 @@
                                 <span class="price">₹399</span>
                                 <span class="weight-info">180g • 12 pcs</span>
                             </div>
-                            <a href="https://tally.so/r/3XVpeY?product=Royal%20Bites" class="product-btn">Order Now</a>
+                            <div class="product-buttons">
+                                <button class="product-details-btn" onclick="openProductModal('royal-bites')">Product Details</button>
+                                <a href="#" class="product-btn" onclick="event.preventDefault(); window.location.href = addUtmParams('https://tally.so/r/3XVpeY', 'Royal Bites');">Order&nbsp;Now</a>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Product 3: Peanut-Sesame Delights -->
-                <div class="product-card">
+                <div class="product-card" data-product="peanut-sesame-delights">
                     <div class="product-image-container" style="background: linear-gradient(135deg, #C8E6C9 0%, #A5D6A7 100%);">
                         <span class="product-badge">PROTEIN RICH</span>
                         <img src="refference_pics/Peanut Sesame Delights.jpeg" alt="Peanut-Sesame Delights">
@@ -237,13 +273,16 @@
                                 <span class="price">₹399</span>
                                 <span class="weight-info">180g • 12 pcs</span>
                             </div>
-                            <a href="https://tally.so/r/3XVpeY?product=Peanut-Sesame%20Delights" class="product-btn">Order Now</a>
+                            <div class="product-buttons">
+                                <button class="product-details-btn" onclick="openProductModal('peanut-sesame-delights')">Product Details</button>
+                                <a href="#" class="product-btn" onclick="event.preventDefault(); window.location.href = addUtmParams('https://tally.so/r/3XVpeY', 'Peanut-Sesame Delights');">Order&nbsp;Now</a>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Product 4: Butter Cookies -->
-                <div class="product-card">
+                <div class="product-card" data-product="butter-cookies">
                     <div class="product-image-container" style="background: linear-gradient(135deg, #FFF9C4 0%, #FFE082 100%);">
                         <span class="product-badge">CLASSIC</span>
                         <img src="refference_pics/butter cookies.png" alt="Butter Cookies">
@@ -263,13 +302,16 @@
                                 <span class="price">₹299</span>
                                 <span class="weight-info">200g • 20 pcs</span>
                             </div>
-                            <a href="https://tally.so/r/3XVpeY?product=Butter%20Cookies" class="product-btn">Order Now</a>
+                            <div class="product-buttons">
+                                <button class="product-details-btn" onclick="openProductModal('butter-cookies')">Product Details</button>
+                                <a href="#" class="product-btn" onclick="event.preventDefault(); window.location.href = addUtmParams('https://tally.so/r/3XVpeY', 'Butter Cookies');">Order&nbsp;Now</a>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Product 5: Roasted & Salted Cashews -->
-                <div class="product-card">
+                <div class="product-card" data-product="roasted-salted-cashews">
                     <div class="product-image-container" style="background: linear-gradient(135deg, #FFCCBC 0%, #FFAB91 100%);">
                         <span class="product-badge">PREMIUM</span>
                         <img src="refference_pics/Casew.png" alt="Roasted & Salted Cashews">
@@ -290,13 +332,16 @@
                                 <span class="price">₹399</span>
                                 <span class="weight-info">200g</span>
                             </div>
-                            <a href="https://tally.so/r/3XVpeY?product=Roasted%20%26%20Salted%20Cashews" class="product-btn">Order Now</a>
+                            <div class="product-buttons">
+                                <button class="product-details-btn" onclick="openProductModal('roasted-salted-cashews')">Product Details</button>
+                                <a href="#" class="product-btn" onclick="event.preventDefault(); window.location.href = addUtmParams('https://tally.so/r/3XVpeY', 'Roasted & Salted Cashews');">Order&nbsp;Now</a>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Product 6: Peri-Peri Protein Mix -->
-                <div class="product-card">
+                <div class="product-card" data-product="peri-peri-protein-mix">
                     <div class="product-image-container" style="background: linear-gradient(135deg, #FFE0B2 0%, #FFCC80 100%);">
                         <span class="product-badge">NEW</span>
                         <img src="refference_pics/peri peri.png" alt="Peri-Peri Protein Mix">
@@ -317,7 +362,10 @@
                                 <span class="price">₹399</span>
                                 <span class="weight-info">200g</span>
                             </div>
-                            <a href="https://tally.so/r/3XVpeY?product=Peri-Peri%20Protein%20Mix" class="product-btn">Order Now</a>
+                            <div class="product-buttons">
+                                <button class="product-details-btn" onclick="openProductModal('peri-peri-protein-mix')">Product Details</button>
+                                <a href="#" class="product-btn" onclick="event.preventDefault(); window.location.href = addUtmParams('https://tally.so/r/3XVpeY', 'Peri-Peri Protein Mix');">Order&nbsp;Now</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -456,7 +504,7 @@
         <div class="cta-content">
             <h2>Ready for Guilt-Free Indulgence?</h2>
             <p>Join our community of health-conscious food lovers.<br>Choose Quality Over Compromise</p>
-            <a href="https://tally.so/r/3XVpeY" class="cta-white-btn">Order Now</a>
+            <a href="#" class="cta-white-btn" onclick="event.preventDefault(); window.location.href = addUtmParams('https://tally.so/r/3XVpeY');">Order&nbsp;Now</a>
         </div>
     </section>
 
@@ -534,5 +582,340 @@
             <p>© 2025 Diet Swad. All rights reserved. Made with ❤️ in Kolkata, India.</p>
         </div>
     </footer>
+
+    <!-- Product Details Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeProductModal()">&times;</span>
+            <div class="modal-body">
+                <div class="modal-images">
+                    <div id="modalImageGallery" class="image-gallery"></div>
+                </div>
+                <div class="modal-details">
+                    <h2 id="modalProductName"></h2>
+                    <p id="modalTagline" class="modal-tagline"></p>
+                    <div class="modal-price-section">
+                        <span id="modalPriceOld" class="modal-price-old"></span>
+                        <span id="modalPrice" class="modal-price"></span>
+                        <span id="modalPackSize" class="modal-pack-size"></span>
+                    </div>
+                    <p id="modalDescription" class="modal-description"></p>
+                    <div id="modalFeatures" class="modal-features"></div>
+                    <div id="modalIngredients" class="modal-ingredients"></div>
+                    <div id="modalNutrition" class="modal-nutrition"></div>
+                    <div id="modalPerfectFor" class="modal-perfect-for"></div>
+                    <div class="modal-cta">
+                        <a href="#" id="modalOrderBtn" class="modal-order-btn" onclick="event.preventDefault();">Order&nbsp;Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Data and Modal JavaScript -->
+    <script>
+        // Product data based on Diet_Swad_Product_Details.md
+        const productData = {
+            'power-bites': {
+                name: 'POWER BITES',
+                tagline: 'Lean Protein. Bold Taste. Real Energy.',
+                price: '₹399',
+                priceOld: '₹499',
+                packSize: '180g • 12 pieces',
+                description: 'Meet the cleanest way to power through your day. Packed with 12+ ancient superfoods, each bite delivers lean protein, healthy fats, and real energy – without the crash. Crafted with Arabian dates, premium nuts, power-packed seeds, and pure cow ghee. This is guilt-free fuel that tastes like indulgence.',
+                features: [
+                    '4g protein per serving – real muscle recovery',
+                    'Omega-3 & MUFA for heart & brain health',
+                    '12% daily micronutrients (Mg, Zn, Vit E)',
+                    'Naturally sweetened with dates, raisins & honey',
+                    'Zero refined sugar, zero trans fat, zero preservatives'
+                ],
+                ingredients: 'Arabian Dates, Cashew, Almond, Pumpkin Seeds, Sunflower Seeds, Sesame Seeds, Flax Seeds, Raisins, Cow Ghee, Rolled Oats, Peanut Butter, Cinnamon, Honey',
+                nutrition: {
+                    'Calories': '81 kcal',
+                    'Protein': '4.0g',
+                    'Healthy Fats': '4.5g (Omega-3 & MUFA)',
+                    'Dietary Fiber': '1.8g',
+                    'Natural Sugar': '5.0g',
+                    'Micronutrients': '12% RDA (Magnesium, Zinc, Vitamin E)'
+                },
+                perfectFor: ['Pre/post-workout fuel', 'Mid-morning energy boost', 'Beating 4pm slumps', 'Mindful snacking anytime'],
+                images: [
+                    'refference_pics/Product_Pics/power_bites/Gemini_Generated_Image_v43gdcv43gdcv43g_processed.jpg',
+                    'refference_pics/Product_Pics/power_bites/Gemini_Generated_Image_sx31shsx31shsx31_processed.jpg',
+                    'refference_pics/Product_Pics/power_bites/Gemini_Generated_Image_ifan16ifan16ifan_processed.jpg',
+                    'refference_pics/Product_Pics/power_bites/Gemini_Generated_Image_7exxmm7exxmm7exx_processed.jpg',
+                    'refference_pics/Product_Pics/power_bites/Gemini_Generated_Image_nonmbznonmbznonm_processed.jpg',
+                    'refference_pics/Product_Pics/power_bites/Gemini_Generated_Image_f9z7sf9z7sf9z7sf_processed.jpg'
+                ],
+                productName: 'Power Bites'
+            },
+            'royal-bites': {
+                name: 'ROYAL BITES',
+                tagline: 'Rich Taste. Wholesome Strength. Guilt-Free Indulgence.',
+                price: '₹399',
+                priceOld: '₹499',
+                packSize: '180g • 12 pieces',
+                description: 'Craving something rich? Meet the bite that delivers chocolate bliss without compromise. Crafted with premium cocoa powder, Arabian dates, almonds, and pure cow ghee, Royal Bites gives you the indulgent taste you crave with the nutrition your body deserves. Rich. Wholesome. Guilt-free.',
+                features: [
+                    'Rich cocoa taste – chocolate satisfaction without sugar crash',
+                    '3.5g protein per serving – smart indulgence',
+                    'Nut-fueled with almonds, pumpkin seeds & peanut butter',
+                    '10% daily micronutrients (Mg, Zn, Vit E)',
+                    'Naturally sweetened with dates only (just 2.5g natural sugar)',
+                    'Zero refined sugar, zero trans fat, zero preservatives'
+                ],
+                ingredients: 'Arabian Dates, Almonds, Pumpkin Seeds, Peanut Butter, Sesame Seeds, Mixed-Nut Powder, Roasted Gram Flour, Cocoa Powder, Cow Ghee',
+                nutrition: {
+                    'Calories': '73 kcal',
+                    'Protein': '3.5g',
+                    'Healthy Fats': '4.9g (MUFA & PUFA)',
+                    'Dietary Fiber': '1.5g',
+                    'Natural Sugar': '2.5g',
+                    'Micronutrients': '10% RDA (Magnesium, Zinc, Vitamin E)'
+                },
+                perfectFor: ['Satisfying dessert cravings guilt-free', 'Evening treat with tea/coffee', 'Post-dinner sweet fix', 'Mindful chocolate lovers'],
+                images: [
+                    'refference_pics/Product_Pics/royal_bites/Gemini_Generated_Image_7pijgx7pijgx7pij_processed.jpg',
+                    'refference_pics/Product_Pics/royal_bites/royal bites 2_processed.jpg',
+                    'refference_pics/Product_Pics/royal_bites/Gemini_Generated_Image_jzqnqxjzqnqxjzqn_processed.jpg',
+                    'refference_pics/Product_Pics/royal_bites/Gemini_Generated_Image_t9gyblt9gyblt9gy_processed.jpg',
+                    'refference_pics/Product_Pics/royal_bites/Gemini_Generated_Image_8qn7le8qn7le8qn7_processed.jpg'
+                ],
+                productName: 'Royal Bites'
+            },
+            'peanut-sesame-delights': {
+                name: 'PEANUT-SESAME DELIGHTS',
+                tagline: 'Pure & Simple. Bold Taste. Real Energy.',
+                price: '₹399',
+                priceOld: '₹499',
+                packSize: '180g • 12 pieces',
+                description: 'Sometimes, the simplest things are the best. Just 4 pure ingredients come together to create something extraordinary. Crafted with roasted peanuts, nutrient-rich sesame seeds, Arabian dates, and pure cow ghee – this is wholesome snacking in its purest form. No fillers. No additives. Just real food that tastes amazing and fuels your body right.',
+                features: [
+                    'Only 4 ingredients – radical simplicity',
+                    '3.8g protein for sustained energy',
+                    'Roasted peanut & sesame richness',
+                    'Naturally sweetened with dates only',
+                    '11% daily micronutrients (Mg, Zn, Vit E)',
+                    'Zero refined sugar, zero junk'
+                ],
+                ingredients: 'Arabian Dates, Peanuts, Sesame Seeds, Cow Ghee',
+                nutrition: {
+                    'Calories': '103 kcal',
+                    'Protein': '3.8g',
+                    'Healthy Fats': '3.2g (MUFA & PUFA)',
+                    'Dietary Fiber': '1.8g',
+                    'Natural Sugar': '4.2g',
+                    'Micronutrients': '11% RDA (Magnesium, Zinc, Vitamin E)'
+                },
+                perfectFor: ['Clean eaters who value simplicity', 'Label readers who care about quality', 'Mindful snacking anytime', 'Those avoiding processed foods'],
+                images: [
+                    'refference_pics/Product_Pics/peanut_seseme_delight/Gemini_Generated_Image_a6el0sa6el0sa6el_processed.jpg',
+                    'refference_pics/Product_Pics/peanut_seseme_delight/Gemini_Generated_Image_vdabvhvdabvhvdab_processed.jpg',
+                    'refference_pics/Product_Pics/peanut_seseme_delight/Gemini_Generated_Image_axajubaxajubaxaj_processed.jpg',
+                    'refference_pics/Product_Pics/peanut_seseme_delight/Gemini_Generated_Image_nmmovbnmmovbnmmo_processed.jpg',
+                    'refference_pics/Product_Pics/peanut_seseme_delight/Gemini_Generated_Image_ayenijayenijayen_processed.jpg'
+                ],
+                productName: 'Peanut-Sesame Delights'
+            },
+            'butter-cookies': {
+                name: 'BUTTER COOKIES',
+                tagline: 'Zero Guilt. Zero Junk. 100% Satisfaction.',
+                price: '₹299',
+                priceOld: '',
+                packSize: '150g',
+                description: 'Meet the cookie that doesn\'t compromise. Golden, buttery, and guilt-free. Crafted with real butter, whole wheat flour, and desi khand, these cookies deliver the luxury you crave with the nutrition you need. No refined sugar. No trans fats. No artificial anything.',
+                features: [
+                    'Zero refined sugar – sweetened with desi khand',
+                    'Made with whole wheat & real butter',
+                    'Zero trans fat & preservatives',
+                    'No artificial sweeteners',
+                    'FSSAI certified',
+                    'Perfect with chai or coffee'
+                ],
+                ingredients: 'Butter, Whole Wheat Flour, Desi Khand (Natural Cane Sugar), Multipurpose Flour',
+                nutrition: {
+                    'Calories': '89 kcal',
+                    'Protein': '1.5g',
+                    'Healthy Fats': '1.2g',
+                    'Dietary Fiber': '1.5g',
+                    'Natural Sugar': '2.9g',
+                    'Micronutrients': '5% RDA'
+                },
+                perfectFor: ['Tea-time treats', 'Classic cookie lovers', 'Evening snacks', 'Gifting'],
+                images: [
+                    'refference_pics/Product_Pics/butter_cookies/Gemini_Generated_Image_jlc7pfjlc7pfjlc7_processed.jpg',
+                    'refference_pics/Product_Pics/butter_cookies/Gemini_Generated_Image_jlc7pfjlc7pfjlc7 (2)_processed.jpg'
+                ],
+                productName: 'Butter Cookies'
+            },
+            'roasted-salted-cashews': {
+                name: 'ROASTED & SALTED CASHEWS',
+                tagline: 'Pure Luxury. Indulgence Redefined.',
+                price: '₹399',
+                priceOld: '₹499',
+                packSize: '200g',
+                description: 'Not all cashews are created equal. Ours are hand-selected, perfectly roasted, and seasoned with rock salt. Taste the difference. Premium quality meets radical simplicity. Just 2 pure ingredients create an experience of pure luxury – because your loved ones deserve nothing but the best.',
+                features: [
+                    'Just 2 ingredients: Cashews + Rock Salt',
+                    'Premium-grade cashews, hand-selected',
+                    'Perfectly roasted – not over-roasted or raw',
+                    'Seasoned with pure rock salt',
+                    '3.8g protein per serving',
+                    '8g heart-healthy fats (MUFA & PUFA)',
+                    'Lowest natural sugar content (just 1.2g)',
+                    'No added oils, no trans fat, no preservatives'
+                ],
+                ingredients: 'Cashew Nuts, Rock Salt',
+                nutrition: {
+                    'Calories': '119 kcal',
+                    'Protein': '3.8g',
+                    'Healthy Fats': '8.0g (MUFA & PUFA)',
+                    'Dietary Fiber': '0.5g',
+                    'Natural Sugar': '1.2g',
+                    'Micronutrients': '10% RDA (Magnesium, Zinc, Vitamin E)'
+                },
+                perfectFor: ['Gifting on special occasions', 'Premium entertaining', 'Personal indulgence', 'Corporate gifts'],
+                images: [
+                    'refference_pics/Product_Pics/salted_cashew/Gemini_Generated_Image_ivcwilivcwilivcw_processed.jpg',
+                    'refference_pics/Product_Pics/salted_cashew/Cashews_processed.jpg',
+                    'refference_pics/Product_Pics/salted_cashew/Gemini_Generated_Image_bsrk3bsrk3bsrk3b_processed.jpg',
+                    'refference_pics/Product_Pics/salted_cashew/Gemini_Generated_Image_e7clmye7clmye7cl_processed.jpg',
+                    'refference_pics/Product_Pics/salted_cashew/Gemini_Generated_Image_xn7yraxn7yraxn7y_processed.jpg',
+                    'refference_pics/Product_Pics/salted_cashew/Gemini_Generated_Image_saln03saln03saln_processed.jpg'
+                ],
+                productName: 'Roasted & Salted Cashews'
+            },
+            'peri-peri-protein-mix': {
+                name: 'PERI-PERI PROTEIN MIX',
+                tagline: 'Bold Flavor. Maximum Fuel.',
+                price: '₹399',
+                priceOld: '₹499',
+                packSize: '200g',
+                description: 'For those who like their snacks with a kick. This isn\'t your average trail mix. Packed with premium roasted cashews, almonds, peanuts, pumpkin seeds, and sunflower seeds – then elevated with an authentic peri-peri spice blend and rock salt. Every handful delivers bold, fiery flavor with serious nutritional punch.',
+                features: [
+                    'Highest protein content: 4.3g per serving',
+                    '5 premium nuts & seeds, perfectly roasted',
+                    'Authentic peri-peri spice blend (spicy but balanced)',
+                    '8.2g heart-healthy fats (MUFA & PUFA)',
+                    'Lowest sugar: just 0.8g naturally occurring',
+                    '11% daily micronutrients (Mg, Zn, Vit E)',
+                    'Zero trans fat, zero preservatives, zero artificial flavoring'
+                ],
+                ingredients: 'Roasted Cashews, Roasted Almonds, Roasted Peanuts, Pumpkin Seeds, Sunflower Seeds, Peri-Peri Spice Blend, Rock Salt',
+                nutrition: {
+                    'Calories': '124 kcal',
+                    'Protein': '4.3g (HIGHEST in our range)',
+                    'Healthy Fats': '8.2g (MUFA & PUFA)',
+                    'Dietary Fiber': '1.9g',
+                    'Natural Sugar': '0.8g (LOWEST in our range)',
+                    'Micronutrients': '11% RDA (Magnesium, Zinc, Vitamin E)'
+                },
+                perfectFor: ['Spice lovers & adventurous eaters', 'Pre/post-workout protein boost', 'Beer/drinks pairing (perfect bar snack)', 'Salad toppers for extra crunch & protein', 'Bold snacking anytime'],
+                images: [
+                    'refference_pics/Product_Pics/periperi_protein_mix/Gemini_Generated_Image_narjovnarjovnarj (2)_processed.jpg',
+                    'refference_pics/Product_Pics/periperi_protein_mix/Gemini_Generated_Image_narjovnarjovnarj_processed.jpg',
+                    'refference_pics/Product_Pics/periperi_protein_mix/Gemini_Generated_Image_narjovnarjovnarj (1)_processed.jpg',
+                    'refference_pics/Product_Pics/periperi_protein_mix/Gemini_Generated_Image_narjovnarjovnarj (3)_processed.jpg',
+                    'refference_pics/Product_Pics/periperi_protein_mix/Gemini_Generated_Image_narjovnarjovnarj (4)_processed.jpg',
+                    'refference_pics/Product_Pics/periperi_protein_mix/Peri- Peri protein mix_processed.jpg'
+                ],
+                productName: 'Peri-Peri Protein Mix'
+            }
+        };
+
+        // Open product modal
+        function openProductModal(productId) {
+            const product = productData[productId];
+            if (!product) return;
+
+            // Set product details
+            document.getElementById('modalProductName').textContent = product.name;
+            document.getElementById('modalTagline').textContent = product.tagline;
+            document.getElementById('modalPrice').textContent = product.price;
+            document.getElementById('modalPriceOld').textContent = product.priceOld;
+            document.getElementById('modalPriceOld').style.display = product.priceOld ? 'inline' : 'none';
+            document.getElementById('modalPackSize').textContent = product.packSize;
+            document.getElementById('modalDescription').textContent = product.description;
+
+            // Set features
+            const featuresHtml = '<h4>Key Features</h4><ul>' +
+                product.features.map(f => '<li>✅ ' + f + '</li>').join('') +
+                '</ul>';
+            document.getElementById('modalFeatures').innerHTML = featuresHtml;
+
+            // Set ingredients
+            document.getElementById('modalIngredients').innerHTML =
+                '<h4>Ingredients</h4><p>' + product.ingredients + '</p>';
+
+            // Set nutrition
+            const nutritionHtml = '<h4>Nutrition Information (Per 15g serving)</h4><ul>' +
+                Object.entries(product.nutrition).map(([key, value]) =>
+                    '<li><strong>' + key + ':</strong> ' + value + '</li>'
+                ).join('') +
+                '</ul>';
+            document.getElementById('modalNutrition').innerHTML = nutritionHtml;
+
+            // Set perfect for
+            const perfectForHtml = '<h4>Perfect For</h4><ul>' +
+                product.perfectFor.map(p => '<li>' + p + '</li>').join('') +
+                '</ul>';
+            document.getElementById('modalPerfectFor').innerHTML = perfectForHtml;
+
+            // Set images with lazy loading
+            const gallery = document.getElementById('modalImageGallery');
+            gallery.innerHTML = product.images.map(img =>
+                '<img data-src="' + img + '" alt="' + product.name + '" class="modal-gallery-img lazy-load" />'
+            ).join('');
+
+            // Load images using Intersection Observer for lazy loading
+            const lazyImages = gallery.querySelectorAll('.lazy-load');
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy-load');
+                        img.classList.add('loaded');
+                        observer.unobserve(img);
+                    }
+                });
+            });
+
+            lazyImages.forEach(img => imageObserver.observe(img));
+
+            // Set order button with UTM params
+            const orderBtn = document.getElementById('modalOrderBtn');
+            orderBtn.onclick = function(e) {
+                e.preventDefault();
+                window.location.href = addUtmParams('https://tally.so/r/3XVpeY', product.productName);
+            };
+
+            // Show modal
+            document.getElementById('productModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close product modal
+        function closeProductModal() {
+            document.getElementById('productModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('productModal');
+            if (event.target === modal) {
+                closeProductModal();
+            }
+        };
+
+        // Close modal on ESC key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeProductModal();
+            }
+        });
+    </script>
 </body>
 </html>
