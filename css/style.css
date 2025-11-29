@@ -1397,20 +1397,21 @@ footer {
 
     .product-buttons {
         width: 100%;
-        justify-content: center;
+        flex-direction: column;
+        gap: 12px;
     }
 
     .product-details-btn {
-        flex: 1;
-        min-width: 120px;
-        font-size: 0.8rem;
-        padding: 10px 16px;
+        width: 100%;
+        font-size: 0.9rem;
+        padding: 12px 20px;
+        text-align: center;
     }
 
     .product-btn {
-        flex: 1;
-        min-width: 120px;
+        width: 100%;
         text-align: center;
+        padding: 12px 20px;
     }
 
     .product-footer {
@@ -1421,10 +1422,6 @@ footer {
     .product-footer > div {
         width: 100%;
         margin-bottom: 15px;
-    }
-
-    .product-buttons {
-        width: 100%;
     }
 }
 
