@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipping Policy - Diet Swad</title>
+    <link rel="icon" type="image/jpeg" href="refference_pics/logo.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .policy-hero {
+            padding: 140px 20px 60px;
+            background: linear-gradient(135deg, #FFF5F5 0%, #ffffff 100%);
+            text-align: center;
+        }
+        .policy-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+        }
+        .policy-hero .highlight {
+            background: linear-gradient(135deg, #D32F2F 0%, #6D2415 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .policy-hero p {
+            font-size: 1.1rem;
+            color: #5a5a5a;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .policy-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            background: white;
+        }
+        .policy-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-top: 50px;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #FFEBEE;
+        }
+        .policy-content p {
+            color: #2c3e50;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+        .policy-content ul {
+            margin-bottom: 25px;
+            padding-left: 30px;
+        }
+        .policy-content li {
+            color: #2c3e50;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+        .policy-content strong {
+            color: #6D2415;
+            font-weight: 600;
+        }
+        .policy-content a {
+            color: #D32F2F;
+            text-decoration: none;
+        }
+        .policy-content a:hover {
+            text-decoration: underline;
+        }
+        .intro-box {
+            background: linear-gradient(135deg, #FFEBEE 0%, #FFF5F5 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 40px 0;
+            border-left: 5px solid #D32F2F;
+        }
+        .info-box {
+            background: #FFF5F5;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 30px 0;
+            border-left: 4px solid #D32F2F;
+        }
+        .section-divider {
+            border: 0;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #FFEBEE, transparent);
+            margin: 40px 0;
+        }
+        .shipping-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .shipping-card {
+            background: #FFF5F5;
+            border-radius: 12px;
+            padding: 25px 20px;
+            text-align: center;
+            border-top: 4px solid #D32F2F;
+        }
+        .shipping-card .icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        .shipping-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #6D2415;
+            margin-bottom: 8px;
+        }
+        .shipping-card p {
+            font-size: 0.9rem;
+            color: #5a5a5a;
+            margin: 0;
+            line-height: 1.5;
+        }
+        .contact-box {
+            background: linear-gradient(135deg, #6D2415 0%, #D32F2F 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin: 50px 0;
+            text-align: center;
+        }
+        .contact-box h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: white;
+        }
+        .contact-box p {
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 10px;
+        }
+        .contact-box a {
+            color: #FFD700;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .version-info {
+            background: #FFEBEE;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #5a5a5a;
+        }
+        @media (max-width: 768px) {
+            .policy-hero h1 { font-size: 2rem; }
+            .policy-content { padding: 40px 15px; }
+            .policy-content h2 { font-size: 1.6rem; }
+            .shipping-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 480px) {
+            .shipping-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo-container">
+                <a href="index.html"><img src="refference_pics/flat logo.jpg" alt="Diet Swad Logo" class="logo-image"></a>
+            </div>
+            <a href="https://tally.so/r/3XVpeY" class="nav-cta">Order Now</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="policy-hero">
+        <h1>Shipping <span class="highlight">Policy</span></h1>
+        <p>Pan-India delivery — fast, safe, and straight to your door.</p>
+    </section>
+
+    <!-- Content -->
+    <div class="policy-content">
+
+        <div class="intro-box">
+            <p>All orders placed on <strong>dietswad.in</strong> are shipped through registered domestic courier companies and/or Speed Post only. We ensure your order is packed fresh and dispatched promptly.</p>
+        </div>
+
+        <div class="shipping-grid">
+            <div class="shipping-card">
+                <div class="icon">📦</div>
+                <h4>Order Processing</h4>
+                <p>Shipped within 5 days of order & payment confirmation</p>
+            </div>
+            <div class="shipping-card">
+                <div class="icon">🚚</div>
+                <h4>Delivery Partner</h4>
+                <p>Registered domestic courier companies & Speed Post</p>
+            </div>
+            <div class="shipping-card">
+                <div class="icon">🇮🇳</div>
+                <h4>Pan-India</h4>
+                <p>We deliver across India — free shipping on all orders</p>
+            </div>
+            <div class="shipping-card">
+                <div class="icon">✉️</div>
+                <h4>Confirmation</h4>
+                <p>Delivery confirmed on your registered email ID</p>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <h2>Dispatch & Delivery Timeline</h2>
+        <p>Orders are shipped within <strong>5 working days</strong> from the date of order and/or payment, or as per the delivery date agreed at the time of order confirmation — subject to courier company / post office norms.</p>
+
+        <hr class="section-divider">
+
+        <h2>Delivery Address</h2>
+        <p>Delivery of all orders will be made to the <strong>address provided by the buyer at the time of purchase</strong>. Please ensure your address, pin code, and contact number are accurate to avoid delays.</p>
+
+        <hr class="section-divider">
+
+        <h2>Delivery Confirmation</h2>
+        <p>Delivery of your order will be confirmed on the <strong>email ID specified at the time of registration</strong>. You may also receive updates from the courier partner directly.</p>
+
+        <hr class="section-divider">
+
+        <h2>Delays by Courier</h2>
+        <div class="info-box">
+            <p><strong>Radiant Twins Enterprise shall not be liable for any delay in delivery</strong> by the courier company or postal authority once the order has been dispatched from our end. In case of unusual delays, please contact us and we will assist in tracking your shipment.</p>
+        </div>
+
+        <hr class="section-divider">
+
+        <h2>Shipping Charges</h2>
+        <p>If there are any shipping cost(s) levied by the seller or the Platform Owner (as the case may be), the same is <strong>not refundable</strong>. Currently, Diet Swad offers <strong>free shipping pan-India</strong> on all orders.</p>
+
+        <div class="version-info">
+            <p><strong>Diet Swad</strong> — <em>Ancient Wisdom, Modern Life</em></p>
+            <p style="margin-top: 10px;"><strong>Effective Date:</strong> 2024 | <strong>Operated by:</strong> Radiant Twins Enterprise, Kolkata, West Bengal</p>
+        </div>
+
+        <div class="contact-box">
+            <h3>Track Your Order</h3>
+            <p>Can't find your shipment? We're happy to help.</p>
+            <p>📞 <a href="tel:8910725854">8910725854</a></p>
+            <p>📧 <a href="mailto:dietswad143@gmail.com">dietswad143@gmail.com</a></p>
+            <p>🌐 <a href="https://dietswad.in">dietswad.in</a></p>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>Diet Swad</h3>
+                <p>Handcrafted healthy snacks made with love in Kolkata. Zero guilt, zero junk—just 100% satisfaction and pure indulgence redefined.</p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/dietswad/" target="_blank" class="social-link" title="Instagram">
+                        <img src="refference_pics/insta.png" alt="Instagram">
+                    </a>
+                    <a href="#" target="_blank" class="social-link" title="Facebook">
+                        <img src="refference_pics/fb.png" alt="Facebook">
+                    </a>
+                    <a href="https://wa.me/918910725854?text=Hi%20I%20checked%20your%20shipping%20policy%20and%20have%20some%20questions" target="_blank" class="social-link" title="WhatsApp">
+                        <img src="refference_pics/wp.png" alt="WhatsApp">
+                    </a>
+                    <a href="mailto:dietswad143@gmail.com" class="social-link" title="Email">
+                        <img src="refference_pics/mail.png" alt="Email">
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#products">Our Products</a></li>
+                    <li><a href="index.html#hampers">Gift Hampers</a></li>
+                    <li><a href="https://tally.so/r/3XVpeY">Order Now</a></li>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="terms-of-service.html">Terms of Service</a></li>
+                    <li><a href="refund-policy.html">Refund Policy</a></li>
+                    <li><a href="shipping-policy.html">Shipping Policy</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="index.html#products">Power Bites</a></li>
+                    <li><a href="index.html#products">Royal Bites</a></li>
+                    <li><a href="index.html#products">Peanut-Sesame Delights</a></li>
+                    <li><a href="index.html#products">Millet Butter Cookies</a></li>
+                    <li><a href="index.html#products">Millet Coconut Cookies</a></li>
+                    <li><a href="index.html#products">Millet Choco Cookies</a></li>
+                    <li><a href="index.html#products">Roasted Cashews</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="mailto:dietswad143@gmail.com">dietswad143@gmail.com</a></li>
+                    <li><a href="tel:8910725854">8910725854</a></li>
+                    <li><a href="tel:9830193006">9830193006</a></li>
+                    <li>Kolkata, West Bengal</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-fssai">
+            <div class="fssai-content">
+                <div class="fssai-logo-container">
+                    <img src="refference_pics/fssai-logo.png" alt="FSSAI Logo" class="fssai-logo">
+                </div>
+                <div class="fssai-info">
+                    <p class="fssai-license"><strong>FSSAI Regd. No. 22825041000300</strong></p>
+                    <p class="fssai-manufacturer">Mfd. & Mkt. by Radiant Twins Enterprise, 6/2 Sashi Sekhar Bose Road, Kolkata, West Bengal - 700025</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 Diet Swad. All rights reserved. Made with ❤️ in Kolkata, India.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
