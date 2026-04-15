@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Diet Swad — Thank You! (Sandbox)</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', sans-serif; background: #f7f3ee; color: #2d2d2d; min-height: 100vh; }
+    header { background: #3b2a1a; color: #fff; padding: 18px 24px; }
+    header h1 { font-size: 1.4rem; font-weight: 700; }
+
+    .container { max-width: 560px; margin: 40px auto; padding: 0 16px 60px; text-align: center; }
+
+    /* Status icons */
+    .icon-circle { width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; margin: 0 auto 20px; }
+    .icon-circle.success { background: #e8f5e9; }
+    .icon-circle.failure { background: #fdeaea; }
+    .icon-circle.pending { background: #fff8e1; }
+
+    h2 { font-size: 1.6rem; font-weight: 700; margin-bottom: 10px; }
+    .subtitle { color: #666; font-size: 0.95rem; margin-bottom: 30px; line-height: 1.5; }
+
+    .order-card { background: #fff; border-radius: 12px; padding: 24px; text-align: left; box-shadow: 0 1px 4px rgba(0,0,0,0.07); margin-bottom: 20px; }
+    .order-card h3 { font-size: 0.85rem; font-weight: 700; color: #3b2a1a; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 2px solid #f0e8df; }
+    .detail-row { display: flex; justify-content: space-between; padding: 7px 0; font-size: 0.9rem; border-bottom: 1px solid #f5ece4; }
+    .detail-row:last-child { border-bottom: none; }
+    .detail-row .key { color: #777; }
+    .detail-row .val { font-weight: 600; text-align: right; max-width: 60%; }
+
+    .status-badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+    .badge-paid { background: #e8f5e9; color: #2e7d32; }
+    .badge-notpaid { background: #fdeaea; color: #c0392b; }
+    .badge-pending { background: #fff8e1; color: #f57f17; }
+
+    .items-list { list-style: none; padding: 0; }
+    .items-list li { display: flex; justify-content: space-between; padding: 7px 0; font-size: 0.9rem; border-bottom: 1px solid #f5ece4; }
+    .items-list li:last-child { border-bottom: none; }
+
+    .invoice-note { background: #e8f5e9; border-radius: 8px; padding: 12px 16px; font-size: 0.85rem; color: #2e7d32; margin-bottom: 20px; text-align: left; }
+    .invoice-note strong { display: block; margin-bottom: 4px; }
+
+    .action-btn { display: block; width: 100%; padding: 14px; border-radius: 10px; font-size: 1rem; font-weight: 700; text-align: center; text-decoration: none; cursor: pointer; border: none; margin-bottom: 10px; }
+    .btn-primary { background: #3b2a1a; color: #fff; }
+    .btn-secondary { background: #fff; color: #3b2a1a; border: 2px solid #3b2a1a; }
+
+    /* Loading state */
+    .loading { padding: 40px 0; }
+    .spinner-lg { width: 44px; height: 44px; border: 3px solid #ddd; border-top-color: #3b2a1a; border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 16px; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .loading p { color: #777; font-size: 0.9rem; }
+
+    .test-badge { background: #fff3cd; border: 1px solid #ffc107; border-radius: 8px; padding: 8px 14px; font-size: 0.8rem; color: #856404; margin-bottom: 20px; }
+  </style>
+</head>
+<body>
+<header>
+  <h1>Diet Swad</h1>
+</header>
+
+<div class="container">
+  <div class="test-badge">SANDBOX — no real payment charged</div>
+
+  <!-- Loading state -->
+  <div id="state-loading" class="loading">
+    <div class="spinner-lg"></div>
+    <p>Confirming your payment...</p>
+  </div>
+
+  <!-- Success state -->
+  <div id="state-success" style="display:none">
+    <div class="icon-circle success">&#10003;</div>
+    <h2>Thank You!</h2>
+    <p class="subtitle">Your order has been placed successfully.<br>We'll ship it within 1–2 business days.</p>
+
+    <div class="invoice-note" id="invoice-note" style="display:none">
+      <strong>Invoice Sent</strong>
+      Your invoice has been emailed to <span id="invoice-email"></span>.
+      Invoice No: <strong id="invoice-number"></strong>
+    </div>
+
+    <div class="order-card">
+      <h3>Order Details</h3>
+      <div class="detail-row"><span class="key">Order ID</span><span class="val" id="detail-order-id">—</span></div>
+      <div class="detail-row"><span class="key">Payment Status</span><span class="val" id="detail-payment-status">—</span></div>
+      <div class="detail-row"><span class="key">Total Paid</span><span class="val" id="detail-amount">—</span></div>
+      <div class="detail-row"><span class="key">Name</span><span class="val" id="detail-name">—</span></div>
+      <div class="detail-row"><span class="key">Deliver to</span><span class="val" id="detail-address">—</span></div>
+    </div>
+
+    <div class="order-card" id="items-card" style="display:none">
+      <h3>Items Ordered</h3>
+      <ul class="items-list" id="items-list"></ul>
+    </div>
+
+    <a href="test-checkout.html" class="action-btn btn-primary">Order More</a>
+    <a href="https://dietswad.in" class="action-btn btn-secondary">Visit Dietswad.in</a>
+  </div>
+
+  <!-- Failure state -->
+  <div id="state-failure" style="display:none">
+    <div class="icon-circle failure">&#10007;</div>
+    <h2>Payment Failed</h2>
+    <p class="subtitle">Your payment could not be processed.<br>No amount was deducted. Please try again.</p>
+
+    <div class="order-card">
+      <h3>Order Reference</h3>
+      <div class="detail-row"><span class="key">Order ID</span><span class="val" id="fail-order-id">—</span></div>
+      <div class="detail-row"><span class="key">Status</span><span class="val" id="fail-status">—</span></div>
+    </div>
+
+    <a href="test-checkout.html" class="action-btn btn-primary">Try Again</a>
+  </div>
+</div>
+
+<script>
+  const API_BASE = 'https://dietswad-api.azurewebsites.net/api';
+
+  // Read URL params — Easebuzz / our redirect passes order_id and payment_status
+  const params = new URLSearchParams(window.location.search);
+  let orderId = params.get('order_id') || sessionStorage.getItem('last_order_id') || '';
+  const paymentStatusParam = params.get('payment_status') || params.get('status') || '';
+
+  function show(stateId) {
+    ['state-loading', 'state-success', 'state-failure'].forEach(id => {
+      document.getElementById(id).style.display = id === stateId ? 'block' : 'none';
+    });
+  }
+
+  function badgeHtml(status) {
+    const s = (status || '').toLowerCase();
+    if (s === 'paid') return '<span class="status-badge badge-paid">Paid</span>';
+    if (s === 'not paid' || s === 'failure' || s === 'failed') return '<span class="status-badge badge-notpaid">Not Paid</span>';
+    return '<span class="status-badge badge-pending">' + (status || 'Pending') + '</span>';
+  }
+
+  async function loadOrderStatus(orderIdToLoad) {
+    try {
+      const resp = await fetch(`${API_BASE}/order-status?order_id=${encodeURIComponent(orderIdToLoad)}`);
+      if (!resp.ok) return null;
+      return await resp.json();
+    } catch {
+      return null;
+    }
+  }
+
+  function renderSuccess(data) {
+    document.getElementById('detail-order-id').textContent = data.order_id || orderId;
+    document.getElementById('detail-payment-status').innerHTML = badgeHtml(data.payment_status);
+    document.getElementById('detail-amount').textContent = data.total_amount ? 'Rs. ' + data.total_amount.toLocaleString('en-IN') : '—';
+    document.getElementById('detail-name').textContent = data.customer_name || '—';
+    document.getElementById('detail-address').textContent = [data.delivery_address, data.pin_code].filter(Boolean).join(', ') || '—';
+
+    if (data.invoice_number) {
+      document.getElementById('invoice-number').textContent = data.invoice_number;
+      document.getElementById('invoice-email').textContent = data.email || 'your email';
+      document.getElementById('invoice-note').style.display = 'block';
+    }
+
+    if (data.items && data.items.length > 0) {
+      const list = document.getElementById('items-list');
+      list.innerHTML = data.items.map(it =>
+        `<li><span>${it.product || it.name || '—'}</span><span>x${it.quantity} &mdash; Rs. ${(it.quantity * 499).toLocaleString('en-IN')}</span></li>`
+      ).join('');
+      document.getElementById('items-card').style.display = 'block';
+    }
+
+    show('state-success');
+  }
+
+  function renderFailure(data, rawStatus) {
+    document.getElementById('fail-order-id').textContent = data ? (data.order_id || orderId) : orderId;
+    document.getElementById('fail-status').textContent = rawStatus || (data && data.payment_status) || 'Failed';
+    show('state-failure');
+  }
+
+  async function init() {
+    if (!orderId) {
+      // No order_id — just show generic thank-you
+      show('state-success');
+      document.getElementById('detail-order-id').textContent = 'N/A';
+      document.getElementById('detail-payment-status').innerHTML = badgeHtml('Paid');
+      return;
+    }
+
+    // If Easebuzz redirect already tells us it failed, skip polling
+    const rawStatus = paymentStatusParam.toLowerCase();
+    if (rawStatus === 'failure' || rawStatus === 'usercancelled') {
+      show('state-failure');
+      document.getElementById('fail-order-id').textContent = orderId;
+      document.getElementById('fail-status').textContent = rawStatus === 'usercancelled' ? 'Cancelled' : 'Failed';
+      return;
+    }
+
+    // Poll order-status API (up to 10 attempts, 3s apart)
+    let attempts = 0;
+    const maxAttempts = 10;
+
+    async function poll() {
+      attempts++;
+      const data = await loadOrderStatus(orderId);
+
+      if (data && data.found) {
+        const ps = (data.payment_status || '').toLowerCase();
+        if (ps === 'paid') {
+          renderSuccess(data);
+        } else if (ps === 'not paid' || ps === 'failed') {
+          renderFailure(data, ps);
+        } else if (attempts < maxAttempts) {
+          setTimeout(poll, 3000);
+        } else {
+          // Timed out — show whatever we have
+          renderSuccess(data);
+        }
+      } else if (attempts < maxAttempts) {
+        setTimeout(poll, 3000);
+      } else {
+        // Notion not updated yet — show generic success (webhook may still be processing)
+        show('state-success');
+        document.getElementById('detail-order-id').textContent = orderId;
+        document.getElementById('detail-payment-status').innerHTML = badgeHtml('Paid');
+      }
+    }
+
+    poll();
+  }
+
+  init();
+</script>
+</body>
+</html>
