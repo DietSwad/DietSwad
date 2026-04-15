@@ -2,6 +2,22 @@
 
 A modern, responsive website for Diet Swad, featuring handcrafted healthy snacks made with pure, natural ingredients.
 
+> ## ⚠️ CRITICAL MAINTENANCE RULE — WHEN ADDING A NEW PAGE
+>
+> `dietswad.in` also serves the URL shortener at the flat path `dietswad.in/{code}`. Short codes and website page slugs share the same namespace.
+>
+> **Whenever a new page is added to this website repo, the same PR MUST also update all three places below:**
+>
+> 1. **Shortener — `DietSwad/DietSwad_URL_shortener_Azure_Function/function_app.py` → `RESERVED_WORDS` set.** Add the new page's slug. Redeploy the Function App.
+> 2. **Cloudflare — `Details/CLOUDFLARE_SETUP_GUIDE.md` Step 2b allowlist.** Add the slug to the `WEBSITE_ROUTE_ALLOWLIST` in the Transform Rule filter. Deploy the rule.
+> 3. **This repo — `sitemap.xml` / nav links** (your normal change).
+>
+> Skipping any one of these causes a real-world regression:
+> - Skip #1 → an existing short code may already match your new page slug; your page will either 404 or override a live short link.
+> - Skip #2 → Cloudflare will route your new page to the shortener instead of GitHub Pages. Users see 404.
+>
+> Decision record: `Details/DECISIONS_LOG.md` → 2026-04-13 "URL shortener format: flat".
+
 ## Overview
 
 Diet Swad offers 100% natural, guilt-free snacks including Power Bites, Royal Bites, Peanut-Sesame Delights, Butter Cookies, Roasted & Salted Cashews, and Peri-Peri Protein Mix. All products are made with zero trans fat, no preservatives, and no artificial sweeteners. Proudly handcrafted in Kolkata with traditional recipes and modern nutrition science.

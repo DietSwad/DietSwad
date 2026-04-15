@@ -115,6 +115,10 @@
   <button class="pay-btn" id="pay-btn" onclick="submitOrder()">
     Pay with Easebuzz (Sandbox)
   </button>
+
+  <button class="pay-btn" id="pay-btn-small" style="background:#2e7d32;margin-top:10px" onclick="submitOrder(true)">
+    Quick Rs. 2 real-payment test
+  </button>
 </div>
 
 <script>
@@ -169,12 +173,12 @@
     el.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 
-  async function submitOrder() {
+  async function submitOrder(smallAmount = false) {
     document.getElementById('error-msg').style.display = 'none';
 
-    const items = Object.entries(qtys)
-      .filter(([, q]) => q > 0)
-      .map(([product, quantity]) => ({ product, quantity }));
+    const items = smallAmount
+      ? [{ product: '__test_small__', quantity: 1 }]
+      : Object.entries(qtys).filter(([, q]) => q > 0).map(([product, quantity]) => ({ product, quantity }));
 
     if (items.length === 0) { showError('Please add at least one product.'); return; }
 
@@ -198,6 +202,7 @@
       customer_name: name,
       phone, email, address, pincode,
       items,
+      total_amount: smallAmount ? 2 : undefined,
       test_mode: true,
       form_loaded_at: formLoadedAt,
       source: 'test-checkout',
