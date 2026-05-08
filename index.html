@@ -1,936 +1,1705 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-PHC4G3QB');</script>
-<!-- End Google Tag Manager -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diet Swad - Healthy Snacks from Rs299</title>
-    <link rel="icon" type="image/jpeg" href="refference_pics/logo.jpg">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <!-- Meta Pixel Code -->
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1480791526509702');
-    fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1480791526509702&ev=PageView&noscript=1"
-    /></noscript>
-    <!-- End Meta Pixel Code -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Diet Swad — Preview</title>
 
-    <!-- UTM Parameter Handler -->
-    <script>
-        // Extract and store UTM parameters on page load
-        window.utmParams = (function() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const params = {
-                utm_campaign: urlParams.get('utm_campaign') || 'Direct',
-                utm_source: urlParams.get('utm_source') || 'Website',
-                utm_medium: urlParams.get('utm_medium') || 'Organic',
-                fbclid: urlParams.get('fbclid') || ''
-            };
-            return params;
-        })();
+  <!-- Google Fonts: Cormorant Garamond + DM Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500;1,600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
-        // Function to append UTM params to URLs
-        function addUtmParams(url, productName) {
-            const urlObj = new URL(url);
-            if (productName) {
-                urlObj.searchParams.set('product', productName);
-            }
-            urlObj.searchParams.set('utm_campaign', window.utmParams.utm_campaign);
-            urlObj.searchParams.set('utm_source', window.utmParams.utm_source);
-            urlObj.searchParams.set('utm_medium', window.utmParams.utm_medium);
-            if (window.utmParams.fbclid) {
-                urlObj.searchParams.set('fbclid', window.utmParams.fbclid);
-            }
-            return urlObj.toString();
-        }
-    </script>
+  <!-- Hero section styles -->
+  <link rel="stylesheet" href="hero.css">
+  <!-- Non-hero section styles -->
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* ═══════════════════════════════════════════════════════════════════
+       BRAND STATEMENT (light section — first breath after dark hero)
+       ═══════════════════════════════════════════════════════════════════ */
+    .brand-statement {
+      background: linear-gradient(180deg, var(--cream-bg) 0%, var(--cream-mid) 100%);
+      padding: 88px 24px 80px;
+      text-align: center;
+    }
+
+    .brand-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(26px, 6.5vw, 42px);
+      font-weight: 500;
+      font-style: italic;
+      line-height: 1.3;
+      color: var(--ink);
+      max-width: 640px;
+      margin: 0 auto 28px;
+    }
+
+    .brand-body {
+      font-size: var(--type-body-lg);
+      font-weight: 400;
+      color: #4A2E12;
+      max-width: 480px;
+      margin: 0 auto 36px;
+      line-height: 1.75;
+    }
+
+    /* Trust pills */
+    .trust-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .trust-pill {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      border: 1px solid rgba(191, 155, 48, 0.4);
+      border-radius: 40px;
+      padding: 7px 16px;
+      background: transparent;
+    }
+
+
+    /* ═══════════════════════════════════════════════════════════════════
+       PRODUCT COLLECTION (dark)
+       ═══════════════════════════════════════════════════════════════════ */
+    .product-collection {
+      background: var(--bg-base);
+      padding: 80px 0 88px;
+    }
+
+    .product-collection .section-header {
+      padding: 0 24px;
+      margin-bottom: 36px;
+    }
+
+    .section-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px, 8vw, 52px);
+      font-weight: 600;
+      color: var(--cream);
+      line-height: 1.08;
+    }
+
+    .section-sub {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-top: 8px;
+    }
+
+    /* Horizontal scroll carousel */
+    .product-scroll {
+      display: flex;
+      gap: 14px;
+      overflow-x: auto;
+      padding: 4px 24px 20px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .product-scroll::-webkit-scrollbar { display: none; }
+
+    .product-card {
+      flex-shrink: 0;
+      width: 240px;
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--bg-surface);
+      border: 1px solid var(--gold-hairline);
+      scroll-snap-align: start;
+      transition: border-color 0.25s;
+    }
+
+    .product-card:active {
+      border-color: rgba(212, 175, 55, 0.4);
+    }
+
+    /* Photo placeholder with product-family gradient */
+    .card-photo {
+      width: 100%;
+      height: 210px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .card-photo.maroon { background: linear-gradient(180deg, var(--maroon) 0%, var(--bg-surface) 100%); }
+    .card-photo.choco  { background: linear-gradient(180deg, var(--choco)  0%, var(--bg-surface) 100%); }
+    .card-photo.plum   { background: linear-gradient(180deg, var(--plum)   0%, var(--bg-surface) 100%); }
+    .card-photo.dark   { background: linear-gradient(180deg, var(--dark)   0%, var(--bg-surface) 100%); }
+
+    .card-photo-icon {
+      font-size: 36px;
+      opacity: 0.6;
+    }
+
+    .card-photo-note {
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(212, 175, 55, 0.4);
+    }
+
+    .card-body {
+      padding: 16px;
+    }
+
+    .card-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 4px;
+    }
+
+    .card-claim {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .card-price {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--gold);
+    }
+
+    .card-btn {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--bg-base);
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold-light));
+      border: none;
+      border-radius: 4px;
+      padding: 8px 14px;
+      height: 34px;
+      min-width: 80px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+
+    /* ═══════════════════════════════════════════════════════════════════
+       WHY DIET SWAD (light section)
+       ═══════════════════════════════════════════════════════════════════ */
+    .why-us {
+      background: linear-gradient(180deg, var(--cream-mid) 0%, var(--cream-bg) 100%);
+      padding: 80px 24px 88px;
+    }
+
+    .why-us .section-label { color: var(--gold-dark); }
+    .why-us .section-heading { color: var(--ink); }
+    .why-us .section-header { margin-bottom: 40px; }
+
+    .usp-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .usp-tile {
+      background: rgba(30, 18, 8, 0.05);
+      border: 1px solid rgba(191, 155, 48, 0.2);
+      border-radius: 8px;
+      padding: 20px 16px;
+    }
+
+    .usp-icon {
+      font-size: 28px;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .usp-title {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .usp-desc {
+      font-size: 12px;
+      color: #5C3D20;
+      line-height: 1.55;
+    }
+
+
+    /* ═══════════════════════════════════════════════════════════════════
+       TESTIMONIALS (dark)
+       ═══════════════════════════════════════════════════════════════════ */
+    .testimonials {
+      background: var(--bg-base);
+      padding: 80px 0 88px;
+    }
+
+    .testimonials .section-header {
+      padding: 0 24px;
+      margin-bottom: 36px;
+    }
+
+    .reviews-scroll {
+      display: flex;
+      gap: 14px;
+      overflow-x: auto;
+      padding: 4px 24px 20px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .reviews-scroll::-webkit-scrollbar { display: none; }
+
+    .review-card {
+      flex-shrink: 0;
+      width: 280px;
+      background: var(--bg-surface);
+      border: 1px solid var(--gold-hairline);
+      border-radius: 8px;
+      padding: 24px;
+      scroll-snap-align: start;
+    }
+
+    .review-stars {
+      font-size: 14px;
+      letter-spacing: 2px;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+
+    .review-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 17px;
+      font-weight: 500;
+      font-style: italic;
+      line-height: 1.55;
+      color: var(--cream);
+      margin-bottom: 20px;
+    }
+
+    .review-author {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--gold);
+      letter-spacing: 0.04em;
+    }
+
+    .review-location {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+
+    /* Final CTA — styles live in style.css (.fcta-*) */
+
+
+    /* ═══════════════════════════════════════════════════════════════════
+       RESPONSIVE — DESKTOP (preview.html-specific sections only)
+       ═══════════════════════════════════════════════════════════════════ */
+    @media (min-width: 768px) {
+      .brand-statement {
+        padding: 100px 64px;
+      }
+
+      .product-collection .section-header,
+      .testimonials .section-header {
+        padding: 0 64px;
+      }
+
+      .product-scroll,
+      .reviews-scroll {
+        padding: 4px 64px 20px;
+        gap: 20px;
+      }
+
+      .product-card { width: 280px; }
+      .card-photo   { height: 240px; }
+      .review-card  { width: 320px; }
+
+      .why-us {
+        padding: 88px 64px;
+      }
+
+      .usp-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+
+      .final-cta {
+        padding: 100px 64px;
+      }
+
+      .cta-buttons {
+        flex-direction: row;
+        justify-content: center;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .product-collection .section-header,
+      .testimonials .section-header { padding: 0 120px; }
+      .product-scroll, .reviews-scroll { padding: 4px 120px 20px; }
+      .why-us, .final-cta { padding: 100px 120px; }
+    }
+
+  </style>
 </head>
+
 <body>
-    <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PHC4G3QB"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <div class="logo-container">
-                <img src="refference_pics/flat logo.jpg" alt="Diet Swad Logo" class="logo-image">
-            </div>
-            <a href="#" class="nav-cta" onclick="event.preventDefault(); window.location.href = addUtmParams('https://tally.so/r/3XVpeY');">Order&nbsp;Now</a>
-        </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-grid">
-            <div class="hero-content">
-                <span class="hero-badge">100% Natural & Guilt-Free</span>
-                <h1>Indulge in <span class="highlight">Healthy Delights</span></h1>
-                <p class="hero-subtitle">Handcrafted healthy snacks made with pure, natural ingredients. Zero guilt, zero junk—just 100% satisfaction and wholesome goodness.</p>
+  <!-- ═══════════════════════════════════════════════════════════════════
+       NAVIGATION
+       ═══════════════════════════════════════════════════════════════════ -->
+  <nav class="site-nav">
+    <!-- Hamburger — mobile only -->
+    <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
 
-                <div class="hero-features">
-                    <div class="feature-pill">
-                        <span>✓</span> No Trans Fat
-                    </div>
-                    <div class="feature-pill">
-                        <span>💪</span> High Protein
-                    </div>
-                    <div class="feature-pill">
-                        <span>🚫</span> No Preservatives
-                    </div>
-                </div>
+    <!-- Gold horizontal logo (transparent background) -->
+    <img
+      src="Assets/Logo_and_icons/normal horizontal logo background removed.png"
+      alt="Diet Swad"
+      class="nav-logo"
+      onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';"
+    >
+    <!-- Fallback if logo file not found -->
+    <a href="#" class="nav-logo-text gold-text" style="display:none;">Diet Swad</a>
 
-                <div class="hero-cta-group">
-                    <a href="#" class="primary-btn" onclick="event.preventDefault(); window.location.href = addUtmParams('https://tally.so/r/3XVpeY');">Order&nbsp;Now</a>
-                    <a href="#products" class="secondary-btn">Explore Products</a>
-                </div>
-            </div>
+    <a href="#order" class="nav-order-btn">Order Now</a>
+  </nav>
 
-            <div class="hero-image-container">
-                <div class="hero-image">
-                    <img src="refference_pics/Hero image.png" alt="Healthy Guilt-Free Snacks">
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- Mobile nav drawer -->
+  <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+    <div class="drawer-backdrop" id="drawerBackdrop"></div>
+    <div class="drawer-panel" role="dialog" aria-label="Navigation">
+      <button class="drawer-close" id="drawerClose" aria-label="Close menu">&times;</button>
+      <a class="drawer-link" href="#hero">Home</a>
+      <a class="drawer-link" href="#products">Products</a>
+      <a class="drawer-link" href="#hampers">Hampers</a>
+      <a class="drawer-link" href="#reviews">Reviews</a>
+      <a class="drawer-link drawer-link--cta" href="#order">Order Now</a>
+      <div class="drawer-social">
+        <a href="https://instagram.com/dietswad" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+        <a href="https://wa.me/918910725854" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
 
-    <!-- Stats Section -->
-    <section class="stats">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <h3>50+</h3>
-                    <p>Delicious Products</p>
-                </div>
-                <div class="stat-item">
-                    <h3>0</h3>
-                    <p>Trans Fat</p>
-                </div>
-                <div class="stat-item">
-                    <h3>0</h3>
-                    <p>Preservatives</p>
-                </div>
-                <div class="stat-item">
-                    <h3>100%</h3>
-                    <p>Natural & Fresh</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Features Section -->
-    <section class="features-section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-badge">Why Choose Diet Swad</span>
-                <h2 class="section-title">Zero Guilt. Zero Junk. 100% Satisfaction</h2>
-                <p class="section-subtitle">Every product is crafted with love using premium ingredients for mindful indulgence</p>
-            </div>
+  <!-- ═══════════════════════════════════════════════════════════════════
+       HERO — Scroll-driven canvas animation
+       ═══════════════════════════════════════════════════════════════════ -->
+  <section id="hero" aria-label="Hero — ingredients assembling into Diet Swad products">
+    <div class="hero-sticky">
 
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">❤️</div>
-                    <h3>Made with Love</h3>
-                    <p>Each product is carefully crafted with passion and attention to detail for pure indulgence.</p>
-                </div>
+      <canvas id="hero-canvas" aria-hidden="true"></canvas>
 
-                <div class="feature-card">
-                    <div class="feature-icon vegetarian-icon">
-                        <img src="refference_pics/veg logo.png" alt="Vegetarian" class="veg-logo">
-                    </div>
-                    <h3>100% Vegetarian</h3>
-                    <p>All our products are 100% vegetarian, made with pure plant-based ingredients for conscious eating.</p>
-                </div>
+      <div id="hero-load-bar" aria-hidden="true"></div>
 
-                <div class="feature-card">
-                    <div class="feature-icon">💪</div>
-                    <h3>High Protein</h3>
-                    <p>Packed with lean protein from nuts, seeds, and wholesome ingredients for sustained energy.</p>
-                </div>
 
-                <div class="feature-card">
-                    <div class="feature-icon">🚫</div>
-                    <h3>No Trans Fat</h3>
-                    <p>All our products are made without trans fats, ensuring heart-healthy snacking for you and your family.</p>
-                </div>
+      <div class="hero-text">
 
-                <div class="feature-card">
-                    <div class="feature-icon">🌱</div>
-                    <h3>No Preservatives</h3>
-                    <p>Freshly made in small batches with no chemicals or additives—just pure, natural goodness.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">✨</div>
-                    <h3>No Artificial Sweeteners</h3>
-                    <p>Naturally sweetened with dates and honey—no refined sugar or artificial sweeteners.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">🇮🇳</div>
-                    <h3>Made in India</h3>
-                    <p>Proudly handcrafted in Kolkata with traditional recipes and modern nutrition science.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Products Section -->
-    <section class="products-section" id="products">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-badge">Our Products</span>
-                <h2 class="section-title">Wholesome Treats</h2>
-                <p class="section-subtitle">Handcrafted with love using the finest natural ingredients</p>
-            </div>
-
-            <div class="products-grid">
-                <!-- Product 1: Power Bites -->
-                <div class="product-card" data-product="power-bites">
-                    <div class="product-image-container" style="background: linear-gradient(135deg, #F8BBD0 0%, #F48FB1 100%);">
-                        <span class="product-badge">BESTSELLER</span>
-                        <img src="refference_pics/Power bites.png" alt="Power Bites">
-                    </div>
-                    <div class="product-content">
-                        <h3>Power Bites</h3>
-                        <p>Bite-sized fuel, perfect for mindful snackers. Lean protein. Bold taste. Real energy.</p>
-
-                        <div class="product-features">
-                            <span class="product-feature">81 kcal/15g</span>
-                            <span class="product-feature">4.0g Protein</span>
-                            <span class="product-feature">Zero Junk</span>
-                        </div>
-
-                        <div class="product-footer">
-                            <div>
-                                <span class="price-old">₹499</span>
-                                <span class="price">₹399</span>
-                                <span class="weight-info">180g • 12 pcs</span>
-                            </div>
-                            <div class="product-buttons">
-                                <button class="product-details-btn" onclick="openProductModal('power-bites')">Product Details</button>
-                                <a href="#" class="product-btn" onclick="event.preventDefault(); window.location.href = addUtmParams('https://tally.so/r/3XVpeY', 'Power Bites');">Order&nbsp;Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product 2: Royal Bites -->
-                <div class="product-card" data-product="royal-bites">
-                    <div class="product-image-container" style="background: linear-gradient(135deg, #FFCCBC 0%, #FFAB91 100%);">
-                        <span class="product-badge">WHOLESOME</span>
-                        <img src="refference_pics/Royal bites.png" alt="Royal Bites">
-                    </div>
-                    <div class="product-content">
-                        <h3>Royal Bites</h3>
-                        <p>Nut-Fueled goodness, crafted for mindful indulgence. Rich taste. Wholesome strength. Guilt-free indulgence.</p>
-
-                        <div class="product-features">
-                            <span class="product-feature">73 kcal/15g</span>
-                            <span class="product-feature">3.5g Protein</span>
-                            <span class="product-feature">Zero Sugar</span>
-                        </div>
-
-                        <div class="product-footer">
-                            <div>
-                                <span class="price-old">₹499</span>
-                                <span class="price">₹399</span>
-                                <span class="weight-info">180g • 12 pcs</span>
-                            </div>
-                            <div class="product-buttons">
-                                <button class="product-details-btn" onclick="openProductModal('royal-bites')">Product Details</button>
-                                <a href="#" class="product-btn" onclick="event.preventDefault(); window.location.href = addUtmParams('https://tally.so/r/3XVpeY', 'Royal Bites');">Order&nbsp;Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product 3: Peanut-Sesame Delights -->
-                <div class="product-card" data-product="peanut-sesame-delights">
-                    <div class="product-image-container" style="background: linear-gradient(135deg, #C8E6C9 0%, #A5D6A7 100%);">
-                        <span class="product-badge">PROTEIN RICH</span>
-                        <img src="refference_pics/Peanut Sesame Delights.jpeg" alt="Peanut-Sesame Delights">
-                    </div>
-                    <div class="product-content">
-                        <h3>Peanut-Sesame Delights</h3>
-                        <p>Wholesome bites crafted for mindful snackers. Lean protein. Bold taste. Real energy.</p>
-
-                        <div class="product-features">
-                            <span class="product-feature">103 kcal/15g</span>
-                            <span class="product-feature">3.8g Protein</span>
-                            <span class="product-feature">Zero Guilt</span>
-                        </div>
-
-                        <div class="product-footer">
-                            <div>
-                                <span class="price-old">₹499</span>
-                                <span class="price">₹399</span>
-                                <span class="weight-info">180g • 12 pcs</span>
-                            </div>
-                            <div class="product-buttons">
-                                <button class="product-details-btn" onclick="openProductModal('peanut-sesame-delights')">Product Details</button>
-                                <a href="#" class="product-btn" onclick="event.preventDefault(); window.location.href = addUtmParams('https://tally.so/r/3XVpeY', 'Peanut-Sesame Delights');">Order&nbsp;Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product 4: Butter Cookies -->
-                <div class="product-card" data-product="butter-cookies">
-                    <div class="product-image-container" style="background: linear-gradient(135deg, #FFF9C4 0%, #FFE082 100%);">
-                        <span class="product-badge">CLASSIC</span>
-                        <img src="refference_pics/butter cookies.png" alt="Butter Cookies">
-                    </div>
-                    <div class="product-content">
-                        <h3>Butter Cookies</h3>
-                        <p>Golden-baked goodness, made for mindful indulgence. Zero sugar. Pure luxury. Indulgence Redefined.</p>
-
-                        <div class="product-features">
-                            <span class="product-feature">No Trans Fat</span>
-                            <span class="product-feature">89 kcal/15g</span>
-                            <span class="product-feature">Zero Sugar</span>
-                        </div>
-
-                        <div class="product-footer">
-                            <div>
-                                <span class="price">₹299</span>
-                                <span class="weight-info">200g • 20 pcs</span>
-                            </div>
-                            <div class="product-buttons">
-                                <button class="product-details-btn" onclick="openProductModal('butter-cookies')">Product Details</button>
-                                <a href="#" class="product-btn" onclick="event.preventDefault(); window.location.href = addUtmParams('https://tally.so/r/3XVpeY', 'Butter Cookies');">Order&nbsp;Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product 5: Roasted & Salted Cashews -->
-                <div class="product-card" data-product="roasted-salted-cashews">
-                    <div class="product-image-container" style="background: linear-gradient(135deg, #FFCCBC 0%, #FFAB91 100%);">
-                        <span class="product-badge">PREMIUM</span>
-                        <img src="refference_pics/Casew.png" alt="Roasted & Salted Cashews">
-                    </div>
-                    <div class="product-content">
-                        <h3>Roasted & Salted Cashews</h3>
-                        <p>Lightly roasted, perfectly salted, crafted for conscious indulgence. Zero additives. Pure luxury.</p>
-
-                        <div class="product-features">
-                            <span class="product-feature">119 kcal/15g</span>
-                            <span class="product-feature">3.8g Protein</span>
-                            <span class="product-feature">Zero Guilt</span>
-                        </div>
-
-                        <div class="product-footer">
-                            <div>
-                                <span class="price-old">₹499</span>
-                                <span class="price">₹399</span>
-                                <span class="weight-info">200g</span>
-                            </div>
-                            <div class="product-buttons">
-                                <button class="product-details-btn" onclick="openProductModal('roasted-salted-cashews')">Product Details</button>
-                                <a href="#" class="product-btn" onclick="event.preventDefault(); window.location.href = addUtmParams('https://tally.so/r/3XVpeY', 'Roasted & Salted Cashews');">Order&nbsp;Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product 6: Peri-Peri Protein Mix -->
-                <div class="product-card" data-product="peri-peri-protein-mix">
-                    <div class="product-image-container" style="background: linear-gradient(135deg, #FFE0B2 0%, #FFCC80 100%);">
-                        <span class="product-badge">NEW</span>
-                        <img src="refference_pics/peri peri.png" alt="Peri-Peri Protein Mix">
-                    </div>
-                    <div class="product-content">
-                        <h3>Peri-Peri Protein Mix</h3>
-                        <p>Spicy, protein-packed goodness. Perfect snack for the bold. Zero guilt, maximum flavor.</p>
-
-                        <div class="product-features">
-                            <span class="product-feature">124 kcal/15g</span>
-                            <span class="product-feature">4.3g Protein</span>
-                            <span class="product-feature">Zero Guilt</span>
-                        </div>
-
-                        <div class="product-footer">
-                            <div>
-                                <span class="price-old">₹499</span>
-                                <span class="price">₹399</span>
-                                <span class="weight-info">200g</span>
-                            </div>
-                            <div class="product-buttons">
-                                <button class="product-details-btn" onclick="openProductModal('peri-peri-protein-mix')">Product Details</button>
-                                <a href="#" class="product-btn" onclick="event.preventDefault(); window.location.href = addUtmParams('https://tally.so/r/3XVpeY', 'Peri-Peri Protein Mix');">Order&nbsp;Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gift Hampers Section -->
-    <section class="hampers-section" id="hampers">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-badge">Guilt free and Thoughtful Gifts</span>
-                <h2 class="section-title">Gift Hampers & Combo Packs</h2>
-                <p class="section-subtitle">Thoughtfully curated hampers for every Celebration</p>
-            </div>
-
-            <div class="hamper-info-card">
-                <div class="hamper-content">
-                    <h3>Customizable Hampers for Every Occasion</h3>
-                    <p class="hamper-description">From intimate 1-piece gifts to grand 100+ piece celebrations, we create personalized hampers perfect for all occasions.</p>
-
-                    <div class="hamper-features-grid">
-                        <div class="hamper-feature">
-                            <div class="hamper-feature-icon">🎁</div>
-                            <h4>Flexible Options</h4>
-                            <p>1 piece to 100+ pieces</p>
-                        </div>
-                        <div class="hamper-feature">
-                            <div class="hamper-feature-icon">💝</div>
-                            <h4>All Occasions</h4>
-                            <p>Seasonal & custom hampers</p>
-                        </div>
-                        <div class="hamper-feature">
-                            <div class="hamper-feature-icon">💰</div>
-                            <h4>Pricing Range</h4>
-                            <p>₹599 to ₹1,199+</p>
-                        </div>
-                    </div>
-
-                    <div class="hamper-cta">
-                        <p class="hamper-note"><strong>Note:</strong> Hampers are seasonal and subject to availability</p>
-                        <div class="hamper-buttons">
-                            <a href="https://wa.link/kpbv0v" class="whatsapp-btn" target="_blank">
-                                <span class="whatsapp-icon">💬</span> WhatsApp for Latest Hampers
-                            </a>
-                            <a href="tel:+918910725854" class="phone-btn">
-                                <span class="phone-icon">📞</span> Call: +91 89107 25854
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="testimonials">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-badge">Customer Reviews</span>
-                <h2 class="section-title">Loved by Our Customers</h2>
-            </div>
-
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"Cake was very delicious with balance of sugar n cream.. everyone liked it... Thank you so much for your heartfelt efforts"</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">M</div>
-                        <div class="author-info">
-                            <h4>Mugdha</h4>
-                            <p>Satisfied Customer</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"Loved and enjoyed the guilt free cup cakes. Highly Recommended"</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">R</div>
-                        <div class="author-info">
-                            <h4>Rima Saluja</h4>
-                            <p>Fitness Expert</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"Received the delicious chocolates from Diet swad for our anniversary. The beautiful presentation made this occasion a lot more memorable. Please keep up the Good work"</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">G</div>
-                        <div class="author-info">
-                            <h4>Gaurav Paul</h4>
-                            <p>IT Professional</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"Totally in love with Diet Swad! Every snack feels homemade, wholesome, and packed with flavor. The Nutty Bites are the perfect crunchy pick-me-up. Super Tasty!"</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">R</div>
-                        <div class="author-info">
-                            <h4>Rayee Shaw</h4>
-                            <p>Dietician</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"Butter Cookies were Awesome. Enjoyed the soft buttery taste. Sugar free sweets are perfect for diabetics like me who love to enjoy sweets at times"</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">M</div>
-                        <div class="author-info">
-                            <h4>Moushumi</h4>
-                            <p>Happy Customer</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"Thank you Team Diet Swad, for the best Birthday Gift Hamper. As always each and every items were Fab. Will always be a fan of the Handmade chocolates"</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">P</div>
-                        <div class="author-info">
-                            <h4>P. Saha</h4>
-                            <p>Loyal Customer</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="cta-content">
-            <h2>Ready for Guilt-Free Indulgence?</h2>
-            <p>Join our community of health-conscious food lovers.<br>Choose Quality Over Compromise</p>
-            <a href="#" class="cta-white-btn" onclick="event.preventDefault(); window.location.href = addUtmParams('https://tally.so/r/3XVpeY');">Order&nbsp;Now</a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-brand">
-                <h3>Diet Swad</h3>
-                <p>Handcrafted healthy snacks made with love in Kolkata. Zero guilt, zero junk—just 100% satisfaction and pure indulgence redefined.</p>
-                <div class="social-links">
-                    <a href="https://www.instagram.com/dietswad/" target="_blank" class="social-link" title="Instagram">
-                        <img src="refference_pics/insta.png" alt="Instagram">
-                    </a>
-                    <a href="#" target="_blank" class="social-link" title="Facebook">
-                        <img src="refference_pics/fb.png" alt="Facebook">
-                    </a>
-                    <a href="https://wa.me/918910725854?text=Hi%20I%20checked%20your%20website%20and%20from%20the%20footer%20i%20got%20this%20link%20want%20to%20know%20more%20about%20Diet%20Swad" target="_blank" class="social-link" title="WhatsApp">
-                        <img src="refference_pics/wp.png" alt="WhatsApp">
-                    </a>
-                    <a href="mailto:dietswad143@gmail.com" class="social-link" title="Email">
-                        <img src="refference_pics/mail.png" alt="Email">
-                    </a>
-                </div>
-            </div>
-
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#products">Our Products</a></li>
-                    <li><a href="#hampers">Gift Hampers</a></li>
-                    <li><a href="https://tally.so/r/3XVpeY">Order Now</a></li>
-                    <li><a href="https://www.instagram.com/dietswad/">Instagram</a></li>
-                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                    <li><a href="terms-of-service.html">Terms of Service</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h4>Products</h4>
-                <ul>
-                    <li><a href="#products">Power Bites</a></li>
-                    <li><a href="#products">Royal Bites</a></li>
-                    <li><a href="#products">Peanut-Sesame Delights</a></li>
-                    <li><a href="#products">Butter Cookies</a></li>
-                    <li><a href="#products">Roasted & Salted Cashews</a></li>
-                    <li><a href="#products">Peri-Peri Protein Mix</a></li>
-                    <li><a href="#hampers">Gift Hampers</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h4>Contact</h4>
-                <ul>
-                    <li><a href="mailto:dietswad143@gmail.com">dietswad143@gmail.com</a></li>
-                    <li><a href="tel:8910725854">8910725854</a></li>
-                    <li><a href="tel:9830193006">9830193006</a></li>
-                    <li>Kolkata, West Bengal</li>
-                </ul>
-            </div>
+        <!-- ── INITIAL TEXT: visible on load, fades out as user scrolls ── -->
+        <div class="hero-intro" aria-hidden="false">
+          <p class="hero-intro-question">
+            What if Snacks<br>
+            were just&hellip;<br>
+            <em class="hero-intro-em">Food?</em>
+          </p>
         </div>
 
-        <div class="footer-fssai">
-            <div class="fssai-content">
-                <div class="fssai-logo-container">
-                    <img src="refference_pics/fssai-logo.png" alt="FSSAI Logo" class="fssai-logo">
-                </div>
-                <div class="fssai-info">
-                    <p class="fssai-license"><strong>FSSAI Regd. No. 22825041000300</strong></p>
-                    <p class="fssai-manufacturer">Mfd. & Mkt. by Radiant Twins Enterprise, 6/2 Sashi Sekhar Bose Road, Kolkata, West Bengal - 700025</p>
-                </div>
+        <!-- ── END TEXT: fades in as hearts complete (scroll ~76–92%) ── -->
+        <div class="hero-end" aria-live="polite">
+          <span class="hero-label">Handcrafted &middot; Kolkata</span>
+          <p class="hero-end-line1">Real ingredients.</p>
+          <p class="hero-end-line2">Real food.</p>
+          <p class="hero-end-line3">Really simple.</p>
+          <div class="hero-cta-wrap">
+            <div class="hero-cta-buttons">
+              <a href="#products" class="btn-hero-outline">See Products</a>
+              <a href="#order" class="btn-hero-primary">Order Now</a>
             </div>
+            <span class="hero-shipping-note">Free Shipping &middot; All India</span>
+          </div>
         </div>
 
-        <div class="footer-bottom">
-            <p>© 2025 Diet Swad. All rights reserved. Made with ❤️ in Kolkata, India.</p>
-        </div>
-    </footer>
+      </div>
 
-    <!-- Product Details Modal -->
-    <div id="productModal" class="modal">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeProductModal()">&times;</span>
-            <div class="modal-body">
-                <div class="modal-images">
-                    <div id="modalImageGallery" class="image-gallery"></div>
-                </div>
-                <div class="modal-details">
-                    <h2 id="modalProductName"></h2>
-                    <p id="modalTagline" class="modal-tagline"></p>
-                    <div class="modal-price-section">
-                        <span id="modalPriceOld" class="modal-price-old"></span>
-                        <span id="modalPrice" class="modal-price"></span>
-                        <span id="modalPackSize" class="modal-pack-size"></span>
-                    </div>
-                    <p id="modalDescription" class="modal-description"></p>
-                    <div id="modalFeatures" class="modal-features"></div>
-                    <div id="modalIngredients" class="modal-ingredients"></div>
-                    <div id="modalNutrition" class="modal-nutrition"></div>
-                    <div id="modalPerfectFor" class="modal-perfect-for"></div>
-                    <div class="modal-cta">
-                        <a href="#" id="modalOrderBtn" class="modal-order-btn" onclick="event.preventDefault();">Order&nbsp;Now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+      <div class="hero-scroll-hint" aria-hidden="true">
+        <span class="hero-scroll-hint__text">Scroll</span>
+        <div class="hero-scroll-hint__line"></div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       WHY DIET SWAD — Part 1 · WINDING THREAD
+       ═══════════════════════════════════════════════════════════════════ -->
+  <section class="why-thread" id="why">
+
+    <!-- SVG thread: absolutely positioned, JS calculates path + animates on scroll -->
+    <svg class="thread-svg" id="threadSvg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+      <path id="threadPath" class="thread-path" d=""/>
+    </svg>
+
+    <!-- Header -->
+    <div class="why-thread-header">
+      <span class="section-label-gold">Our Promise</span>
+      <h2 class="why-thread-heading">Read Our Label.<br>Then Read Theirs.</h2>
+      <p class="why-thread-tagline">Zero Guilt &middot; Zero Junk &middot; 100% Real</p>
     </div>
 
-    <!-- Product Data and Modal JavaScript -->
-    <script>
-        // Product data based on Diet_Swad_Product_Details.md
-        const productData = {
-            'power-bites': {
-                name: 'POWER BITES',
-                tagline: 'Lean Protein. Bold Taste. Real Energy.',
-                price: '₹399',
-                priceOld: '₹499',
-                packSize: '180g • 12 pieces',
-                description: 'Meet the cleanest way to power through your day. Packed with 12+ ancient superfoods, each bite delivers lean protein, healthy fats, and real energy – without the crash. Crafted with Arabian dates, premium nuts, power-packed seeds, and pure cow ghee. This is guilt-free fuel that tastes like indulgence.',
-                features: [
-                    '4g protein per serving – real muscle recovery',
-                    'Omega-3 & MUFA for heart & brain health',
-                    '12% daily micronutrients (Mg, Zn, Vit E)',
-                    'Naturally sweetened with dates, raisins & honey',
-                    'Zero refined sugar, zero trans fat, zero preservatives'
-                ],
-                ingredients: 'Arabian Dates, Cashew, Almond, Pumpkin Seeds, Sunflower Seeds, Sesame Seeds, Flax Seeds, Raisins, Cow Ghee, Rolled Oats, Peanut Butter, Cinnamon, Honey',
-                nutrition: {
-                    'Calories': '81 kcal',
-                    'Protein': '4.0g',
-                    'Healthy Fats': '4.5g (Omega-3 & MUFA)',
-                    'Dietary Fiber': '1.8g',
-                    'Natural Sugar': '5.0g',
-                    'Micronutrients': '12% RDA (Magnesium, Zinc, Vitamin E)'
-                },
-                perfectFor: ['Pre/post-workout fuel', 'Mid-morning energy boost', 'Beating 4pm slumps', 'Mindful snacking anytime'],
-                images: [
-                    'refference_pics/Product_Pics/power_bites/Gemini_Generated_Image_v43gdcv43gdcv43g_processed.jpg',
-                    'refference_pics/Product_Pics/power_bites/Gemini_Generated_Image_sx31shsx31shsx31_processed.jpg',
-                    'refference_pics/Product_Pics/power_bites/Gemini_Generated_Image_ifan16ifan16ifan_processed.jpg',
-                    'refference_pics/Product_Pics/power_bites/Gemini_Generated_Image_7exxmm7exxmm7exx_processed.jpg',
-                    'refference_pics/Product_Pics/power_bites/Gemini_Generated_Image_nonmbznonmbznonm_processed.jpg',
-                    'refference_pics/Product_Pics/power_bites/Gemini_Generated_Image_f9z7sf9z7sf9z7sf_processed.jpg'
-                ],
-                productName: 'Power Bites'
-            },
-            'royal-bites': {
-                name: 'ROYAL BITES',
-                tagline: 'Rich Taste. Wholesome Strength. Guilt-Free Indulgence.',
-                price: '₹399',
-                priceOld: '₹499',
-                packSize: '180g • 12 pieces',
-                description: 'Craving something rich? Meet the bite that delivers chocolate bliss without compromise. Crafted with premium cocoa powder, Arabian dates, almonds, and pure cow ghee, Royal Bites gives you the indulgent taste you crave with the nutrition your body deserves. Rich. Wholesome. Guilt-free.',
-                features: [
-                    'Rich cocoa taste – chocolate satisfaction without sugar crash',
-                    '3.5g protein per serving – smart indulgence',
-                    'Nut-fueled with almonds, pumpkin seeds & peanut butter',
-                    '10% daily micronutrients (Mg, Zn, Vit E)',
-                    'Naturally sweetened with dates only (just 2.5g natural sugar)',
-                    'Zero refined sugar, zero trans fat, zero preservatives'
-                ],
-                ingredients: 'Arabian Dates, Almonds, Pumpkin Seeds, Peanut Butter, Sesame Seeds, Mixed-Nut Powder, Roasted Gram Flour, Cocoa Powder, Cow Ghee',
-                nutrition: {
-                    'Calories': '73 kcal',
-                    'Protein': '3.5g',
-                    'Healthy Fats': '4.9g (MUFA & PUFA)',
-                    'Dietary Fiber': '1.5g',
-                    'Natural Sugar': '2.5g',
-                    'Micronutrients': '10% RDA (Magnesium, Zinc, Vitamin E)'
-                },
-                perfectFor: ['Satisfying dessert cravings guilt-free', 'Evening treat with tea/coffee', 'Post-dinner sweet fix', 'Mindful chocolate lovers'],
-                images: [
-                    'refference_pics/Product_Pics/royal_bites/Gemini_Generated_Image_7pijgx7pijgx7pij_processed.jpg',
-                    'refference_pics/Product_Pics/royal_bites/royal bites 2_processed.jpg',
-                    'refference_pics/Product_Pics/royal_bites/Gemini_Generated_Image_jzqnqxjzqnqxjzqn_processed.jpg',
-                    'refference_pics/Product_Pics/royal_bites/Gemini_Generated_Image_t9gyblt9gyblt9gy_processed.jpg',
-                    'refference_pics/Product_Pics/royal_bites/Gemini_Generated_Image_8qn7le8qn7le8qn7_processed.jpg'
-                ],
-                productName: 'Royal Bites'
-            },
-            'peanut-sesame-delights': {
-                name: 'PEANUT-SESAME DELIGHTS',
-                tagline: 'Pure & Simple. Bold Taste. Real Energy.',
-                price: '₹399',
-                priceOld: '₹499',
-                packSize: '180g • 12 pieces',
-                description: 'Sometimes, the simplest things are the best. Just 4 pure ingredients come together to create something extraordinary. Crafted with roasted peanuts, nutrient-rich sesame seeds, Arabian dates, and pure cow ghee – this is wholesome snacking in its purest form. No fillers. No additives. Just real food that tastes amazing and fuels your body right.',
-                features: [
-                    'Only 4 ingredients – radical simplicity',
-                    '3.8g protein for sustained energy',
-                    'Roasted peanut & sesame richness',
-                    'Naturally sweetened with dates only',
-                    '11% daily micronutrients (Mg, Zn, Vit E)',
-                    'Zero refined sugar, zero junk'
-                ],
-                ingredients: 'Arabian Dates, Peanuts, Sesame Seeds, Cow Ghee',
-                nutrition: {
-                    'Calories': '103 kcal',
-                    'Protein': '3.8g',
-                    'Healthy Fats': '3.2g (MUFA & PUFA)',
-                    'Dietary Fiber': '1.8g',
-                    'Natural Sugar': '4.2g',
-                    'Micronutrients': '11% RDA (Magnesium, Zinc, Vitamin E)'
-                },
-                perfectFor: ['Clean eaters who value simplicity', 'Label readers who care about quality', 'Mindful snacking anytime', 'Those avoiding processed foods'],
-                images: [
-                    'refference_pics/Product_Pics/peanut_seseme_delight/Gemini_Generated_Image_a6el0sa6el0sa6el_processed.jpg',
-                    'refference_pics/Product_Pics/peanut_seseme_delight/Gemini_Generated_Image_vdabvhvdabvhvdab_processed.jpg',
-                    'refference_pics/Product_Pics/peanut_seseme_delight/Gemini_Generated_Image_axajubaxajubaxaj_processed.jpg',
-                    'refference_pics/Product_Pics/peanut_seseme_delight/Gemini_Generated_Image_nmmovbnmmovbnmmo_processed.jpg',
-                    'refference_pics/Product_Pics/peanut_seseme_delight/Gemini_Generated_Image_ayenijayenijayen_processed.jpg'
-                ],
-                productName: 'Peanut-Sesame Delights'
-            },
-            'butter-cookies': {
-                name: 'BUTTER COOKIES',
-                tagline: 'Zero Guilt. Zero Junk. 100% Satisfaction.',
-                price: '₹299',
-                priceOld: '',
-                packSize: '150g',
-                description: 'Meet the cookie that doesn\'t compromise. Golden, buttery, and guilt-free. Crafted with real butter, whole wheat flour, and desi khand, these cookies deliver the luxury you crave with the nutrition you need. No refined sugar. No trans fats. No artificial anything.',
-                features: [
-                    'Zero refined sugar – sweetened with desi khand',
-                    'Made with whole wheat & real butter',
-                    'Zero trans fat & preservatives',
-                    'No artificial sweeteners',
-                    'FSSAI certified',
-                    'Perfect with chai or coffee'
-                ],
-                ingredients: 'Butter, Whole Wheat Flour, Desi Khand (Natural Cane Sugar), Multipurpose Flour',
-                nutrition: {
-                    'Calories': '89 kcal',
-                    'Protein': '1.5g',
-                    'Healthy Fats': '1.2g',
-                    'Dietary Fiber': '1.5g',
-                    'Natural Sugar': '2.9g',
-                    'Micronutrients': '5% RDA'
-                },
-                perfectFor: ['Tea-time treats', 'Classic cookie lovers', 'Evening snacks', 'Gifting'],
-                images: [
-                    'refference_pics/Product_Pics/butter_cookies/Butter Cookies_processed.jpg',
-                    'refference_pics/Product_Pics/butter_cookies/cookies 2.jpg',
-                    'refference_pics/Product_Pics/butter_cookies/cookies 3.jpg',
-                    'refference_pics/Product_Pics/butter_cookies/cookies 4.jpg',
-                    'refference_pics/Product_Pics/butter_cookies/cookies 5.jpg',
-                    'refference_pics/Product_Pics/butter_cookies/cookies 6.jpg'
-                ],
-                productName: 'Butter Cookies'
-            },
-            'roasted-salted-cashews': {
-                name: 'ROASTED & SALTED CASHEWS',
-                tagline: 'Pure Luxury. Indulgence Redefined.',
-                price: '₹399',
-                priceOld: '₹499',
-                packSize: '200g',
-                description: 'Not all cashews are created equal. Ours are hand-selected, perfectly roasted, and seasoned with rock salt. Taste the difference. Premium quality meets radical simplicity. Just 2 pure ingredients create an experience of pure luxury – because your loved ones deserve nothing but the best.',
-                features: [
-                    'Just 2 ingredients: Cashews + Rock Salt',
-                    'Premium-grade cashews, hand-selected',
-                    'Perfectly roasted – not over-roasted or raw',
-                    'Seasoned with pure rock salt',
-                    '3.8g protein per serving',
-                    '8g heart-healthy fats (MUFA & PUFA)',
-                    'Lowest natural sugar content (just 1.2g)',
-                    'No added oils, no trans fat, no preservatives'
-                ],
-                ingredients: 'Cashew Nuts, Rock Salt',
-                nutrition: {
-                    'Calories': '119 kcal',
-                    'Protein': '3.8g',
-                    'Healthy Fats': '8.0g (MUFA & PUFA)',
-                    'Dietary Fiber': '0.5g',
-                    'Natural Sugar': '1.2g',
-                    'Micronutrients': '10% RDA (Magnesium, Zinc, Vitamin E)'
-                },
-                perfectFor: ['Gifting on special occasions', 'Premium entertaining', 'Personal indulgence', 'Corporate gifts'],
-                images: [
-                    'refference_pics/Product_Pics/salted_cashew/Gemini_Generated_Image_ivcwilivcwilivcw_processed.jpg',
-                    'refference_pics/Product_Pics/salted_cashew/Cashews_processed.jpg',
-                    'refference_pics/Product_Pics/salted_cashew/Gemini_Generated_Image_bsrk3bsrk3bsrk3b_processed.jpg',
-                    'refference_pics/Product_Pics/salted_cashew/Gemini_Generated_Image_e7clmye7clmye7cl_processed.jpg',
-                    'refference_pics/Product_Pics/salted_cashew/Gemini_Generated_Image_xn7yraxn7yraxn7y_processed.jpg',
-                    'refference_pics/Product_Pics/salted_cashew/Gemini_Generated_Image_saln03saln03saln_processed.jpg'
-                ],
-                productName: 'Roasted & Salted Cashews'
-            },
-            'peri-peri-protein-mix': {
-                name: 'PERI-PERI PROTEIN MIX',
-                tagline: 'Bold Flavor. Maximum Fuel.',
-                price: '₹399',
-                priceOld: '₹499',
-                packSize: '200g',
-                description: 'For those who like their snacks with a kick. This isn\'t your average trail mix. Packed with premium roasted cashews, almonds, peanuts, pumpkin seeds, and sunflower seeds – then elevated with an authentic peri-peri spice blend and rock salt. Every handful delivers bold, fiery flavor with serious nutritional punch.',
-                features: [
-                    'Highest protein content: 4.3g per serving',
-                    '5 premium nuts & seeds, perfectly roasted',
-                    'Authentic peri-peri spice blend (spicy but balanced)',
-                    '8.2g heart-healthy fats (MUFA & PUFA)',
-                    'Lowest sugar: just 0.8g naturally occurring',
-                    '11% daily micronutrients (Mg, Zn, Vit E)',
-                    'Zero trans fat, zero preservatives, zero artificial flavoring'
-                ],
-                ingredients: 'Roasted Cashews, Roasted Almonds, Roasted Peanuts, Pumpkin Seeds, Sunflower Seeds, Peri-Peri Spice Blend, Rock Salt',
-                nutrition: {
-                    'Calories': '124 kcal',
-                    'Protein': '4.3g (HIGHEST in our range)',
-                    'Healthy Fats': '8.2g (MUFA & PUFA)',
-                    'Dietary Fiber': '1.9g',
-                    'Natural Sugar': '0.8g (LOWEST in our range)',
-                    'Micronutrients': '11% RDA (Magnesium, Zinc, Vitamin E)'
-                },
-                perfectFor: ['Spice lovers & adventurous eaters', 'Pre/post-workout protein boost', 'Beer/drinks pairing (perfect bar snack)', 'Salad toppers for extra crunch & protein', 'Bold snacking anytime'],
-                images: [
-                    'refference_pics/Product_Pics/periperi_protein_mix/Gemini_Generated_Image_narjovnarjovnarj (2)_processed.jpg',
-                    'refference_pics/Product_Pics/periperi_protein_mix/Gemini_Generated_Image_narjovnarjovnarj_processed.jpg',
-                    'refference_pics/Product_Pics/periperi_protein_mix/Gemini_Generated_Image_narjovnarjovnarj (1)_processed.jpg',
-                    'refference_pics/Product_Pics/periperi_protein_mix/Gemini_Generated_Image_narjovnarjovnarj (3)_processed.jpg',
-                    'refference_pics/Product_Pics/periperi_protein_mix/Gemini_Generated_Image_narjovnarjovnarj (4)_processed.jpg',
-                    'refference_pics/Product_Pics/periperi_protein_mix/Peri- Peri protein mix_processed.jpg'
-                ],
-                productName: 'Peri-Peri Protein Mix'
-            }
-        };
+    <!-- Ingredient nodes — alternating left / right -->
+    <div class="why-nodes">
 
-        // Open product modal
-        function openProductModal(productId) {
-            const product = productData[productId];
-            if (!product) return;
+      <div class="why-node node-left">
+        <div class="node-circle">
+          <img src="Assets/Landing_Page_images/why-no-maida.webp" alt="No Maida" loading="lazy" decoding="async" onerror="this.style.display='none'">
+        </div>
+        <div class="node-text">
+          <h3 class="node-title"><span class="gold-word">No</span> Maida. No Regrets.</h3>
+          <p class="node-desc">Jowar, ragi, oats — the grains that don't make you want a nap at 4pm.</p>
+        </div>
+      </div>
 
-            // Set product details
-            document.getElementById('modalProductName').textContent = product.name;
-            document.getElementById('modalTagline').textContent = product.tagline;
-            document.getElementById('modalPrice').textContent = product.price;
-            document.getElementById('modalPriceOld').textContent = product.priceOld;
-            document.getElementById('modalPriceOld').style.display = product.priceOld ? 'inline' : 'none';
-            document.getElementById('modalPackSize').textContent = product.packSize;
-            document.getElementById('modalDescription').textContent = product.description;
+      <div class="why-node node-right">
+        <div class="node-circle">
+          <img src="Assets/Landing_Page_images/why-no-palm-oil.webp" alt="No Palm Oil" loading="lazy" decoding="async" onerror="this.style.display='none'">
+        </div>
+        <div class="node-text">
+          <h3 class="node-title"><span class="gold-word">No</span> Palm Oil. Not ever.</h3>
+          <p class="node-desc">Real ghee. Cold-pressed oils. The way your nani made it &mdash; because she did.</p>
+        </div>
+      </div>
 
-            // Set features
-            const featuresHtml = '<h4>Key Features</h4><ul>' +
-                product.features.map(f => '<li>✅ ' + f + '</li>').join('') +
-                '</ul>';
-            document.getElementById('modalFeatures').innerHTML = featuresHtml;
+      <div class="why-node node-left">
+        <div class="node-circle">
+          <img src="Assets/Landing_Page_images/why-real-ingredients.webp" alt="Real Ingredients" loading="lazy" decoding="async" onerror="this.style.display='none'">
+        </div>
+        <div class="node-text">
+          <h3 class="node-title"><span class="gold-word">No</span> Preservatives.<br><span class="gold-word">No</span> Chemicals.</h3>
+          <p class="node-desc">Nothing sits around for months waiting to be eaten. We make it, you eat it, everyone's happy.</p>
+        </div>
+      </div>
 
-            // Set ingredients
-            document.getElementById('modalIngredients').innerHTML =
-                '<h4>Ingredients</h4><p>' + product.ingredients + '</p>';
+      <div class="why-node node-right">
+        <div class="node-circle">
+          <img src="Assets/Landing_Page_images/why-handmade.webp" alt="Handmade" loading="lazy" decoding="async" onerror="this.style.display='none'">
+        </div>
+        <div class="node-text">
+          <h3 class="node-title">Handmade.<br>100% Veg.</h3>
+          <p class="node-desc">Actual humans actually making actual food. Revolutionary, we know.</p>
+        </div>
+      </div>
 
-            // Set nutrition
-            const nutritionHtml = '<h4>Nutrition Information (Per 15g serving)</h4><ul>' +
-                Object.entries(product.nutrition).map(([key, value]) =>
-                    '<li><strong>' + key + ':</strong> ' + value + '</li>'
-                ).join('') +
-                '</ul>';
-            document.getElementById('modalNutrition').innerHTML = nutritionHtml;
+    </div>
 
-            // Set perfect for
-            const perfectForHtml = '<h4>Perfect For</h4><ul>' +
-                product.perfectFor.map(p => '<li>' + p + '</li>').join('') +
-                '</ul>';
-            document.getElementById('modalPerfectFor').innerHTML = perfectForHtml;
+    <!-- Bottom quote + veg badge -->
+    <div class="why-thread-quote">
+      <p class="thread-quote-text">"Just food — real, honest, handcrafted."</p>
+      <div class="veg-badge">
+        <span class="veg-dot"></span>Pure Vegetarian
+      </div>
+    </div>
 
-            // Set images with lazy loading
-            const gallery = document.getElementById('modalImageGallery');
-            gallery.innerHTML = product.images.map(img =>
-                '<img data-src="' + img + '" alt="' + product.name + '" class="modal-gallery-img lazy-load" />'
-            ).join('');
+  </section>
 
-            // Load images using Intersection Observer for lazy loading
-            const lazyImages = gallery.querySelectorAll('.lazy-load');
-            const imageObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        img.src = img.dataset.src;
-                        img.classList.remove('lazy-load');
-                        img.classList.add('loaded');
-                        observer.unobserve(img);
-                    }
-                });
-            });
 
-            lazyImages.forEach(img => imageObserver.observe(img));
+  <!-- ═══════════════════════════════════════════════════════════════════
+       PREMIUM QUALITY — Inspiration 11: cutout row with connector lines
+       ═══════════════════════════════════════════════════════════════════ -->
+  <section class="why-spread">
 
-            // Set order button with UTM params
-            const orderBtn = document.getElementById('modalOrderBtn');
-            orderBtn.onclick = function(e) {
-                e.preventDefault();
-                window.location.href = addUtmParams('https://tally.so/r/3XVpeY', product.productName);
-            };
+    <div class="spread-text">
+      <span class="section-label-gold">Pure Ingredients</span>
+      <h2 class="spread-heading">Premium Quality.<br>No Shortcuts.</h2>
+      <p class="spread-sub">Every ingredient is sourced for its quality, not its cost. Because your body deserves the best version of real food.</p>
+      <div class="spread-divider"></div>
+    </div>
 
-            // Show modal
-            document.getElementById('productModal').style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
+    <!-- 6-column cutout ingredient row with label + connector above each photo -->
+    <div class="spread-ing-row" aria-label="Key ingredients">
 
-        // Close product modal
-        function closeProductModal() {
-            document.getElementById('productModal').style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
+      <div class="spread-ing-col">
+        <span class="spread-ing-label">Almonds</span>
+        <div class="spread-ing-line" aria-hidden="true"></div>
+        <div class="spread-ing-photo">
+          <img src="Assets/Product_ingredients_images/trasparent_single_almond.png" alt="Whole almonds" loading="lazy" decoding="async" onerror="this.style.display='none'">
+        </div>
+      </div>
 
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            const modal = document.getElementById('productModal');
-            if (event.target === modal) {
-                closeProductModal();
-            }
-        };
+      <div class="spread-ing-col">
+        <span class="spread-ing-label">Pure Ghee</span>
+        <div class="spread-ing-line" aria-hidden="true"></div>
+        <div class="spread-ing-photo">
+          <img src="Assets/Product_ingredients_images/transparent_butter_curl.png" alt="Pure ghee curl" loading="lazy" decoding="async" onerror="this.style.display='none'">
+        </div>
+      </div>
 
-        // Close modal on ESC key
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeProductModal();
-            }
+      <div class="spread-ing-col">
+        <span class="spread-ing-label">Whole Jowar</span>
+        <div class="spread-ing-line" aria-hidden="true"></div>
+        <div class="spread-ing-photo">
+          <img src="Assets/Product_ingredients_images/transparent_single_raw_jowar_plant.png" alt="Whole jowar grain" loading="lazy" decoding="async" onerror="this.style.display='none'">
+        </div>
+      </div>
+
+      <div class="spread-ing-col">
+        <span class="spread-ing-label">Coconut</span>
+        <div class="spread-ing-line" aria-hidden="true"></div>
+        <div class="spread-ing-photo">
+          <img src="Assets/Product_ingredients_images/transparent_half_coconut.png" alt="Half coconut" loading="lazy" decoding="async" onerror="this.style.display='none'">
+        </div>
+      </div>
+
+      <div class="spread-ing-col">
+        <span class="spread-ing-label">Rolled Oats</span>
+        <div class="spread-ing-line" aria-hidden="true"></div>
+        <div class="spread-ing-photo">
+          <img src="Assets/Product_ingredients_images/transparent_single_oats_flake.png" alt="Rolled oats flake" loading="lazy" decoding="async" onerror="this.style.display='none'">
+        </div>
+      </div>
+
+      <div class="spread-ing-col">
+        <span class="spread-ing-label">Coconut Slices</span>
+        <div class="spread-ing-line" aria-hidden="true"></div>
+        <div class="spread-ing-photo">
+          <img src="Assets/Product_ingredients_images/transparent_a_coconut_slice.png" alt="Coconut slice" loading="lazy" decoding="async" onerror="this.style.display='none'">
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       PRODUCT CARD STAGE — single staged card, swap on swipe/arrow/dot
+       ═══════════════════════════════════════════════════════════════════ -->
+
+
+  <section class="pcard-stage" id="products" data-family="maroon" aria-label="Our products" aria-roledescription="carousel" tabindex="0">
+
+    <span class="section-label-gold pcard-kicker-top">Shop The Range</span>
+    <h2 class="product-card-heading">Guilt-free snacking</h2>
+
+    <div class="pcard-floats" id="pcardFloats" aria-hidden="true"></div>
+
+    <!-- Portrait image card — stamp + swipe hint overlaid inside -->
+    <div class="pcard-card" id="pcardCard">
+      <img id="pcardImg" src="Assets/Landing_Page_images/product-power-bites.webp" alt="Power Bites" loading="lazy" decoding="async" onerror="this.style.opacity='0'">
+      <div class="pcard-gloss" aria-hidden="true"></div>
+      <div class="pcard-stamp" id="pcardStamp">Handcrafted &middot; Kolkata</div>
+      <div class="pcard-swipe-hint" aria-hidden="true">&#8592;&thinsp; swipe &thinsp;&#8594;</div>
+    </div>
+
+    <!-- Caption — directly on dark bg below card -->
+    <div class="pcard-caption">
+      <h2 class="pcard-title" id="pcardTitle">Power <em>Bites</em></h2>
+      <div class="pcard-weight" id="pcardWeight">180G &middot; 12 PIECES</div>
+    </div>
+
+    <!-- Tagline -->
+    <div class="pcard-tagline" id="pcardTagline"></div>
+
+    <div class="pcard-meta">
+      <span class="pcard-price"><span class="pcard-rupee-sym">&#8377;</span><span class="pcard-price-digits">499</span></span>
+      <a href="#order" class="pcard-btn">Check it out</a>
+    </div>
+
+    <div class="pcard-trust">
+      <span class="pcard-trust-item">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        Free shipping · All India
+      </span>
+      <span class="pcard-trust-sep" aria-hidden="true">|</span>
+      <span class="pcard-trust-item">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="14" rx="2"/><path d="M2 10h20"/><path d="M6 14h.01M10 14h4"/></svg>
+        COD available
+      </span>
+    </div>
+
+    <aside class="pcard-side-note" aria-hidden="true">&#8592; Swipe or use arrow keys</aside>
+
+    <div class="pcard-pagination">
+      <div class="pcard-dots" id="pcardDots" role="tablist" aria-label="Select product"></div>
+      <div class="pcard-counter" aria-hidden="true">
+        <span id="pcardCounterCurrent">01</span>
+        <span class="pcard-counter-sep">/</span>
+        <span id="pcardCounterTotal">07</span>
+      </div>
+    </div>
+
+    <div class="visually-hidden" aria-live="polite" id="pcardLive"></div>
+  </section>
+
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       HAMPERS — Inspiration 6 unboxing stage: wooden tray, lid lift,
+       product reveal, step dots, WhatsApp CTA
+       ═══════════════════════════════════════════════════════════════════ -->
+  <section class="hampers-section" id="hampers" aria-label="Gift hampers">
+
+    <!-- Header -->
+    <div class="hamp-header">
+      <span class="section-label-gold">Gift the Goodness</span>
+      <h2 class="hamp-heading">
+        <span class="hamp-line-outer"><span class="hamp-line-inner">The Perfect</span></span>
+        <span class="hamp-line-outer"><span class="hamp-line-inner hamp-line-inner--2"><span class="gold-accent">Gift.</span></span></span>
+      </h2>
+      <p class="hamp-sub">
+        Handpacked in a wooden tray. One for someone special,<br>
+        or fifty for the whole office. Your call.
+      </p>
+    </div>
+
+    <!-- THE STAGE -->
+    <div class="hamp-stage">
+
+      <!-- The wooden gift box — tap to open -->
+      <div class="hamp-box" id="hampBox" role="button" tabindex="0"
+           aria-label="Tap to open the gift hamper">
+
+        <!-- Tray interior — 4 product images in 2×2 grid (revealed when lid lifts) -->
+        <div class="hamp-tray">
+          <div class="hamp-product hamp-product--1">
+            <img src="Assets/Landing_Page_images/product-power-bites.webp"
+                 alt="Power Bites" loading="lazy" decoding="async"
+                 onerror="this.style.display='none'">
+          </div>
+          <div class="hamp-product hamp-product--2">
+            <img src="Assets/Landing_Page_images/product-royal-bites.webp"
+                 alt="Royal Bites" loading="lazy" decoding="async"
+                 onerror="this.style.display='none'">
+          </div>
+          <div class="hamp-product hamp-product--3">
+            <img src="Assets/Landing_Page_images/product-millet-coconut.webp"
+                 alt="Millet Coconut Cookies" loading="lazy" decoding="async"
+                 onerror="this.style.display='none'">
+          </div>
+          <div class="hamp-product hamp-product--4">
+            <img src="Assets/Landing_Page_images/product-cashews.webp"
+                 alt="Roasted Cashews" loading="lazy" decoding="async"
+                 onerror="this.style.display='none'">
+          </div>
+        </div>
+
+        <!-- Lid — wooden face with satin gold band, slides up on open -->
+        <div class="hamp-lid" id="hampLid">
+
+          <!-- Gold corner brackets (CSS handles styling) -->
+          <span class="hamp-corner hamp-corner--tl" aria-hidden="true"></span>
+          <span class="hamp-corner hamp-corner--tr" aria-hidden="true"></span>
+          <span class="hamp-corner hamp-corner--bl" aria-hidden="true"></span>
+          <span class="hamp-corner hamp-corner--br" aria-hidden="true"></span>
+
+          <!-- Satin gold band across lid -->
+          <div class="hamp-satin-band" aria-hidden="true">
+            <div class="hamp-satin-knot"></div>
+          </div>
+
+          <!-- Brand label -->
+          <div class="hamp-lid-brand">Diet Swad</div>
+
+        </div><!-- /hamp-lid -->
+
+      </div><!-- /hamp-box -->
+
+      <!-- Italic caption hint — fades away when box opens -->
+      <p class="hamp-tap-hint" id="hampTapHint" aria-hidden="true"><em>Tap to open.</em></p>
+
+    </div><!-- /hamp-stage -->
+
+    <!-- Details panel — slides up after box opens -->
+    <div class="hamp-details" id="hampDetails" aria-live="polite">
+
+      <div class="hamp-divider"></div>
+
+      <div class="hamp-price-range">
+        <span class="hamp-price-label">customise from</span>
+        <div class="hamp-price-value">
+          &#8377;599 <em>to</em> &#8377;1,999
+        </div>
+      </div>
+
+      <p class="hamp-details-copy">
+        Every tray is handpacked fresh. No two look the same.<br>
+        For one. For many. For <strong>anyone worth spoiling.</strong>
+      </p>
+
+      <div class="hamp-cta-wrap">
+        <a href="https://wa.me/918910725854?text=Hi!%20I%20want%20to%20build%20a%20custom%20gift%20hamper%20%F0%9F%8E%81"
+           class="btn-whatsapp-hamp" target="_blank" rel="noopener noreferrer">
+          <!-- WhatsApp icon -->
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"
+               aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Tell us who you're spoiling
+        </a>
+        <a href="tel:+918910725854" class="btn-call-hamp">
+          or just give us a ring
+        </a>
+      </div>
+
+    </div><!-- /hamp-details -->
+
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       REVIEWS — mobile-first stage with auto-rotation
+       ═══════════════════════════════════════════════════════════════════ -->
+  <section class="rstage" id="reviews" aria-label="Customer reviews">
+
+    <!-- Rating strip -->
+    <div class="rstage-rating-strip">
+      <span class="rstage-rating-score">4.9<span class="rstage-rating-slash">/5</span></span>
+      <span class="rstage-rating-label">&middot; 12,480 reviews</span>
+    </div>
+
+    <div class="rstage-header">
+      <span class="section-label-gold rstage-kicker">Customer Stories</span>
+      <h2 class="rstage-heading">Real <em>stories.</em></h2>
+    </div>
+
+    <!-- Per-review giant headline (populated by JS) -->
+    <div class="rstage-giant" id="rstageGiant" aria-hidden="true"></div>
+
+    <div class="rstage-body">
+      <!-- Circular disc — product image per review -->
+      <div class="rstage-disc" id="rstageDisc" aria-hidden="true">
+        <img class="rstage-disc-img" id="rstageDiscImg" alt="" src="" loading="lazy" decoding="async">
+      </div>
+
+      <article class="rstage-card" id="rstageCard">
+        <!-- Who row -->
+        <div class="rstage-who">
+          <div class="rstage-avatar" id="rstageAvatar">A</div>
+          <div class="rstage-meta-col">
+            <span class="rstage-name" id="rstageName"></span>
+            <span class="rstage-city" id="rstageCity"></span>
+          </div>
+        </div>
+        <!-- Stars — own compact row, no gap above/below -->
+        <div class="rstage-stars" id="rstageStars" aria-label="5 out of 5 stars"></div>
+        <!-- Quote -->
+        <blockquote class="rstage-quote" id="rstageQuote"></blockquote>
+        <!-- Product chip -->
+        <div class="rstage-product-chip">
+          <span class="rstage-product-swatch"></span>
+          <span class="rstage-product" id="rstageProduct"></span>
+        </div>
+      </article>
+    </div>
+
+    <!-- Horizontal product timeline -->
+    <div class="rstage-timeline-mob" aria-hidden="true">
+      <div class="rstage-nodes-scroll" id="rstageNodes"></div>
+    </div>
+
+    <!-- Prev / Next -->
+    <div class="rstage-bottom-row">
+      <button class="rstage-ctrl" id="rstagePrev" aria-label="Previous review">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <button class="rstage-ctrl" id="rstageNext" aria-label="Next review">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+
+    <!-- Stats strip -->
+    <div class="rstage-stats">
+      <div class="rstage-stat"><span class="rstage-stat-big">97%</span><span class="rstage-stat-lbl">Would recommend</span></div>
+      <div class="rstage-stat"><span class="rstage-stat-big">4.9<em>/5</em></span><span class="rstage-stat-lbl">Average rating</span></div>
+      <div class="rstage-stat"><span class="rstage-stat-big">42</span><span class="rstage-stat-lbl">Cities delivered to</span></div>
+      <div class="rstage-stat"><span class="rstage-stat-big">0 junk</span><span class="rstage-stat-lbl">Always</span></div>
+    </div>
+
+    <div class="visually-hidden" aria-live="polite" id="rstageLive"></div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       FINAL CTA — quiet editorial closer
+       ═══════════════════════════════════════════════════════════════════ -->
+  <section class="fcta-section" id="order" aria-label="Order Diet Swad">
+
+    <div class="fcta-inner">
+      <span class="fcta-kicker">Ready when you are &middot; Ships pan-India</span>
+
+      <h2 class="fcta-heading">
+        <span class="fcta-line-outer"><span class="fcta-line-inner">Food, the way</span></span>
+        <span class="fcta-line-outer"><span class="fcta-line-inner fcta-line-inner--2">it was supposed</span></span>
+        <span class="fcta-line-outer"><span class="fcta-line-inner fcta-line-inner--3"><em>to be.</em></span></span>
+      </h2>
+
+      <a href="https://wa.me/918910725854?text=Hi%2C%20I%27d%20like%20to%20order%20Diet%20Swad%20snacks!"
+         class="fcta-btn-wa" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        Order on WhatsApp
+      </a>
+
+      <div class="fcta-trust">
+        <span class="fcta-trust-chip">&#8377;499 uniform price</span>
+        <span class="fcta-trust-sep" aria-hidden="true">&middot;</span>
+        <span class="fcta-trust-chip">Free pan-India shipping</span>
+        <span class="fcta-trust-sep" aria-hidden="true">&middot;</span>
+        <span class="fcta-trust-chip">Made fresh in Kolkata</span>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="footer-logo-wrap">
+      <img
+        src="Assets/Logo_and_icons/horizontal golden logo transparent.png"
+        alt="Diet Swad"
+        style="height: 56px; width: auto; margin-bottom: 12px;"
+        onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+      >
+      <p class="footer-logo-text" style="display:none;">Diet Swad</p>
+    </div>
+    <p class="footer-tagline">Zero Guilt. Zero Junk. 100% Satisfaction.</p>
+
+    <nav class="footer-links" aria-label="Footer links">
+      <a href="products.html">Our Products</a>
+      <a href="order.html">Order Now</a>
+      <a href="about.html">About Us</a>
+      <a href="https://wa.me/918910725854" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms-of-service.html">Terms of Service</a>
+      <a href="shipping-policy.html">Shipping Policy</a>
+      <a href="refund-policy.html">Refund Policy</a>
+    </nav>
+
+    <div class="footer-social">
+      <a href="https://instagram.com/dietswad" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      </a>
+      <a href="https://wa.me/918910725854" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      </a>
+      <a href="#" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      </a>
+      <a href="mailto:dietswad143@gmail.com" aria-label="Email">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      </a>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-fssai">
+        FSSAI Reg: 22825041000300<br>
+        Made in Kolkata with love &middot; Radiant Twins Enterprise<br>
+        &copy; 2025 Diet Swad. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       WHATSAPP FLOATING BUTTON
+       ═══════════════════════════════════════════════════════════════════ -->
+  <a href="https://wa.me/918910725854" class="wa-fab" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+
+  <!-- Hero animation engine (deferred — loads after HTML is parsed) -->
+  <script defer src="hero-animation.js"></script>
+
+  <!-- Product card stage -->
+  <script>
+  (function () {
+
+    /* ── Product data — each product carries its own color family for tinting
+         the watermark, plate gradient and float drop-shadow. Tints are layered
+         on top of the brand cream/gold palette, never replacing it. ───────── */
+    var FLOATS = [
+      'trasparent_single_almond.png',
+      'transparent_butter_curl.png',
+      'transparent_single_oats_flake.png',
+      'transparent_a_coconut_slice.png',
+      'transparent_half_coconut.png',
+      'transparent_single_raw_jowar_plant.png'
+    ];
+    var GRAD = {
+      maroon:    { from:'#4A0000', to:'#0C0805' },
+      chocolate: { from:'#3B1E08', to:'#0C0805' },
+      plum:      { from:'#3C1053', to:'#0C0805' }
+    };
+    var PRODUCTS = [
+      { name:'Power Bites',           kicker:'No. 01 · Earthy',    title:'Power <em>Bites</em>',           family:'maroon',    weight:'180G · 12 PIECES',   stamp:'11 Superfoods · 7.5g Protein',   img:'Assets/Landing_Page_images/product-power-bites.webp',   tint:'#5C3A21', tintSoft:'#A57E55', tagline:'Jowar, sesame & almond in every bite — 11 superfoods, 7.5g protein, zero guilt.' },
+      { name:'Royal Bites',           kicker:'No. 02 · Buttery',   title:'Royal <em>Bites</em>',           family:'chocolate', weight:'180G · 12 PIECES',   stamp:'14.8g Protein · Peanut Butter',  img:'Assets/Landing_Page_images/product-royal-bites.webp',   tint:'#8B5A2B', tintSoft:'#C49A6C', tagline:'Real peanut butter, zero maida. The richest 180g you\'ll eat without the regret.' },
+      { name:'Peanut-Sesame Delights',kicker:'No. 03 · Honest',    title:'Peanut <em>Sesame</em>',         family:'maroon',    weight:'180G · 12 PIECES',   stamp:'4 Ingredients · 13.2g Protein',  img:'Assets/Landing_Page_images/product-peanut-sesame.webp', tint:'#A88030', tintSoft:'#D4B97C', tagline:'Four real ingredients. Nothing hidden, nothing added. Just honest crunchy goodness.' },
+      { name:'Millet Butter Cookies', kicker:'No. 04 · Wholesome', title:'Millet Butter <em>Cookies</em>', family:'plum',      weight:'150G · 0g TRANS FAT',stamp:'Sorghum 30.8% · Real Butter',    img:'Assets/Landing_Page_images/product-millet-butter.webp', tint:'#B8893E', tintSoft:'#E0C18A', tagline:'30.8% sorghum, real butter, zero trans fat — wholesome the old-fashioned way.' },
+      { name:'Millet Coconut Cookies',kicker:'No. 05 · Toasted',   title:'Millet Coconut <em>Cookies</em>',family:'plum',      weight:'150G · NO MAIDA',    stamp:'Jowar · Oats · Coconut',         img:'Assets/Landing_Page_images/product-millet-coconut.webp',tint:'#9C7A4F', tintSoft:'#D9C8A8', tagline:'Jowar, oats and coconut in every cookie — toasted, light and genuinely good.' },
+      { name:'Millet Choco Cookies',  kicker:'No. 06 · Indulgent', title:'Millet Choco <em>Cookies</em>',  family:'chocolate', weight:'150G · NO REF SUGAR',stamp:'Jowar + Ragi · Almond Flour',    img:'Assets/Landing_Page_images/product-millet-choco.webp',  tint:'#3A2317', tintSoft:'#7A5A42', tagline:'Jowar + ragi + almond flour. Chocolate flavour that needs no refined sugar.' },
+      { name:'Roasted Cashews',       kicker:'No. 07 · Pure',      title:'Roasted <em>Cashews</em>',       family:'maroon',    weight:'200G · 18.2g PROTEIN',stamp:'2 Ingredients · Just Salt',      img:'Assets/Landing_Page_images/product-cashews.webp',       tint:'#9C7A4F', tintSoft:'#D2B58A', tagline:'Two ingredients: cashews and salt. That\'s it — pure, crunchy, nothing to hide.' }
+    ];
+
+    /* ── Refs ─────────────────────────────────────────────────────── */
+    var card     = document.getElementById('pcardCard');
+    var img      = document.getElementById('pcardImg');
+    var stamp    = document.getElementById('pcardStamp');
+    var title    = document.getElementById('pcardTitle');
+    var weight   = document.getElementById('pcardWeight');
+    var tagline  = document.getElementById('pcardTagline');
+    var dotsEl   = document.getElementById('pcardDots');
+    var floatsEl = document.getElementById('pcardFloats');
+    var section  = document.getElementById('products');
+    var counterCurrent = document.getElementById('pcardCounterCurrent');
+    var counterTotal   = document.getElementById('pcardCounterTotal');
+    var liveEl   = document.getElementById('pcardLive');
+    if (!card) return;
+
+    /* ── Floats — rebuilt per slide with fresh per-element jitter ─── */
+    var floatSpecs = [
+      { t:  8, l:  6, s: 56, dur: 6.4, dly: 0.0, r: -12, dx:  8, dy: -12, o: 0.62 },
+      { t: 18, l: 86, s: 48, dur: 7.8, dly: 0.6, r:  14, dx: -10,dy:   8, o: 0.55 },
+      { t: 64, l:  4, s: 64, dur: 5.6, dly: 0.3, r:   8, dx: -6, dy:  10, o: 0.60 },
+      { t: 72, l: 88, s: 52, dur: 7.2, dly: 0.9, r: -10, dx:  12,dy:  -6, o: 0.50 },
+      { t: 40, l: 94, s: 38, dur: 8.4, dly: 0.2, r:  18, dx: -8, dy:  12, o: 0.46 },
+      { t: 88, l: 50, s: 44, dur: 6.8, dly: 1.1, r:  -6, dx:  6, dy: -14, o: 0.58 }
+    ];
+    function rebuildFloats() {
+      if (reduceMotion) return;
+      floatsEl.innerHTML = '';
+      var jit = function (v, range) { return v + (Math.random() - 0.5) * range; };
+      floatSpecs.forEach(function (f, i) {
+        var el = document.createElement('img');
+        el.className = 'pcard-float';
+        el.src = 'Assets/' + FLOATS[i % FLOATS.length];
+        el.alt = '';
+        el.setAttribute('aria-hidden', 'true');
+        el.onerror = function () { this.style.display = 'none'; };
+        el.style.cssText =
+          'top:'  + jit(f.t, 10) + '%;left:' + jit(f.l, 10) + '%;' +
+          'width:' + jit(f.s, 8) + 'px;height:' + jit(f.s, 8) + 'px;' +
+          '--r:'   + jit(f.r, 8) + 'deg;--dx:' + jit(f.dx, 6) + 'px;--dy:' + jit(f.dy, 6) + 'px;' +
+          '--dur:' + jit(f.dur, 2) + 's;--dly:' + (Math.random() * 1.5) + 's;' +
+          '--o:'   + Math.max(0.35, Math.min(0.72, jit(f.o, 0.15))) + ';';
+        floatsEl.appendChild(el);
+      });
+    }
+    rebuildFloats();
+
+    /* ── Build dots ───────────────────────────────────────────────── */
+    var total = PRODUCTS.length;
+    counterTotal.textContent = String(total).padStart(2, '0');
+    PRODUCTS.forEach(function (p, i) {
+      var d = document.createElement('button');
+      d.className = 'pcard-dot' + (i === 0 ? ' is-active' : '');
+      d.setAttribute('role', 'tab');
+      d.setAttribute('aria-label', p.name);
+      d.addEventListener('click', function () { goTo(i, true); });
+      dotsEl.appendChild(d);
+    });
+    var dots = dotsEl.querySelectorAll('.pcard-dot');
+
+    /* ── Render ───────────────────────────────────────────────────── */
+    var current = 0;
+    var swapping = false;
+
+    function render(p) {
+      img.style.opacity = '1';
+      img.src = p.img;
+      img.alt = p.name;
+      stamp.innerHTML = p.stamp;
+      title.innerHTML = p.title;
+      weight.innerHTML = p.weight;
+      tagline.innerHTML = p.tagline;
+      section.dataset.family = p.family;
+      section.style.setProperty('--p-tint', p.tint);
+      section.style.setProperty('--p-tint-soft', p.tintSoft);
+    }
+
+    function announce(p, idx) {
+      if (liveEl) liveEl.textContent = 'Showing ' + p.name + ', product ' + (idx+1) + ' of ' + total;
+      counterCurrent.textContent = String(idx+1).padStart(2, '0');
+    }
+
+    function goTo(idx, userInitiated) {
+      if (swapping) return;
+      idx = (idx + total) % total;
+      if (idx === current) return;
+      var dir = idx > current ? 1 : -1;
+      if (current === 0 && idx === total - 1) dir = -1;
+      if (current === total - 1 && idx === 0) dir = 1;
+      swapping = true;
+      card.classList.remove('is-idle');
+      card.classList.add(dir > 0 ? 'is-swap-out-left' : 'is-swap-out-right');
+      setTimeout(function () {
+        current = idx;
+        render(PRODUCTS[current]);
+        announce(PRODUCTS[current], current);
+        card.classList.remove('is-swap-out-left','is-swap-out-right');
+        card.classList.add(dir > 0 ? 'is-swap-in-right' : 'is-swap-in-left');
+        dots.forEach(function (d, i) { d.classList.toggle('is-active', i === current); });
+        setTimeout(function () {
+          card.classList.remove('is-swap-in-right','is-swap-in-left');
+          card.classList.add('is-idle');
+          swapping = false;
+        }, 700);
+      }, 420);
+      if (userInitiated) pauseAutoplay();
+    }
+
+    /* Initial render */
+    render(PRODUCTS[0]);
+    announce(PRODUCTS[0], 0);
+    card.classList.add('is-idle');
+
+    /* ── Keyboard ─────────────────────────────────────────────────── */
+    section.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft')  { e.preventDefault(); goTo(current - 1, true); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); goTo(current + 1, true); }
+    });
+
+    /* ── Touch / swipe ────────────────────────────────────────────── */
+    var tx = 0, ty = 0;
+    section.addEventListener('touchstart', function (e) { tx = e.touches[0].clientX; ty = e.touches[0].clientY; pauseAutoplay(); }, { passive: true });
+    section.addEventListener('touchend', function (e) {
+      var dx = e.changedTouches[0].clientX - tx;
+      var dy = e.changedTouches[0].clientY - ty;
+      if (Math.abs(dx) > 44 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+        if (dx < 0) goTo(current + 1, true);
+        else        goTo(current - 1, true);
+      }
+    }, { passive: true });
+
+    /* ── Autoplay (6s, pause on interaction or off-screen, resume after 12s) ── */
+    var autoplayId = null, resumeTimer = null, paused = false;
+    var inView = false;
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function startAutoplay() {
+      if (reduceMotion || paused || !inView || autoplayId) return;
+      autoplayId = setInterval(function () { goTo(current + 1, false); }, 6000);
+    }
+    function stopAutoplay() {
+      if (autoplayId) { clearInterval(autoplayId); autoplayId = null; }
+    }
+    function pauseAutoplay() {
+      paused = true;
+      stopAutoplay();
+      if (resumeTimer) clearTimeout(resumeTimer);
+      resumeTimer = setTimeout(function () { paused = false; startAutoplay(); }, 12000);
+    }
+
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          inView = en.isIntersecting && en.intersectionRatio > 0.4;
+          if (inView) startAutoplay(); else stopAutoplay();
         });
-    </script>
+      }, { threshold: [0, 0.4, 0.8] });
+      io.observe(section);
+    } else {
+      inView = true;
+      startAutoplay();
+    }
+
+    section.addEventListener('focusin', pauseAutoplay);
+    section.addEventListener('mouseenter', pauseAutoplay);
+
+  })();
+  </script>
+
+
+  <!-- Why Diet Swad: thread draw + reveal animations -->
+  <script>
+  (function() {
+
+    /* ── Build SVG thread path from DOM positions ─────────────────── */
+    function buildThreadPath() {
+      var section = document.getElementById('why');
+      var svg     = document.getElementById('threadSvg');
+      var pathEl  = document.getElementById('threadPath');
+      if (!section || !svg || !pathEl) return;
+
+      var circles = section.querySelectorAll('.node-circle');
+      if (circles.length < 4) return;
+
+      var sr = section.getBoundingClientRect();
+      var W  = sr.width;
+      var H  = sr.height;
+
+      svg.setAttribute('width',   W);
+      svg.setAttribute('height',  H);
+      svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+
+      /* Center of each circle relative to section top-left */
+      var pts = Array.from(circles).map(function(c) {
+        var r = c.getBoundingClientRect();
+        return {
+          x: r.left - sr.left + r.width  / 2,
+          y: r.top  - sr.top  + r.height / 2
+        };
+      });
+
+      var cx = W / 2;
+
+      /* Cubic-bezier S-curve through each node */
+      var d = 'M ' + cx + ' 0';
+      d += ' C ' + cx + ' ' + (pts[0].y * 0.45) + ', '
+                + pts[0].x + ' ' + (pts[0].y * 0.65) + ', '
+                + pts[0].x + ' ' + pts[0].y;
+
+      for (var i = 0; i < pts.length - 1; i++) {
+        var p1  = pts[i], p2 = pts[i + 1];
+        var mid = (p1.y + p2.y) / 2;
+        d += ' C ' + p1.x + ' ' + mid + ', '
+                   + p2.x + ' ' + mid + ', '
+                   + p2.x + ' ' + p2.y;
+      }
+
+      var last = pts[pts.length - 1];
+      var closeGap = H - last.y;
+      d += ' C ' + last.x + ' ' + (last.y + closeGap * 0.35) + ', '
+                + cx + ' ' + (last.y + closeGap * 0.65) + ', '
+                + cx + ' ' + H;
+
+      pathEl.setAttribute('d', d);
+
+      var len = pathEl.getTotalLength();
+      pathEl.style.strokeDasharray  = len;
+      pathEl.style.strokeDashoffset = len;
+      section._threadLen = len;
+
+      /* Re-apply current scroll progress immediately so thread doesn't vanish on resize */
+      updateThread();
+    }
+
+    /* ── Animate thread on scroll ──────────────────────────────────── */
+    function updateThread() {
+      var section = document.getElementById('why');
+      var pathEl  = document.getElementById('threadPath');
+      if (!section || !pathEl || !section._threadLen) return;
+
+      var sr       = section.getBoundingClientRect();
+      var vh       = window.innerHeight;
+      /* 0 when section-top enters viewport bottom; 1 when section-bottom leaves top */
+      var progress = Math.max(0, Math.min(1, (vh - sr.top) / (sr.height + vh * 0.4)));
+      pathEl.style.strokeDashoffset = section._threadLen * (1 - progress);
+    }
+
+    /* ── IntersectionObserver: fade nodes in/out bidirectionally ──── */
+    var nodeObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-visible');
+        } else {
+          e.target.classList.remove('is-visible');
+        }
+      });
+    }, { threshold: 0.18, rootMargin: '0px 0px -40px 0px' });
+
+    /* ── IntersectionObserver: ingredient columns + spread text ─────── */
+    var spreadObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        var spreadText = document.querySelector('.spread-text');
+        var cols = document.querySelectorAll('.spread-ing-col');
+        if (e.isIntersecting) {
+          if (spreadText) spreadText.classList.add('is-visible');
+          cols.forEach(function(col) { col.classList.add('is-visible'); });
+        } else {
+          if (spreadText) spreadText.classList.remove('is-visible');
+          cols.forEach(function(col) { col.classList.remove('is-visible'); });
+        }
+      });
+    }, { threshold: 0.12 });
+
+    /* ── Scroll listener (rAF-gated) ─────────────────────────────── */
+    var ticking = false;
+    window.addEventListener('scroll', function() {
+      if (!ticking) {
+        requestAnimationFrame(function() { updateThread(); ticking = false; });
+        ticking = true;
+      }
+    }, { passive: true });
+
+    /* ── Init on DOMContentLoaded ─────────────────────────────────── */
+    document.addEventListener('DOMContentLoaded', function() {
+      /* Small delay so fonts + images have affected layout */
+      setTimeout(function() {
+        buildThreadPath();
+        updateThread();
+      }, 120);
+
+      /* Observe nodes and quote */
+      document.querySelectorAll('.why-node, .why-thread-quote').forEach(function(el) {
+        nodeObserver.observe(el);
+      });
+
+      /* Observe the ingredient row */
+      var ingRow = document.querySelector('.spread-ing-row');
+      if (ingRow) spreadObserver.observe(ingRow);
+    });
+
+    /* ── Rebuild on resize ────────────────────────────────────────── */
+    var resizeTimer;
+    window.addEventListener('resize', function() {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(buildThreadPath, 200);
+    });
+
+  })();
+  </script>
+
+  <!-- Reviews stage — auto-rotation + arrows + dots + touch -->
+  <script>
+  (function () {
+    var REVIEWS = [
+      { name:'Ananya Sen',    city:'Kolkata, WB',     date:'Feb 03, 2026', stars:5,
+        headline:['Tastes like', {accent:'home.'}],
+        quote:"Ordered the Power Bites for my 4 PM slump and these have honestly replaced my coffee. Hits different — earthy, not too sweet, and I don't crash an hour later.",
+        product:'Power Bites',            tint:'#5C3A21',
+        img:'Assets/Landing_Page_images/product-power-bites.webp',
+        accent:'#821212', accentDeep:'#5A0E0E' },
+      { name:'Rohan Mehta',   city:'Mumbai, MH',      date:'Feb 18, 2026', stars:5,
+        headline:['My', {accent:'pre-workout'}, 'fix.'],
+        quote:"Royal Bites became my pre-workout staple. The peanut butter is the real deal, none of that fake protein-bar aftertaste. Box gone in three days.",
+        product:'Royal Bites',            tint:'#8B5A2B',
+        img:'Assets/Landing_Page_images/product-royal-bites.webp',
+        accent:'#642C0A', accentDeep:'#421C06' },
+      { name:'Priya Iyer',    city:'Bengaluru, KA',   date:'Mar 02, 2026', stars:5,
+        headline:[{light:'Healthy.'}, {accent:'Actually.'}],
+        quote:"Millet Choco Cookies are dangerous — I told myself two a day, ended up finishing them in a week. No refined sugar, no maida, and they actually taste like proper cookies.",
+        product:'Millet Choco Cookies', tint:'#3A2317',
+        img:'Assets/Landing_Page_images/product-millet-choco.webp',
+        accent:'#642C0A', accentDeep:'#421C06' },
+      { name:'Vikram Desai',  city:'Ahmedabad, GJ',   date:'Mar 14, 2026', stars:4,
+        headline:['My desk-drawer', {accent:'staple.'}],
+        quote:"Roasted Cashews — just cashews and salt. The crunch is perfect and you can tell they were roasted properly. Great for the office drawer when meetings run long.",
+        product:'Roasted Cashews',        tint:'#9C7A4F',
+        img:'Assets/Landing_Page_images/product-cashews.webp',
+        accent:'#821212', accentDeep:'#5A0E0E' },
+      { name:'Meera Krishnan',city:'Chennai, TN',     date:'Mar 28, 2026', stars:5,
+        headline:['Amma would', {accent:'approve.'}],
+        quote:"Peanut-Sesame Delights have only four ingredients on the back of the pack and you can taste each one. Reminds me of what my grandmother used to make at home.",
+        product:'Peanut-Sesame Delights', tint:'#A88030',
+        img:'Assets/Landing_Page_images/product-peanut-sesame.webp',
+        accent:'#821212', accentDeep:'#5A0E0E' }
+    ];
+
+    var disc     = document.getElementById('rstageDisc');
+    var discImg  = document.getElementById('rstageDiscImg');
+    var card     = document.getElementById('rstageCard');
+    var starsEl  = document.getElementById('rstageStars');
+    var quote    = document.getElementById('rstageQuote');
+    var nameEl   = document.getElementById('rstageName');
+    var cityEl   = document.getElementById('rstageCity');
+    var avatarEl = document.getElementById('rstageAvatar');
+    var prodEl   = document.getElementById('rstageProduct');
+    var giantEl  = document.getElementById('rstageGiant');
+    var nodesEl  = document.getElementById('rstageNodes');
+    var liveEl   = document.getElementById('rstageLive');
+    var section  = document.getElementById('reviews');
+    if (!card) return;
+
+    var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var total    = REVIEWS.length;
+    var current  = 0;
+    var swapping = false;
+    var auto     = null;
+
+    var _accent = '#C87830';
+
+    function starSVG(filled) {
+      return '<svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true">' +
+        '<path fill="' + _accent + '" opacity="' + (filled ? '1' : '0.25') + '" ' +
+        'd="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg>';
+    }
+
+    function announce(r) {
+      if (liveEl) liveEl.textContent = r.name + ' from ' + r.city + ': ' + r.product + ', ' + r.stars + ' stars.';
+    }
+
+    function renderGiant(headline) {
+      if (!giantEl) return;
+      giantEl.innerHTML = '';
+      headline.forEach(function (part, i) {
+        var span = document.createElement('span');
+        span.className = 'word';
+        if (typeof part === 'string') {
+          span.textContent = part;
+        } else if (part.light) {
+          span.classList.add('light');
+          span.textContent = part.light;
+        } else if (part.accent) {
+          span.classList.add('accent');
+          span.textContent = part.accent;
+        }
+        span.style.transitionDelay = (i * 80) + 'ms';
+        giantEl.appendChild(span);
+      });
+      requestAnimationFrame(function () {
+        giantEl.querySelectorAll('.word').forEach(function (w) { w.classList.add('in'); });
+      });
+    }
+
+    function scrollNodeIntoView(idx) {
+      if (!nodesEl) return;
+      var node = nodesEl.children[idx];
+      if (!node) return;
+      var target = node.offsetLeft + node.offsetWidth / 2 - nodesEl.clientWidth / 2;
+      nodesEl.scrollTo({ left: target, behavior: 'smooth' });
+    }
+
+    function updateNodes(idx, accent) {
+      var a = accent || _accent;
+      nodes.forEach(function (n, i) {
+        n.classList.toggle('is-active', i === idx);
+        n.classList.toggle('is-past',   i < idx);
+        var dot = n.querySelector('.rstage-node-dot');
+        if (!dot) return;
+        dot.style.borderColor = a;
+        if (i === idx) {
+          dot.style.background = a;
+          dot.style.color = '#faf7ef';
+          var svg = dot.querySelector('svg');
+          if (svg) svg.setAttribute('stroke', '#faf7ef');
+        } else {
+          dot.style.background = '';
+          dot.style.color = a;
+          var svg = dot.querySelector('svg');
+          if (svg) svg.setAttribute('stroke', a);
+        }
+      });
+      scrollNodeIntoView(idx);
+    }
+
+    /* Build horizontal product timeline nodes */
+    REVIEWS.forEach(function (r, i) {
+      var btn = document.createElement('button');
+      btn.className = 'rstage-node' + (i === 0 ? ' is-active' : '');
+      btn.setAttribute('aria-label', 'Review for ' + r.product);
+      btn.innerHTML =
+        '<div class="rstage-node-dot">' +
+          '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
+            '<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>' +
+          '</svg>' +
+        '</div>' +
+        '<div class="rstage-node-lbl">' + r.product + '</div>';
+      btn.addEventListener('click', function () { goTo(i, true); });
+      nodesEl.appendChild(btn);
+    });
+    var nodes = nodesEl.querySelectorAll('.rstage-node');
+
+    function render(r) {
+      /* set accent first so starSVG and updateNodes use correct hex */
+      _accent = r.accent;
+      /* per-product colour tokens */
+      section.style.setProperty('--r-accent',      r.accent);
+      section.style.setProperty('--r-accent-deep',  r.accentDeep);
+      section.style.setProperty('--r-tint',         r.tint);
+      section.style.setProperty('--r-bg-tint',       r.tint);
+      /* disc product image */
+      if (discImg) discImg.src = r.img;
+      /* giant headline */
+      renderGiant(r.headline);
+      /* stars — inject hex directly, no currentColor dependency */
+      var svgStars = '';
+      for (var i = 1; i <= 5; i++) svgStars += starSVG(i <= r.stars);
+      starsEl.innerHTML = svgStars;
+      starsEl.setAttribute('aria-label', r.stars + ' out of 5 stars');
+      /* text */
+      quote.textContent = '"' + r.quote + '"';
+      nameEl.textContent = r.name;
+      cityEl.textContent = r.city;
+      if (avatarEl) {
+        avatarEl.textContent = r.name.charAt(0).toUpperCase();
+        avatarEl.style.background = r.accent;
+      }
+      prodEl.textContent = r.product;
+    }
+
+    function goTo(idx, userInitiated) {
+      if (swapping) return;
+      idx = (idx + total) % total;
+      if (idx === current) return;
+      swapping = true;
+      if (userInitiated) pauseAuto();
+      card.classList.remove('in');
+      disc.classList.add('is-fading');
+      setTimeout(function () {
+        current = idx;
+        render(REVIEWS[current]);
+        announce(REVIEWS[current]);
+        updateNodes(current, REVIEWS[current].accent);
+        disc.classList.remove('is-fading');
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () { card.classList.add('in'); });
+        });
+        swapping = false;
+        if (userInitiated) setTimeout(startAuto, 10000);
+      }, 180);
+    }
+
+    /* Wire prev/next ctrl buttons */
+    var prevBtn = document.getElementById('rstagePrev');
+    var nextBtn = document.getElementById('rstageNext');
+    if (prevBtn) prevBtn.addEventListener('click', function () { goTo(current - 1, true); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { goTo(current + 1, true); });
+
+    function startAuto() {
+      if (reducedMotion) return;
+      stopAuto();
+      auto = setInterval(function () { goTo(current + 1, false); }, 5200);
+    }
+    function stopAuto()  { if (auto) { clearInterval(auto); auto = null; } }
+    function pauseAuto() { stopAuto(); }
+
+    /* Initial render */
+    render(REVIEWS[0]);
+    updateNodes(0, REVIEWS[0].accent);
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () { card.classList.add('in'); });
+    });
+
+    /* Touch swipe */
+    var tx = 0, ty = 0;
+    section.addEventListener('touchstart', function (e) {
+      tx = e.touches[0].clientX;
+      ty = e.touches[0].clientY;
+      stopAuto();
+    }, { passive: true });
+    section.addEventListener('touchend', function (e) {
+      var dx = e.changedTouches[0].clientX - tx;
+      var dy = e.changedTouches[0].clientY - ty;
+      if (Math.abs(dx) > 44 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+        goTo(dx < 0 ? current + 1 : current - 1, false);
+      }
+      setTimeout(startAuto, 8000);
+    }, { passive: true });
+
+    /* Hover pause */
+    section.addEventListener('mouseenter', stopAuto);
+    section.addEventListener('mouseleave', startAuto);
+
+    /* Focus pause */
+    section.addEventListener('focusin',  stopAuto);
+    section.addEventListener('focusout', startAuto);
+
+    /* Start auto when section becomes visible */
+    var io = new IntersectionObserver(function (entries) {
+      entries[0].isIntersecting ? startAuto() : stopAuto();
+    }, { threshold: 0.30 });
+    io.observe(section);
+
+  })();
+  </script>
+
+  <!-- Final CTA: entrance + orb drift -->
+  <script>
+  (function () {
+    var section = document.querySelector('.fcta-section');
+    if (!section) return;
+
+    var sectionIO = new IntersectionObserver(function (entries) {
+      if (!entries[0].isIntersecting) return;
+      section.classList.add('section-alive');
+      sectionIO.unobserve(section);
+    }, { threshold: 0.10 });
+
+    sectionIO.observe(section);
+  })();
+  </script>
+
+  <!-- FAB: hide when Final CTA is in viewport -->
+  <script>
+  (function () {
+    var fab = document.querySelector('.wa-fab');
+    var cta = document.getElementById('order');
+    if (!fab || !cta) return;
+    new IntersectionObserver(function (entries) {
+      fab.classList.toggle('fab-hidden', entries[0].isIntersecting);
+    }, { threshold: 0.15 }).observe(cta);
+  })();
+  </script>
+
+  <!-- Hampers: box open/close + entrance animation -->
+  <script>
+  (function () {
+    var section = document.querySelector('.hampers-section');
+    var box     = document.getElementById('hampBox');
+    var hint    = document.getElementById('hampTapHint');
+    var details = document.getElementById('hampDetails');
+    if (!section || !box) return;
+
+    var isOpen    = false;
+    var detailsTimer = null;
+
+    /* ── 1. Section entrance via IntersectionObserver ──────────────── */
+    var sectionIO = new IntersectionObserver(function (entries) {
+      if (!entries[0].isIntersecting) return;
+      section.classList.add('section-alive');
+      sectionIO.unobserve(section);
+    }, { threshold: 0.12 });
+    sectionIO.observe(section);
+
+    /* ── 2. Open / close helpers ───────────────────────────────────── */
+    function openBox() {
+      if (isOpen) return;
+      isOpen = true;
+
+      box.classList.add('is-open');
+      box.setAttribute('aria-pressed', 'true');
+
+      if (hint) { hint.classList.add('is-gone'); }
+
+      clearTimeout(detailsTimer);
+      detailsTimer = setTimeout(function () {
+        if (details) details.classList.add('is-visible');
+      }, 700);
+    }
+
+    function closeBox() {
+      if (!isOpen) return;
+      isOpen = false;
+
+      box.classList.remove('is-open');
+      box.setAttribute('aria-pressed', 'false');
+
+      if (hint) { hint.classList.remove('is-gone'); }
+
+      clearTimeout(detailsTimer);
+      if (details) details.classList.remove('is-visible');
+    }
+
+    /* ── 3. Tap / click on the box itself ──────────────────────────── */
+    box.addEventListener('click', function () {
+      isOpen ? closeBox() : openBox();
+    });
+
+    box.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        isOpen ? closeBox() : openBox();
+      }
+    });
+
+    /* ── 4. Tap hint is also a trigger ─────────────────────────────── */
+    if (hint) {
+      hint.addEventListener('click', function () { openBox(); });
+    }
+
+    /* ── 5. Auto-nudge: gently remind the user on first entry ──────── */
+    var nudgeTimer = null;
+    var nudgeIO = new IntersectionObserver(function (entries) {
+      if (!entries[0].isIntersecting) { clearTimeout(nudgeTimer); return; }
+      if (isOpen) { nudgeIO.unobserve(box); return; }
+      nudgeTimer = setTimeout(function () {
+        if (!isOpen) { box.classList.add('is-nudging'); }
+        setTimeout(function () { box.classList.remove('is-nudging'); }, 800);
+      }, 2200);
+      nudgeIO.unobserve(box);
+    }, { threshold: 0.5 });
+    nudgeIO.observe(box);
+
+  })();
+  </script>
+
+  <!-- Mobile nav drawer -->
+  <script>
+  (function () {
+    var hamburger = document.getElementById('navHamburger');
+    var drawer    = document.getElementById('mobileDrawer');
+    var backdrop  = document.getElementById('drawerBackdrop');
+    var closeBtn  = document.getElementById('drawerClose');
+    var links     = drawer ? drawer.querySelectorAll('.drawer-link') : [];
+    if (!hamburger || !drawer) return;
+
+    function openDrawer() {
+      drawer.classList.add('is-open');
+      drawer.setAttribute('aria-hidden', 'false');
+      hamburger.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+      if (closeBtn) closeBtn.focus();
+    }
+
+    function closeDrawer() {
+      drawer.classList.remove('is-open');
+      drawer.setAttribute('aria-hidden', 'true');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+      hamburger.focus();
+    }
+
+    hamburger.addEventListener('click', openDrawer);
+    if (closeBtn)  closeBtn.addEventListener('click', closeDrawer);
+    if (backdrop)  backdrop.addEventListener('click', closeDrawer);
+
+    links.forEach(function (link) {
+      link.addEventListener('click', closeDrawer);
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && drawer.classList.contains('is-open')) closeDrawer();
+    });
+  })();
+  </script>
+
+  <!-- Nav scroll-state -->
+  <script>
+  (function () {
+    var nav = document.querySelector('.site-nav');
+    if (!nav) return;
+    var logoImg     = nav.querySelector('.nav-logo');
+    var logoDefault = 'Assets/Logo_and_icons/normal horizontal logo background removed.png';
+    var logoGolden  = 'Assets/Logo_and_icons/horizontal golden logo transparent.png';
+    var heroH = window.innerHeight;
+    function update() {
+      var scrolled = window.scrollY > heroH * 0.6;
+      nav.classList.toggle('is-scrolled', scrolled);
+      if (logoImg) logoImg.src = scrolled ? logoGolden : logoDefault;
+    }
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+  })();
+  </script>
+
 </body>
 </html>
