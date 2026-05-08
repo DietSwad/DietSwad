@@ -9,7 +9,7 @@
 .peanut-sesame,
 .roasted-cashews {
   --p-tint:      #B50909;
-  --p-tint-soft: rgb(200, 9, 9);
+  --p-tint-soft: rgba(200, 9, 9, 0.08);
   --p-accent:    #8A0606;
 }
 
@@ -131,7 +131,7 @@ body.pb-page { padding-bottom: 80px; }
   justify-content: center;
   background:
     radial-gradient(ellipse 60% 55% at 50% 60%,
-      rgba(181,9,9,0.40) 0%, transparent 70%),
+      color-mix(in srgb, var(--p-tint) 38%, transparent) 0%, transparent 70%),
     linear-gradient(180deg, var(--bg-surface) 0%, var(--bg-base) 100%);
 }
 .pb-hero-photo.is-placeholder::after {
@@ -147,6 +147,9 @@ body.pb-page { padding-bottom: 80px; }
 .pb-hero-content {
   position: relative;
   z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
   width: 100%;
   max-width: 460px;
@@ -876,12 +879,39 @@ body.pb-page { padding-bottom: 80px; }
    6b. GUARANTEE
    ═════════════════════════════════════════════════════════════════════ */
 .pb-guarantee {
+  --guar-1:    rgba(180, 70,  20, 0.80);
+  --guar-2:    rgba(120, 38,  10, 0.75);
+  --guar-3:    rgba( 80, 26,   8, 0.55);
+  --guar-4:    rgba(200,120,  48, 0.25);
+  --guar-base: #1E0C06;
   background:
-    radial-gradient(ellipse 68% 58% at 84%  8%,  rgba(180,70,20,0.80) 0%, transparent 58%),
-    radial-gradient(ellipse 78% 68% at  8% 82%,  rgba(120,38,10,0.75) 0%, transparent 60%),
-    radial-gradient(ellipse 58% 50% at 52% 48%,  rgba( 80,26, 8,0.55) 0%, transparent 52%),
-    radial-gradient(ellipse 42% 36% at 18% 16%,  rgba(200,120,48,0.25) 0%, transparent 54%),
-    #1E0C06;
+    radial-gradient(ellipse 68% 58% at 84%  8%, var(--guar-1) 0%, transparent 58%),
+    radial-gradient(ellipse 78% 68% at  8% 82%, var(--guar-2) 0%, transparent 60%),
+    radial-gradient(ellipse 58% 50% at 52% 48%, var(--guar-3) 0%, transparent 52%),
+    radial-gradient(ellipse 42% 36% at 18% 16%, var(--guar-4) 0%, transparent 54%),
+    var(--guar-base);
+}
+/* Maroon family guarantee */
+.power-bites .pb-guarantee,
+.peanut-sesame .pb-guarantee,
+.roasted-cashews .pb-guarantee {
+  --guar-1:    rgba(190, 30,  30, 0.78);
+  --guar-2:    rgba(130, 12,  12, 0.78);
+  --guar-3:    rgba( 80,  8,   8, 0.55);
+  --guar-4:    rgba(220,140,  60, 0.22);
+  --guar-base: #1E0606;
+}
+/* Plum family guarantee */
+.millet-butter .pb-guarantee,
+.millet-coconut .pb-guarantee {
+  --guar-1:    rgba(118, 58, 152, 0.80);
+  --guar-2:    rgba( 76, 30, 110, 0.78);
+  --guar-3:    rgba( 50, 18,  78, 0.55);
+  --guar-4:    rgba(180,130, 210, 0.22);
+  --guar-base: #1A0A22;
+}
+/* Chocolate family (royal-bites, millet-choco) inherits the default above */
+.pb-guarantee {
   padding: clamp(56px, 10vw, 88px) 24px;
   text-align: center;
   position: relative;
@@ -1130,18 +1160,14 @@ body.pb-page { padding-bottom: 80px; }
 }
 .pb-related__header { padding: 0 24px; }
 .pb-related__scroll {
-  display: flex;
-  gap: 14px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  padding: 4px 24px 20px;
-  scrollbar-width: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  overflow: visible;
+  padding: 4px 16px 20px;
 }
-.pb-related__scroll::-webkit-scrollbar { display: none; }
 .pb-related-card {
-  flex-shrink: 0;
-  width: 210px;
-  scroll-snap-align: start;
+  width: auto;
   border-radius: 12px;
   overflow: hidden;
   background: var(--bg-base);
@@ -1199,13 +1225,9 @@ body.pb-page { padding-bottom: 80px; }
 
 @media (min-width: 768px) {
   .pb-related__scroll {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    overflow-x: visible;
     padding: 4px 64px 4px;
     gap: 20px;
   }
-  .pb-related-card { width: auto; }
 }
 
 
