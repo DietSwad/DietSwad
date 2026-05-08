@@ -180,4 +180,27 @@ Visit [our order form](https://tally.so/r/3XVpeY) to place your order, or use th
 
 ---
 
+## Migration Notes (2026-05-08) — Phase 1 Website Revamp
+
+### New design files added
+- `index.html` — full landing page redesign (replaces old index.html; old `css/` folder removed)
+- `power-bites.html` — Power Bites product page (template for all product pages)
+- `style.css`, `hero.css` — site-wide and hero-section styles
+- `hero-animation.js` — scroll-driven canvas hero animation (26 WebP frames in `hero-frames/`)
+- `product.css`, `product-animations.js` — product page styles and animations
+- `Assets/` — organised into subfolders (Logo_and_icons, Landing_Page_images, Product_hero_image, Product_ingredients_images, Product_Persona_images, Product_galler_images/{7 products}, Product_USP_card_images, Product_comparison_images)
+
+### Image folders — pending real uploads
+Folders for future product pages are scaffolded with `.gitkeep` files. Landing page `why-*.webp` images are placeholders; real images will replace them. Product gallery subfolders for Royal Bites, Peanut-Sesame Delights, Millet cookies, and Roasted Cashews are ready and waiting.
+
+### Preserved — pending end-stage sweep
+- `test-checkout.html`, `test-thankyou.html` — sandbox test pages from Phase 2 backend work
+- `refference_pics/` — original reference images
+- Policy pages (`privacy-policy.html`, `refund-policy.html`, `shipping-policy.html`, `terms-of-service.html`, `thank-you.html`) — kept intact; footer still links to them
+
+### Remaining product pages
+`royal-bites.html`, `peanut-sesame-delights.html`, `millet-butter-cookies.html`, `millet-coconut-cookies.html`, `millet-choco-cookies.html`, `roasted-cashews.html`, `hampers.html` will be authored directly in this repo after images are uploaded.
+
+---
+
 © 2025 Diet Swad. All rights reserved. Made with ❤️ in Kolkata, India.
