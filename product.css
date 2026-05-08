@@ -3,11 +3,30 @@
    Loaded by all individual product pages alongside style.css.
    ═══════════════════════════════════════════════════════════════════ */
 
-/* ── Per-product family tint (scoped to page wrapper) ── */
-.power-bites {
+/* ── Per-product family tint ── */
+/* Maroon family */
+.power-bites,
+.peanut-sesame,
+.roasted-cashews {
   --p-tint:      #B50909;
-  --p-tint-soft: rgba(181, 9, 9, 0.07);
+  --p-tint-soft: rgb(200, 9, 9);
   --p-accent:    #8A0606;
+}
+
+/* Chocolate family */
+.royal-bites,
+.millet-choco {
+  --p-tint:      #4A2410;
+  --p-tint-soft: rgba(74, 36, 16, 0.08);
+  --p-accent:    #2E1608;
+}
+
+/* Plum family */
+.millet-butter,
+.millet-coconut {
+  --p-tint:      #5E2D79;
+  --p-tint-soft: rgba(94, 45, 121, 0.07);
+  --p-accent:    #3C1053;
 }
 
 /* ── Reveal base — JS adds .is-visible ── */

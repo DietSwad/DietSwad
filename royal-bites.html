@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Royal Bites — Diet Swad</title>
+  <meta name="description" content="Royal Bites by Diet Swad — 14.8g protein, rich cocoa taste, sweetened with natural jaggery. 9 real ingredients. No refined sugar. No trans fat.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500;1,600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="product.css">
+</head>
+<body class="royal-bites pb-page">
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       NAVIGATION
+       ═══════════════════════════════════════════════════════════════════ -->
+  <nav class="site-nav">
+    <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <img
+      src="Assets/Logo_and_icons/normal horizontal logo background removed.png"
+      alt="Diet Swad"
+      class="nav-logo"
+      onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';"
+    >
+    <a href="#" class="nav-logo-text gold-text" style="display:none;">Diet Swad</a>
+    <a href="#order" class="nav-order-btn">Order Now</a>
+  </nav>
+
+  <!-- Mobile nav drawer -->
+  <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+    <div class="drawer-backdrop" id="drawerBackdrop"></div>
+    <div class="drawer-panel" role="dialog" aria-label="Navigation">
+      <button class="drawer-close" id="drawerClose" aria-label="Close menu">&times;</button>
+      <a class="drawer-link" href="index.html">Home</a>
+      <a class="drawer-link" href="index.html#products">Products</a>
+      <a class="drawer-link" href="index.html#hampers">Hampers</a>
+      <a class="drawer-link" href="index.html#reviews">Reviews</a>
+      <a class="drawer-link drawer-link--cta" href="#order">Order Now</a>
+      <div class="drawer-social">
+        <a href="https://instagram.com/dietswad" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+        <a href="https://wa.me/918910725854" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       PRODUCT PAGE CONTENT
+       ═══════════════════════════════════════════════════════════════════ -->
+  <main class="royal-bites">
+
+    <!-- ── 1. HERO ──────────────────────────────────────────────────── -->
+    <section class="pb-hero" id="order" aria-label="Royal Bites product hero">
+      <div class="pb-hero-bg" aria-hidden="true"></div>
+
+      <div class="pb-hero-photo">
+        <img src="Assets/Product_hero_image/Royal_bites_hero_shot.png" alt="Royal Bites — square cocoa and nut bites with sliced almonds and pumpkin seeds on top" loading="eager" onerror="this.style.display='none'">
+      </div>
+
+      <div class="pb-hero-content">
+        <p class="pb-hero-eyebrow section-label-gold reveal">Cocoa &amp; Nut Protein Bites &middot; Handmade Fresh</p>
+
+        <h1 class="pb-hero-headline">ROYAL BITES</h1>
+
+        <p class="pb-hero-sub reveal">Rich, decadent, and wholesome. Made with cocoa, peanut butter, premium nuts, jaggery, and pure ghee &mdash; indulgence, perfected. No refined sugar.</p>
+
+        <p class="pb-hero-trust-micro reveal">
+          <span>FSSAI Certified</span>
+          <span aria-hidden="true">&middot;</span>
+          <span>Handmade Fresh</span>
+          <span aria-hidden="true">&middot;</span>
+          <span>100% Satisfaction Guaranteed</span>
+        </p>
+
+        <div class="pb-hero-price-row reveal">
+          <span class="pb-hero-price gold-text">
+            &#8377;
+            <span class="pb-price-digits gold-text">499</span>
+          </span>
+          <span class="pb-hero-weight">180g &middot; 12 bites</span>
+        </div>
+
+        <a href="https://wa.me/918910725854?text=Hi%2C+I+want+to+order+Royal+Bites" class="pcard-btn pb-hero-cta" target="_blank" rel="noopener">
+          ORDER NOW
+        </a>
+
+        <p class="pb-hero-shipping reveal">Free pan-India shipping &middot; COD available</p>
+      </div>
+    </section>
+
+
+    <!-- ── 2. TRUST STRIP ───────────────────────────────────────────── -->
+    <div class="pb-trust-strip" aria-label="Trust signals">
+      <div class="pb-trust-strip__track" aria-hidden="true">
+        <div class="pb-trust-strip__inner">
+          <span class="pb-trust-strip__item">Handmade Fresh</span>
+          <span class="pb-trust-strip__sep">·</span>
+          <span class="pb-trust-strip__item">Zero Chemicals</span>
+          <span class="pb-trust-strip__sep">·</span>
+          <span class="pb-trust-strip__item">Sweetened With Natural Jaggery</span>
+          <span class="pb-trust-strip__sep">·</span>
+          <span class="pb-trust-strip__item">Zero Preservatives</span>
+          <span class="pb-trust-strip__sep">·</span>
+          <span class="pb-trust-strip__item">Zero Trans Fat</span>
+          <span class="pb-trust-strip__sep">·</span>
+          <span class="pb-trust-strip__item">FSSAI Certified</span>
+          <span class="pb-trust-strip__sep">·</span>
+          <span class="pb-trust-strip__item">Free Pan-India Shipping</span>
+          <span class="pb-trust-strip__sep">·</span>
+          <span class="pb-trust-strip__item">COD Available</span>
+          <span class="pb-trust-strip__sep">·</span>
+        </div>
+        <div class="pb-trust-strip__inner">
+          <span class="pb-trust-strip__item">Handmade Fresh</span>
+          <span class="pb-trust-strip__sep">·</span>
+          <span class="pb-trust-strip__item">Zero Chemicals</span>
+          <span class="pb-trust-strip__sep">·</span>
+          <span class="pb-trust-strip__item">Sweetened With Natural Jaggery</span>
+          <span class="pb-trust-strip__sep">·</span>
+          <span class="pb-trust-strip__item">Zero Preservatives</span>
+          <span class="pb-trust-strip__sep">·</span>
+          <span class="pb-trust-strip__item">Zero Trans Fat</span>
+          <span class="pb-trust-strip__sep">·</span>
+          <span class="pb-trust-strip__item">FSSAI Certified</span>
+          <span class="pb-trust-strip__sep">·</span>
+          <span class="pb-trust-strip__item">Free Pan-India Shipping</span>
+          <span class="pb-trust-strip__sep">·</span>
+          <span class="pb-trust-strip__item">COD Available</span>
+          <span class="pb-trust-strip__sep">·</span>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ── 3. CLAIM PILLS ───────────────────────────────────────────── -->
+    <section class="pb-claims" aria-label="Product claims">
+      <div class="pb-claims__row" data-stagger="80">
+        <span class="pb-claim-pill reveal">
+          <svg class="pb-claim-pill__icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M5 13c2-2 5-3 7-3s5 1 7 3M7 18c1.5-1.2 3-2 5-2s3.5.8 5 2M12 4v3M9 7l3-3 3 3"/></svg>
+          <span>HANDMADE FRESH</span>
+        </span>
+        <span class="pb-claim-pill reveal">
+          <svg class="pb-claim-pill__icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 3a8 8 0 0 0-8 8c0 4 3 7 8 10 5-3 8-6 8-10a8 8 0 0 0-8-8Zm-3 9 2.5 2.5L16 10"/></svg>
+          <span>14.8g PROTEIN</span>
+        </span>
+        <span class="pb-claim-pill reveal">
+          <svg class="pb-claim-pill__icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 2c-3 4-3 7 0 11 3-4 3-7 0-11Zm-7 9c4 0 7 1 9 4M19 11c-4 0-7 1-9 4M5 11c0 5 3 9 7 9s7-4 7-9"/></svg>
+          <span>NO REFINED SUGARS</span>
+        </span>
+        <span class="pb-claim-pill reveal">
+          <svg class="pb-claim-pill__icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 3 4 6v6c0 4.5 3.5 8 8 9 4.5-1 8-4.5 8-9V6l-8-3Zm-3 9 2.5 2.5L16 10"/></svg>
+          <span>FSSAI CERTIFIED</span>
+        </span>
+      </div>
+    </section>
+
+
+    <!-- ── Gallery ────────── -->
+    <section class="pb-gallery" aria-label="Product gallery">
+      <div class="pb-gallery__header pb-section-header reveal">
+        <span class="pb-section-kicker">The Product</span>
+        <h2 class="pb-section-heading">Take a<br><em>Closer Look.</em></h2>
+      </div>
+
+      <div class="pb-gallery__scroll" role="list" aria-label="Scroll to browse product photos">
+
+        <div class="pb-gallery-card reveal" role="listitem">
+          <div class="pb-gallery-card__frame">
+            <div class="pb-gallery-card__img is-placeholder" data-slot="Pack · Overhead" aria-label="Pack overhead view placeholder"></div>
+          </div>
+          <p class="pb-gallery-card__caption">Pack — Overhead</p>
+        </div>
+
+        <div class="pb-gallery-card reveal" role="listitem">
+          <div class="pb-gallery-card__frame">
+            <div class="pb-gallery-card__img is-placeholder" data-slot="Bite · Cross-section" aria-label="Bite cross-section placeholder"></div>
+          </div>
+          <p class="pb-gallery-card__caption">Bite — Cross-section</p>
+        </div>
+
+        <div class="pb-gallery-card reveal" role="listitem">
+          <div class="pb-gallery-card__frame">
+            <div class="pb-gallery-card__img is-placeholder" data-slot="Pack · Open" aria-label="Pack open placeholder"></div>
+          </div>
+          <p class="pb-gallery-card__caption">Pack Open</p>
+        </div>
+
+        <div class="pb-gallery-card reveal" role="listitem">
+          <div class="pb-gallery-card__frame">
+            <div class="pb-gallery-card__img is-placeholder" data-slot="Bite · Single Macro" aria-label="Single bite macro placeholder"></div>
+          </div>
+          <p class="pb-gallery-card__caption">Single Bite — Macro</p>
+        </div>
+
+        <div class="pb-gallery-card reveal" role="listitem">
+          <div class="pb-gallery-card__frame">
+            <div class="pb-gallery-card__img is-placeholder" data-slot="Infographic · High Protein" aria-label="High protein infographic placeholder"></div>
+          </div>
+          <p class="pb-gallery-card__caption">14.8g Protein</p>
+        </div>
+
+        <div class="pb-gallery-card reveal" role="listitem">
+          <div class="pb-gallery-card__frame">
+            <div class="pb-gallery-card__img is-placeholder" data-slot="Infographic · Stats" aria-label="Stats infographic placeholder"></div>
+          </div>
+          <p class="pb-gallery-card__caption">Protein · Pack · Pieces</p>
+        </div>
+
+        <div class="pb-gallery-card reveal" role="listitem">
+          <div class="pb-gallery-card__frame">
+            <div class="pb-gallery-card__img is-placeholder" data-slot="Infographic · 0g Trans Fat" aria-label="0g trans fat infographic placeholder"></div>
+          </div>
+          <p class="pb-gallery-card__caption">0g Trans Fat</p>
+        </div>
+
+        <div class="pb-gallery-card reveal" role="listitem">
+          <div class="pb-gallery-card__frame">
+            <div class="pb-gallery-card__img is-placeholder" data-slot="Lifestyle · Pack In Wild" aria-label="Lifestyle shot placeholder"></div>
+          </div>
+          <p class="pb-gallery-card__caption">Pack in the Wild</p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ── 4. KEY STATS ──────────────────────────────────────────────── -->
+    <section class="pb-stats" aria-label="Key product stats">
+      <div class="pb-stats__grid" data-stagger="120">
+
+        <div class="pb-stat reveal">
+          <span class="pb-stat-num">
+            <span data-countup="14.8">14.8</span><span class="pb-stat-unit">g</span>
+          </span>
+          <span class="pb-stat-label">Protein / 100g</span>
+        </div>
+
+        <div class="pb-stat reveal">
+          <span class="pb-stat-num">
+            <span data-countup="180">180</span><span class="pb-stat-unit">g</span>
+          </span>
+          <span class="pb-stat-label">Pack Weight</span>
+        </div>
+
+        <div class="pb-stat reveal">
+          <span class="pb-stat-num">
+            <span data-countup="12">12</span>
+          </span>
+          <span class="pb-stat-label">Bites Per Pack</span>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ── 5. PRODUCT DESCRIPTION ─────────────────────────────────────── -->
+    <section class="pb-description" aria-label="Product description">
+      <div class="pb-section-header reveal">
+        <span class="pb-section-kicker">What Are Royal Bites?</span>
+        <h2 class="pb-section-heading">Rich Taste,<br><em>Wholesome Strength.</em></h2>
+      </div>
+
+      <ul class="pb-description__list" data-stagger="70">
+        <li class="pb-description__item reveal">
+          <span class="pb-description__bullet" aria-hidden="true"></span>
+          <span><strong>Square-shaped protein bites</strong> &mdash; handmade in small batches with real cocoa, peanut butter, gram flour, and premium nuts. Not extruded. Not factory-made.</span>
+        </li>
+        <li class="pb-description__item reveal">
+          <span class="pb-description__bullet" aria-hidden="true"></span>
+          <span><strong>Satisfy your chocolate craving guilt-free</strong> &mdash; rich cocoa taste with jaggery sweetness. The indulgence you crave with the nutrition your body deserves.</span>
+        </li>
+        <li class="pb-description__item reveal">
+          <span class="pb-description__bullet" aria-hidden="true"></span>
+          <span><strong>14.8g protein per 100g</strong> &mdash; from peanut butter, roasted gram flour, peanuts, cashew, and almond. Real protein. No protein powder, no additives.</span>
+        </li>
+        <li class="pb-description__item reveal">
+          <span class="pb-description__bullet" aria-hidden="true"></span>
+          <span><strong>9 real ingredients &mdash; that&rsquo;s the whole label.</strong> Cocoa, peanut butter, gram flour, peanuts, ghee, cashew, almond, pumpkin seeds, jaggery. Nothing else.</span>
+        </li>
+        <li class="pb-description__item reveal">
+          <span class="pb-description__bullet" aria-hidden="true"></span>
+          <span><strong>Sweetened only with natural jaggery</strong> &mdash; no refined sugar, no corn syrup, no artificial sweeteners. Jaggery carries minerals and a deeper sweetness refined sugar never can.</span>
+        </li>
+        <li class="pb-description__item reveal">
+          <span class="pb-description__bullet" aria-hidden="true"></span>
+          <span><strong>0g trans fat. 19.8g healthy fats per 100g.</strong> Pure cow ghee, nuts and peanut butter &mdash; healthy fats that fuel your body, not slow it down.</span>
+        </li>
+      </ul>
+    </section>
+
+
+    <!-- ── 6. WHAT'S INSIDE ──────────────────────────────────────────── -->
+    <section class="pb-ingredients" aria-label="Ingredients">
+      <div class="pb-section-header reveal">
+        <span class="pb-section-kicker">What's Inside</span>
+        <p class="pb-ing-label">Ingredients</p>
+        <h2 class="pb-section-heading">9 Real Ingredients,<br><em>nothing else.</em></h2>
+      </div>
+
+      <div class="pb-ing-grid" data-stagger="40">
+
+        <div class="pb-ing-pill reveal">
+          <div class="pb-ing-cutout pb-placeholder is-placeholder" data-slot="ingredient-roasted-gram-flour" aria-hidden="true"></div>
+          <span class="pb-ing-name">Roasted Gram Flour</span>
+          <span class="pb-ing-pct gold-text"><span data-countup="22.0">22.0</span>%</span>
+        </div>
+
+        <div class="pb-ing-pill reveal">
+          <div class="pb-ing-cutout pb-placeholder is-placeholder" data-slot="ingredient-peanut-butter" aria-hidden="true"></div>
+          <span class="pb-ing-name">Peanut Butter</span>
+          <span class="pb-ing-pct gold-text"><span data-countup="22.0">22.0</span>%</span>
+        </div>
+
+        <div class="pb-ing-pill reveal">
+          <div class="pb-ing-cutout pb-placeholder is-placeholder" data-slot="ingredient-jaggery" aria-hidden="true"></div>
+          <span class="pb-ing-name">Jaggery</span>
+          <span class="pb-ing-pct gold-text"><span data-countup="13.2">13.2</span>%</span>
+        </div>
+
+        <div class="pb-ing-pill reveal">
+          <div class="pb-ing-cutout pb-placeholder is-placeholder" data-slot="ingredient-peanuts" aria-hidden="true"></div>
+          <span class="pb-ing-name">Peanuts</span>
+          <span class="pb-ing-pct gold-text"><span data-countup="11.0">11.0</span>%</span>
+        </div>
+
+        <div class="pb-ing-pill reveal">
+          <div class="pb-ing-cutout pb-placeholder is-placeholder" data-slot="ingredient-ghee" aria-hidden="true"></div>
+          <span class="pb-ing-name">Pure Ghee</span>
+          <span class="pb-ing-pct gold-text"><span data-countup="11.0">11.0</span>%</span>
+        </div>
+
+        <div class="pb-ing-pill reveal">
+          <div class="pb-ing-cutout pb-placeholder is-placeholder" data-slot="ingredient-cocoa-powder" aria-hidden="true"></div>
+          <span class="pb-ing-name">Cocoa Powder</span>
+          <span class="pb-ing-pct gold-text"><span data-countup="6.6">6.6</span>%</span>
+        </div>
+
+        <div class="pb-ing-pill reveal">
+          <div class="pb-ing-cutout pb-placeholder is-placeholder" data-slot="ingredient-cashew" aria-hidden="true"></div>
+          <span class="pb-ing-name">Cashew</span>
+          <span class="pb-ing-pct gold-text"><span data-countup="5.5">5.5</span>%</span>
+        </div>
+
+        <div class="pb-ing-pill reveal">
+          <div class="pb-ing-cutout pb-placeholder is-placeholder" data-slot="ingredient-almond" aria-hidden="true"></div>
+          <span class="pb-ing-name">Almond</span>
+          <span class="pb-ing-pct gold-text"><span data-countup="5.5">5.5</span>%</span>
+        </div>
+
+        <div class="pb-ing-pill reveal">
+          <div class="pb-ing-cutout pb-placeholder is-placeholder" data-slot="ingredient-pumpkin-seeds" aria-hidden="true"></div>
+          <span class="pb-ing-name">Pumpkin Seeds</span>
+          <span class="pb-ing-pct gold-text"><span data-countup="3.3">3.3</span>%</span>
+        </div>
+
+      </div>
+
+      <p class="pb-ing-allergen">
+        Contains peanuts, tree nuts (cashew, almond), milk (ghee). May contain traces of sesame seeds and other nuts.
+      </p>
+    </section>
+
+
+    <!-- ── 7. USP VISUALS BAND ───────────────────────────────────────── -->
+    <section class="pb-usp" aria-label="Why Royal Bites">
+      <div class="pb-section-header reveal">
+        <span class="pb-section-kicker">Why Royal Bites</span>
+        <h2 class="pb-section-heading">What Makes Royal Bites <em>Different.</em></h2>
+      </div>
+
+      <div class="pb-usp__grid" data-stagger="60">
+
+        <div class="pb-usp-card reveal">
+          <div class="pb-usp-img pb-placeholder is-placeholder" data-slot="usp-image-cocoa" aria-hidden="true"></div>
+          <div class="pb-usp-body">
+            <h3 class="pb-usp-title">Rich Cocoa Taste. Real Indulgence.</h3>
+            <p class="pb-usp-desc">Real cocoa powder &mdash; not artificial cocoa flavouring. The deep chocolate richness you experience in Royal Bites comes from actual Cocoa Powder (6.6%). You can taste the difference because it is different.</p>
+          </div>
+        </div>
+
+        <div class="pb-usp-card reveal">
+          <div class="pb-usp-img pb-placeholder is-placeholder" data-slot="usp-image-protein" aria-hidden="true"></div>
+          <div class="pb-usp-body">
+            <h3 class="pb-usp-title">14.8g Protein. Per 100g.</h3>
+            <p class="pb-usp-desc">Peanut butter (22%) + Roasted gram flour (22%) + Peanuts (11%) + Nuts. That&rsquo;s how Royal Bites earns 14.8g protein per 100g &mdash; from whole foods, not from protein isolate powders or artificial supplements.</p>
+          </div>
+        </div>
+
+        <div class="pb-usp-card reveal">
+          <div class="pb-usp-img pb-placeholder is-placeholder" data-slot="usp-image-jaggery" aria-hidden="true"></div>
+          <div class="pb-usp-body">
+            <h3 class="pb-usp-title">Sweetened With Natural Jaggery.</h3>
+            <p class="pb-usp-desc">Jaggery carries iron, magnesium, and potassium. Refined sugar is empty calories. We chose jaggery deliberately &mdash; it makes Royal Bites sweeter in every sense of the word.</p>
+          </div>
+        </div>
+
+        <div class="pb-usp-card reveal">
+          <div class="pb-usp-img pb-placeholder is-placeholder" data-slot="usp-image-handmade" aria-hidden="true"></div>
+          <div class="pb-usp-body">
+            <h3 class="pb-usp-title">Made By Hand. Small Batches.</h3>
+            <p class="pb-usp-desc">Every Royal Bite is handmade in our Kolkata kitchen &mdash; not pushed through a factory extruder. That&rsquo;s why the ingredient list stays at 9 things you can actually pronounce.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ── 9. US vs THEM ──────────────────────────────────────────────── -->
+    <section class="pb-vs" aria-label="Royal Bites vs other snacks comparison">
+      <div class="pb-section-header reveal">
+        <span class="pb-section-kicker">The Comparison</span>
+        <h2 class="pb-section-heading">Royal Bites vs <em>Other Snacks.</em></h2>
+      </div>
+
+      <div class="pb-vs__visual pb-placeholder" role="img" aria-label="Comparison photo placeholder"></div>
+
+      <div class="pb-vs__grid">
+
+        <div class="pb-vs__col pb-vs__col--them">
+          <h3 class="pb-vs__col-head">Other Snacks</h3>
+          <div class="pb-vs__row"><span class="pb-vs__glyph pb-vs__glyph--no" aria-hidden="true">&#10005;</span><span>Refined sugar or corn syrup</span></div>
+          <div class="pb-vs__row"><span class="pb-vs__glyph pb-vs__glyph--no" aria-hidden="true">&#10005;</span><span>Artificial cocoa flavouring</span></div>
+          <div class="pb-vs__row"><span class="pb-vs__glyph pb-vs__glyph--no" aria-hidden="true">&#10005;</span><span>Preservatives &mdash; 12 to 18 months &ldquo;shelf life&rdquo;</span></div>
+          <div class="pb-vs__row"><span class="pb-vs__glyph pb-vs__glyph--no" aria-hidden="true">&#10005;</span><span>Factory-extruded, ultra-processed</span></div>
+          <div class="pb-vs__row"><span class="pb-vs__glyph pb-vs__glyph--no" aria-hidden="true">&#10005;</span><span>Protein from isolates and additives</span></div>
+          <div class="pb-vs__row"><span class="pb-vs__glyph pb-vs__glyph--no" aria-hidden="true">&#10005;</span><span>Trans fat hiding in the fine print</span></div>
+        </div>
+
+        <div class="pb-vs__col">
+          <h3 class="pb-vs__col-head">Royal Bites</h3>
+          <div class="pb-vs__row"><span class="pb-vs__glyph pb-vs__glyph--yes" aria-hidden="true">&#10003;</span><span>Sweetened only with natural jaggery</span></div>
+          <div class="pb-vs__row"><span class="pb-vs__glyph pb-vs__glyph--yes" aria-hidden="true">&#10003;</span><span>Real cocoa powder (6.6%) &amp; pure ghee</span></div>
+          <div class="pb-vs__row"><span class="pb-vs__glyph pb-vs__glyph--yes" aria-hidden="true">&#10003;</span><span>Zero preservatives &mdash; naturally fresh 3 months</span></div>
+          <div class="pb-vs__row"><span class="pb-vs__glyph pb-vs__glyph--yes" aria-hidden="true">&#10003;</span><span>Hand-rolled in Kolkata, small batches</span></div>
+          <div class="pb-vs__row"><span class="pb-vs__glyph pb-vs__glyph--yes" aria-hidden="true">&#10003;</span><span>14.8g protein from real peanuts &amp; nuts</span></div>
+          <div class="pb-vs__row"><span class="pb-vs__glyph pb-vs__glyph--yes" aria-hidden="true">&#10003;</span><span>0g trans fat &mdash; every single batch</span></div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ── 10. PERSONA ───────────────────────────────────────────────── -->
+    <section class="pb-persona" aria-label="Made for people like you">
+      <div class="pb-persona__header pb-section-header reveal">
+        <span class="pb-section-kicker">Made For People Like You</span>
+        <h2 class="pb-section-heading"><em>Guilt-Free Luxury Every Day.</em></h2>
+      </div>
+
+      <div class="pb-persona__scroll" role="list">
+
+        <div class="pb-persona-card reveal" role="listitem">
+          <div class="pb-persona-card__photo pb-placeholder is-placeholder" data-slot="persona-priya" aria-hidden="true"></div>
+          <div class="pb-persona-card__body">
+            <p class="pb-persona-card__name">Priya, 29</p>
+            <p class="pb-section-kicker">Fitness Enthusiast</p>
+            <p class="pb-persona-card__quote">&ldquo;Rich cocoa, 14.8g protein. My post-workout treat, sorted.&rdquo;</p>
+          </div>
+        </div>
+
+        <div class="pb-persona-card reveal" role="listitem">
+          <div class="pb-persona-card__photo pb-placeholder is-placeholder" data-slot="persona-rahul" aria-hidden="true"></div>
+          <div class="pb-persona-card__body">
+            <p class="pb-persona-card__name">Rahul, 33</p>
+            <p class="pb-section-kicker">Chocolate Lover</p>
+            <p class="pb-persona-card__quote">&ldquo;Tastes like chocolate. Sweetened with jaggery. No guilt.&rdquo;</p>
+          </div>
+        </div>
+
+        <div class="pb-persona-card reveal" role="listitem">
+          <div class="pb-persona-card__photo pb-placeholder is-placeholder" data-slot="persona-neha" aria-hidden="true"></div>
+          <div class="pb-persona-card__body">
+            <p class="pb-persona-card__name">Neha, 38</p>
+            <p class="pb-section-kicker">Health-Conscious Snacker</p>
+            <p class="pb-persona-card__quote">&ldquo;Finally a dessert bite I don&rsquo;t have to feel bad about.&rdquo;</p>
+          </div>
+        </div>
+
+        <div class="pb-persona-card reveal" role="listitem">
+          <div class="pb-persona-card__photo pb-placeholder is-placeholder" data-slot="persona-dev" aria-hidden="true"></div>
+          <div class="pb-persona-card__body">
+            <p class="pb-persona-card__name">Dev, 26</p>
+            <p class="pb-section-kicker">Protein Seeker</p>
+            <p class="pb-persona-card__quote">&ldquo;Peanut butter, nuts, gram flour. Real protein, real taste.&rdquo;</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ── 12. GUARANTEE ─────────────────────────────────────────────── -->
+    <section class="pb-guarantee" id="pbGuarantee" aria-label="Our satisfaction guarantee">
+      <div class="pb-guarantee__inner">
+        <div class="pb-guarantee__badge" aria-hidden="true">
+          <div class="pb-guar-rings-wrap">
+            <div class="pb-guar-ring pb-guar-ring--1"></div>
+            <div class="pb-guar-ring pb-guar-ring--2"></div>
+            <div class="pb-guar-ring pb-guar-ring--3"></div>
+            <svg class="pb-guar-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle class="pb-guar-outer" cx="32" cy="32" r="30"
+                stroke="rgba(212,175,55,0.55)" stroke-width="1.5"
+                stroke-dasharray="189" stroke-dashoffset="189"
+                transform="rotate(-90 32 32)"/>
+              <circle class="pb-guar-inner" cx="32" cy="32" r="23"
+                stroke="rgba(212,175,55,0.30)" stroke-width="1"
+                stroke-dasharray="145" stroke-dashoffset="145"
+                transform="rotate(-90 32 32)"/>
+              <path class="pb-guar-tick"
+                d="M19 32 l9.5 9.5 16.5-18"
+                stroke="#D4AF37" stroke-width="3.5"
+                stroke-linecap="round" stroke-linejoin="round"
+                stroke-dasharray="40" stroke-dashoffset="40"/>
+            </svg>
+          </div>
+          <p class="pb-guarantee__badge-label">100% Satisfaction</p>
+        </div>
+        <h2 class="pb-guarantee__heading">
+          We guarantee you&rsquo;ll love Royal Bites &mdash; the rich cocoa taste, the real ingredients, the way you feel after eating something honest. Real food does that. Chemicals don&rsquo;t.
+        </h2>
+        <p class="pb-guarantee__sub">
+          Any questions? Just WhatsApp us at <a href="https://wa.me/918910725854" target="_blank" rel="noopener">+91&nbsp;89107&nbsp;25854</a>
+          <br><br>
+          <strong style="color:var(--on-dark); letter-spacing:0.04em;">FREE SHIPPING &nbsp;·&nbsp; COD AVAILABLE &nbsp;·&nbsp; PAN-INDIA</strong>
+        </p>
+        <a href="https://wa.me/918910725854?text=Hi%2C+I+want+to+order+Royal+Bites" class="pcard-btn" target="_blank" rel="noopener" style="margin-top:28px; display:inline-flex;">
+          Try Royal Bites
+        </a>
+      </div>
+    </section>
+
+
+    <!-- ── 13. YOU MAY ALSO LIKE ─────────────────────────────────────── -->
+    <section class="pb-related" aria-label="You may also like">
+      <div class="pb-related__header pb-section-header reveal">
+        <span class="pb-section-kicker">Also From Diet Swad</span>
+        <h2 class="pb-section-heading">You May<br><em>Also Love These.</em></h2>
+      </div>
+
+      <div class="pb-related__scroll" data-stagger="80">
+
+        <a class="pb-related-card reveal" href="power-bites.html" aria-label="Power Bites — ₹499">
+          <div class="pb-related-card__photo is-placeholder" data-slot="Related · Power Bites" aria-label="Power Bites product photo placeholder"></div>
+          <div class="pb-related-card__body">
+            <p class="pb-related-card__name">Power Bites</p>
+            <p class="pb-related-card__price">₹499</p>
+          </div>
+        </a>
+
+        <a class="pb-related-card reveal" href="millet-choco-cookies.html" aria-label="Millet Choco Cookies — ₹499">
+          <div class="pb-related-card__photo is-placeholder" data-slot="Related · Millet Choco Cookies" aria-label="Millet Choco Cookies photo placeholder"></div>
+          <div class="pb-related-card__body">
+            <p class="pb-related-card__name">Millet Choco Cookies</p>
+            <p class="pb-related-card__price">₹499</p>
+          </div>
+        </a>
+
+        <a class="pb-related-card reveal" href="roasted-cashews.html" aria-label="Roasted &amp; Salted Cashews — ₹499">
+          <div class="pb-related-card__photo is-placeholder" data-slot="Related · Roasted Cashews" aria-label="Roasted Cashews photo placeholder"></div>
+          <div class="pb-related-card__body">
+            <p class="pb-related-card__name">Roasted &amp; Salted Cashews</p>
+            <p class="pb-related-card__price">₹499</p>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+  </main><!-- /.royal-bites -->
+
+
+  <!-- ── STICKY CTA BAR ────────────────────────────────────────────── -->
+  <div class="pb-sticky-cta" id="pbStickyCta" aria-label="Quick order bar" role="complementary">
+    <div class="pb-sticky-cta__left">
+      <span class="pb-sticky-cta__name">Royal Bites · 180g</span>
+      <span class="pb-sticky-cta__price"><span class="pb-rupee-sym">₹</span><span class="pb-price-digits">499</span></span>
+      <span class="pb-sticky-cta__trust">FREE SHIPPING ALL INDIA</span>
+    </div>
+    <a href="https://wa.me/918910725854?text=Hi%2C+I+want+to+order+Royal+Bites" class="pb-sticky-cta__btn" target="_blank" rel="noopener">
+      Order Now
+    </a>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="footer-logo-wrap">
+      <img
+        src="Assets/Logo_and_icons/horizontal golden logo transparent.png"
+        alt="Diet Swad"
+        style="height: 56px; width: auto; margin-bottom: 12px;"
+        onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+      >
+      <p class="footer-logo-text" style="display:none;">Diet Swad</p>
+    </div>
+    <p class="footer-tagline">Zero Guilt. Zero Junk. 100% Satisfaction.</p>
+
+    <nav class="footer-links" aria-label="Footer links">
+      <a href="index.html#products">Our Products</a>
+      <a href="index.html#order">Order Now</a>
+      <a href="index.html">Home</a>
+      <a href="https://wa.me/918910725854" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms-of-service.html">Terms of Service</a>
+      <a href="shipping-policy.html">Shipping Policy</a>
+      <a href="refund-policy.html">Refund Policy</a>
+    </nav>
+
+    <div class="footer-social">
+      <a href="https://instagram.com/dietswad" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      </a>
+      <a href="https://wa.me/918910725854" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      </a>
+      <a href="#" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      </a>
+      <a href="mailto:dietswad143@gmail.com" aria-label="Email">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      </a>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-fssai">
+        FSSAI Reg: 22825041000300<br>
+        Made in Kolkata with love &middot; Radiant Twins Enterprise<br>
+        &copy; 2025 Diet Swad. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       WHATSAPP FLOATING BUTTON
+       ═══════════════════════════════════════════════════════════════════ -->
+  <a href="https://wa.me/918910725854" class="wa-fab" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+
+  <!-- Product page animation engine -->
+  <script defer src="product-animations.js"></script>
+
+  <!-- Mobile nav drawer -->
+  <script>
+  (function () {
+    var hamburger = document.getElementById('navHamburger');
+    var drawer    = document.getElementById('mobileDrawer');
+    var backdrop  = document.getElementById('drawerBackdrop');
+    var closeBtn  = document.getElementById('drawerClose');
+    var links     = drawer ? drawer.querySelectorAll('.drawer-link') : [];
+    if (!hamburger || !drawer) return;
+
+    function openDrawer() {
+      drawer.classList.add('is-open');
+      drawer.setAttribute('aria-hidden', 'false');
+      hamburger.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+      if (closeBtn) closeBtn.focus();
+    }
+
+    function closeDrawer() {
+      drawer.classList.remove('is-open');
+      drawer.setAttribute('aria-hidden', 'true');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+      hamburger.focus();
+    }
+
+    hamburger.addEventListener('click', openDrawer);
+    if (closeBtn)  closeBtn.addEventListener('click', closeDrawer);
+    if (backdrop)  backdrop.addEventListener('click', closeDrawer);
+
+    links.forEach(function (link) {
+      link.addEventListener('click', closeDrawer);
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && drawer.classList.contains('is-open')) closeDrawer();
+    });
+  })();
+  </script>
+
+  <!-- Guarantee section: IO trigger + heading word-split -->
+  <script>
+  (function () {
+    var section = document.getElementById('pbGuarantee');
+    if (!section) return;
+
+    var heading = section.querySelector('.pb-guarantee__heading');
+    if (heading) {
+      var wi = 0;
+      heading.innerHTML = heading.innerHTML.trim().split(/(\s+)/).map(function (tok) {
+        if (/^\s+$/.test(tok)) return ' ';
+        return '<span class="guar-word" style="--wi:' + (wi++) + '">' + tok + '</span>';
+      }).join('');
+    }
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('pb-guar-in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.25 });
+    io.observe(section);
+  })();
+  </script>
+
+  <!-- Nav scroll-state -->
+  <script>
+  (function () {
+    var nav = document.querySelector('.site-nav');
+    if (!nav) return;
+    var logoImg     = nav.querySelector('.nav-logo');
+    var logoDefault = 'Assets/Logo_and_icons/normal horizontal logo background removed.png';
+    var logoGolden  = 'Assets/Logo_and_icons/horizontal golden logo transparent.png';
+    function update() {
+      var scrolled = window.scrollY > 100;
+      nav.classList.toggle('is-scrolled', scrolled);
+      if (logoImg) logoImg.src = scrolled ? logoGolden : logoDefault;
+    }
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+  })();
+  </script>
+
+</body>
+</html>

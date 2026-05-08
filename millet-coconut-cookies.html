@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Millet Coconut Cookies — Diet Swad</title>
+  <meta name="description" content="Millet Coconut Cookies by Diet Swad — Jowar flour, real butter, desiccated coconut, naturally sweetened with desi khand. 0g trans fat. No preservatives. Tropical crunch, guilt-free.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500;1,600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="product.css">
+</head>
+<body class="millet-coconut pb-page">
+
+  <nav class="site-nav">
+    <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <img src="Assets/Logo_and_icons/normal horizontal logo background removed.png" alt="Diet Swad" class="nav-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+    <a href="#" class="nav-logo-text gold-text" style="display:none;">Diet Swad</a>
+    <a href="#order" class="nav-order-btn">Order Now</a>
+  </nav>
+
+  <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+    <div class="drawer-backdrop" id="drawerBackdrop"></div>
+    <div class="drawer-panel" role="dialog" aria-label="Navigation">
+      <button class="drawer-close" id="drawerClose" aria-label="Close menu">&times;</button>
+      <a class="drawer-link" href="index.html">Home</a>
+      <a class="drawer-link" href="index.html#products">Products</a>
+      <a class="drawer-link" href="index.html#hampers">Hampers</a>
+      <a class="drawer-link" href="index.html#reviews">Reviews</a>
+      <a class="drawer-link drawer-link--cta" href="#order">Order Now</a>
+      <div class="drawer-social">
+        <a href="https://instagram.com/dietswad" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+        <a href="https://wa.me/918910725854" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+      </div>
+    </div>
+  </div>
+
+
+  <main class="millet-coconut">
+
+    <section class="pb-hero" id="order" aria-label="Millet Coconut Cookies product hero">
+      <div class="pb-hero-bg" aria-hidden="true"></div>
+      <div class="pb-hero-photo">
+        <img src="Assets/Product_hero_image/Millet_coconut_cookies_hero_shot.png" alt="Millet Coconut Cookies — jowar and desiccated coconut cookies" loading="eager" onerror="this.style.display='none'">
+      </div>
+      <div class="pb-hero-content">
+        <p class="pb-hero-eyebrow section-label-gold reveal">Jowar &amp; Coconut Cookies &middot; Naturally Sweetened</p>
+        <h1 class="pb-hero-headline">MILLET COCONUT COOKIES</h1>
+        <p class="pb-hero-sub reveal">Tropical crunch meets millet nutrition. Sorghum (Jowar) flour, real butter, desiccated coconut, and desi khand &mdash; baked golden. No refined sugar. No preservatives. Just 9 real ingredients.</p>
+        <p class="pb-hero-trust-micro reveal">
+          <span>FSSAI Certified</span><span aria-hidden="true">&middot;</span>
+          <span>Slow-Baked Fresh</span><span aria-hidden="true">&middot;</span>
+          <span>100% Satisfaction Guaranteed</span>
+        </p>
+        <div class="pb-hero-price-row reveal">
+          <span class="pb-hero-price gold-text">&#8377;<span class="pb-price-digits gold-text">499</span></span>
+          <span class="pb-hero-weight">150g pack</span>
+        </div>
+        <a href="https://wa.me/918910725854?text=Hi%2C+I+want+to+order+Millet+Coconut+Cookies" class="pcard-btn pb-hero-cta" target="_blank" rel="noopener">ORDER NOW</a>
+        <p class="pb-hero-shipping reveal">Free pan-India shipping &middot; COD available</p>
+      </div>
+    </section>
+
+
+    <div class="pb-trust-strip" aria-label="Trust signals">
+      <div class="pb-trust-strip__track" aria-hidden="true">
+        <div class="pb-trust-strip__inner">
+          <span class="pb-trust-strip__item">Slow-Baked Fresh</span><span class="pb-trust-strip__sep">·</span>
+          <span class="pb-trust-strip__item">Zero Trans Fat</span><span class="pb-trust-strip__sep">·</span>
+          <span class="pb-trust-strip__item">Naturally Sweetened with Desi Khand</span><span class="pb-trust-strip__sep">·</span>
+          <span class="pb-trust-strip__item">Zero Preservatives</span><span class="pb-trust-strip__sep">·</span>
+          <span class="pb-trust-strip__item">Millet-Powered</span><span class="pb-trust-strip__sep">·</span>
+          <span class="pb-trust-strip__item">FSSAI Certified</span><span class="pb-trust-strip__sep">·</span>
+          <span class="pb-trust-strip__item">Free Pan-India Shipping</span><span class="pb-trust-strip__sep">·</span>
+          <span class="pb-trust-strip__item">COD Available</span><span class="pb-trust-strip__sep">·</span>
+        </div>
+        <div class="pb-trust-strip__inner">
+          <span class="pb-trust-strip__item">Slow-Baked Fresh</span><span class="pb-trust-strip__sep">·</span>
+          <span class="pb-trust-strip__item">Zero Trans Fat</span><span class="pb-trust-strip__sep">·</span>
+          <span class="pb-trust-strip__item">Naturally Sweetened with Desi Khand</span><span class="pb-trust-strip__sep">·</span>
+          <span class="pb-trust-strip__item">Zero Preservatives</span><span class="pb-trust-strip__sep">·</span>
+          <span class="pb-trust-strip__item">Millet-Powered</span><span class="pb-trust-strip__sep">·</span>
+          <span class="pb-trust-strip__item">FSSAI Certified</span><span class="pb-trust-strip__sep">·</span>
+          <span class="pb-trust-strip__item">Free Pan-India Shipping</span><span class="pb-trust-strip__sep">·</span>
+          <span class="pb-trust-strip__item">COD Available</span><span class="pb-trust-strip__sep">·</span>
+        </div>
+      </div>
+    </div>
+
+
+    <section class="pb-claims" aria-label="Product claims">
+      <div class="pb-claims__row" data-stagger="80">
+        <span class="pb-claim-pill reveal">
+          <svg class="pb-claim-pill__icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M5 13c2-2 5-3 7-3s5 1 7 3M7 18c1.5-1.2 3-2 5-2s3.5.8 5 2M12 4v3M9 7l3-3 3 3"/></svg>
+          <span>MILLET-POWERED</span>
+        </span>
+        <span class="pb-claim-pill reveal">
+          <svg class="pb-claim-pill__icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 3a8 8 0 0 0-8 8c0 4 3 7 8 10 5-3 8-6 8-10a8 8 0 0 0-8-8Zm-3 9 2.5 2.5L16 10"/></svg>
+          <span>REAL COCONUT</span>
+        </span>
+        <span class="pb-claim-pill reveal">
+          <svg class="pb-claim-pill__icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 2c-3 4-3 7 0 11 3-4 3-7 0-11Zm-7 9c4 0 7 1 9 4M19 11c-4 0-7 1-9 4M5 11c0 5 3 9 7 9s7-4 7-9"/></svg>
+          <span>ZERO TRANS FAT</span>
+        </span>
+        <span class="pb-claim-pill reveal">
+          <svg class="pb-claim-pill__icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 3 4 6v6c0 4.5 3.5 8 8 9 4.5-1 8-4.5 8-9V6l-8-3Zm-3 9 2.5 2.5L16 10"/></svg>
+          <span>FSSAI CERTIFIED</span>
+        </span>
+      </div>
+    </section>
+
+
+    <section class="pb-gallery" aria-label="Product gallery">
+      <div class="pb-gallery__header pb-section-header reveal">
+        <span class="pb-section-kicker">The Product</span>
+        <h2 class="pb-section-heading">Take a<br><em>Closer Look.</em></h2>
+      </div>
+      <div class="pb-gallery__scroll" role="list" aria-label="Scroll to browse product photos">
+        <div class="pb-gallery-card reveal" role="listitem"><div class="pb-gallery-card__frame"><div class="pb-gallery-card__img is-placeholder" data-slot="Pack · Overhead" aria-label="Pack overhead placeholder"></div></div><p class="pb-gallery-card__caption">Pack — Overhead</p></div>
+        <div class="pb-gallery-card reveal" role="listitem"><div class="pb-gallery-card__frame"><div class="pb-gallery-card__img is-placeholder" data-slot="Cookie · Close-up" aria-label="Cookie close-up placeholder"></div></div><p class="pb-gallery-card__caption">Cookie — Close-up</p></div>
+        <div class="pb-gallery-card reveal" role="listitem"><div class="pb-gallery-card__frame"><div class="pb-gallery-card__img is-placeholder" data-slot="Pack · Open" aria-label="Pack open placeholder"></div></div><p class="pb-gallery-card__caption">Pack Open</p></div>
+        <div class="pb-gallery-card reveal" role="listitem"><div class="pb-gallery-card__frame"><div class="pb-gallery-card__img is-placeholder" data-slot="Cookies · Stack" aria-label="Stack of cookies placeholder"></div></div><p class="pb-gallery-card__caption">Cookie Stack</p></div>
+        <div class="pb-gallery-card reveal" role="listitem"><div class="pb-gallery-card__frame"><div class="pb-gallery-card__img is-placeholder" data-slot="Infographic · Coconut" aria-label="Real coconut infographic placeholder"></div></div><p class="pb-gallery-card__caption">Real Coconut</p></div>
+        <div class="pb-gallery-card reveal" role="listitem"><div class="pb-gallery-card__frame"><div class="pb-gallery-card__img is-placeholder" data-slot="Infographic · Stats" aria-label="Stats infographic placeholder"></div></div><p class="pb-gallery-card__caption">Protein · Pack · Ingredients</p></div>
+        <div class="pb-gallery-card reveal" role="listitem"><div class="pb-gallery-card__frame"><div class="pb-gallery-card__img is-placeholder" data-slot="Infographic · 0g Trans Fat" aria-label="0g trans fat infographic placeholder"></div></div><p class="pb-gallery-card__caption">0g Trans Fat</p></div>
+        <div class="pb-gallery-card reveal" role="listitem"><div class="pb-gallery-card__frame"><div class="pb-gallery-card__img is-placeholder" data-slot="Lifestyle · Chai Time" aria-label="Chai time lifestyle placeholder"></div></div><p class="pb-gallery-card__caption">Perfect Chai Companion</p></div>
+      </div>
+    </section>
+
+
+    <section class="pb-stats" aria-label="Key product stats">
+      <div class="pb-stats__grid" data-stagger="120">
+        <div class="pb-stat reveal">
+          <span class="pb-stat-num"><span data-countup="6.5">6.5</span><span class="pb-stat-unit">g</span></span>
+          <span class="pb-stat-label">Protein / 100g</span>
+        </div>
+        <div class="pb-stat reveal">
+          <span class="pb-stat-num"><span data-countup="150">150</span><span class="pb-stat-unit">g</span></span>
+          <span class="pb-stat-label">Pack Weight</span>
+        </div>
+        <div class="pb-stat reveal">
+          <span class="pb-stat-num"><span data-countup="9">9</span></span>
+          <span class="pb-stat-label">Total Ingredients</span>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="pb-description" aria-label="Product description">
+      <div class="pb-section-header reveal">
+        <span class="pb-section-kicker">What Are Millet Coconut Cookies?</span>
+        <h2 class="pb-section-heading">Tropical Crunch,<br><em>Real Goodness.</em></h2>
+      </div>
+      <ul class="pb-description__list" data-stagger="70">
+        <li class="pb-description__item reveal">
+          <span class="pb-description__bullet" aria-hidden="true"></span>
+          <span><strong>Golden-baked millet cookies with real coconut</strong> &mdash; slow-baked in small batches with jowar flour, real butter, and 14.8% desiccated coconut. That tropical crunch is real, not artificial flavouring.</span>
+        </li>
+        <li class="pb-description__item reveal">
+          <span class="pb-description__bullet" aria-hidden="true"></span>
+          <span><strong>Naturally sweetened with desi khand</strong> &mdash; no refined sugar, no corn syrup, no artificial sweeteners. The gentle sweetness you get with every bite is the real thing: unrefined cane sugar with trace minerals.</span>
+        </li>
+        <li class="pb-description__item reveal">
+          <span class="pb-description__bullet" aria-hidden="true"></span>
+          <span><strong>Sorghum (Jowar) flour 22.2%</strong> &mdash; the millet base that makes these cookies different from every maida biscuit in the supermarket. More fibre, better slow-release energy, that light golden texture.</span>
+        </li>
+        <li class="pb-description__item reveal">
+          <span class="pb-description__bullet" aria-hidden="true"></span>
+          <span><strong>Real butter and fresh milk baked in</strong> &mdash; 22.2% butter and 16.7% milk give Millet Coconut Cookies a soft, melt-in-mouth richness that vegetable oil simply cannot replicate.</span>
+        </li>
+        <li class="pb-description__item reveal">
+          <span class="pb-description__bullet" aria-hidden="true"></span>
+          <span><strong>The classic chai companion with a coconut twist</strong> &mdash; crisp edges, soft centre, tropical aroma. Pairs beautifully with your morning masala chai or evening filter coffee.</span>
+        </li>
+        <li class="pb-description__item reveal">
+          <span class="pb-description__bullet" aria-hidden="true"></span>
+          <span><strong>0g trans fat. Zero preservatives. No artificial flavours.</strong> Just 9 ingredients your grandmother would recognise &mdash; jowar, butter, milk, coconut, oats flour, desi khand, baking powder, vanilla, salt.</span>
+        </li>
+      </ul>
+    </section>
+
+
+    <section class="pb-ingredients" aria-label="Ingredients">
+      <div class="pb-section-header reveal">
+        <span class="pb-section-kicker">What's Inside</span>
+        <p class="pb-ing-label">Ingredients</p>
+        <h2 class="pb-section-heading">9 Real Ingredients,<br><em>nothing else.</em></h2>
+      </div>
+      <div class="pb-ing-grid" data-stagger="40">
+        <div class="pb-ing-pill reveal">
+          <div class="pb-ing-cutout pb-placeholder is-placeholder" data-slot="ingredient-jowar" aria-hidden="true"></div>
+          <span class="pb-ing-name">Sorghum Flour (Jowar)</span>
+          <span class="pb-ing-pct gold-text"><span data-countup="22.2">22.2</span>%</span>
+        </div>
+        <div class="pb-ing-pill reveal">
+          <div class="pb-ing-cutout pb-placeholder is-placeholder" data-slot="ingredient-butter" aria-hidden="true"></div>
+          <span class="pb-ing-name">Butter</span>
+          <span class="pb-ing-pct gold-text"><span data-countup="22.2">22.2</span>%</span>
+        </div>
+        <div class="pb-ing-pill reveal">
+          <div class="pb-ing-cutout pb-placeholder is-placeholder" data-slot="ingredient-milk" aria-hidden="true"></div>
+          <span class="pb-ing-name">Milk</span>
+          <span class="pb-ing-pct gold-text"><span data-countup="16.7">16.7</span>%</span>
+        </div>
+        <div class="pb-ing-pill reveal">
+          <div class="pb-ing-cutout pb-placeholder is-placeholder" data-slot="ingredient-desiccated-coconut" aria-hidden="true"></div>
+          <span class="pb-ing-name">Desiccated Coconut</span>
+          <span class="pb-ing-pct gold-text"><span data-countup="14.8">14.8</span>%</span>
+        </div>
+        <div class="pb-ing-pill reveal">
+          <div class="pb-ing-cutout pb-placeholder is-placeholder" data-slot="ingredient-oats-flour" aria-hidden="true"></div>
+          <span class="pb-ing-name">Oats Flour</span>
+          <span class="pb-ing-pct gold-text"><span data-countup="11.1">11.1</span>%</span>
+        </div>
+        <div class="pb-ing-pill reveal">
+          <div class="pb-ing-cutout pb-placeholder is-placeholder" data-slot="ingredient-desi-khand" aria-hidden="true"></div>
+          <span class="pb-ing-name">Desi Khand</span>
+          <span class="pb-ing-pct gold-text"><span data-countup="11.1">11.1</span>%</span>
+        </div>
+        <div class="pb-ing-pill reveal">
+          <div class="pb-ing-cutout pb-placeholder is-placeholder" data-slot="ingredient-baking-powder" aria-hidden="true"></div>
+          <span class="pb-ing-name">Baking Powder</span>
+          <span class="pb-ing-pct gold-text"><span data-countup="0.7">0.7</span>%</span>
+        </div>
+        <div class="pb-ing-pill reveal">
+          <div class="pb-ing-cutout pb-placeholder is-placeholder" data-slot="ingredient-vanilla-extract" aria-hidden="true"></div>
+          <span class="pb-ing-name">Vanilla Extract</span>
+          <span class="pb-ing-pct gold-text"><span data-countup="0.7">0.7</span>%</span>
+        </div>
+        <div class="pb-ing-pill reveal">
+          <div class="pb-ing-cutout pb-placeholder is-placeholder" data-slot="ingredient-iodized-salt" aria-hidden="true"></div>
+          <span class="pb-ing-name">Iodized Salt</span>
+          <span class="pb-ing-pct gold-text"><span data-countup="0.4">0.4</span>%</span>
+        </div>
+      </div>
+      <p class="pb-ing-allergen">
+        Contains milk (butter, milk), gluten (oats), coconut. May contain traces of peanuts, tree nuts, and sesame seeds.
+      </p>
+    </section>
+
+
+    <section class="pb-usp" aria-label="Why Millet Coconut Cookies">
+      <div class="pb-section-header reveal">
+        <span class="pb-section-kicker">Why Millet Coconut Cookies</span>
+        <h2 class="pb-section-heading">What Makes Millet Coconut Cookies <em>Different.</em></h2>
+      </div>
+      <div class="pb-usp__grid" data-stagger="60">
+        <div class="pb-usp-card reveal">
+          <div class="pb-usp-img pb-placeholder is-placeholder" data-slot="usp-image-millet" aria-hidden="true"></div>
+          <div class="pb-usp-body">
+            <h3 class="pb-usp-title">Millet-Powered Base.</h3>
+            <p class="pb-usp-desc">Sorghum (Jowar) flour 22.2% replaces refined maida entirely. Better fibre, better digestion, better slow-release energy &mdash; every single cookie. You can taste the difference in the lighter, crispier texture.</p>
+          </div>
+        </div>
+        <div class="pb-usp-card reveal">
+          <div class="pb-usp-img pb-placeholder is-placeholder" data-slot="usp-image-coconut" aria-hidden="true"></div>
+          <div class="pb-usp-body">
+            <h3 class="pb-usp-title">Real Desiccated Coconut (14.8%).</h3>
+            <p class="pb-usp-desc">Not coconut flavouring. Not coconut extract. Real desiccated coconut at 14.8% &mdash; giving Millet Coconut Cookies their unmistakable tropical crunch and natural sweetness that zero artificial flavourings can fake.</p>
+          </div>
+        </div>
+        <div class="pb-usp-card reveal">
+          <div class="pb-usp-img pb-placeholder is-placeholder" data-slot="usp-image-butter-milk" aria-hidden="true"></div>
+          <div class="pb-usp-body">
+            <h3 class="pb-usp-title">Real Butter + Milk. No Shortcuts.</h3>
+            <p class="pb-usp-desc">22.2% real butter and 16.7% fresh milk &mdash; the dairy richness that delivers true melt-in-mouth texture. No hydrogenated oils, no margarine, no artificial creamers. Real dairy, every time.</p>
+          </div>
+        </div>
+        <div class="pb-usp-card reveal">
+          <div class="pb-usp-img pb-placeholder is-placeholder" data-slot="usp-image-desi-khand" aria-hidden="true"></div>
+          <div class="pb-usp-body">
+            <h3 class="pb-usp-title">Naturally Sweetened. Zero Trans Fat.</h3>
+            <p class="pb-usp-desc">Desi khand &mdash; unrefined cane sugar with trace minerals &mdash; delivers gentle natural sweetness with no refined sugar crash. Slow-baked to 0g trans fat. The snack that tastes indulgent but earns its place.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="pb-vs" aria-label="Millet Coconut Cookies vs other cookies comparison">
+      <div class="pb-section-header reveal">
+        <span class="pb-section-kicker">The Comparison</span>
+        <h2 class="pb-section-heading">Millet Coconut Cookies vs <em>Regular Biscuits.</em></h2>
+      </div>
+      <div class="pb-vs__visual pb-placeholder" role="img" aria-label="Comparison photo placeholder"></div>
+      <div class="pb-vs__grid">
+        <div class="pb-vs__col pb-vs__col--them">
+          <h3 class="pb-vs__col-head">Regular Biscuits</h3>
+          <div class="pb-vs__row"><span class="pb-vs__glyph pb-vs__glyph--no" aria-hidden="true">&#10005;</span><span>Maida (refined flour) base</span></div>
+          <div class="pb-vs__row"><span class="pb-vs__glyph pb-vs__glyph--no" aria-hidden="true">&#10005;</span><span>Artificial coconut flavouring</span></div>
+          <div class="pb-vs__row"><span class="pb-vs__glyph pb-vs__glyph--no" aria-hidden="true">&#10005;</span><span>Refined sugar or HFCS</span></div>
+          <div class="pb-vs__row"><span class="pb-vs__glyph pb-vs__glyph--no" aria-hidden="true">&#10005;</span><span>Hydrogenated vegetable oil</span></div>
+          <div class="pb-vs__row"><span class="pb-vs__glyph pb-vs__glyph--no" aria-hidden="true">&#10005;</span><span>Preservatives &amp; emulsifiers</span></div>
+          <div class="pb-vs__row"><span class="pb-vs__glyph pb-vs__glyph--no" aria-hidden="true">&#10005;</span><span>Trans fat in the fine print</span></div>
+        </div>
+        <div class="pb-vs__col">
+          <h3 class="pb-vs__col-head">Millet Coconut Cookies</h3>
+          <div class="pb-vs__row"><span class="pb-vs__glyph pb-vs__glyph--yes" aria-hidden="true">&#10003;</span><span>Sorghum (Jowar) flour base</span></div>
+          <div class="pb-vs__row"><span class="pb-vs__glyph pb-vs__glyph--yes" aria-hidden="true">&#10003;</span><span>Real desiccated coconut (14.8%)</span></div>
+          <div class="pb-vs__row"><span class="pb-vs__glyph pb-vs__glyph--yes" aria-hidden="true">&#10003;</span><span>Naturally sweetened with desi khand</span></div>
+          <div class="pb-vs__row"><span class="pb-vs__glyph pb-vs__glyph--yes" aria-hidden="true">&#10003;</span><span>Real butter (22.2%) + fresh milk</span></div>
+          <div class="pb-vs__row"><span class="pb-vs__glyph pb-vs__glyph--yes" aria-hidden="true">&#10003;</span><span>Zero preservatives, real vanilla</span></div>
+          <div class="pb-vs__row"><span class="pb-vs__glyph pb-vs__glyph--yes" aria-hidden="true">&#10003;</span><span>0g trans fat &mdash; every single batch</span></div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="pb-persona" aria-label="Made for people like you">
+      <div class="pb-persona__header pb-section-header reveal">
+        <span class="pb-section-kicker">Made For People Like You</span>
+        <h2 class="pb-section-heading"><em>The Tropical Cookie That Earns Its Place.</em></h2>
+      </div>
+      <div class="pb-persona__scroll" role="list">
+        <div class="pb-persona-card reveal" role="listitem">
+          <div class="pb-persona-card__photo pb-placeholder is-placeholder" data-slot="persona-anita" aria-hidden="true"></div>
+          <div class="pb-persona-card__body">
+            <p class="pb-persona-card__name">Anita, 42</p>
+            <p class="pb-section-kicker">Traditional Food Lover</p>
+            <p class="pb-persona-card__quote">&ldquo;Real coconut, real butter, jowar. This is the cookie my family grew up on &mdash; made the right way.&rdquo;</p>
+          </div>
+        </div>
+        <div class="pb-persona-card reveal" role="listitem">
+          <div class="pb-persona-card__photo pb-placeholder is-placeholder" data-slot="persona-deepa" aria-hidden="true"></div>
+          <div class="pb-persona-card__body">
+            <p class="pb-persona-card__name">Deepa, 29</p>
+            <p class="pb-section-kicker">Chai Lover</p>
+            <p class="pb-persona-card__quote">&ldquo;The coconut crunch with my morning chai. I never thought healthy could taste this good.&rdquo;</p>
+          </div>
+        </div>
+        <div class="pb-persona-card reveal" role="listitem">
+          <div class="pb-persona-card__photo pb-placeholder is-placeholder" data-slot="persona-kiran" aria-hidden="true"></div>
+          <div class="pb-persona-card__body">
+            <p class="pb-persona-card__name">Kiran, 35</p>
+            <p class="pb-section-kicker">Health-Conscious Snacker</p>
+            <p class="pb-persona-card__quote">&ldquo;Millet base, real coconut, desi khand. Every ingredient makes sense. Finally, a snack I don&rsquo;t have to justify.&rdquo;</p>
+          </div>
+        </div>
+        <div class="pb-persona-card reveal" role="listitem">
+          <div class="pb-persona-card__photo pb-placeholder is-placeholder" data-slot="persona-priya" aria-hidden="true"></div>
+          <div class="pb-persona-card__body">
+            <p class="pb-persona-card__name">Priya, 48</p>
+            <p class="pb-section-kicker">Health-Conscious Parent</p>
+            <p class="pb-persona-card__quote">&ldquo;My kids ask for these by name now. That&rsquo;s how I know I made the right switch.&rdquo;</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="pb-guarantee" id="pbGuarantee" aria-label="Our satisfaction guarantee">
+      <div class="pb-guarantee__inner">
+        <div class="pb-guarantee__badge" aria-hidden="true">
+          <div class="pb-guar-rings-wrap">
+            <div class="pb-guar-ring pb-guar-ring--1"></div>
+            <div class="pb-guar-ring pb-guar-ring--2"></div>
+            <div class="pb-guar-ring pb-guar-ring--3"></div>
+            <svg class="pb-guar-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle class="pb-guar-outer" cx="32" cy="32" r="30" stroke="rgba(212,175,55,0.55)" stroke-width="1.5" stroke-dasharray="189" stroke-dashoffset="189" transform="rotate(-90 32 32)"/>
+              <circle class="pb-guar-inner" cx="32" cy="32" r="23" stroke="rgba(212,175,55,0.30)" stroke-width="1" stroke-dasharray="145" stroke-dashoffset="145" transform="rotate(-90 32 32)"/>
+              <path class="pb-guar-tick" d="M19 32 l9.5 9.5 16.5-18" stroke="#D4AF37" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="40" stroke-dashoffset="40"/>
+            </svg>
+          </div>
+          <p class="pb-guarantee__badge-label">100% Satisfaction</p>
+        </div>
+        <h2 class="pb-guarantee__heading">
+          We guarantee you&rsquo;ll love Millet Coconut Cookies &mdash; the tropical crunch, the real coconut aroma, the guilt-free feeling after that third cookie. Real food baked right. 100% satisfaction.
+        </h2>
+        <p class="pb-guarantee__sub">
+          Any questions? Just WhatsApp us at <a href="https://wa.me/918910725854" target="_blank" rel="noopener">+91&nbsp;89107&nbsp;25854</a>
+          <br><br>
+          <strong style="color:var(--on-dark); letter-spacing:0.04em;">FREE SHIPPING &nbsp;·&nbsp; COD AVAILABLE &nbsp;·&nbsp; PAN-INDIA</strong>
+        </p>
+        <a href="https://wa.me/918910725854?text=Hi%2C+I+want+to+order+Millet+Coconut+Cookies" class="pcard-btn" target="_blank" rel="noopener" style="margin-top:28px; display:inline-flex;">
+          Try Millet Coconut Cookies
+        </a>
+      </div>
+    </section>
+
+
+    <section class="pb-related" aria-label="You may also like">
+      <div class="pb-related__header pb-section-header reveal">
+        <span class="pb-section-kicker">Also From Diet Swad</span>
+        <h2 class="pb-section-heading">You May<br><em>Also Love These.</em></h2>
+      </div>
+      <div class="pb-related__scroll" data-stagger="80">
+        <a class="pb-related-card reveal" href="millet-butter-cookies.html" aria-label="Millet Butter Cookies — ₹499">
+          <div class="pb-related-card__photo is-placeholder" data-slot="Related · Millet Butter Cookies" aria-label="Millet Butter Cookies photo placeholder"></div>
+          <div class="pb-related-card__body"><p class="pb-related-card__name">Millet Butter Cookies</p><p class="pb-related-card__price">₹499</p></div>
+        </a>
+        <a class="pb-related-card reveal" href="millet-choco-cookies.html" aria-label="Millet Choco Cookies — ₹499">
+          <div class="pb-related-card__photo is-placeholder" data-slot="Related · Millet Choco Cookies" aria-label="Millet Choco Cookies photo placeholder"></div>
+          <div class="pb-related-card__body"><p class="pb-related-card__name">Millet Choco Cookies</p><p class="pb-related-card__price">₹499</p></div>
+        </a>
+        <a class="pb-related-card reveal" href="power-bites.html" aria-label="Power Bites — ₹499">
+          <div class="pb-related-card__photo is-placeholder" data-slot="Related · Power Bites" aria-label="Power Bites photo placeholder"></div>
+          <div class="pb-related-card__body"><p class="pb-related-card__name">Power Bites</p><p class="pb-related-card__price">₹499</p></div>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+
+  <div class="pb-sticky-cta" id="pbStickyCta" aria-label="Quick order bar" role="complementary">
+    <div class="pb-sticky-cta__left">
+      <span class="pb-sticky-cta__name">Millet Coconut Cookies · 150g</span>
+      <span class="pb-sticky-cta__price"><span class="pb-rupee-sym">₹</span><span class="pb-price-digits">499</span></span>
+      <span class="pb-sticky-cta__trust">FREE SHIPPING ALL INDIA</span>
+    </div>
+    <a href="https://wa.me/918910725854?text=Hi%2C+I+want+to+order+Millet+Coconut+Cookies" class="pb-sticky-cta__btn" target="_blank" rel="noopener">Order Now</a>
+  </div>
+
+
+  <footer class="site-footer">
+    <div class="footer-logo-wrap">
+      <img src="Assets/Logo_and_icons/horizontal golden logo transparent.png" alt="Diet Swad" style="height: 56px; width: auto; margin-bottom: 12px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+      <p class="footer-logo-text" style="display:none;">Diet Swad</p>
+    </div>
+    <p class="footer-tagline">Zero Guilt. Zero Junk. 100% Satisfaction.</p>
+    <nav class="footer-links" aria-label="Footer links">
+      <a href="index.html#products">Our Products</a><a href="index.html#order">Order Now</a><a href="index.html">Home</a>
+      <a href="https://wa.me/918910725854" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="privacy-policy.html">Privacy Policy</a><a href="terms-of-service.html">Terms of Service</a>
+      <a href="shipping-policy.html">Shipping Policy</a><a href="refund-policy.html">Refund Policy</a>
+    </nav>
+    <div class="footer-social">
+      <a href="https://instagram.com/dietswad" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+      <a href="https://wa.me/918910725854" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+      <a href="#" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+      <a href="mailto:dietswad143@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></a>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-fssai">FSSAI Reg: 22825041000300<br>Made in Kolkata with love &middot; Radiant Twins Enterprise<br>&copy; 2025 Diet Swad. All rights reserved.</p>
+    </div>
+  </footer>
+
+
+  <a href="https://wa.me/918910725854" class="wa-fab" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <script defer src="product-animations.js"></script>
+  <script>
+  (function () {
+    var hamburger = document.getElementById('navHamburger'), drawer = document.getElementById('mobileDrawer'), backdrop = document.getElementById('drawerBackdrop'), closeBtn = document.getElementById('drawerClose'), links = drawer ? drawer.querySelectorAll('.drawer-link') : [];
+    if (!hamburger || !drawer) return;
+    function openDrawer() { drawer.classList.add('is-open'); drawer.setAttribute('aria-hidden','false'); hamburger.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; if(closeBtn) closeBtn.focus(); }
+    function closeDrawer() { drawer.classList.remove('is-open'); drawer.setAttribute('aria-hidden','true'); hamburger.setAttribute('aria-expanded','false'); document.body.style.overflow=''; hamburger.focus(); }
+    hamburger.addEventListener('click', openDrawer);
+    if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+    if (backdrop) backdrop.addEventListener('click', closeDrawer);
+    links.forEach(function(l){ l.addEventListener('click', closeDrawer); });
+    document.addEventListener('keydown', function(e){ if(e.key==='Escape'&&drawer.classList.contains('is-open')) closeDrawer(); });
+  })();
+  </script>
+  <script>
+  (function () {
+    var section = document.getElementById('pbGuarantee'); if (!section) return;
+    var heading = section.querySelector('.pb-guarantee__heading');
+    if (heading) { var wi=0; heading.innerHTML = heading.innerHTML.trim().split(/(\s+)/).map(function(tok){ if(/^\s+$/.test(tok)) return ' '; return '<span class="guar-word" style="--wi:'+(wi++)+'">'+tok+'</span>'; }).join(''); }
+    var io = new IntersectionObserver(function(entries){ entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('pb-guar-in'); io.unobserve(e.target); } }); }, {threshold:0.25});
+    io.observe(section);
+  })();
+  </script>
+  <script>
+  (function () {
+    var nav = document.querySelector('.site-nav'); if (!nav) return;
+    var logoImg = nav.querySelector('.nav-logo'), logoDefault = 'Assets/Logo_and_icons/normal horizontal logo background removed.png', logoGolden = 'Assets/Logo_and_icons/horizontal golden logo transparent.png';
+    function update(){ var s=window.scrollY>100; nav.classList.toggle('is-scrolled',s); if(logoImg) logoImg.src=s?logoGolden:logoDefault; }
+    window.addEventListener('scroll', update, {passive:true}); update();
+  })();
+  </script>
+
+</body>
+</html>
