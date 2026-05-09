@@ -27,7 +27,7 @@
 
 #hero {
   position: relative;
-  height: 120vh;
+  height: 150vh;
   /* cream-mid: warmer/darker than #FDF6E3, better matches why-thread's warm beige top */
   background: #EDE5CF;
 }

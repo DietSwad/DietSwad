@@ -44,7 +44,7 @@
   const CONFIG = {
     TOTAL_FRAMES:  26,
     FRAME_PATH:    'hero-frames/frame_%NUM%.webp', // Relative to index.html
-    SCROLL_HEIGHT: '120vh', // Total height of hero section (scroll distance)
+    SCROLL_HEIGHT: '150vh', // Total height of hero section (scroll distance)
     IDLE_BATCH:    5,        // Frames to load per idle callback chunk
     CRITICAL_END:  6,        // Frames 0–5 are critical (loaded before bind)
   };

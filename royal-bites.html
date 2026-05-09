@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -22,14 +22,14 @@
     <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
-    <img
+    <a href="index.html" class="nav-logo-link" aria-label="Diet Swad — Home"><img
       src="Assets/Logo_and_icons/normal horizontal logo background removed.png"
       alt="Diet Swad"
       class="nav-logo"
-      onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';"
-    >
-    <a href="#" class="nav-logo-text gold-text" style="display:none;">Diet Swad</a>
-    <a href="#order" class="nav-order-btn">Order Now</a>
+      onerror="this.style.display='none'; this.parentElement.nextElementSibling.style.display='inline-block';"
+    ></a>
+    <a href="index.html" class="nav-logo-text gold-text" style="display:none;">Diet Swad</a>
+    <a href="order.html?product=royal-bites" class="nav-order-btn">Order Now</a>
   </nav>
 
   <!-- Mobile nav drawer -->
@@ -37,15 +37,21 @@
     <div class="drawer-backdrop" id="drawerBackdrop"></div>
     <div class="drawer-panel" role="dialog" aria-label="Navigation">
       <button class="drawer-close" id="drawerClose" aria-label="Close menu">&times;</button>
+      <a href="index.html" class="drawer-logo-link" aria-label="Diet Swad — Home">
+        <img src="Assets/Logo_and_icons/horizontal golden logo transparent.png" alt="Diet Swad" class="drawer-logo">
+      </a>
+      <a class="drawer-cta-btn" href="order.html">Order Now</a>
       <a class="drawer-link" href="index.html">Home</a>
-      <a class="drawer-link" href="power-bites.html">Power Bites</a>
-      <a class="drawer-link" href="royal-bites.html">Royal Bites</a>
-      <a class="drawer-link" href="peanut-sesame-delights.html">Peanut-Sesame Delights</a>
-      <a class="drawer-link" href="millet-butter-cookies.html">Millet Butter Cookies</a>
-      <a class="drawer-link" href="millet-coconut-cookies.html">Millet Coconut Cookies</a>
-      <a class="drawer-link" href="millet-choco-cookies.html">Millet Choco Cookies</a>
-      <a class="drawer-link" href="roasted-cashews.html">Roasted Cashews</a>
-      <a class="drawer-link drawer-link--cta" href="#order">Order Now</a>
+      <div class="drawer-section">
+        <div class="drawer-section-heading">Products</div>
+        <a class="drawer-sub-link" href="power-bites.html">Power Bites</a>
+        <a class="drawer-sub-link" href="royal-bites.html">Royal Bites</a>
+        <a class="drawer-sub-link" href="peanut-sesame-delights.html">Peanut-Sesame Delights</a>
+        <a class="drawer-sub-link" href="millet-butter-cookies.html">Millet Butter Cookies</a>
+        <a class="drawer-sub-link" href="millet-coconut-cookies.html">Millet Coconut Cookies</a>
+        <a class="drawer-sub-link" href="millet-choco-cookies.html">Millet Choco Cookies</a>
+        <a class="drawer-sub-link" href="roasted-cashews.html">Roasted Cashews</a>
+      </div>
       <div class="drawer-social">
         <a href="https://instagram.com/dietswad" target="_blank" rel="noopener" aria-label="Instagram">
           <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
@@ -94,7 +100,7 @@
           <span class="pb-hero-weight">180g &middot; 12 bites</span>
         </div>
 
-        <a href="https://wa.me/918910725854?text=Hi%2C+I+want+to+order+Royal+Bites" class="pcard-btn pb-hero-cta" target="_blank" rel="noopener">
+        <a href="order.html?product=royal-bites" class="pcard-btn">
           ORDER NOW
         </a>
 
@@ -467,7 +473,6 @@
         <div class="pb-persona-card reveal" role="listitem">
           <div class="pb-persona-card__photo pb-placeholder is-placeholder" data-slot="persona-priya" aria-hidden="true"></div>
           <div class="pb-persona-card__body">
-            <p class="pb-persona-card__name">Priya, 29</p>
             <p class="pb-section-kicker">Fitness Enthusiast</p>
             <p class="pb-persona-card__quote">&ldquo;Rich cocoa, 14.8g protein. My post-workout treat, sorted.&rdquo;</p>
           </div>
@@ -476,7 +481,6 @@
         <div class="pb-persona-card reveal" role="listitem">
           <div class="pb-persona-card__photo pb-placeholder is-placeholder" data-slot="persona-rahul" aria-hidden="true"></div>
           <div class="pb-persona-card__body">
-            <p class="pb-persona-card__name">Rahul, 33</p>
             <p class="pb-section-kicker">Chocolate Lover</p>
             <p class="pb-persona-card__quote">&ldquo;Tastes like chocolate. Sweetened with jaggery. No guilt.&rdquo;</p>
           </div>
@@ -485,7 +489,6 @@
         <div class="pb-persona-card reveal" role="listitem">
           <div class="pb-persona-card__photo pb-placeholder is-placeholder" data-slot="persona-neha" aria-hidden="true"></div>
           <div class="pb-persona-card__body">
-            <p class="pb-persona-card__name">Neha, 38</p>
             <p class="pb-section-kicker">Health-Conscious Snacker</p>
             <p class="pb-persona-card__quote">&ldquo;Finally a dessert bite I don&rsquo;t have to feel bad about.&rdquo;</p>
           </div>
@@ -494,7 +497,6 @@
         <div class="pb-persona-card reveal" role="listitem">
           <div class="pb-persona-card__photo pb-placeholder is-placeholder" data-slot="persona-dev" aria-hidden="true"></div>
           <div class="pb-persona-card__body">
-            <p class="pb-persona-card__name">Dev, 26</p>
             <p class="pb-section-kicker">Protein Seeker</p>
             <p class="pb-persona-card__quote">&ldquo;Peanut butter, nuts, gram flour. Real protein, real taste.&rdquo;</p>
           </div>
@@ -538,7 +540,7 @@
           <br><br>
           <strong style="color:var(--on-dark); letter-spacing:0.04em;">FREE SHIPPING &nbsp;·&nbsp; COD AVAILABLE &nbsp;·&nbsp; PAN-INDIA</strong>
         </p>
-        <a href="https://wa.me/918910725854?text=Hi%2C+I+want+to+order+Royal+Bites" class="pcard-btn" target="_blank" rel="noopener" style="margin-top:28px; display:inline-flex;">
+        <a href="order.html?product=royal-bites" class="pcard-btn" style="margin-top:28px; display:inline-flex;">
           Try Royal Bites
         </a>
       </div>
@@ -553,33 +555,64 @@
       </div>
 
       <div class="pb-related__scroll" data-stagger="80">
-
         <a class="pb-related-card reveal" href="power-bites.html" aria-label="Power Bites — ₹499">
-          <div class="pb-related-card__photo is-placeholder" data-slot="Related · Power Bites" aria-label="Power Bites product photo placeholder"></div>
+          <div class="pb-related-card__photo">
+            <img src="Assets/Landing_Page_images/product-power-bites.webp" alt="Power Bites" loading="lazy">
+          </div>
           <div class="pb-related-card__body">
             <p class="pb-related-card__name">Power Bites</p>
-            <p class="pb-related-card__price">₹499</p>
+            <p class="pb-related-card__price">&#8377;499</p>
           </div>
         </a>
-
+        <a class="pb-related-card reveal" href="peanut-sesame-delights.html" aria-label="Peanut-Sesame Delights — ₹499">
+          <div class="pb-related-card__photo">
+            <img src="Assets/Landing_Page_images/product-peanut-sesame.webp" alt="Peanut-Sesame Delights" loading="lazy">
+          </div>
+          <div class="pb-related-card__body">
+            <p class="pb-related-card__name">Peanut-Sesame Delights</p>
+            <p class="pb-related-card__price">&#8377;499</p>
+          </div>
+        </a>
+        <a class="pb-related-card reveal" href="millet-butter-cookies.html" aria-label="Millet Butter Cookies — ₹499">
+          <div class="pb-related-card__photo">
+            <img src="Assets/Landing_Page_images/product-millet-butter.webp" alt="Millet Butter Cookies" loading="lazy">
+          </div>
+          <div class="pb-related-card__body">
+            <p class="pb-related-card__name">Millet Butter Cookies</p>
+            <p class="pb-related-card__price">&#8377;499</p>
+          </div>
+        </a>
+        <a class="pb-related-card reveal" href="millet-coconut-cookies.html" aria-label="Millet Coconut Cookies — ₹499">
+          <div class="pb-related-card__photo">
+            <img src="Assets/Landing_Page_images/product-millet-coconut.webp" alt="Millet Coconut Cookies" loading="lazy">
+          </div>
+          <div class="pb-related-card__body">
+            <p class="pb-related-card__name">Millet Coconut Cookies</p>
+            <p class="pb-related-card__price">&#8377;499</p>
+          </div>
+        </a>
         <a class="pb-related-card reveal" href="millet-choco-cookies.html" aria-label="Millet Choco Cookies — ₹499">
-          <div class="pb-related-card__photo is-placeholder" data-slot="Related · Millet Choco Cookies" aria-label="Millet Choco Cookies photo placeholder"></div>
+          <div class="pb-related-card__photo">
+            <img src="Assets/Landing_Page_images/product-millet-choco.webp" alt="Millet Choco Cookies" loading="lazy">
+          </div>
           <div class="pb-related-card__body">
             <p class="pb-related-card__name">Millet Choco Cookies</p>
-            <p class="pb-related-card__price">₹499</p>
+            <p class="pb-related-card__price">&#8377;499</p>
           </div>
         </a>
-
-        <a class="pb-related-card reveal" href="roasted-cashews.html" aria-label="Roasted &amp; Salted Cashews — ₹499">
-          <div class="pb-related-card__photo is-placeholder" data-slot="Related · Roasted Cashews" aria-label="Roasted Cashews photo placeholder"></div>
+        <a class="pb-related-card reveal" href="roasted-cashews.html" aria-label="Roasted Cashews — ₹499">
+          <div class="pb-related-card__photo">
+            <img src="Assets/Landing_Page_images/product-cashews.webp" alt="Roasted Cashews" loading="lazy">
+          </div>
           <div class="pb-related-card__body">
-            <p class="pb-related-card__name">Roasted &amp; Salted Cashews</p>
-            <p class="pb-related-card__price">₹499</p>
+            <p class="pb-related-card__name">Roasted Cashews</p>
+            <p class="pb-related-card__price">&#8377;499</p>
           </div>
         </a>
 
       </div>
     </section>
+
 
   </main><!-- /.royal-bites -->
 
@@ -591,7 +624,7 @@
       <span class="pb-sticky-cta__price"><span class="pb-rupee-sym">₹</span><span class="pb-price-digits">499</span></span>
       <span class="pb-sticky-cta__trust">FREE SHIPPING ALL INDIA</span>
     </div>
-    <a href="https://wa.me/918910725854?text=Hi%2C+I+want+to+order+Royal+Bites" class="pb-sticky-cta__btn" target="_blank" rel="noopener">
+    <a href="order.html?product=royal-bites" class="pb-sticky-cta__btn">
       Order Now
     </a>
   </div>
@@ -667,7 +700,7 @@
     var drawer    = document.getElementById('mobileDrawer');
     var backdrop  = document.getElementById('drawerBackdrop');
     var closeBtn  = document.getElementById('drawerClose');
-    var links     = drawer ? drawer.querySelectorAll('.drawer-link') : [];
+    var links     = drawer ? drawer.querySelectorAll('.drawer-link, .drawer-sub-link, .drawer-cta-btn') : [];
     if (!hamburger || !drawer) return;
 
     function openDrawer() {
@@ -747,3 +780,7 @@
 
 </body>
 </html>
+
+
+
+

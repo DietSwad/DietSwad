@@ -1,0 +1,417 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Your Cart — Diet Swad</title>
+  <meta name="description" content="Complete your Diet Swad order. Handcrafted healthy snacks — Power Bites, Royal Bites, Millet Cookies and more. Free pan-India shipping. COD available.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500;1,600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="order.css">
+</head>
+<body class="ord-page">
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       NAVIGATION
+       ═══════════════════════════════════════════════════════════════════ -->
+  <nav class="site-nav">
+    <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="index.html" class="nav-logo-link" aria-label="Diet Swad — Home"><img
+      src="Assets/Logo_and_icons/normal horizontal logo background removed.png"
+      alt="Diet Swad"
+      class="nav-logo"
+      onerror="this.style.display='none'; this.parentElement.nextElementSibling.style.display='inline-block';"
+    ></a>
+    <a href="index.html" class="nav-logo-text gold-text" style="display:none;">Diet Swad</a>
+  </nav>
+
+  <!-- Mobile nav drawer -->
+  <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+    <div class="drawer-backdrop" id="drawerBackdrop"></div>
+    <div class="drawer-panel" role="dialog" aria-label="Navigation">
+      <button class="drawer-close" id="drawerClose" aria-label="Close menu">&times;</button>
+      <a href="index.html" class="drawer-logo-link" aria-label="Diet Swad — Home">
+        <img src="Assets/Logo_and_icons/horizontal golden logo transparent.png" alt="Diet Swad" class="drawer-logo">
+      </a>
+      <a class="drawer-cta-btn" href="order.html">Order Now</a>
+      <a class="drawer-link" href="index.html">Home</a>
+      <div class="drawer-section">
+        <div class="drawer-section-heading">Products</div>
+        <a class="drawer-sub-link" href="power-bites.html">Power Bites</a>
+        <a class="drawer-sub-link" href="royal-bites.html">Royal Bites</a>
+        <a class="drawer-sub-link" href="peanut-sesame-delights.html">Peanut-Sesame Delights</a>
+        <a class="drawer-sub-link" href="millet-butter-cookies.html">Millet Butter Cookies</a>
+        <a class="drawer-sub-link" href="millet-coconut-cookies.html">Millet Coconut Cookies</a>
+        <a class="drawer-sub-link" href="millet-choco-cookies.html">Millet Choco Cookies</a>
+        <a class="drawer-sub-link" href="roasted-cashews.html">Roasted Cashews</a>
+      </div>
+      <div class="drawer-social">
+        <a href="https://instagram.com/dietswad" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+        <a href="https://wa.me/918910725854" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       ORBS — radial-gradient blobs behind everything
+       ═══════════════════════════════════════════════════════════════════ -->
+  <div class="ord-orb ord-orb--1" aria-hidden="true"></div>
+  <div class="ord-orb ord-orb--2" aria-hidden="true"></div>
+  <div class="ord-orb ord-orb--3" aria-hidden="true"></div>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       ORDER PAGE CONTENT
+       ═══════════════════════════════════════════════════════════════════ -->
+  <main class="ord-app" id="main">
+    <div class="ord-scroll">
+
+      <!-- ── Heading ─────────────────────────────────────────────────── -->
+      <header class="ord-head ord-animate ord-animate--1">
+        <h1>Your Cart</h1>
+        <p>Review &amp; complete your order below</p>
+      </header>
+
+
+      <!-- ── Products selection ──────────────────────────────────────── -->
+      <section class="ord-glass ord-products ord-animate ord-animate--2" aria-label="Product selection">
+        <span class="ord-sec-label">Your Selection</span>
+        <ul class="ord-prod-list">
+
+          <!-- Power Bites — Maroon -->
+          <li class="ord-prod-row" data-ord-slug="power-bites">
+            <div class="ord-prod-thumb is-maroon">
+              <img src="Assets/Landing_Page_images/product-power-bites.webp" alt="" loading="eager"
+                   onerror="this.style.display='none'">
+            </div>
+            <div class="ord-prod-meta">
+              <div class="ord-prod-name">Power Bites</div>
+              <div class="ord-prod-sub">Date &amp; Nut Energy Bites · 180g</div>
+              <div class="ord-prod-price">₹499</div>
+            </div>
+            <div class="ord-qty-wrap" aria-label="Power Bites quantity">
+              <button class="ord-qty-btn" onclick="changeQty(this,-1)" type="button" aria-label="Decrease">−</button>
+              <span class="ord-qty-val" aria-live="polite">1</span>
+              <button class="ord-qty-btn" onclick="changeQty(this,1)" type="button" aria-label="Increase">+</button>
+            </div>
+          </li>
+
+          <!-- Royal Bites — Chocolate -->
+          <li class="ord-prod-row" data-ord-slug="royal-bites">
+            <div class="ord-prod-thumb is-choco">
+              <img src="Assets/Landing_Page_images/product-royal-bites.webp" alt="" loading="lazy"
+                   onerror="this.style.display='none'">
+            </div>
+            <div class="ord-prod-meta">
+              <div class="ord-prod-name">Royal Bites</div>
+              <div class="ord-prod-sub">Gram Flour &amp; Peanut Butter · 180g</div>
+              <div class="ord-prod-price">₹499</div>
+            </div>
+            <div class="ord-qty-wrap" aria-label="Royal Bites quantity">
+              <button class="ord-qty-btn" onclick="changeQty(this,-1)" type="button" aria-label="Decrease">−</button>
+              <span class="ord-qty-val" aria-live="polite">0</span>
+              <button class="ord-qty-btn" onclick="changeQty(this,1)" type="button" aria-label="Increase">+</button>
+            </div>
+          </li>
+
+          <!-- Peanut-Sesame Delights — Maroon -->
+          <li class="ord-prod-row" data-ord-slug="peanut-sesame-delights">
+            <div class="ord-prod-thumb is-maroon">
+              <img src="Assets/Landing_Page_images/product-peanut-sesame.webp" alt="" loading="lazy"
+                   onerror="this.style.display='none'">
+            </div>
+            <div class="ord-prod-meta">
+              <div class="ord-prod-name">Peanut-Sesame</div>
+              <div class="ord-prod-sub">4-Ingredient Protein Bar · 180g</div>
+              <div class="ord-prod-price">₹499</div>
+            </div>
+            <div class="ord-qty-wrap" aria-label="Peanut-Sesame Delights quantity">
+              <button class="ord-qty-btn" onclick="changeQty(this,-1)" type="button" aria-label="Decrease">−</button>
+              <span class="ord-qty-val" aria-live="polite">0</span>
+              <button class="ord-qty-btn" onclick="changeQty(this,1)" type="button" aria-label="Increase">+</button>
+            </div>
+          </li>
+
+          <!-- Millet Butter Cookies — Plum -->
+          <li class="ord-prod-row" data-ord-slug="millet-butter-cookies">
+            <div class="ord-prod-thumb is-plum">
+              <img src="Assets/Landing_Page_images/product-millet-butter.webp" alt="" loading="lazy"
+                   onerror="this.style.display='none'">
+            </div>
+            <div class="ord-prod-meta">
+              <div class="ord-prod-name">Millet Butter</div>
+              <div class="ord-prod-sub">Jowar &amp; Salted Butter Cookies · 150g</div>
+              <div class="ord-prod-price">₹499</div>
+            </div>
+            <div class="ord-qty-wrap" aria-label="Millet Butter Cookies quantity">
+              <button class="ord-qty-btn" onclick="changeQty(this,-1)" type="button" aria-label="Decrease">−</button>
+              <span class="ord-qty-val" aria-live="polite">0</span>
+              <button class="ord-qty-btn" onclick="changeQty(this,1)" type="button" aria-label="Increase">+</button>
+            </div>
+          </li>
+
+          <!-- Millet Coconut Cookies — Plum -->
+          <li class="ord-prod-row" data-ord-slug="millet-coconut-cookies">
+            <div class="ord-prod-thumb is-plum">
+              <img src="Assets/Landing_Page_images/product-millet-coconut.webp" alt="" loading="lazy"
+                   onerror="this.style.display='none'">
+            </div>
+            <div class="ord-prod-meta">
+              <div class="ord-prod-name">Millet Coconut</div>
+              <div class="ord-prod-sub">Jowar, Oats &amp; Coconut Cookies · 150g</div>
+              <div class="ord-prod-price">₹499</div>
+            </div>
+            <div class="ord-qty-wrap" aria-label="Millet Coconut Cookies quantity">
+              <button class="ord-qty-btn" onclick="changeQty(this,-1)" type="button" aria-label="Decrease">−</button>
+              <span class="ord-qty-val" aria-live="polite">0</span>
+              <button class="ord-qty-btn" onclick="changeQty(this,1)" type="button" aria-label="Increase">+</button>
+            </div>
+          </li>
+
+          <!-- Millet Choco Cookies — Chocolate -->
+          <li class="ord-prod-row" data-ord-slug="millet-choco-cookies">
+            <div class="ord-prod-thumb is-choco">
+              <img src="Assets/Landing_Page_images/product-millet-choco.webp" alt="" loading="lazy"
+                   onerror="this.style.display='none'">
+            </div>
+            <div class="ord-prod-meta">
+              <div class="ord-prod-name">Millet Choco</div>
+              <div class="ord-prod-sub">Dual Millet &amp; Almond Cookies · 150g</div>
+              <div class="ord-prod-price">₹499</div>
+            </div>
+            <div class="ord-qty-wrap" aria-label="Millet Choco Cookies quantity">
+              <button class="ord-qty-btn" onclick="changeQty(this,-1)" type="button" aria-label="Decrease">−</button>
+              <span class="ord-qty-val" aria-live="polite">0</span>
+              <button class="ord-qty-btn" onclick="changeQty(this,1)" type="button" aria-label="Increase">+</button>
+            </div>
+          </li>
+
+          <!-- Roasted Cashews — Maroon -->
+          <li class="ord-prod-row" data-ord-slug="roasted-cashews">
+            <div class="ord-prod-thumb is-maroon">
+              <img src="Assets/Landing_Page_images/product-cashews.webp" alt="" loading="lazy"
+                   onerror="this.style.display='none'">
+            </div>
+            <div class="ord-prod-meta">
+              <div class="ord-prod-name">Roasted Cashews</div>
+              <div class="ord-prod-sub">2-Ingredient · 18.2g Protein · 200g</div>
+              <div class="ord-prod-price">₹499</div>
+            </div>
+            <div class="ord-qty-wrap" aria-label="Roasted Cashews quantity">
+              <button class="ord-qty-btn" onclick="changeQty(this,-1)" type="button" aria-label="Decrease">−</button>
+              <span class="ord-qty-val" aria-live="polite">0</span>
+              <button class="ord-qty-btn" onclick="changeQty(this,1)" type="button" aria-label="Increase">+</button>
+            </div>
+          </li>
+
+        </ul>
+
+        <!-- "Add more products" toggle — shown only when arriving from a product page -->
+        <button class="ord-more-btn" id="ord-more-btn" type="button"
+                onclick="toggleMoreProducts(this)" aria-expanded="false" hidden>
+          <span class="ord-more-icon">+</span>
+          <span class="ord-more-label">Add more products</span>
+        </button>
+      </section>
+
+
+      <!-- ── Error message (hidden by default) ──────────────────────── -->
+      <p class="ord-error" id="ord-error" hidden role="alert"></p>
+
+
+      <!-- ── Order summary ───────────────────────────────────────────── -->
+      <section class="ord-glass ord-summary ord-animate ord-animate--3" aria-label="Order summary">
+        <span class="ord-sec-label">Order Summary</span>
+
+        <div class="ord-sum-lines">
+
+          <div class="ord-sum-row">
+            <div><div class="ord-sum-name">Power Bites</div><div class="ord-sum-qty" id="ord-ql-0">Qty: 1</div></div>
+            <div class="ord-sum-price" id="ord-sp-0">₹499</div>
+          </div>
+
+          <div class="ord-sum-row">
+            <div><div class="ord-sum-name">Royal Bites</div><div class="ord-sum-qty" id="ord-ql-1">Qty: 0</div></div>
+            <div class="ord-sum-price ord-sum-price--zero" id="ord-sp-1">—</div>
+          </div>
+
+          <div class="ord-sum-row">
+            <div><div class="ord-sum-name">Peanut-Sesame Delights</div><div class="ord-sum-qty" id="ord-ql-2">Qty: 0</div></div>
+            <div class="ord-sum-price ord-sum-price--zero" id="ord-sp-2">—</div>
+          </div>
+
+          <div class="ord-sum-row">
+            <div><div class="ord-sum-name">Millet Butter Cookies</div><div class="ord-sum-qty" id="ord-ql-3">Qty: 0</div></div>
+            <div class="ord-sum-price ord-sum-price--zero" id="ord-sp-3">—</div>
+          </div>
+
+          <div class="ord-sum-row">
+            <div><div class="ord-sum-name">Millet Coconut Cookies</div><div class="ord-sum-qty" id="ord-ql-4">Qty: 0</div></div>
+            <div class="ord-sum-price ord-sum-price--zero" id="ord-sp-4">—</div>
+          </div>
+
+          <div class="ord-sum-row">
+            <div><div class="ord-sum-name">Millet Choco Cookies</div><div class="ord-sum-qty" id="ord-ql-5">Qty: 0</div></div>
+            <div class="ord-sum-price ord-sum-price--zero" id="ord-sp-5">—</div>
+          </div>
+
+          <div class="ord-sum-row">
+            <div><div class="ord-sum-name">Roasted Cashews</div><div class="ord-sum-qty" id="ord-ql-6">Qty: 0</div></div>
+            <div class="ord-sum-price ord-sum-price--zero" id="ord-sp-6">—</div>
+          </div>
+
+          <div class="ord-sum-row">
+            <div class="ord-sum-name">Shipping</div>
+            <div class="ord-sum-price" style="color:var(--gold-dark);font-size:13px;">Free</div>
+          </div>
+
+        </div>
+
+        <div class="ord-divider"></div>
+
+        <div class="ord-total-row">
+          <div class="ord-total-label">Total Payable</div>
+          <div class="ord-total-amt" id="ord-grand-total">₹499<small>INR</small></div>
+        </div>
+
+        <div class="ord-shipping-tag">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="1" y="3" width="15" height="13"></rect>
+            <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+            <circle cx="5.5" cy="18.5" r="2.5"></circle>
+            <circle cx="18.5" cy="18.5" r="2.5"></circle>
+          </svg>
+          Free delivery across India on all orders
+        </div>
+      </section>
+
+
+      <!-- ── Delivery form ───────────────────────────────────────────── -->
+      <section class="ord-glass ord-form ord-animate ord-animate--4" aria-label="Delivery details">
+        <span class="ord-sec-label">Delivery Details</span>
+
+        <form id="orderForm" class="ord-form-stack" onsubmit="handleSubmit(event)" novalidate>
+
+          <!-- Honeypot (anti-spam) — must stay invisible to users -->
+          <input type="text" name="hp" class="ord-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <!-- Analytics placeholder fields — Phase 1b wires the values -->
+          <input type="hidden" name="utm_source"   id="ord-hid-utm-source">
+          <input type="hidden" name="utm_medium"   id="ord-hid-utm-medium">
+          <input type="hidden" name="utm_campaign" id="ord-hid-utm-campaign">
+          <input type="hidden" name="fbp"          id="ord-hid-fbp">
+          <input type="hidden" name="fbc"          id="ord-hid-fbc">
+          <input type="hidden" name="ga_client_id" id="ord-hid-ga-client-id">
+
+          <div>
+            <label for="ord-name">Full Name <span class="req" aria-label="required">*</span></label>
+            <input id="ord-name" type="text" name="name" required
+                   placeholder="e.g. Radhika Sharma" autocomplete="name">
+          </div>
+
+          <div>
+            <label for="ord-phone">WhatsApp Number <span class="req" aria-label="required">*</span></label>
+            <input id="ord-phone" type="tel" name="phone" required
+                   placeholder="+91 98765 43210" autocomplete="tel"
+                   pattern="[0-9+\s\-]{7,15}">
+          </div>
+
+          <div>
+            <label for="ord-email">Email Address <span class="req" aria-label="required">*</span></label>
+            <input id="ord-email" type="email" name="email" required
+                   placeholder="you@example.com" autocomplete="email">
+          </div>
+
+          <div>
+            <label for="ord-address">Delivery Address <span class="req" aria-label="required">*</span></label>
+            <textarea id="ord-address" name="address" required
+                      placeholder="House / Flat No., Street, Landmark…"
+                      autocomplete="street-address"></textarea>
+          </div>
+
+          <div class="ord-form-row-2">
+            <div>
+              <label for="ord-city">City <span class="req" aria-label="required">*</span></label>
+              <input id="ord-city" type="text" name="city" required
+                     placeholder="Mumbai" autocomplete="address-level2">
+            </div>
+            <div>
+              <label for="ord-pincode">Pin Code <span class="req" aria-label="required">*</span></label>
+              <input id="ord-pincode" type="tel" name="pincode" required
+                     placeholder="400001" maxlength="6"
+                     pattern="[0-9]{6}" autocomplete="postal-code">
+            </div>
+          </div>
+
+          <div>
+            <label for="ord-notes">Special Instructions</label>
+            <textarea id="ord-notes" name="notes"
+                      placeholder="Gift note, preferred delivery time…"
+                      style="min-height:76px"></textarea>
+          </div>
+
+        </form>
+      </section>
+
+
+      <!-- ── Trust pills ─────────────────────────────────────────────── -->
+      <div class="ord-trust ord-animate ord-animate--5" aria-label="Trust signals">
+        <div class="ord-trust-pill">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--gold-dark)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          FSSAI Certified
+        </div>
+        <div class="ord-trust-pill">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--gold-dark)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          No Preservatives
+        </div>
+        <div class="ord-trust-pill">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--gold-dark)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          Ships in 2–3 Days
+        </div>
+        <div class="ord-trust-pill">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--gold-dark)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          Free Pan-India Shipping
+        </div>
+      </div>
+
+    </div><!-- /.ord-scroll -->
+  </main>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       STICKY PAY FOOTER
+       ═══════════════════════════════════════════════════════════════════ -->
+  <div class="ord-pay-footer" role="complementary" aria-label="Quick pay">
+    <button class="ord-pay-btn" type="button"
+            onclick="document.getElementById('orderForm').requestSubmit()">
+      <span>Pay Now</span>
+      <div class="ord-pay-btn-right">
+        <span class="ord-pay-amt" id="ord-footer-total">₹499</span>
+        <div class="ord-pay-arrow" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2.5"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"></path>
+          </svg>
+        </div>
+      </div>
+    </button>
+  </div>
+
+
+  <script defer src="order.js"></script>
+
+</body>
+</html>
+

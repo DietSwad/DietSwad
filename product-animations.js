@@ -187,22 +187,29 @@
 
   /* ── 9. Gallery centre-card detection ───────────────────────────── */
   function initGallery() {
-    var scroll = document.querySelector('.pb-gallery__scroll');
-    if (!scroll) return;
-    var cards = Array.prototype.slice.call(scroll.querySelectorAll('.pb-gallery-card'));
-    function update() {
-      var cx = scroll.scrollLeft + scroll.offsetWidth / 2;
-      var closest = null, minDist = Infinity;
-      cards.forEach(function (c) {
-        var d = Math.abs(c.offsetLeft + c.offsetWidth / 2 - cx);
-        if (d < minDist) { minDist = d; closest = c; }
-      });
-      cards.forEach(function (c) {
-        c.classList.toggle('is-centre', c === closest);
-      });
-    }
-    scroll.addEventListener('scroll', update, { passive: true });
-    update();
+    var selectors = [
+      { rail: '.pb-gallery__scroll',  card: '.pb-gallery-card' },
+      { rail: '.pb-related__scroll',  card: '.pb-related-card' },
+      { rail: '.pb-persona__scroll',  card: '.pb-persona-card' },
+    ];
+    selectors.forEach(function (s) {
+      var scroll = document.querySelector(s.rail);
+      if (!scroll) return;
+      var cards = Array.prototype.slice.call(scroll.querySelectorAll(s.card));
+      function update() {
+        var cx = scroll.scrollLeft + scroll.offsetWidth / 2;
+        var closest = null, minDist = Infinity;
+        cards.forEach(function (c) {
+          var d = Math.abs(c.offsetLeft + c.offsetWidth / 2 - cx);
+          if (d < minDist) { minDist = d; closest = c; }
+        });
+        cards.forEach(function (c) {
+          c.classList.toggle('is-centre', c === closest);
+        });
+      }
+      scroll.addEventListener('scroll', update, { passive: true });
+      update();
+    });
   }
 
   /* ── 10. Guarantee seal tilt-in ─────────────────────────────────── */

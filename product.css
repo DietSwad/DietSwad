@@ -736,17 +736,21 @@ body.pb-page { padding-bottom: 80px; }
 .pb-persona__header { padding: 0 24px; }
 .pb-persona__scroll {
   display: flex;
+  flex-wrap: nowrap;
   gap: 14px;
   overflow-x: auto;
+  overflow-y: hidden;
   scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
   padding: 4px 24px 20px;
+  scroll-padding-inline: 24px;
   scrollbar-width: none;
 }
 .pb-persona__scroll::-webkit-scrollbar { display: none; }
 .pb-persona-card {
-  flex-shrink: 0;
-  width: 220px;
-  scroll-snap-align: start;
+  flex: 0 0 clamp(200px, 56vw, 260px);
+  scroll-snap-align: center;
+  transition: transform .25s ease;
   border: 1px solid var(--gold-hairline);
   border-radius: 12px;
   overflow: hidden;
@@ -775,6 +779,7 @@ body.pb-page { padding-bottom: 80px; }
   margin-bottom: 18px;
 }
 .pb-persona-card__body { padding: 14px 14px 18px; }
+.pb-persona-card.is-centre { transform: scale(1.02); }
 .pb-persona-card__name {
   font-family: 'Cormorant Garamond', serif;
   font-size: 18px;
@@ -782,6 +787,17 @@ body.pb-page { padding-bottom: 80px; }
   font-weight: 600;
   color: var(--ink);
   margin-bottom: 6px;
+}
+/* Role label inside persona card — overrides generic .pb-section-kicker */
+.pb-persona-card__body .pb-section-kicker {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--ink);
+  letter-spacing: 0;
+  text-transform: none;
+  margin: 0 0 8px;
 }
 .pb-persona-card__quote {
   font-family: 'DM Sans', sans-serif;
@@ -1160,25 +1176,32 @@ body.pb-page { padding-bottom: 80px; }
 }
 .pb-related__header { padding: 0 24px; }
 .pb-related__scroll {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  overflow: visible;
-  padding: 4px 16px 20px;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 14px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 4px 24px 20px;
+  scroll-padding-inline: 24px;
+  scrollbar-width: none;
 }
+.pb-related__scroll::-webkit-scrollbar { display: none; }
 .pb-related-card {
-  width: auto;
+  flex: 0 0 clamp(200px, 56vw, 260px);
+  scroll-snap-align: center;
   border-radius: 12px;
   overflow: hidden;
   background: var(--bg-base);
   border: 1px solid var(--gold-hairline);
   text-decoration: none;
   display: block;
-  transition: transform .22s ease, box-shadow .22s ease;
+  transition: transform .25s ease, box-shadow .22s ease;
 }
+.pb-related-card.is-centre { transform: scale(1.02); }
 @media (hover: hover) {
   .pb-related-card:hover {
-    transform: translateY(-3px);
     box-shadow: 0 12px 28px rgba(180,130,30,0.13);
   }
 }
@@ -1225,9 +1248,10 @@ body.pb-page { padding-bottom: 80px; }
 
 @media (min-width: 768px) {
   .pb-related__scroll {
-    padding: 4px 64px 4px;
+    padding: 4px 64px 20px;
     gap: 20px;
   }
+  .pb-related-card { flex-basis: clamp(220px, 32vw, 300px); }
 }
 
 
