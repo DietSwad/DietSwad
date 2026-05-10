@@ -1,6 +1,9 @@
 (function () {
   'use strict';
 
+  var API_BASE     = 'https://dietswad-api.azurewebsites.net/api';
+  var formLoadedAt = Date.now() / 1000;
+
   function readCart() {
     try { return JSON.parse(localStorage.getItem('dietswad_cart')) || {}; }
     catch (_) { return {}; }
@@ -166,7 +169,7 @@
     }
   };
 
-  window.handleSubmit = function (e) {
+  window.handleSubmit = async function (e) {
     e.preventDefault();
     clearError();
 
@@ -180,12 +183,10 @@
     // At least one product must have qty > 0
     var spans = document.querySelectorAll('.ord-qty-val');
     var items = [];
-    var total = 0;
     spans.forEach(function (s, i) {
       var qty = parseInt(s.textContent, 10);
       if (qty > 0) {
-        items.push({ name: PRODUCTS[i].name, qty: qty, price: PRODUCTS[i].price });
-        total += qty * PRODUCTS[i].price;
+        items.push({ product: PRODUCTS[i].name, quantity: qty });
       }
     });
 
@@ -195,33 +196,70 @@
       return;
     }
 
-    // Browser native field validation (shows tooltips even under novalidate)
+    // Browser native field validation
     var form = document.getElementById('orderForm');
     if (!form.reportValidity()) return;
 
     // Collect form data
-    var data     = new FormData(form);
-    var customer = {
-      name:    data.get('name'),
-      phone:   data.get('phone'),
-      email:   data.get('email'),
-      address: data.get('address'),
-      city:    data.get('city'),
-      pincode: data.get('pincode'),
-      notes:   data.get('notes') || '',
+    var fd      = new FormData(form);
+    var address = (fd.get('address') || '').trim();
+    var city    = (fd.get('city')    || '').trim();
+    if (city) address += ', ' + city;
+
+    var payload = {
+      customer_name:  fd.get('name'),
+      phone:          fd.get('phone'),
+      email:          fd.get('email'),
+      address:        address,
+      pincode:        fd.get('pincode'),
+      notes:          fd.get('notes') || '',
+      items:          items,
+      form_loaded_at: formLoadedAt,
+      source:         'website',
+      utm_source:     fd.get('utm_source')   || '',
+      utm_medium:     fd.get('utm_medium')   || '',
+      utm_campaign:   fd.get('utm_campaign') || '',
+      fbp:            fd.get('fbp')          || '',
+      fbc:            fd.get('fbc')          || '',
+      ga_client_id:   fd.get('ga_client_id') || '',
     };
 
-    // Persist for thank-you page — Phase 1b replaces with POST /api/create-order
+    // Disable Pay Now button during processing
+    var payBtn      = document.querySelector('.ord-pay-btn');
+    var payBtnSpan  = payBtn && payBtn.querySelector('span');
+    if (payBtn)     { payBtn.disabled = true; }
+    if (payBtnSpan) { payBtnSpan.textContent = 'Processing…'; }
+
+    function resetBtn() {
+      if (payBtn)     { payBtn.disabled = false; }
+      if (payBtnSpan) { payBtnSpan.textContent = 'Pay Now'; }
+    }
+
     try {
-      sessionStorage.setItem('dietswad_pending_order', JSON.stringify({
-        items: items, customer: customer, total: total, ts: Date.now(),
-      }));
-    } catch (_) {}
+      var resp   = await fetch(API_BASE + '/create-order', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify(payload),
+      });
+      var result = await resp.json();
 
-    // Clear persistent cart on successful order
-    localStorage.removeItem('dietswad_cart');
+      if (!resp.ok || !result.success) {
+        showError(result.error || 'Something went wrong. Please try again.');
+        resetBtn();
+        return;
+      }
 
-    window.location.href = 'thank-you.html';
+      // Clear persistent cart before redirect
+      localStorage.removeItem('dietswad_cart');
+
+      // Redirect to Easebuzz payment page
+      window.location.href = result.redirect_url;
+
+    } catch (err) {
+      console.error('[DietSwad] create-order error:', err);
+      showError('Network error — please check your connection and try again.');
+      resetBtn();
+    }
   };
 
   // requestSubmit polyfill for older iOS

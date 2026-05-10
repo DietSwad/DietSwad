@@ -1,847 +1,843 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-PHC4G3QB');</script>
-<!-- End Google Tag Manager -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thank You - Order Received | Diet Swad</title>
-    <link rel="icon" type="image/jpeg" href="refference_pics/logo.jpg">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #6D2415 0%, #D32F2F 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            position: relative;
-            overflow-x: hidden;
-        }
-
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
-            opacity: 0.3;
-        }
-
-        .container {
-            background: white;
-            border-radius: 24px;
-            padding: 60px 40px;
-            max-width: 600px;
-            width: 100%;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            text-align: center;
-            animation: slideUp 0.6s ease-out;
-            position: relative;
-            z-index: 1;
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .logo-container {
-            margin-bottom: 30px;
-            animation: fadeIn 0.8s ease-out;
-        }
-
-        .logo {
-            max-width: 150px;
-            height: auto;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(109, 36, 21, 0.2);
-        }
-
-        .checkmark-container {
-            margin: 0 auto 30px;
-            width: 160px;
-            height: 160px;
-            position: relative;
-        }
-
-        /* Particle effects */
-        .particles {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 200px;
-            height: 200px;
-        }
-
-        .particle {
-            position: absolute;
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            opacity: 0;
-            animation: particleBurst 1.2s ease-out forwards;
-        }
-
-        /* Red particles */
-        .particle.red {
-            background: linear-gradient(135deg, #D32F2F 0%, #FF6B6B 100%);
-        }
-
-        /* Gold particles for celebration */
-        .particle.gold {
-            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-            box-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
-        }
-
-        /* Yellow particles */
-        .particle.yellow {
-            background: linear-gradient(135deg, #FFEB3B 0%, #FFC107 100%);
-            box-shadow: 0 0 6px rgba(255, 235, 59, 0.5);
-        }
-
-        /* Synchronized timing - all burst at 1.1s when tick completes */
-        .particle:nth-child(1) { animation-delay: 1.1s; }
-        .particle:nth-child(2) { animation-delay: 1.12s; }
-        .particle:nth-child(3) { animation-delay: 1.14s; }
-        .particle:nth-child(4) { animation-delay: 1.16s; }
-        .particle:nth-child(5) { animation-delay: 1.18s; }
-        .particle:nth-child(6) { animation-delay: 1.2s; }
-        .particle:nth-child(7) { animation-delay: 1.1s; }
-        .particle:nth-child(8) { animation-delay: 1.13s; }
-        .particle:nth-child(9) { animation-delay: 1.15s; }
-        .particle:nth-child(10) { animation-delay: 1.17s; }
-        .particle:nth-child(11) { animation-delay: 1.19s; }
-        .particle:nth-child(12) { animation-delay: 1.21s; }
-
-        @keyframes particleBurst {
-            0% {
-                opacity: 1;
-                transform: translate(0, 0) scale(0);
-            }
-            50% {
-                opacity: 1;
-            }
-            100% {
-                opacity: 0;
-                transform: translate(var(--tx), var(--ty)) scale(1);
-            }
-        }
-
-        /* Confetti pieces */
-        .confetti {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            opacity: 0;
-            animation: confettiFall 2s ease-out forwards;
-        }
-
-        .confetti.square {
-            background: linear-gradient(135deg, #D32F2F, #FF6B6B);
-        }
-
-        .confetti.circle {
-            background: linear-gradient(135deg, #FFD700, #FFA500);
-            border-radius: 50%;
-        }
-
-        .confetti.triangle {
-            width: 0;
-            height: 0;
-            border-left: 5px solid transparent;
-            border-right: 5px solid transparent;
-            border-bottom: 10px solid #FFEB3B;
-        }
-
-        @keyframes confettiFall {
-            0% {
-                opacity: 1;
-                transform: translate(var(--start-x), -20px) rotate(0deg);
-            }
-            100% {
-                opacity: 0;
-                transform: translate(var(--end-x), var(--end-y)) rotate(var(--rotation));
-            }
-        }
-
-        /* Sparkle stars */
-        .sparkle {
-            position: absolute;
-            width: 6px;
-            height: 6px;
-            opacity: 0;
-            animation: sparkleShine 1s ease-out forwards;
-        }
-
-        .sparkle::before,
-        .sparkle::after {
-            content: '';
-            position: absolute;
-            background: linear-gradient(135deg, #FFD700, #FFF);
-            border-radius: 50%;
-        }
-
-        .sparkle::before {
-            width: 6px;
-            height: 2px;
-            top: 2px;
-            left: 0;
-        }
-
-        .sparkle::after {
-            width: 2px;
-            height: 6px;
-            top: 0;
-            left: 2px;
-        }
-
-        @keyframes sparkleShine {
-            0% {
-                opacity: 0;
-                transform: translate(0, 0) scale(0) rotate(0deg);
-            }
-            50% {
-                opacity: 1;
-                transform: translate(var(--tx), var(--ty)) scale(1.5) rotate(180deg);
-            }
-            100% {
-                opacity: 0;
-                transform: translate(var(--tx), var(--ty)) scale(0.5) rotate(360deg);
-            }
-        }
-
-        /* Shimmer rings */
-        .shimmer-ring {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 120px;
-            height: 120px;
-            transform: translate(-50%, -50%);
-            border-radius: 50%;
-            border: 3px solid transparent;
-            background: linear-gradient(45deg, #FFD700, #FFA500, #FFD700);
-            background-clip: padding-box;
-            opacity: 0;
-            animation: shimmer 0.6s ease-out 1.1s forwards;
-        }
-
-        @keyframes shimmer {
-            0% {
-                opacity: 0;
-                transform: translate(-50%, -50%) scale(0.5);
-            }
-            50% {
-                opacity: 0.8;
-                transform: translate(-50%, -50%) scale(1.2);
-            }
-            100% {
-                opacity: 0;
-                transform: translate(-50%, -50%) scale(1.5);
-            }
-        }
-
-        /* Glow rings - synchronized to pulse when tick completes */
-        .glow-ring {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            border-radius: 50%;
-            border: 3px solid rgba(255, 215, 0, 0.5);
-            animation: pulse 2s ease-out infinite;
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
-        }
-
-        .glow-ring:nth-child(1) {
-            width: 160px;
-            height: 160px;
-            animation-delay: 1.1s;
-        }
-
-        .glow-ring:nth-child(2) {
-            width: 140px;
-            height: 140px;
-            animation-delay: 1.15s;
-        }
-
-        @keyframes pulse {
-            0% {
-                transform: translate(-50%, -50%) scale(0.9);
-                opacity: 0.8;
-                border-color: rgba(255, 215, 0, 0.6);
-            }
-            50% {
-                opacity: 0.5;
-                border-color: rgba(211, 47, 47, 0.4);
-            }
-            100% {
-                transform: translate(-50%, -50%) scale(1.8);
-                opacity: 0;
-                border-color: rgba(255, 215, 0, 0);
-            }
-        }
-
-        /* Rotating halo - synchronized */
-        .rotating-halo {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 180px;
-            height: 180px;
-            transform: translate(-50%, -50%);
-            opacity: 0;
-            animation: fadeInRotate 0.3s ease-out 1.1s forwards, rotate 3s linear 1.4s infinite;
-        }
-
-        .rotating-halo::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            width: 4px;
-            height: 4px;
-            background: linear-gradient(135deg, #FFD700, #FFA500);
-            border-radius: 50%;
-            box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
-        }
-
-        @keyframes rotate {
-            from { transform: translate(-50%, -50%) rotate(0deg); }
-            to { transform: translate(-50%, -50%) rotate(360deg); }
-        }
-
-        @keyframes fadeInRotate {
-            to { opacity: 1; }
-        }
-
-        .checkmark {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            display: block;
-            stroke-width: 4;
-            stroke: #D32F2F;
-            stroke-miterlimit: 10;
-            box-shadow: 0 0 0 #D32F2F;
-            animation: fill 0.4s ease-in-out 0.4s forwards, scale 0.3s ease-in-out 0.9s both, glow 2s ease-in-out 1.2s infinite;
-            filter: drop-shadow(0 0 10px rgba(211, 47, 47, 0.3));
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 10;
-        }
-
-        .checkmark-circle {
-            stroke-dasharray: 166;
-            stroke-dashoffset: 166;
-            stroke-width: 4;
-            stroke-miterlimit: 10;
-            stroke: #D32F2F;
-            fill: #FFF5F5;
-            animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
-        }
-
-        .checkmark-check {
-            transform-origin: 50% 50%;
-            stroke-dasharray: 48;
-            stroke-dashoffset: 48;
-            animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
-            filter: drop-shadow(0 2px 4px rgba(211, 47, 47, 0.3));
-        }
-
-        @keyframes stroke {
-            100% {
-                stroke-dashoffset: 0;
-            }
-        }
-
-        @keyframes scale {
-            0%, 100% {
-                transform: translate(-50%, -50%);
-            }
-            50% {
-                transform: translate(-50%, -50%) scale3d(1.15, 1.15, 1);
-            }
-        }
-
-        @keyframes fill {
-            100% {
-                box-shadow: inset 0 0 0 70px #D32F2F;
-            }
-        }
-
-        @keyframes glow {
-            0%, 100% {
-                filter: drop-shadow(0 0 10px rgba(211, 47, 47, 0.3));
-            }
-            50% {
-                filter: drop-shadow(0 0 20px rgba(211, 47, 47, 0.6));
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: #1a1a1a;
-            margin-bottom: 16px;
-            font-weight: 700;
-        }
-
-        .subtitle {
-            font-size: 1.125rem;
-            color: #4b5563;
-            margin-bottom: 40px;
-            line-height: 1.6;
-        }
-
-        .success-message {
-            background: #FFF5F5;
-            border: 2px solid #FFCDD2;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 30px;
-        }
-
-        .success-message p {
-            color: #6D2415;
-            font-weight: 500;
-            margin: 0;
-        }
-
-        .payment-section {
-            background: linear-gradient(135deg, #FFF5F5 0%, #FFEBEE 100%);
-            border: 2px solid #FFCDD2;
-            border-radius: 12px;
-            padding: 30px;
-            margin-bottom: 30px;
-        }
-
-        .payment-section h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            color: #6D2415;
-            margin-bottom: 16px;
-        }
-
-        .payment-section p {
-            color: #6D2415;
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-
-        .contact-info {
-            background: linear-gradient(135deg, #FFF5F5 0%, #FFEBEE 100%);
-            border: 2px solid #FFCDD2;
-            border-radius: 12px;
-            padding: 24px;
-            margin-top: 30px;
-        }
-
-        .contact-info h3 {
-            font-family: 'Playfair Display', serif;
-            color: #6D2415;
-            margin-bottom: 12px;
-            font-size: 1.25rem;
-        }
-
-        .contact-info p {
-            color: #6D2415;
-            margin: 0;
-            line-height: 1.6;
-        }
-
-        @media (max-width: 640px) {
-            .container {
-                padding: 40px 24px;
-            }
-
-            h1 {
-                font-size: 2rem;
-            }
-
-            .subtitle {
-                font-size: 1rem;
-            }
-
-            .payment-section {
-                padding: 20px;
-            }
-        }
-
-        .error-message {
-            color: #dc2626;
-            font-size: 0.875rem;
-            font-weight: 500;
-        }
-
-        .copy-button {
-            background: linear-gradient(135deg, #D32F2F 0%, #6D2415 100%);
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 6px;
-            font-size: 0.875rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-            box-shadow: 0 2px 6px rgba(211, 47, 47, 0.3);
-        }
-
-        .copy-button:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 10px rgba(211, 47, 47, 0.4);
-        }
-
-        .copy-button:active {
-            transform: translateY(0);
-        }
-
-        .copy-button.copied {
-            background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
-        }
-
-        .upi-detail-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 12px;
-        }
-
-        .upi-detail-content {
-            flex: 1;
-            min-width: 0;
-        }
-
-        .bottom-logo {
-            max-width: 200px;
-            height: auto;
-            margin-top: 30px;
-        }
-    </style>
-
-    <!-- Meta Pixel Code -->
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1480791526509702');
-    fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1480791526509702&ev=PageView&noscript=1"
-    /></noscript>
-    <!-- End Meta Pixel Code -->
-
-    
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PHC4G3QB');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You — Order Confirmed | Diet Swad</title>
+  <link rel="icon" type="image/jpeg" href="refference_pics/logo.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* ── Page base ── */
+    body {
+      background: var(--bg-base);
+      font-family: 'DM Sans', sans-serif;
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+
+    /* ── Spinner state (before API resolves) ── */
+    .ty-spinner-wrap {
+      position: fixed; inset: 0;
+      background: var(--bg-base);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      z-index: 200;
+      transition: opacity 0.5s ease;
+    }
+    body[data-status] .ty-spinner-wrap { opacity: 0; pointer-events: none; }
+
+    .ty-spinner {
+      width: 52px; height: 52px;
+      border: 3px solid var(--gold-hairline);
+      border-top-color: var(--gold);
+      border-radius: 50%;
+      animation: spinLoop 0.9s linear infinite;
+      margin-bottom: 20px;
+    }
+    @keyframes spinLoop { to { transform: rotate(360deg); } }
+
+    .ty-spinner-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      color: var(--ink);
+      opacity: 0.55;
+    }
+
+    /* ── Fallback (payment pending / failed) ── */
+    .ty-fallback {
+      display: none;
+      min-height: 70vh;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 24px;
+    }
+    body[data-status="pending"] .ty-fallback { display: flex; }
+
+    .ty-fallback-inner { max-width: 480px; }
+    .ty-fallback h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem; font-weight: 600;
+      color: var(--ink); margin-bottom: 16px;
+    }
+    .ty-fallback p { color: var(--ink); opacity: 0.65; line-height: 1.7; margin-bottom: 28px; }
+
+    /* ── Celebration wrapper (hidden until paid) ── */
+    .ty-celebration { display: none; }
+    body[data-status="paid"] .ty-celebration { display: block; }
+
+    /* ── Hero band ── */
+    .ty-hero {
+      position: relative;
+      background: var(--bg-base);
+      padding: 120px 24px 80px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    /* Ambient gold orbs */
+    .ty-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.22;
+      animation: orbDrift 14s ease-in-out infinite alternate;
+    }
+    .ty-orb-1 {
+      width: 320px; height: 320px;
+      background: var(--gold);
+      top: -80px; left: -60px;
+      animation-duration: 16s;
+    }
+    .ty-orb-2 {
+      width: 260px; height: 260px;
+      background: var(--gold-dark);
+      bottom: -60px; right: -40px;
+      animation-duration: 12s;
+      animation-direction: alternate-reverse;
+    }
+    @keyframes orbDrift {
+      from { transform: translate(0, 0) scale(1); }
+      to   { transform: translate(30px, 20px) scale(1.08); }
+    }
+
+    /* Dot-grid overlay */
+    .ty-dotgrid {
+      position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='2' cy='2' r='1.2' fill='%23C9A84C' fill-opacity='0.12'/%3E%3C/svg%3E");
+      background-size: 24px 24px;
+      pointer-events: none;
+    }
+
+    /* ── Checkmark + particle ring ── */
+    .ty-check-wrap {
+      position: relative;
+      width: 160px; height: 160px;
+      margin: 0 auto 36px;
+    }
+
+    /* Confetti layer */
+    .confetti-layer {
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 320px; height: 320px;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+    .confetti {
+      position: absolute;
+      opacity: 0;
+      animation: confettiFall 2.2s ease-out forwards;
+    }
+    .confetti.sq { width: 10px; height: 10px; background: var(--gold); }
+    .confetti.ci { width: 9px; height: 9px; border-radius: 50%; background: var(--gold-dark); }
+    .confetti.tr {
+      width: 0; height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-bottom: 10px solid var(--maroon);
+    }
+
+    @keyframes confettiFall {
+      0%   { opacity: 1; transform: translate(var(--sx), -20px) rotate(0deg); }
+      100% { opacity: 0; transform: translate(var(--ex), var(--ey)) rotate(var(--rot)); }
+    }
+
+    /* Particles */
+    .particle {
+      position: absolute;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      opacity: 0;
+      animation: particleBurst 1.2s ease-out forwards;
+    }
+    .particle.g1 { background: var(--gold); box-shadow: 0 0 8px rgba(201,168,76,0.6); }
+    .particle.g2 { background: var(--gold-dark); }
+    .particle.g3 { background: var(--maroon); }
+
+    @keyframes particleBurst {
+      0%   { opacity: 1; transform: translate(0,0) scale(0); }
+      50%  { opacity: 1; }
+      100% { opacity: 0; transform: translate(var(--tx), var(--ty)) scale(1); }
+    }
+
+    /* Sparkles */
+    .sparkle {
+      position: absolute;
+      width: 6px; height: 6px;
+      opacity: 0;
+      animation: sparkleShine 1.1s ease-out forwards;
+    }
+    .sparkle::before, .sparkle::after {
+      content: ''; position: absolute;
+      background: var(--gold);
+      border-radius: 50%;
+    }
+    .sparkle::before { width: 6px; height: 2px; top: 2px; left: 0; }
+    .sparkle::after  { width: 2px; height: 6px; top: 0; left: 2px; }
+
+    @keyframes sparkleShine {
+      0%   { opacity: 0; transform: translate(0,0) scale(0) rotate(0deg); }
+      50%  { opacity: 1; transform: translate(var(--tx), var(--ty)) scale(1.5) rotate(180deg); }
+      100% { opacity: 0; transform: translate(var(--tx), var(--ty)) scale(0.5) rotate(360deg); }
+    }
+
+    /* Shimmer ring */
+    .shimmer-ring {
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 140px; height: 140px;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      border: 3px solid var(--gold);
+      opacity: 0;
+      animation: shimmerRing 0.6s ease-out 1.1s forwards;
+    }
+    @keyframes shimmerRing {
+      0%   { opacity: 0; transform: translate(-50%, -50%) scale(0.6); }
+      50%  { opacity: 0.7; transform: translate(-50%, -50%) scale(1.15); }
+      100% { opacity: 0; transform: translate(-50%, -50%) scale(1.5); }
+    }
+
+    /* Glow rings */
+    .glow-ring {
+      position: absolute;
+      top: 50%; left: 50%;
+      border-radius: 50%;
+      border: 2px solid rgba(201,168,76,0.45);
+      animation: glowPulse 2.4s ease-out infinite;
+      box-shadow: 0 0 18px rgba(201,168,76,0.25);
+    }
+    .glow-ring:nth-child(1) { width: 170px; height: 170px; animation-delay: 1.1s; }
+    .glow-ring:nth-child(2) { width: 148px; height: 148px; animation-delay: 1.25s; }
+    @keyframes glowPulse {
+      0%   { transform: translate(-50%,-50%) scale(0.9); opacity: 0.9; }
+      100% { transform: translate(-50%,-50%) scale(1.9); opacity: 0; }
+    }
+
+    /* Rotating halo */
+    .rotating-halo {
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 188px; height: 188px;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      animation: haloFadeIn 0.3s ease-out 1.1s forwards, haloRotate 4s linear 1.4s infinite;
+    }
+    .rotating-halo::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%;
+      width: 5px; height: 5px;
+      background: var(--gold);
+      border-radius: 50%;
+      box-shadow: 0 0 12px rgba(201,168,76,0.9);
+    }
+    @keyframes haloFadeIn { to { opacity: 1; } }
+    @keyframes haloRotate {
+      from { transform: translate(-50%,-50%) rotate(0deg); }
+      to   { transform: translate(-50%,-50%) rotate(360deg); }
+    }
+
+    /* SVG checkmark */
+    .checkmark-svg {
+      width: 140px; height: 140px;
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      z-index: 10;
+      animation: checkScale 0.3s ease-in-out 0.9s both, checkGlow 3s ease-in-out 1.2s infinite;
+      filter: drop-shadow(0 0 12px rgba(201,168,76,0.4));
+    }
+    .checkmark-circle {
+      stroke-dasharray: 166;
+      stroke-dashoffset: 166;
+      stroke-width: 4;
+      stroke: var(--gold);
+      fill: var(--cream-mid);
+      animation: drawStroke 0.6s cubic-bezier(0.65,0,0.45,1) forwards;
+    }
+    .checkmark-tick {
+      stroke-dasharray: 48;
+      stroke-dashoffset: 48;
+      stroke-width: 4;
+      stroke: var(--gold-dark);
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      animation: drawStroke 0.3s cubic-bezier(0.65,0,0.45,1) 0.8s forwards;
+    }
+    @keyframes drawStroke { 100% { stroke-dashoffset: 0; } }
+    @keyframes checkScale {
+      0%,100% { transform: translate(-50%,-50%); }
+      50%      { transform: translate(-50%,-50%) scale3d(1.12,1.12,1); }
+    }
+    @keyframes checkGlow {
+      0%,100% { filter: drop-shadow(0 0 10px rgba(201,168,76,0.35)); }
+      50%      { filter: drop-shadow(0 0 22px rgba(201,168,76,0.65)); }
+    }
+
+    /* ── Headline ── */
+    .ty-headline {
+      position: relative; z-index: 2;
+      animation: fadeUp 0.7s ease-out 0.3s both;
+    }
+    .ty-headline h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 6vw, 3.8rem);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
+    .ty-headline h1 em {
+      font-style: italic;
+      color: var(--gold-dark);
+    }
+    .ty-headline p {
+      font-size: 1.05rem;
+      color: var(--ink);
+      opacity: 0.6;
+      max-width: 480px;
+      margin: 0 auto;
+      line-height: 1.65;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Order card ── */
+    .ty-card-wrap {
+      padding: 0 24px 60px;
+      max-width: 560px;
+      margin: 0 auto;
+      animation: fadeUp 0.7s ease-out 0.5s both;
+    }
+
+    .ty-card {
+      background: rgba(255,248,232,0.82);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--gold-hairline);
+      border-radius: 20px;
+      padding: 36px 32px;
+      box-shadow: 0 12px 48px rgba(201,168,76,0.12);
+    }
+
+    .ty-card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--gold-hairline);
+    }
+
+    .ty-order-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--gold-hairline);
+      font-size: 0.95rem;
+      animation: rowSlideIn 0.4s ease-out both;
+    }
+    .ty-order-row:last-of-type { border-bottom: none; }
+    .ty-order-row .label { color: var(--ink); opacity: 0.55; }
+    .ty-order-row .value { font-weight: 500; color: var(--ink); }
+
+    .ty-order-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0 0;
+      margin-top: 8px;
+      border-top: 2px solid var(--gold-hairline);
+      animation: totalPop 0.5s cubic-bezier(0.34,1.56,0.64,1) 0.8s both;
+    }
+    .ty-order-total .label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .ty-order-total .amount {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--gold-dark);
+    }
+
+    @keyframes rowSlideIn {
+      from { opacity: 0; transform: translateX(-12px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes totalPop {
+      from { opacity: 0; transform: scale(0.92); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    /* Skeleton rows (shown while loading) */
+    .ty-skeleton {
+      height: 16px;
+      background: linear-gradient(90deg, var(--gold-hairline) 25%, rgba(201,168,76,0.08) 50%, var(--gold-hairline) 75%);
+      background-size: 200% 100%;
+      border-radius: 8px;
+      margin: 10px 0;
+      animation: skelShimmer 1.4s ease infinite;
+    }
+    @keyframes skelShimmer {
+      0%   { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    /* ── Email strip ── */
+    .ty-email-strip {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--cream-mid);
+      border: 1px solid var(--gold-hairline);
+      border-radius: 40px;
+      padding: 10px 20px;
+      font-size: 0.88rem;
+      color: var(--ink);
+      opacity: 0.75;
+      margin: 24px 0 0;
+      animation: shimmerSlide 2.2s ease 1s infinite;
+    }
+    @keyframes shimmerSlide {
+      0%,100% { opacity: 0.75; }
+      50%      { opacity: 1; }
+    }
+    .ty-email-strip svg { flex-shrink: 0; opacity: 0.55; }
+
+    /* ── CTA row ── */
+    .ty-cta-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 32px;
+      animation: fadeUp 0.6s ease-out 0.7s both;
+    }
+    .ty-btn-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--gold);
+      color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 14px 28px;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: background 0.25s, box-shadow 0.25s;
+      box-shadow: 0 4px 20px rgba(201,168,76,0.35);
+    }
+    .ty-btn-wa:hover {
+      background: var(--gold-dark);
+      box-shadow: 0 6px 28px rgba(201,168,76,0.5);
+    }
+    .ty-btn-shop {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1.5px solid var(--gold);
+      color: var(--gold-dark);
+      background: transparent;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      padding: 13px 28px;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: background 0.25s, color 0.25s;
+    }
+    .ty-btn-shop:hover {
+      background: var(--gold-hairline);
+      color: var(--ink);
+    }
+
+    /* ── Reduced motion ── */
+    @media (prefers-reduced-motion: reduce) {
+      .confetti, .particle, .sparkle,
+      .glow-ring, .rotating-halo, .shimmer-ring,
+      .ty-orb, .ty-spinner { animation: none !important; }
+      .checkmark-circle { stroke-dashoffset: 0; }
+      .checkmark-tick   { stroke-dashoffset: 0; }
+      .ty-spinner-wrap  { display: none; }
+      body:not([data-status]) .ty-celebration { display: block; }
+    }
+  </style>
 </head>
 <body>
-    <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PHC4G3QB"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-    <div class="container">
-        <!-- Logo -->
-        <div class="logo-container">
-            <img src="refference_pics/logo.jpg" alt="Diet Swad Logo" class="logo">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PHC4G3QB"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!-- Nav -->
+  <nav class="site-nav" id="siteNav">
+    <a href="index.html" class="nav-logo-link">
+      <img src="refference_pics/flat logo.jpg" alt="Diet Swad" class="nav-logo nav-logo--light">
+      <img src="refference_pics/flat logo dark.png" alt="Diet Swad" class="nav-logo nav-logo--dark">
+    </a>
+    <button class="nav-hamburger" id="drawerToggle" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="power-bites.html" class="nav-order-btn">Shop Again</a>
+  </nav>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="drawer-backdrop" id="drawerBackdrop"></div>
+    <div class="drawer-panel">
+      <button class="drawer-close" id="drawerClose" aria-label="Close menu">✕</button>
+      <nav class="drawer-nav">
+        <a href="index.html">Home</a>
+        <a href="power-bites.html">Power Bites</a>
+        <a href="royal-bites.html">Royal Bites</a>
+        <a href="peanut-sesame.html">Peanut-Sesame Delights</a>
+        <a href="millet-butter-cookies.html">Millet Butter Cookies</a>
+        <a href="roasted-cashews.html">Roasted Cashews</a>
+      </nav>
+      <a href="power-bites.html" class="drawer-cta-btn">Shop Now</a>
+    </div>
+  </div>
+
+  <!-- Spinner (visible until API responds) -->
+  <div class="ty-spinner-wrap" id="tySpinner">
+    <div class="ty-spinner"></div>
+    <span class="ty-spinner-label">Confirming your order…</span>
+  </div>
+
+  <!-- Fallback (payment pending / unconfirmed after 10s) -->
+  <div class="ty-fallback" id="tyFallback">
+    <div class="ty-fallback-inner">
+      <h2>We're confirming your payment</h2>
+      <p>Your order is being processed. If you've completed payment, you'll receive a confirmation on WhatsApp within a few minutes. Feel free to reach out to us directly.</p>
+      <a href="https://wa.me/918910725854?text=Hi%20Diet%20Swad%2C%20I%20just%20placed%20an%20order%20and%20need%20help%20with%20confirmation"
+         class="ty-btn-wa" target="_blank" style="margin: 0 auto;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Chat on WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <!-- ══ Celebration (shown only when data-status="paid") ══ -->
+  <div class="ty-celebration">
+
+    <!-- Hero -->
+    <section class="ty-hero">
+      <div class="ty-orb ty-orb-1"></div>
+      <div class="ty-orb ty-orb-2"></div>
+      <div class="ty-dotgrid"></div>
+
+      <!-- Animated checkmark -->
+      <div class="ty-check-wrap" id="checkWrap">
+        <!-- Confetti -->
+        <div class="confetti-layer" id="confettiLayer"></div>
+
+        <!-- Glow rings -->
+        <div class="glow-ring"></div>
+        <div class="glow-ring"></div>
+
+        <!-- Shimmer ring -->
+        <div class="shimmer-ring"></div>
+
+        <!-- Rotating halo -->
+        <div class="rotating-halo"></div>
+
+        <!-- SVG checkmark -->
+        <svg class="checkmark-svg" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle class="checkmark-circle" cx="26" cy="26" r="25"/>
+          <polyline class="checkmark-tick" points="14.1 27.2 21.1 34.2 37.9 17.8"/>
+        </svg>
+      </div>
+
+      <!-- Headline -->
+      <div class="ty-headline">
+        <h1>Thank You, <em id="tyFirstname">Friend</em>!</h1>
+        <p id="tySubHeadline">Your order has been confirmed. Expect your Diet Swad goodies soon!</p>
+      </div>
+    </section>
+
+    <!-- Order card -->
+    <div class="ty-card-wrap">
+      <div class="ty-card">
+        <p class="ty-card-title">Order Summary</p>
+
+        <!-- Skeleton rows (replaced by JS) -->
+        <div id="tyOrderRows">
+          <div class="ty-skeleton" style="width:60%;margin-bottom:8px;"></div>
+          <div class="ty-skeleton" style="width:80%;margin-bottom:8px;"></div>
+          <div class="ty-skeleton" style="width:50%;"></div>
         </div>
 
-        <!-- Animated Checkmark with Effects -->
-        <div class="checkmark-container">
-            <!-- Shimmer ring -->
-            <div class="shimmer-ring"></div>
-
-            <!-- Glow rings -->
-            <div class="glow-ring"></div>
-            <div class="glow-ring"></div>
-
-            <!-- Rotating halo -->
-            <div class="rotating-halo"></div>
-
-            <!-- Burst Particles - Red, Gold, and Yellow -->
-            <div class="particles">
-                <!-- Red particles -->
-                <div class="particle red" style="--tx: 70px; --ty: -70px;"></div>
-                <div class="particle red" style="--tx: -70px; --ty: -70px;"></div>
-                <div class="particle red" style="--tx: 90px; --ty: 0px;"></div>
-                <div class="particle red" style="--tx: -90px; --ty: 0px;"></div>
-
-                <!-- Gold particles for celebration -->
-                <div class="particle gold" style="--tx: 85px; --ty: -40px;"></div>
-                <div class="particle gold" style="--tx: -85px; --ty: -40px;"></div>
-                <div class="particle gold" style="--tx: 100px; --ty: 30px;"></div>
-                <div class="particle gold" style="--tx: -100px; --ty: 30px;"></div>
-
-                <!-- Yellow particles -->
-                <div class="particle yellow" style="--tx: 60px; --ty: 60px;"></div>
-                <div class="particle yellow" style="--tx: -60px; --ty: 60px;"></div>
-                <div class="particle yellow" style="--tx: 50px; --ty: -80px;"></div>
-                <div class="particle yellow" style="--tx: -50px; --ty: -80px;"></div>
-            </div>
-
-            <!-- Sparkle stars -->
-            <div class="sparkle" style="--tx: 50px; --ty: -50px; animation-delay: 1.1s; top: 50%; left: 50%;"></div>
-            <div class="sparkle" style="--tx: -50px; --ty: -50px; animation-delay: 1.15s; top: 50%; left: 50%;"></div>
-            <div class="sparkle" style="--tx: 65px; --ty: 0px; animation-delay: 1.2s; top: 50%; left: 50%;"></div>
-            <div class="sparkle" style="--tx: -65px; --ty: 0px; animation-delay: 1.25s; top: 50%; left: 50%;"></div>
-            <div class="sparkle" style="--tx: 45px; --ty: 45px; animation-delay: 1.3s; top: 50%; left: 50%;"></div>
-            <div class="sparkle" style="--tx: -45px; --ty: 45px; animation-delay: 1.35s; top: 50%; left: 50%;"></div>
-
-            <!-- Confetti pieces -->
-            <div class="confetti square" style="--start-x: 0px; --end-x: 40px; --end-y: 100px; --rotation: 360deg; animation-delay: 1.1s; top: 50%; left: 50%;"></div>
-            <div class="confetti circle" style="--start-x: 0px; --end-x: -40px; --end-y: 100px; --rotation: -360deg; animation-delay: 1.15s; top: 50%; left: 50%;"></div>
-            <div class="confetti triangle" style="--start-x: 0px; --end-x: 60px; --end-y: 120px; --rotation: 180deg; animation-delay: 1.2s; top: 50%; left: 50%;"></div>
-            <div class="confetti square" style="--start-x: 0px; --end-x: -60px; --end-y: 120px; --rotation: -180deg; animation-delay: 1.25s; top: 50%; left: 50%;"></div>
-            <div class="confetti circle" style="--start-x: 0px; --end-x: 80px; --end-y: 90px; --rotation: 270deg; animation-delay: 1.3s; top: 50%; left: 50%;"></div>
-            <div class="confetti triangle" style="--start-x: 0px; --end-x: -80px; --end-y: 90px; --rotation: -270deg; animation-delay: 1.35s; top: 50%; left: 50%;"></div>
-
-            <!-- Main checkmark SVG -->
-            <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
-                <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
-                <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
-            </svg>
+        <!-- Total (populated by JS) -->
+        <div class="ty-order-total" id="tyTotal" style="display:none;">
+          <span class="label">Total Paid</span>
+          <span class="amount" id="tyTotalAmount">₹0</span>
         </div>
 
-        <!-- Success Message -->
-        <h1>Order Received!</h1>
-        <p class="subtitle">Thank you for choosing Diet Swad. Your order request has been successfully submitted.</p>
-
-        <div class="success-message">
-            <p>Your order details have been recorded. Please complete the payment to confirm your order.</p>
+        <!-- Email strip -->
+        <div class="ty-email-strip" id="tyEmailStrip" style="display:none;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+          <span id="tyEmailText">Invoice on its way to your inbox</span>
         </div>
+      </div>
 
-        <!-- Payment Section -->
-        <div class="payment-section">
-            <h2>Next Step: Complete Payment</h2>
-            <p>To confirm your order, please proceed with UPI payment for the following amount:</p>
-
-            <div style="background: white; border-radius: 8px; padding: 20px; margin-bottom: 20px; border: 2px solid #D32F2F;">
-                <p style="margin: 0; font-size: 0.875rem; color: #6D2415;">Payment Amount</p>
-                <p style="margin: 8px 0 0 0; font-size: 2rem; font-weight: 700; color: #D32F2F;">₹<span id="displayAmount">0</span></p>
-            </div>
-
-            <div class="error-message" id="error-message" style="display: none; text-align: center; margin-bottom: 16px;">Invalid amount. Please check the payment link.</div>
-
-            <!-- QR Code Payment Section -->
-            <div style="background: white; border-radius: 12px; padding: 24px; border: 2px solid #D32F2F;">
-                <h3 style="font-family: 'Playfair Display', serif; color: #6D2415; margin-bottom: 20px; font-size: 1.25rem;">Scan QR Code to Pay</h3>
-
-                <div style="display: flex; justify-content: center; margin-bottom: 20px;">
-                    <img src="refference_pics/QR.jpg" alt="UPI Payment QR Code" style="max-width: 250px; width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);">
-                </div>
-
-                <div style="background: #FFF5F5; border-radius: 8px; padding: 16px; margin-top: 16px;">
-                    <div style="margin-bottom: 16px;">
-                        <p style="margin: 0 0 8px 0; font-size: 0.875rem; color: #6D2415; font-weight: 600;">UPI ID:</p>
-                        <div class="upi-detail-row">
-                            <div class="upi-detail-content">
-                                <p style="margin: 0; font-size: 1.125rem; color: #D32F2F; font-weight: 500; word-break: break-all;">rinkuguptarrr@okicici</p>
-                            </div>
-                            <button class="copy-button" onclick="copyToClipboard('rinkuguptarrr@okicici', this)">Copy</button>
-                        </div>
-                    </div>
-                    <div>
-                        <p style="margin: 0 0 8px 0; font-size: 0.875rem; color: #6D2415; font-weight: 600;">UPI Number:</p>
-                        <div class="upi-detail-row">
-                            <div class="upi-detail-content">
-                                <p style="margin: 0; font-size: 1.125rem; color: #D32F2F; font-weight: 500;">9830193006</p>
-                            </div>
-                            <button class="copy-button" onclick="copyToClipboard('9830193006', this)">Copy</button>
-                        </div>
-                    </div>
-                </div>
-
-                <p style="margin-top: 16px; font-size: 0.875rem; color: #6D2415; text-align: center; line-height: 1.5;">
-                    Scan the QR code with any UPI app or use the UPI ID/Number above to complete your payment manually.
-                </p>
-            </div>
-        </div>
-
-        <!-- Contact Information -->
-        <div class="contact-info">
-            <h3>What happens next?</h3>
-            <p>After payment confirmation, our representative will contact you via call or WhatsApp to confirm your order details and arrange delivery.</p>
-        </div>
-
-        <img src="refference_pics/flat logo.jpg" alt="Diet Swad" class="bottom-logo">
+      <!-- CTA buttons -->
+      <div class="ty-cta-row">
+        <a href="#" class="ty-btn-wa" id="tyWaTrack" target="_blank">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Track Order on WhatsApp
+        </a>
+        <a href="index.html" class="ty-btn-shop">Shop Again</a>
+      </div>
     </div>
 
-    <script>
-        // Get amount from URL parameter
-        let paymentAmount = 0;
+  </div><!-- /ty-celebration -->
 
-        // Azure Function endpoint - REPLACE WITH YOUR ACTUAL FUNCTION URL
-        const AZURE_FUNCTION_URL = 'https://ds-meta-capi-epdmafgfdpfydpes.centralindia-01.azurewebsites.net/api/meta-event';
-        // Optional: Add function key if required
-        const FUNCTION_KEY = ''; // Leave empty if using ANONYMOUS auth level
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-logo-wrap">
+        <img src="refference_pics/flat logo dark.png" alt="Diet Swad" class="footer-logo">
+        <p class="footer-tagline">Ancient Wisdom · Modern Life</p>
+      </div>
+      <nav class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="power-bites.html">Shop</a>
+        <a href="privacy-policy.html">Privacy</a>
+        <a href="terms-of-service.html">Terms</a>
+        <a href="refund-policy.html">Refunds</a>
+        <a href="shipping-policy.html">Shipping</a>
+      </nav>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/dietswad/" target="_blank" aria-label="Instagram">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://wa.me/918910725854" target="_blank" aria-label="WhatsApp">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <img src="refference_pics/fssai-logo.png" alt="FSSAI" class="footer-fssai-logo">
+      <span>FSSAI Regd. No. 22825041000300 · © 2025 Diet Swad · Made with ♥ in Kolkata</span>
+    </div>
+  </footer>
 
-        function getAmountFromURL() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const amount = urlParams.get('AMOUNT');
-            return amount ? parseFloat(amount) : null;
+  <!-- WhatsApp FAB -->
+  <a href="https://wa.me/918910725854?text=Hi%20Diet%20Swad%2C%20I%20have%20a%20question%20about%20my%20order"
+     class="wa-fab" target="_blank" aria-label="Chat on WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <script>
+    // ── Nav drawer ──
+    const drawerToggle   = document.getElementById('drawerToggle');
+    const mobileDrawer   = document.getElementById('mobileDrawer');
+    const drawerClose    = document.getElementById('drawerClose');
+    const drawerBackdrop = document.getElementById('drawerBackdrop');
+    function openDrawer()  { mobileDrawer.classList.add('is-open'); document.body.style.overflow='hidden'; }
+    function closeDrawer() { mobileDrawer.classList.remove('is-open'); document.body.style.overflow=''; }
+    drawerToggle.addEventListener('click', openDrawer);
+    drawerClose.addEventListener('click', closeDrawer);
+    drawerBackdrop.addEventListener('click', closeDrawer);
+
+    const siteNav = document.getElementById('siteNav');
+    window.addEventListener('scroll', () => {
+      siteNav.classList.toggle('scrolled', window.scrollY > 100);
+    });
+
+    // ── Confetti + particles spawner ──
+    function spawnConfetti() {
+      const layer = document.getElementById('confettiLayer');
+      if (!layer) return;
+
+      const types  = ['sq','ci','tr'];
+      const counts = { confetti: 28, particle: 14, sparkle: 10 };
+
+      // Confetti
+      for (let i = 0; i < counts.confetti; i++) {
+        const el = document.createElement('div');
+        el.className = 'confetti ' + types[i % 3];
+        const sx = (Math.random() - 0.5) * 260;
+        el.style.cssText = `
+          --sx: ${sx}px;
+          --ex: ${sx + (Math.random()-0.5)*80}px;
+          --ey: ${140 + Math.random()*120}px;
+          --rot: ${Math.random()*720 - 360}deg;
+          top: 50%; left: 50%;
+          animation-delay: ${1.1 + Math.random()*0.4}s;
+          animation-duration: ${1.8 + Math.random()*0.8}s;
+        `;
+        layer.appendChild(el);
+      }
+
+      // Particles
+      const pClasses = ['g1','g2','g3'];
+      for (let i = 0; i < counts.particle; i++) {
+        const el = document.createElement('div');
+        el.className = 'particle ' + pClasses[i % 3];
+        const angle = (i / counts.particle) * Math.PI * 2;
+        const dist  = 70 + Math.random() * 60;
+        el.style.cssText = `
+          --tx: ${Math.cos(angle)*dist}px;
+          --ty: ${Math.sin(angle)*dist}px;
+          top: 50%; left: 50%;
+          animation-delay: ${1.1 + i * 0.015}s;
+        `;
+        layer.appendChild(el);
+      }
+
+      // Sparkles
+      for (let i = 0; i < counts.sparkle; i++) {
+        const el = document.createElement('div');
+        el.className = 'sparkle';
+        const angle = (i / counts.sparkle) * Math.PI * 2;
+        const dist  = 90 + Math.random() * 40;
+        el.style.cssText = `
+          --tx: ${Math.cos(angle)*dist}px;
+          --ty: ${Math.sin(angle)*dist}px;
+          top: 50%; left: 50%;
+          animation-delay: ${1.3 + i * 0.06}s;
+        `;
+        layer.appendChild(el);
+      }
+    }
+
+    // ── Order details renderer ──
+    function renderOrderDetails(data) {
+      const rowsEl  = document.getElementById('tyOrderRows');
+      const totalEl = document.getElementById('tyTotal');
+      const amtEl   = document.getElementById('tyTotalAmount');
+      const emailEl = document.getElementById('tyEmailStrip');
+      const emailTx = document.getElementById('tyEmailText');
+      const nameEl  = document.getElementById('tyFirstname');
+      const subEl   = document.getElementById('tySubHeadline');
+
+      if (data.customer_name) {
+        const first = data.customer_name.split(' ')[0];
+        nameEl.textContent = first;
+      }
+      if (data.customer_email) {
+        emailTx.textContent = `Invoice on its way to ${data.customer_email}`;
+        emailEl.style.display = 'flex';
+      }
+
+      const rows = [];
+      if (data.order_id)   rows.push({ label: 'Order ID',   value: data.order_id });
+      if (data.product_name) rows.push({ label: 'Product', value: data.product_name });
+      if (data.quantity)   rows.push({ label: 'Qty',        value: data.quantity });
+      if (data.address)    rows.push({ label: 'Shipping to', value: data.address });
+
+      rowsEl.innerHTML = rows.map((r, i) => `
+        <div class="ty-order-row" style="animation-delay:${0.6 + i*0.1}s">
+          <span class="label">${r.label}</span>
+          <span class="value">${r.value}</span>
+        </div>
+      `).join('');
+
+      if (data.total_amount) {
+        amtEl.textContent = '₹' + Number(data.total_amount).toLocaleString('en-IN');
+        totalEl.style.display = 'flex';
+      }
+
+      // WhatsApp track link
+      const waBtn = document.getElementById('tyWaTrack');
+      const waMsg = encodeURIComponent(`Hi Diet Swad! I want to track my order ${data.order_id || ''}`);
+      waBtn.href = `https://wa.me/918910725854?text=${waMsg}`;
+    }
+
+    // ── Analytics fires ──
+    function fireAnalytics(data, orderId) {
+      // 1. Meta Pixel Purchase with eventID for CAPI dedup
+      if (typeof fbq === 'function') {
+        fbq('track', 'Purchase', {
+          value:        data.total_amount || 0,
+          currency:     'INR',
+          content_ids:  data.product_ids || [],
+          content_type: 'product',
+          num_items:    data.quantity || 1
+        }, { eventID: orderId });
+      } else {
+        console.warn('[DietSwad] fbq not defined — Meta Pixel base tag not yet live in GTM. Purchase event skipped.');
+      }
+
+      // 2. GA4 + Amplitude via GTM dataLayer
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ ecommerce: null });
+      window.dataLayer.push({
+        event: 'purchase',
+        ecommerce: {
+          transaction_id: orderId,
+          value:          data.total_amount || 0,
+          currency:       'INR',
+          items: [{
+            item_id:   data.product_ids?.[0] || 'unknown',
+            item_name: data.product_name    || 'Diet Swad Product',
+            quantity:  data.quantity        || 1,
+            price:     data.total_amount    || 0
+          }]
         }
+      });
+    }
 
-        function getURLParameter(param) {
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(param) || '';
-        }
+    // ── Order status polling ──
+    const orderId = new URLSearchParams(location.search).get('order_id');
 
-        function getCookie(name) {
-            const value = `; ${document.cookie}`;
-            const parts = value.split(`; ${name}=`);
-            if (parts.length === 2) return parts.pop().split(';').shift();
-            return '';
-        }
+    async function fetchStatus(retriesLeft) {
+      try {
+        const res  = await fetch(`https://dietswad-api.azurewebsites.net/api/order-status?order_id=${encodeURIComponent(orderId)}`);
+        const data = await res.json();
+        if (data.payment_status === 'Paid') return data;
+      } catch (e) {
+        console.warn('[DietSwad] order-status fetch error:', e);
+      }
+      if (retriesLeft <= 1) return null;
+      await new Promise(r => setTimeout(r, 2000));
+      return fetchStatus(retriesLeft - 1);
+    }
 
-        function initializePage() {
-            const amount = getAmountFromURL();
-            const displayElement = document.getElementById('displayAmount');
-            const errorMessage = document.getElementById('error-message');
+    async function init() {
+      if (!orderId) {
+        document.body.setAttribute('data-status', 'pending');
+        return;
+      }
 
-            if (amount && amount > 0 && !isNaN(amount)) {
-                // Valid amount found
-                paymentAmount = amount;
-                displayElement.textContent = paymentAmount.toFixed(2);
-                errorMessage.style.display = 'none';
+      const data = await fetchStatus(5);
 
-                // Send conversion event to Azure Function
-                sendConversionEvent();
-            } else {
-                // Invalid or missing amount
-                displayElement.textContent = '0';
-                errorMessage.style.display = 'block';
-            }
-        }
+      if (data) {
+        document.body.setAttribute('data-status', 'paid');
+        renderOrderDetails(data);
+        spawnConfetti();
+        fireAnalytics(data, orderId);
+      } else {
+        document.body.setAttribute('data-status', 'pending');
+      }
+    }
 
-        function sendConversionEvent() {
-            try {
-                // Get URL parameters
-                const amount = getURLParameter('AMOUNT');
-                const name = getURLParameter('Name');
-                const phone = getURLParameter('PhoneNumber');
-                const email = getURLParameter('email');
-                const product = getURLParameter('product');
-                const quantity = getURLParameter('Quantity');
-                const fbclid = getURLParameter('fbclid');
-                const ctwa_clid = getURLParameter('ctwa_clid');
-                const utm_source = getURLParameter('utm_source');
-                const utm_medium = getURLParameter('utm_medium');
-                const utm_campaign = getURLParameter('utm_campaign');
-
-                // Get Facebook cookies
-                const fbp = getCookie('_fbp');
-                const fbc = getCookie('_fbc');
-
-                // Prepare event data
-                const eventData = {
-                    event_name: 'Purchase',
-                    email: email,
-                    phone: phone,
-                    name: name,
-                    amount: parseFloat(amount),
-                    currency: 'INR',
-                    product: product,
-                    quantity: quantity,
-                    fbp: fbp,
-                    fbclid: fbclid || (fbc ? fbc.split('.').pop() : ''),
-                    ctwa_clid: ctwa_clid,
-                    utm_source: utm_source,
-                    utm_medium: utm_medium,
-                    utm_campaign: utm_campaign,
-                    event_source_url: window.location.href
-                };
-
-                console.log('Sending conversion event:', eventData);
-
-                // Build request URL
-                let requestURL = AZURE_FUNCTION_URL;
-                if (FUNCTION_KEY) {
-                    requestURL += `?code=${FUNCTION_KEY}`;
-                }
-
-                // Send to Azure Function
-                fetch(requestURL, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(eventData)
-                })
-                .then(response => response.json())
-                .then(data => {
-                    console.log('Conversion event sent successfully:', data);
-                })
-                .catch(error => {
-                    console.error('Error sending conversion event:', error);
-                    // Silently fail - don't disrupt user experience
-                });
-
-            } catch (error) {
-                console.error('Error in sendConversionEvent:', error);
-            }
-        }
-
-        function copyToClipboard(text, button) {
-            // Copy to clipboard
-            navigator.clipboard.writeText(text).then(() => {
-                // Change button text and style
-                const originalText = button.textContent;
-                button.textContent = 'Copied!';
-                button.classList.add('copied');
-
-                // Reset button after 2 seconds
-                setTimeout(() => {
-                    button.textContent = originalText;
-                    button.classList.remove('copied');
-                }, 2000);
-            }).catch(err => {
-                console.error('Failed to copy:', err);
-                alert('Failed to copy. Please copy manually.');
-            });
-        }
-
-        // Initialize page when DOM is loaded
-        document.addEventListener('DOMContentLoaded', initializePage);
-    </script>
+    init();
+  </script>
 </body>
 </html>
