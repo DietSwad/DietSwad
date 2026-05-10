@@ -473,15 +473,105 @@
       color: var(--ink);
     }
 
+    /* ── 3rd ambient orb (top-right) ── */
+    .ty-orb-3 {
+      width: 280px; height: 280px;
+      background: radial-gradient(circle, var(--gold) 0%, var(--gold-dark) 60%);
+      top: 40px; right: -80px;
+      animation-duration: 18s;
+      animation-direction: alternate-reverse;
+    }
+
+    /* ── Gold flash overlay (fires once on paid) ── */
+    .ty-flash {
+      position: fixed; inset: 0;
+      background: radial-gradient(ellipse at center, rgba(255,240,180,0.55) 0%, transparent 70%);
+      pointer-events: none;
+      opacity: 0;
+      z-index: 100;
+    }
+    body[data-status="paid"] .ty-flash {
+      animation: flashBurst 1.4s ease-out forwards;
+    }
+    @keyframes flashBurst {
+      0%   { opacity: 0; }
+      15%  { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
+    /* ── Screen-wide ambient twinkle stars ── */
+    .ty-star {
+      position: fixed;
+      width: 4px; height: 4px;
+      background: var(--gold);
+      border-radius: 50%;
+      pointer-events: none;
+      opacity: 0;
+      animation: starTwinkle var(--dur, 2.5s) ease-in-out var(--delay, 0s) infinite;
+      box-shadow: 0 0 6px rgba(201,168,76,0.8);
+    }
+    @keyframes starTwinkle {
+      0%,100% { opacity: 0; transform: scale(0.5); }
+      50%     { opacity: 0.9; transform: scale(1.4); }
+    }
+
+    /* ── Firework burst (full-screen particle) ── */
+    .fw-particle {
+      position: fixed;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      pointer-events: none;
+      opacity: 0;
+      animation: fwBurst var(--dur, 1s) ease-out var(--delay, 0s) forwards;
+    }
+    .fw-particle.gold { background: var(--gold); box-shadow: 0 0 8px rgba(201,168,76,0.7); }
+    .fw-particle.cream { background: #fffbe6; }
+    .fw-particle.maroon { background: var(--maroon); }
+    @keyframes fwBurst {
+      0%   { opacity: 1; transform: translate(0,0) scale(1.2); }
+      80%  { opacity: 0.6; }
+      100% { opacity: 0; transform: translate(var(--tx), var(--ty)) scale(0.3); }
+    }
+
+    /* ── Card glow pulse ── */
+    body[data-status="paid"] .ty-card {
+      animation: cardGlow 3.5s ease-in-out 1.5s infinite;
+    }
+    @keyframes cardGlow {
+      0%,100% { box-shadow: 0 12px 48px rgba(201,168,76,0.12); }
+      50%     { box-shadow: 0 12px 64px rgba(201,168,76,0.3), 0 0 0 2px rgba(201,168,76,0.18); }
+    }
+
+    /* ── Rising dust motes ── */
+    .ty-mote {
+      position: absolute;
+      width: 3px; height: 3px;
+      border-radius: 50%;
+      background: var(--gold);
+      opacity: 0;
+      pointer-events: none;
+      animation: moteRise var(--dur, 4s) ease-out var(--delay, 0s) infinite;
+    }
+    @keyframes moteRise {
+      0%   { opacity: 0; transform: translateY(0) scale(1); }
+      20%  { opacity: 0.6; }
+      100% { opacity: 0; transform: translateY(-160px) scale(0.4); }
+    }
+
+    /* ── Bigger check-wrap ── */
+    .ty-check-wrap { width: 180px; height: 180px; }
+
     /* ── Reduced motion ── */
     @media (prefers-reduced-motion: reduce) {
       .confetti, .particle, .sparkle,
       .glow-ring, .rotating-halo, .shimmer-ring,
-      .ty-orb, .ty-spinner { animation: none !important; }
+      .ty-orb, .ty-spinner, .ty-star, .fw-particle,
+      .ty-mote, .ty-flash { animation: none !important; }
       .checkmark-circle { stroke-dashoffset: 0; }
       .checkmark-tick   { stroke-dashoffset: 0; }
       .ty-spinner-wrap  { display: none; }
       body:not([data-status]) .ty-celebration { display: block; }
+      body[data-status="paid"] .ty-card { animation: none; }
     }
   </style>
 </head>
@@ -492,31 +582,47 @@
   <!-- End Google Tag Manager (noscript) -->
 
   <!-- Nav -->
-  <nav class="site-nav" id="siteNav">
-    <a href="index.html" class="nav-logo-link">
-      <img src="refference_pics/flat logo.jpg" alt="Diet Swad" class="nav-logo nav-logo--light">
-      <img src="refference_pics/flat logo dark.png" alt="Diet Swad" class="nav-logo nav-logo--dark">
-    </a>
-    <button class="nav-hamburger" id="drawerToggle" aria-label="Open menu">
+  <nav class="site-nav">
+    <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
-    <a href="power-bites.html" class="nav-order-btn">Shop Again</a>
+    <a href="index.html" class="nav-logo-link" aria-label="Diet Swad — Home"><img
+      src="Assets/Logo_and_icons/normal horizontal logo background removed.png"
+      alt="Diet Swad" class="nav-logo"
+      onerror="this.style.display='none';this.parentElement.nextElementSibling.style.display='inline-block';"
+    ></a>
+    <a href="index.html" class="nav-logo-text gold-text" style="display:none;">Diet Swad</a>
+    <a href="order.html" class="nav-order-btn">Order Now</a>
   </nav>
 
   <!-- Mobile Drawer -->
-  <div class="mobile-drawer" id="mobileDrawer">
+  <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
     <div class="drawer-backdrop" id="drawerBackdrop"></div>
-    <div class="drawer-panel">
-      <button class="drawer-close" id="drawerClose" aria-label="Close menu">✕</button>
-      <nav class="drawer-nav">
-        <a href="index.html">Home</a>
-        <a href="power-bites.html">Power Bites</a>
-        <a href="royal-bites.html">Royal Bites</a>
-        <a href="peanut-sesame.html">Peanut-Sesame Delights</a>
-        <a href="millet-butter-cookies.html">Millet Butter Cookies</a>
-        <a href="roasted-cashews.html">Roasted Cashews</a>
-      </nav>
-      <a href="power-bites.html" class="drawer-cta-btn">Shop Now</a>
+    <div class="drawer-panel" role="dialog" aria-label="Navigation">
+      <button class="drawer-close" id="drawerClose">&times;</button>
+      <a href="index.html" class="drawer-logo-link">
+        <img src="Assets/Logo_and_icons/horizontal golden logo transparent.png" class="drawer-logo">
+      </a>
+      <a class="drawer-cta-btn" href="order.html">Order Now</a>
+      <a class="drawer-link" href="index.html">Home</a>
+      <div class="drawer-section">
+        <div class="drawer-section-heading">Products</div>
+        <a class="drawer-sub-link" href="power-bites.html">Power Bites</a>
+        <a class="drawer-sub-link" href="royal-bites.html">Royal Bites</a>
+        <a class="drawer-sub-link" href="peanut-sesame-delights.html">Peanut-Sesame Delights</a>
+        <a class="drawer-sub-link" href="millet-butter-cookies.html">Millet Butter Cookies</a>
+        <a class="drawer-sub-link" href="millet-coconut-cookies.html">Millet Coconut Cookies</a>
+        <a class="drawer-sub-link" href="millet-choco-cookies.html">Millet Choco Cookies</a>
+        <a class="drawer-sub-link" href="roasted-cashews.html">Roasted Cashews</a>
+      </div>
+      <div class="drawer-social">
+        <a href="https://www.instagram.com/dietswad/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://wa.me/918910725854" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+      </div>
     </div>
   </div>
 
@@ -546,7 +652,9 @@
     <section class="ty-hero">
       <div class="ty-orb ty-orb-1"></div>
       <div class="ty-orb ty-orb-2"></div>
+      <div class="ty-orb ty-orb-3"></div>
       <div class="ty-dotgrid"></div>
+      <div class="ty-flash" id="tyFlash"></div>
 
       <!-- Animated checkmark -->
       <div class="ty-check-wrap" id="checkWrap">
@@ -616,31 +724,38 @@
 
   <!-- Footer -->
   <footer class="site-footer">
-    <div class="footer-inner">
-      <div class="footer-logo-wrap">
-        <img src="refference_pics/flat logo dark.png" alt="Diet Swad" class="footer-logo">
-        <p class="footer-tagline">Ancient Wisdom · Modern Life</p>
-      </div>
-      <nav class="footer-links">
-        <a href="index.html">Home</a>
-        <a href="power-bites.html">Shop</a>
-        <a href="privacy-policy.html">Privacy</a>
-        <a href="terms-of-service.html">Terms</a>
-        <a href="refund-policy.html">Refunds</a>
-        <a href="shipping-policy.html">Shipping</a>
-      </nav>
-      <div class="footer-social">
-        <a href="https://www.instagram.com/dietswad/" target="_blank" aria-label="Instagram">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-        </a>
-        <a href="https://wa.me/918910725854" target="_blank" aria-label="WhatsApp">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        </a>
-      </div>
+    <div class="footer-logo-wrap">
+      <img src="Assets/Logo_and_icons/horizontal golden logo transparent.png"
+           alt="Diet Swad" style="height:56px;width:auto;margin-bottom:12px;"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+      <p class="footer-logo-text" style="display:none;">Diet Swad</p>
+    </div>
+    <p class="footer-tagline">Zero Guilt. Zero Junk. 100% Satisfaction.</p>
+    <nav class="footer-links" aria-label="Footer links">
+      <a href="index.html">Home</a>
+      <a href="https://wa.me/918910725854" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="order.html">Order Now</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms-of-service.html">Terms of Service</a>
+      <a href="shipping-policy.html">Shipping Policy</a>
+      <a href="refund-policy.html">Refund Policy</a>
+    </nav>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/dietswad/" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="https://wa.me/918910725854" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      </a>
+      <a href="https://www.facebook.com/dietswad" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      </a>
+      <a href="mailto:dietswad143@gmail.com" aria-label="Email">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+      </a>
     </div>
     <div class="footer-bottom">
-      <img src="refference_pics/fssai-logo.png" alt="FSSAI" class="footer-fssai-logo">
-      <span>FSSAI Regd. No. 22825041000300 · © 2025 Diet Swad · Made with ♥ in Kolkata</span>
+      <p class="footer-fssai">FSSAI Reg: 22825041000300<br>Made in Kolkata with love · Radiant Twins Enterprise<br>© 2025 Diet Swad. All rights reserved.</p>
     </div>
   </footer>
 
@@ -652,30 +767,68 @@
     </svg>
   </a>
 
+  <!-- Nav drawer script -->
   <script>
-    // ── Nav drawer ──
-    const drawerToggle   = document.getElementById('drawerToggle');
-    const mobileDrawer   = document.getElementById('mobileDrawer');
-    const drawerClose    = document.getElementById('drawerClose');
-    const drawerBackdrop = document.getElementById('drawerBackdrop');
-    function openDrawer()  { mobileDrawer.classList.add('is-open'); document.body.style.overflow='hidden'; }
-    function closeDrawer() { mobileDrawer.classList.remove('is-open'); document.body.style.overflow=''; }
-    drawerToggle.addEventListener('click', openDrawer);
-    drawerClose.addEventListener('click', closeDrawer);
-    drawerBackdrop.addEventListener('click', closeDrawer);
+  (function () {
+    'use strict';
+    var hamburger = document.getElementById('navHamburger');
+    var drawer    = document.getElementById('mobileDrawer');
+    var backdrop  = document.getElementById('drawerBackdrop');
+    var closeBtn  = document.getElementById('drawerClose');
+    if (!hamburger || !drawer) return;
+    var links = drawer.querySelectorAll('.drawer-link, .drawer-sub-link');
 
-    const siteNav = document.getElementById('siteNav');
-    window.addEventListener('scroll', () => {
-      siteNav.classList.toggle('scrolled', window.scrollY > 100);
+    function openDrawer() {
+      drawer.classList.add('is-open');
+      drawer.setAttribute('aria-hidden', 'false');
+      hamburger.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+      if (closeBtn) closeBtn.focus();
+    }
+    function closeDrawer() {
+      drawer.classList.remove('is-open');
+      drawer.setAttribute('aria-hidden', 'true');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+      hamburger.focus();
+    }
+    hamburger.addEventListener('click', openDrawer);
+    if (closeBtn)  closeBtn.addEventListener('click', closeDrawer);
+    if (backdrop)  backdrop.addEventListener('click', closeDrawer);
+    links.forEach(function (l) { l.addEventListener('click', closeDrawer); });
+    document.addEventListener('keydown', function (ev) {
+      if (ev.key === 'Escape' && drawer.classList.contains('is-open')) closeDrawer();
     });
+  })();
+  </script>
 
+  <!-- Nav scroll + logo swap -->
+  <script>
+  (function () {
+    'use strict';
+    var nav         = document.querySelector('.site-nav');
+    var logoImg     = nav && nav.querySelector('.nav-logo');
+    var logoDefault = 'Assets/Logo_and_icons/normal horizontal logo background removed.png';
+    var logoGolden  = 'Assets/Logo_and_icons/horizontal golden logo transparent.png';
+    function updateNav() {
+      var scrolled = window.scrollY > 60;
+      if (nav) nav.classList.toggle('is-scrolled', scrolled);
+      if (logoImg) logoImg.src = scrolled ? logoGolden : logoDefault;
+    }
+    window.addEventListener('scroll', updateNav, { passive: true });
+    updateNav();
+  })();
+  </script>
+
+  <!-- Celebration + analytics script -->
+  <script>
     // ── Confetti + particles spawner ──
     function spawnConfetti() {
       const layer = document.getElementById('confettiLayer');
       if (!layer) return;
 
       const types  = ['sq','ci','tr'];
-      const counts = { confetti: 28, particle: 14, sparkle: 10 };
+      const counts = { confetti: 55, particle: 22, sparkle: 18 };
 
       // Confetti
       for (let i = 0; i < counts.confetti; i++) {
@@ -819,6 +972,70 @@
       return fetchStatus(retriesLeft - 1);
     }
 
+    // ── Screen-wide twinkle stars ──
+    function spawnScreenStars() {
+      const colors = ['var(--gold)', '#fffbe6', 'var(--gold-dark)'];
+      for (let i = 0; i < 30; i++) {
+        const el = document.createElement('div');
+        el.className = 'ty-star';
+        el.style.cssText = [
+          'left:'  + (5 + Math.random() * 90) + 'vw',
+          'top:'   + (8 + Math.random() * 80) + 'vh',
+          '--dur:' + (1.8 + Math.random() * 2.8) + 's',
+          '--delay:' + (Math.random() * 4) + 's',
+          'background:' + colors[i % 3],
+          'width:' + (3 + Math.random() * 4) + 'px',
+          'height:' + (3 + Math.random() * 4) + 'px',
+        ].join(';');
+        document.body.appendChild(el);
+      }
+    }
+
+    // ── Firework bursts at random screen positions ──
+    function spawnFireworks() {
+      const pColors = ['gold', 'cream', 'maroon'];
+      const origins = [
+        { x: 20 + Math.random() * 20, y: 20 + Math.random() * 30 },
+        { x: 60 + Math.random() * 25, y: 15 + Math.random() * 25 },
+        { x: 35 + Math.random() * 30, y: 55 + Math.random() * 20 },
+      ];
+      origins.forEach(function (origin, oi) {
+        const baseDelay = 1.2 + oi * 0.5;
+        for (let i = 0; i < 14; i++) {
+          const el = document.createElement('div');
+          el.className = 'fw-particle ' + pColors[i % 3];
+          const angle = (i / 14) * Math.PI * 2;
+          const dist  = 60 + Math.random() * 80;
+          el.style.cssText = [
+            'left:' + origin.x + 'vw',
+            'top:'  + origin.y + 'vh',
+            '--tx:' + Math.cos(angle) * dist + 'px',
+            '--ty:' + Math.sin(angle) * dist + 'px',
+            '--dur:' + (0.8 + Math.random() * 0.5) + 's',
+            '--delay:' + (baseDelay + i * 0.02) + 's',
+          ].join(';');
+          document.body.appendChild(el);
+        }
+      });
+    }
+
+    // ── Rising dust motes in the hero ──
+    function spawnMotes() {
+      const hero = document.querySelector('.ty-hero');
+      if (!hero) return;
+      for (let i = 0; i < 14; i++) {
+        const el = document.createElement('div');
+        el.className = 'ty-mote';
+        el.style.cssText = [
+          'left:'    + (10 + Math.random() * 80) + '%',
+          'bottom:'  + (10 + Math.random() * 40) + 'px',
+          '--dur:'   + (3 + Math.random() * 3) + 's',
+          '--delay:' + (0.5 + Math.random() * 4) + 's',
+        ].join(';');
+        hero.appendChild(el);
+      }
+    }
+
     async function init() {
       if (!orderId) {
         document.body.setAttribute('data-status', 'pending');
@@ -831,6 +1048,11 @@
         document.body.setAttribute('data-status', 'paid');
         renderOrderDetails(data);
         spawnConfetti();
+        spawnScreenStars();
+        spawnFireworks();
+        spawnMotes();
+        // Second confetti wave
+        setTimeout(spawnConfetti, 3500);
         fireAnalytics(data, orderId);
       } else {
         document.body.setAttribute('data-status', 'pending');
