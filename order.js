@@ -12,14 +12,15 @@
     localStorage.setItem('dietswad_cart', JSON.stringify(cart));
   }
 
+  var P = (window.DietSwadPrices && window.DietSwadPrices.UNIFORM_PRICE) || 499;
   var PRODUCTS = [
-    { name: 'Power Bites',            slug: 'power-bites',            price: 499 },
-    { name: 'Royal Bites',            slug: 'royal-bites',            price: 499 },
-    { name: 'Peanut-Sesame Delights', slug: 'peanut-sesame-delights', price: 499 },
-    { name: 'Millet Butter Cookies',  slug: 'millet-butter-cookies',  price: 499 },
-    { name: 'Millet Coconut Cookies', slug: 'millet-coconut-cookies', price: 499 },
-    { name: 'Millet Choco Cookies',   slug: 'millet-choco-cookies',   price: 499 },
-    { name: 'Roasted & Salted Cashews', slug: 'roasted-cashews',        price: 499 },
+    { name: 'Power Bites',            slug: 'power-bites',            price: P },
+    { name: 'Royal Bites',            slug: 'royal-bites',            price: P },
+    { name: 'Peanut-Sesame Delights', slug: 'peanut-sesame-delights', price: P },
+    { name: 'Millet Butter Cookies',  slug: 'millet-butter-cookies',  price: P },
+    { name: 'Millet Coconut Cookies', slug: 'millet-coconut-cookies', price: P },
+    { name: 'Millet Choco Cookies',   slug: 'millet-choco-cookies',   price: P },
+    { name: 'Roasted & Salted Cashews', slug: 'roasted-cashews',        price: P },
   ];
 
   function fmt(n) {
@@ -225,13 +226,13 @@
     };
 
     // Push AddToCart to dataLayer for GTM → Meta Pixel + GA4
-    var cartTotal = items.reduce(function (sum, it) { return sum + it.quantity * 499; }, 0);
+    var cartTotal = items.reduce(function (sum, it) { return sum + it.quantity * P; }, 0);
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
       event:    'add_to_cart',
       value:    cartTotal,
       currency: 'INR',
-      items:    items.map(function (it) { return { item_name: it.product, quantity: it.quantity, price: 499 }; })
+      items:    items.map(function (it) { return { item_name: it.product, quantity: it.quantity, price: P }; })
     });
 
     // Disable Pay Now button during processing
