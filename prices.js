@@ -7,7 +7,7 @@
   // backend products table via the internal app so charges match.
   var PRICES = {
     'power-bites':            199,
-    'royal-bites':            099,
+    'royal-bites':            99,
     'peanut-sesame-delights': 499,
     'millet-butter-cookies':  499,
     'millet-coconut-cookies': 399,
