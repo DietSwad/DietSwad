@@ -19,7 +19,7 @@
     { name: 'Millet Butter Cookies',  slug: 'millet-butter-cookies',  price: 499 },
     { name: 'Millet Coconut Cookies', slug: 'millet-coconut-cookies', price: 499 },
     { name: 'Millet Choco Cookies',   slug: 'millet-choco-cookies',   price: 499 },
-    { name: 'Roasted Cashews',        slug: 'roasted-cashews',        price: 499 },
+    { name: 'Roasted & Salted Cashews', slug: 'roasted-cashews',        price: 499 },
   ];
 
   function fmt(n) {

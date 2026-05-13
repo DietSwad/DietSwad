@@ -380,14 +380,14 @@
     </button>
 
     <!-- Gold horizontal logo (transparent background) -->
-    <img
+    <a href="index.html" class="nav-logo-link" aria-label="Diet Swad — Home"><img
       src="Assets/Logo_and_icons/normal horizontal logo background removed.png"
       alt="Diet Swad"
       class="nav-logo"
-      onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';"
-    >
+      onerror="this.style.display='none'; this.parentElement.nextElementSibling.style.display='inline-block';"
+    ></a>
     <!-- Fallback if logo file not found -->
-    <a href="#" class="nav-logo-text gold-text" style="display:none;">Diet Swad</a>
+    <a href="index.html" class="nav-logo-text gold-text" style="display:none;">Diet Swad</a>
 
     <a href="order.html" class="nav-order-btn">Order Now</a>
   </nav>
@@ -410,7 +410,7 @@
         <a class="drawer-sub-link" href="millet-butter-cookies.html">Millet Butter Cookies</a>
         <a class="drawer-sub-link" href="millet-coconut-cookies.html">Millet Coconut Cookies</a>
         <a class="drawer-sub-link" href="millet-choco-cookies.html">Millet Choco Cookies</a>
-        <a class="drawer-sub-link" href="roasted-cashews.html">Roasted Cashews</a>
+        <a class="drawer-sub-link" href="roasted-cashews.html">Roasted &amp; Salted Cashews</a>
       </div>
       <div class="drawer-social">
         <a href="https://instagram.com/dietswad" target="_blank" rel="noopener" aria-label="Instagram">
@@ -448,10 +448,10 @@
 
         <!-- ── END TEXT: fades in as hearts complete (scroll ~76–92%) ── -->
         <div class="hero-end" aria-live="polite">
-          <span class="hero-label">Handcrafted &middot; Kolkata</span>
+          <span class="hero-label">Handcrafted in Kolkata</span>
           <p class="hero-end-line1">Real ingredients.</p>
           <p class="hero-end-line2">Real food.</p>
-          <p class="hero-end-line3">Really simple.</p>
+          <p class="hero-end-line3">Taste the Truth.</p>
           <div class="hero-cta-wrap">
             <div class="hero-cta-buttons">
               <a href="#products" class="btn-hero-outline">See Products</a>
@@ -486,7 +486,7 @@
     <div class="why-thread-header">
       <span class="section-label-gold">Our Promise</span>
       <h2 class="why-thread-heading">Read Our Label.<br>Then Read Theirs.</h2>
-      <p class="why-thread-tagline">Zero Guilt &middot; Zero Junk &middot; 100% Real</p>
+      <p class="why-thread-tagline">Zero Guilt &middot; Zero Junk &middot; 100% Satisfaction</p>
     </div>
 
     <!-- Ingredient nodes — alternating left / right -->
@@ -497,7 +497,7 @@
           <img src="Assets/Landing_Page_images/why-no-maida.webp" alt="No Maida" loading="lazy" decoding="async" onerror="this.style.display='none'">
         </div>
         <div class="node-text">
-          <h3 class="node-title"><span class="gold-word">No</span> Maida. No Regrets.</h3>
+          <h3 class="node-title"><span class="NO-in-gold-word">No</span> Maida. No Regrets.</h3>
           <p class="node-desc">Jowar, ragi, oats — the grains that don't make you want a nap at 4pm.</p>
         </div>
       </div>
@@ -507,8 +507,8 @@
           <img src="Assets/Landing_Page_images/why-no-palm-oil.webp" alt="No Palm Oil" loading="lazy" decoding="async" onerror="this.style.display='none'">
         </div>
         <div class="node-text">
-          <h3 class="node-title"><span class="gold-word">No</span> Palm Oil. Not ever.</h3>
-          <p class="node-desc">Real ghee. Cold-pressed oils. The way your nani made it &mdash; because she did.</p>
+          <h3 class="node-title"><span class="NO-in-gold-word">No</span> Palm Oil. Not ever.</h3>
+          <p class="node-desc">Real ghee. Cold-pressed oils. The way your nani made it.</p>
         </div>
       </div>
 
@@ -517,7 +517,7 @@
           <img src="Assets/Landing_Page_images/why-real-ingredients.webp" alt="Real Ingredients" loading="lazy" decoding="async" onerror="this.style.display='none'">
         </div>
         <div class="node-text">
-          <h3 class="node-title"><span class="gold-word">No</span> Preservatives.<br><span class="gold-word">No</span> Chemicals.</h3>
+          <h3 class="node-title"><span class="NO-in-gold-word">No</span> Preservatives.<br><span class="NO-in-gold-word">No</span> Chemicals.</h3>
           <p class="node-desc">Nothing sits around for months waiting to be eaten. We make it, you eat it, everyone's happy.</p>
         </div>
       </div>
@@ -536,7 +536,7 @@
 
     <!-- Bottom quote + veg badge -->
     <div class="why-thread-quote">
-      <p class="thread-quote-text">"Just food — real, honest, handcrafted."</p>
+      <p class="thread-quote-text">"Healthy Snacking — real, honest, handcrafted."</p>
       <div class="veg-badge">
         <span class="veg-dot"></span>Pure Vegetarian
       </div>
@@ -626,12 +626,12 @@
     <div class="pcard-floats" id="pcardFloats" aria-hidden="true"></div>
 
     <!-- Portrait image card — stamp + swipe hint overlaid inside -->
-    <div class="pcard-card" id="pcardCard">
+    <a class="pcard-card pcard-card-link" id="pcardCard" href="power-bites.html" aria-label="View Power Bites product page">
       <img id="pcardImg" src="Assets/Landing_Page_images/product-power-bites.webp" alt="Power Bites" loading="lazy" decoding="async" onerror="this.style.opacity='0'">
       <div class="pcard-gloss" aria-hidden="true"></div>
       <div class="pcard-stamp" id="pcardStamp">Handcrafted &middot; Kolkata</div>
       <div class="pcard-swipe-hint" aria-hidden="true">&#8592;&thinsp; swipe &thinsp;&#8594;</div>
-    </div>
+    </a>
 
     <!-- Caption — directly on dark bg below card -->
     <div class="pcard-caption">
@@ -643,7 +643,7 @@
     <div class="pcard-tagline" id="pcardTagline"></div>
 
     <div class="pcard-meta">
-      <span class="pcard-price"><span class="pcard-rupee-sym">&#8377;</span><span class="pcard-price-digits">499</span></span>
+      <span class="pcard-price"><span class="pcard-rupee-sym"></span><span class="pcard-price-digits">499</span></span>
       <a href="power-bites.html" class="pcard-btn">Check it out</a>
     </div>
 
@@ -720,7 +720,7 @@
           </div>
           <div class="hamp-product hamp-product--4">
             <img src="Assets/Landing_Page_images/product-cashews.webp"
-                 alt="Roasted Cashews" loading="lazy" decoding="async"
+                 alt="Roasted &amp; Salted Cashews" loading="lazy" decoding="async"
                  onerror="this.style.display='none'">
           </div>
         </div>
@@ -759,13 +759,13 @@
       <div class="hamp-price-range">
         <span class="hamp-price-label">customise from</span>
         <div class="hamp-price-value">
-          &#8377;599 <em>to</em> &#8377;1,999
+          599 <em>to</em> 1,999
         </div>
       </div>
 
       <p class="hamp-details-copy">
         Every tray is handpacked fresh. No two look the same.<br>
-        For one. For many. For <strong>anyone worth spoiling.</strong>
+        For one. For many. For <strong>anyone worth the 'good stuff'.</strong>
       </p>
 
       <div class="hamp-cta-wrap">
@@ -776,7 +776,7 @@
                aria-hidden="true">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
           </svg>
-          Tell us who you're spoiling
+          Tell us who’s getting lucky today
         </a>
         <a href="tel:+918910725854" class="btn-call-hamp">
           or just give us a ring
@@ -884,7 +884,7 @@
       </a>
 
       <div class="fcta-trust">
-        <span class="fcta-trust-chip">&#8377;499 uniform price</span>
+        <span class="fcta-trust-chip">499 uniform price</span>
         <span class="fcta-trust-sep" aria-hidden="true">&middot;</span>
         <span class="fcta-trust-chip">Free pan-India shipping</span>
         <span class="fcta-trust-sep" aria-hidden="true">&middot;</span>
@@ -911,10 +911,8 @@
     <p class="footer-tagline">Zero Guilt. Zero Junk. 100% Satisfaction.</p>
 
     <nav class="footer-links" aria-label="Footer links">
-      <a href="#products">Our Products</a>
-      <a href="order.html">Order Now</a>
-      <a href="power-bites.html">Power Bites</a>
-      <a href="https://wa.me/918910725854" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="index.html">Home</a>
+      <a href="index.html#products">Our Products</a>
       <a href="privacy-policy.html">Privacy Policy</a>
       <a href="terms-of-service.html">Terms of Service</a>
       <a href="shipping-policy.html">Shipping Policy</a>
@@ -928,7 +926,7 @@
       <a href="https://wa.me/918910725854" target="_blank" rel="noopener" aria-label="WhatsApp">
         <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       </a>
-      <a href="#" target="_blank" rel="noopener" aria-label="Facebook">
+      <a href="https://www.facebook.com/people/Diet-Swad/61583353153908/" target="_blank" rel="noopener" aria-label="Facebook">
         <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
       </a>
       <a href="mailto:dietswad143@gmail.com" aria-label="Email">
@@ -939,7 +937,7 @@
     <div class="footer-bottom">
       <p class="footer-fssai">
         FSSAI Reg: 22825041000300<br>
-        Made in Kolkata with love &middot; Radiant Twins Enterprise<br>
+        Made with Love in Kolkata &middot; Radiant Twins Enterprise<br>
         &copy; 2025 Diet Swad. All rights reserved.
       </p>
     </div>
@@ -986,7 +984,7 @@
       { name:'Millet Butter Cookies', kicker:'No. 04 · Wholesome', title:'Millet Butter <em>Cookies</em>', family:'plum',      weight:'150G · 0g TRANS FAT',stamp:'Sorghum 30.8% · Real Butter',    img:'Assets/Landing_Page_images/product-millet-butter.webp', tint:'#B8893E', tintSoft:'#E0C18A', tagline:'30.8% sorghum, real butter, zero trans fat — wholesome the old-fashioned way.',           link:'millet-butter-cookies.html' },
       { name:'Millet Coconut Cookies',kicker:'No. 05 · Toasted',   title:'Millet Coconut <em>Cookies</em>',family:'plum',      weight:'150G · NO MAIDA',    stamp:'Jowar · Oats · Coconut',         img:'Assets/Landing_Page_images/product-millet-coconut.webp',tint:'#9C7A4F', tintSoft:'#D9C8A8', tagline:'Jowar, oats and coconut in every cookie — toasted, light and genuinely good.',           link:'millet-coconut-cookies.html' },
       { name:'Millet Choco Cookies',  kicker:'No. 06 · Indulgent', title:'Millet Choco <em>Cookies</em>',  family:'chocolate', weight:'150G · NO REF SUGAR',stamp:'Jowar + Ragi · Almond Flour',    img:'Assets/Landing_Page_images/product-millet-choco.webp',  tint:'#3A2317', tintSoft:'#7A5A42', tagline:'Jowar + ragi + almond flour. Chocolate flavour that needs no refined sugar.',            link:'millet-choco-cookies.html' },
-      { name:'Roasted Cashews',       kicker:'No. 07 · Pure',      title:'Roasted <em>Cashews</em>',       family:'maroon',    weight:'200G · 18.2g PROTEIN',stamp:'2 Ingredients · Just Salt',      img:'Assets/Landing_Page_images/product-cashews.webp',       tint:'#9C7A4F', tintSoft:'#D2B58A', tagline:'Two ingredients: cashews and salt. That\'s it — pure, crunchy, nothing to hide.',          link:'roasted-cashews.html' }
+      { name:'Roasted & Salted Cashews',       kicker:'No. 07 · Pure',      title:'Roasted &amp; Salted <em>Cashews</em>',       family:'maroon',    weight:'200G · 18.2g PROTEIN',stamp:'2 Ingredients · Just Salt',      img:'Assets/Landing_Page_images/product-cashews.webp',       tint:'#9C7A4F', tintSoft:'#D2B58A', tagline:'Two ingredients: cashews and salt. That\'s it — pure, crunchy, nothing to hide.',          link:'roasted-cashews.html' }
     ];
 
     /* ── Refs ─────────────────────────────────────────────────────── */
@@ -1062,6 +1060,8 @@
       weight.innerHTML = p.weight;
       tagline.innerHTML = p.tagline;
       if (ctaBtn) ctaBtn.href = p.link;
+      card.href = p.link;
+      card.setAttribute('aria-label', 'View ' + p.name + ' product page');
       section.dataset.family = p.family;
       section.style.setProperty('--p-tint', p.tint);
       section.style.setProperty('--p-tint-soft', p.tintSoft);
@@ -1324,8 +1324,8 @@
         accent:'#642C0A', accentDeep:'#421C06' },
       { name:'Vikram Desai',  city:'Ahmedabad, GJ',   date:'Mar 14, 2026', stars:4,
         headline:['My desk-drawer', {accent:'staple.'}],
-        quote:"Roasted Cashews — just cashews and salt. The crunch is perfect and you can tell they were roasted properly. Great for the office drawer when meetings run long.",
-        product:'Roasted Cashews',        tint:'#9C7A4F',
+        quote:"Roasted & Salted Cashews — just cashews and salt. The crunch is perfect and you can tell they were roasted properly. Great for the office drawer when meetings run long.",
+        product:'Roasted & Salted Cashews',        tint:'#9C7A4F',
         img:'Assets/Landing_Page_images/product-cashews.webp',
         accent:'#821212', accentDeep:'#5A0E0E' },
       { name:'Meera Krishnan',city:'Chennai, TN',     date:'Mar 28, 2026', stars:5,

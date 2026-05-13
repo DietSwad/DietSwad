@@ -1,4 +1,4 @@
-/* ═══════════════════════════════════════════════════════════════════
+﻿/* ═══════════════════════════════════════════════════════════════════
    style.css — Diet Swad · all non-hero section styles
    ═══════════════════════════════════════════════════════════════════ */
 
@@ -70,13 +70,19 @@
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-dark);
   margin-bottom: 12px;
 }
 
 /* Gold-accent word (used inside headings) */
 .gold-word {
   color: var(--gold);
+}
+
+/* Gold-accent word (for only the NO) */
+.NO-in-gold-word {
+  color: var(--gold-dark);
+  /*rgb(158, 124, 13);*/
 }
 
 /* Accessible hide — visible to screen readers, invisible to sighted users */
@@ -157,7 +163,7 @@
   font-size: var(--type-label);
   letter-spacing: var(--ls-label);
   text-transform: uppercase;
-  color: rgba(212, 175, 55, 0.75);
+  color: rgb(168, 129, 0);
 }
 
 /* Node list */
@@ -525,6 +531,7 @@
 
 /* The staged card — portrait image container (dark rounded rect, no outer cream card) */
 .pcard-card {
+  display: block;
   position: relative;
   z-index: 3;
   width: min(248px, 66vw);
@@ -537,6 +544,15 @@
     inset 0 2px 0 rgba(255,255,255,0.06),
     0 0 0 1px rgba(255,255,255,0.07),
     0 24px 64px rgba(0,0,0,0.60);
+}
+.pcard-card-link {
+  color: inherit;
+  cursor: pointer;
+  text-decoration: none;
+}
+.pcard-card-link:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 5px;
 }
 .pcard-card img {
   position: absolute;
@@ -1305,22 +1321,26 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 8px;
   width: 100%;
-  max-width: 310px;
+  max-width: 380px;
   background: #25D366;
   color: #fff;
   font-family: 'DM Sans', sans-serif;
-  font-size: var(--type-button);
+  font-size: 12px;
   font-weight: 500;
   text-transform: uppercase;
   text-decoration: none;
-  padding: 15px 24px;
+  white-space: nowrap;
+  padding: 15px 18px;
   border-radius: 100px;
-  letter-spacing: var(--ls-button);
+  letter-spacing: 0.045em;
   box-shadow: 0 6px 24px rgba(37,211,102,0.28);
   min-height: 48px;
   transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+.btn-whatsapp-hamp svg {
+  flex: 0 0 auto;
 }
 .btn-whatsapp-hamp:hover {
   transform: translateY(-2px);
