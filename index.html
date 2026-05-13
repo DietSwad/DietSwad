@@ -655,7 +655,7 @@
     <div class="pcard-tagline" id="pcardTagline"></div>
 
     <div class="pcard-meta">
-      <span class="pcard-price"><span class="pcard-rupee-sym"></span><span class="pcard-price-digits ds-price-digits">499</span></span>
+      <span class="pcard-price"><span class="pcard-rupee-sym"></span><span class="pcard-price-digits ds-price-digits" data-ds-slug="power-bites">499</span></span>
       <a href="power-bites.html" class="pcard-btn">Check it out</a>
     </div>
 
@@ -1013,6 +1013,7 @@
     var counterCurrent = document.getElementById('pcardCounterCurrent');
     var counterTotal   = document.getElementById('pcardCounterTotal');
     var liveEl   = document.getElementById('pcardLive');
+    var priceEl  = document.querySelector('.pcard-price-digits');
     if (!card) return;
 
     /* ── Floats — rebuilt per slide with fresh per-element jitter ─── */
@@ -1077,6 +1078,10 @@
       section.dataset.family = p.family;
       section.style.setProperty('--p-tint', p.tint);
       section.style.setProperty('--p-tint-soft', p.tintSoft);
+      if (priceEl) {
+        priceEl.dataset.dsSlug = p.link.replace(/\.html$/, '');
+        if (window.DietSwadPrices) window.DietSwadPrices.apply();
+      }
     }
 
     function announce(p, idx) {

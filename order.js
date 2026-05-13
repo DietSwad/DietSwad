@@ -12,15 +12,17 @@
     localStorage.setItem('dietswad_cart', JSON.stringify(cart));
   }
 
-  var P = (window.DietSwadPrices && window.DietSwadPrices.UNIFORM_PRICE) || 499;
+  function getP(slug) {
+    return (window.DietSwadPrices && window.DietSwadPrices.getPrice(slug)) || 499;
+  }
   var PRODUCTS = [
-    { name: 'Power Bites',            slug: 'power-bites',            price: P },
-    { name: 'Royal Bites',            slug: 'royal-bites',            price: P },
-    { name: 'Peanut-Sesame Delights', slug: 'peanut-sesame-delights', price: P },
-    { name: 'Millet Butter Cookies',  slug: 'millet-butter-cookies',  price: P },
-    { name: 'Millet Coconut Cookies', slug: 'millet-coconut-cookies', price: P },
-    { name: 'Millet Choco Cookies',   slug: 'millet-choco-cookies',   price: P },
-    { name: 'Roasted & Salted Cashews', slug: 'roasted-cashews',        price: P },
+    { name: 'Power Bites',              slug: 'power-bites',            price: getP('power-bites') },
+    { name: 'Royal Bites',              slug: 'royal-bites',            price: getP('royal-bites') },
+    { name: 'Peanut-Sesame Delights',   slug: 'peanut-sesame-delights', price: getP('peanut-sesame-delights') },
+    { name: 'Millet Butter Cookies',    slug: 'millet-butter-cookies',  price: getP('millet-butter-cookies') },
+    { name: 'Millet Coconut Cookies',   slug: 'millet-coconut-cookies', price: getP('millet-coconut-cookies') },
+    { name: 'Millet Choco Cookies',     slug: 'millet-choco-cookies',   price: getP('millet-choco-cookies') },
+    { name: 'Roasted & Salted Cashews', slug: 'roasted-cashews',        price: getP('roasted-cashews') },
   ];
 
   function fmt(n) {
@@ -187,7 +189,7 @@
     spans.forEach(function (s, i) {
       var qty = parseInt(s.textContent, 10);
       if (qty > 0) {
-        items.push({ product: PRODUCTS[i].name, quantity: qty });
+        items.push({ product: PRODUCTS[i].name, slug: PRODUCTS[i].slug, price: PRODUCTS[i].price, quantity: qty });
       }
     });
 
@@ -226,13 +228,13 @@
     };
 
     // Push AddToCart to dataLayer for GTM → Meta Pixel + GA4
-    var cartTotal = items.reduce(function (sum, it) { return sum + it.quantity * P; }, 0);
+    var cartTotal = items.reduce(function (sum, it) { return sum + it.quantity * it.price; }, 0);
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
       event:    'add_to_cart',
       value:    cartTotal,
       currency: 'INR',
-      items:    items.map(function (it) { return { item_name: it.product, quantity: it.quantity, price: P }; })
+      items:    items.map(function (it) { return { item_id: it.slug, item_name: it.product, quantity: it.quantity, price: it.price }; })
     });
 
     // Disable Pay Now button during processing
