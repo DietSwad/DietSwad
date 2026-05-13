@@ -224,6 +224,16 @@
       ga_client_id:   fd.get('ga_client_id') || '',
     };
 
+    // Push AddToCart to dataLayer for GTM → Meta Pixel + GA4
+    var cartTotal = items.reduce(function (sum, it) { return sum + it.quantity * 499; }, 0);
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event:    'add_to_cart',
+      value:    cartTotal,
+      currency: 'INR',
+      items:    items.map(function (it) { return { item_name: it.product, quantity: it.quantity, price: 499 }; })
+    });
+
     // Disable Pay Now button during processing
     var payBtn      = document.querySelector('.ord-pay-btn');
     var payBtnSpan  = payBtn && payBtn.querySelector('span');
@@ -289,7 +299,12 @@
       'utm-campaign': params.get('utm_campaign') || '',
       'fbp':          getCookie('_fbp') || '',
       'fbc':          getCookie('_fbc') || params.get('fbclid') || '',
-      'ga-client-id': '',
+      'ga-client-id': (function () {
+        var m = document.cookie.match('(?:^|;)\\s*_ga=([^;]*)');
+        if (!m) return '';
+        var parts = decodeURIComponent(m[1]).split('.');
+        return parts.length >= 4 ? parts[2] + '.' + parts[3] : '';
+      })(),
     };
 
     Object.keys(map).forEach(function (key) {
