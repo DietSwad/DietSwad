@@ -4,15 +4,15 @@ Static marketing website for **Diet Swad**, a D2C healthy snacks brand based in 
 
 > ## ⚠️ CRITICAL — WHEN ADDING A NEW PAGE
 >
-> `dietswad.in/{slug}` also routes to the URL shortener. Short codes and page slugs share the same flat namespace.
+> `dietswad.in/{slug}` routes through a Cloudflare Worker (`url-shortener-proxy`) that decides whether a path is a website page or a short code. Short codes and page slugs share the same flat namespace.
 >
 > **Every PR that adds a new page must also update all three places below in the same commit:**
 >
 > 1. **`DietSwad/DietSwad_URL_shortener_Azure_Function` → `RESERVED_WORDS` set** — add the new slug, redeploy the Function App.
-> 2. **Cloudflare Transform Rule allowlist** (`Details/CLOUDFLARE_SETUP_GUIDE.md` Step 2b) — add the slug, deploy the rule.
-> 3. **This repo** — add the page + update `sitemap.xml` / nav links (your normal change).
+> 2. **Cloudflare Worker `url-shortener-proxy` → `WEBSITE_PATHS` array** — add the new slug (both `/slug` and `/slug.html` forms). Edit via Cloudflare dashboard → Workers & Pages → url-shortener-proxy → Edit code → Save and Deploy.
+> 3. **This repo** — add the page + update nav links (your normal change).
 >
-> Skipping #1 or #2 causes live regressions: either a real short link gets overridden, or Cloudflare routes your new page to the shortener and visitors see a 404.
+> Skipping #1 or #2 causes live regressions: either a real short link gets overridden by the new page slug, or the Worker routes your new page to the shortener and visitors see a 404.
 > Decision record: `Details/DECISIONS_LOG.md` → 2026-04-13 "URL shortener format: flat".
 
 ---
@@ -22,25 +22,25 @@ Static marketing website for **Diet Swad**, a D2C healthy snacks brand based in 
 | File | URL | Status |
 |---|---|---|
 | `index.html` | `dietswad.in/` | ✅ Live |
-| `power-bites.html` | `dietswad.in/power-bites` | ✅ Live (image mapping pending) |
-| `royal-bites.html` | `dietswad.in/royal-bites` | ⏳ Pending |
-| `peanut-sesame-delights.html` | `dietswad.in/peanut-sesame-delights` | ⏳ Pending |
-| `millet-butter-cookies.html` | `dietswad.in/millet-butter-cookies` | ⏳ Pending |
-| `millet-coconut-cookies.html` | `dietswad.in/millet-coconut-cookies` | ⏳ Pending |
-| `millet-choco-cookies.html` | `dietswad.in/millet-choco-cookies` | ⏳ Pending |
-| `roasted-cashews.html` | `dietswad.in/roasted-cashews` | ⏳ Pending |
-| `hampers.html` | `dietswad.in/hampers` | ⏳ Pending |
+| `power-bites.html` | `dietswad.in/power-bites` | ✅ Live (image mapping next session) |
+| `royal-bites.html` | `dietswad.in/royal-bites` | ✅ Live |
+| `peanut-sesame-delights.html` | `dietswad.in/peanut-sesame-delights` | ✅ Live |
+| `millet-butter-cookies.html` | `dietswad.in/millet-butter-cookies` | ✅ Live |
+| `millet-coconut-cookies.html` | `dietswad.in/millet-coconut-cookies` | ✅ Live |
+| `millet-choco-cookies.html` | `dietswad.in/millet-choco-cookies` | ✅ Live |
+| `roasted-cashews.html` | `dietswad.in/roasted-cashews` | ✅ Live |
+| `order.html` | `dietswad.in/order` | ✅ Live |
+| `thank-you.html` | `dietswad.in/thank-you` | ✅ Live |
 | `privacy-policy.html` | `dietswad.in/privacy-policy` | ✅ Live |
 | `refund-policy.html` | `dietswad.in/refund-policy` | ✅ Live |
 | `shipping-policy.html` | `dietswad.in/shipping-policy` | ✅ Live |
 | `terms-of-service.html` | `dietswad.in/terms-of-service` | ✅ Live |
-| `thank-you.html` | `dietswad.in/thank-you` | ✅ Live |
 
 ---
 
 ## Products (V4.1 — current catalogue)
 
-All products are priced at **₹499** with pan-India shipping.
+Prices are defined per-product in `prices.js` (`PRICES` map). Currently all at ₹499 — edit that file and the backend Products table to change a price. Pan-India shipping.
 
 | Product | Weight | Key spec |
 |---|---|---|
@@ -69,12 +69,28 @@ All products are priced at **₹499** with pan-India shipping.
 ```
 DietSwad/
 ├── index.html                   # Landing page
-├── power-bites.html             # Product page (template for all 7 products)
+├── power-bites.html             # Product page
+├── royal-bites.html
+├── peanut-sesame-delights.html
+├── millet-butter-cookies.html
+├── millet-coconut-cookies.html
+├── millet-choco-cookies.html
+├── roasted-cashews.html
+├── order.html                   # Checkout / cart page
+├── thank-you.html               # Post-payment confirmation
+├── privacy-policy.html
+├── refund-policy.html
+├── shipping-policy.html
+├── terms-of-service.html
+│
 ├── style.css                    # Site-wide styles + design tokens
 ├── hero.css                     # Hero section styles
 ├── hero-animation.js            # Scroll-driven canvas animation engine
 ├── product.css                  # Product page styles
 ├── product-animations.js        # Product page scroll + sticky CTA logic
+├── order.css                    # Order / checkout page styles
+├── order.js                     # Cart logic, form submit → /api/create-order
+├── prices.js                    # Per-product PRICES map; stamps .ds-price-digits spans
 │
 ├── hero-frames/                 # 26 WebP frames for hero canvas animation
 │   ├── frame_001.webp
