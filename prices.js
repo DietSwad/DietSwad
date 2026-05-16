@@ -8,11 +8,11 @@
   var PRICES = {
     'power-bites':            199,
     'royal-bites':            99,
-    'peanut-sesame-delights': 499,
+    'peanut-sesame-delights': 2,
     'millet-butter-cookies':  499,
     'millet-coconut-cookies': 399,
-    'millet-choco-cookies':   299,
-    'roasted-cashews':        499
+    'millet-choco-cookies':   3,
+    'roasted-cashews':        4
   };
   // ────────────────────────────────────────────────────────
 
