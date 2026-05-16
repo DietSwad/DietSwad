@@ -22,7 +22,7 @@
     { name: 'Millet Butter Cookies',    slug: 'millet-butter-cookies',  price: getP('millet-butter-cookies') },
     { name: 'Millet Coconut Cookies',   slug: 'millet-coconut-cookies', price: getP('millet-coconut-cookies') },
     { name: 'Millet Choco Cookies',     slug: 'millet-choco-cookies',   price: getP('millet-choco-cookies') },
-    { name: 'Roasted & Salted Cashews', slug: 'roasted-cashews',        price: getP('roasted-cashews') },
+    { name: 'Roasted Cashews',          slug: 'roasted-cashews',        price: getP('roasted-cashews') },
   ];
 
   function fmt(n) {
