@@ -12,18 +12,20 @@
     localStorage.setItem('dietswad_cart', JSON.stringify(cart));
   }
 
-  function getP(slug) {
-    return (window.DietSwadPrices && window.DietSwadPrices.getPrice(slug)) || 499;
-  }
   var PRODUCTS = [
-    { name: 'Power Bites',              slug: 'power-bites',            price: getP('power-bites') },
-    { name: 'Royal Bites',              slug: 'royal-bites',            price: getP('royal-bites') },
-    { name: 'Peanut-Sesame Delights',   slug: 'peanut-sesame-delights', price: getP('peanut-sesame-delights') },
-    { name: 'Millet Butter Cookies',    slug: 'millet-butter-cookies',  price: getP('millet-butter-cookies') },
-    { name: 'Millet Coconut Cookies',   slug: 'millet-coconut-cookies', price: getP('millet-coconut-cookies') },
-    { name: 'Millet Choco Cookies',     slug: 'millet-choco-cookies',   price: getP('millet-choco-cookies') },
-    { name: 'Roasted Cashews',          slug: 'roasted-cashews',        price: getP('roasted-cashews') },
+    { name: 'Power Bites',              slug: 'power-bites' },
+    { name: 'Royal Bites',              slug: 'royal-bites' },
+    { name: 'Peanut-Sesame Delights',   slug: 'peanut-sesame-delights' },
+    { name: 'Millet Butter Cookies',    slug: 'millet-butter-cookies' },
+    { name: 'Millet Coconut Cookies',   slug: 'millet-coconut-cookies' },
+    { name: 'Millet Choco Cookies',     slug: 'millet-choco-cookies' },
+    { name: 'Roasted Cashews',          slug: 'roasted-cashews' },
   ];
+
+  function priceFor(i) {
+    var dp = window.DietSwadPrices;
+    return (dp && typeof dp.getPrice === 'function' ? dp.getPrice(PRODUCTS[i].slug) : null) || 499;
+  }
 
   function fmt(n) {
     return '₹' + n.toLocaleString('en-IN');
@@ -77,7 +79,7 @@
 
     spans.forEach(function (s, i) {
       var qty = parseInt(s.textContent, 10);
-      var sub = qty * PRODUCTS[i].price;
+      var sub = qty * priceFor(i);
       grand += sub;
 
       var qlEl = document.getElementById('ord-ql-' + i);
@@ -103,6 +105,7 @@
     var psOnline  = document.getElementById('ord-ps-online');
     var psCod     = document.getElementById('ord-ps-cod');
     var payLabel  = document.getElementById('ord-pay-label');
+    var codFeeRow = document.getElementById('ord-cod-fee-row');
 
     if (grandEl) {
       grandEl.innerHTML = fmt(total) + '<small>INR</small>';
@@ -110,6 +113,7 @@
       void grandEl.offsetWidth;
       grandEl.classList.add('is-popping');
     }
+    if (codFeeRow) codFeeRow.style.display = (payMode === 'partial_cod' && grand > 0) ? '' : 'none';
     if (payMode === 'partial_cod') {
       if (summaryEl) summaryEl.hidden = false;
       if (psOnline)  psOnline.textContent  = fmt(online);
@@ -118,7 +122,7 @@
       if (payLabel)  payLabel.textContent  = 'Pay ' + fmt(online) + ' now';
     } else {
       if (summaryEl) summaryEl.hidden = true;
-      if (footerEl)  footerEl.textContent = fmt(grand);
+      if (footerEl)  footerEl.textContent = fmt(total);
       if (payLabel)  payLabel.textContent = 'Pay Now';
     }
   }
@@ -132,7 +136,7 @@
   function openPcodModal() {
     var grand   = 0;
     document.querySelectorAll('.ord-qty-val').forEach(function (s, i) {
-      grand += parseInt(s.textContent, 10) * PRODUCTS[i].price;
+      grand += parseInt(s.textContent, 10) * priceFor(i);
     });
     var total  = grand + 15;
     var online = Math.round(total * 0.20);
@@ -245,7 +249,7 @@
     spans.forEach(function (s, i) {
       var qty = parseInt(s.textContent, 10);
       if (qty > 0) {
-        items.push({ product: PRODUCTS[i].name, slug: PRODUCTS[i].slug, price: PRODUCTS[i].price, quantity: qty });
+        items.push({ product: PRODUCTS[i].name, slug: PRODUCTS[i].slug, price: priceFor(i), quantity: qty });
       }
     });
 
@@ -384,7 +388,11 @@
   // Init sequence
   initProductSelection();
   captureAnalytics();
-  updateSummary();
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', updateSummary);
+  } else {
+    updateSummary();
+  }
 
   // Nav scroll-state (switch logo at 60px)
   var nav = document.querySelector('.site-nav');
