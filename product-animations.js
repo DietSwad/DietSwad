@@ -243,6 +243,32 @@
     }, 1600);
   }
 
+  /* ── Ingredient image injector ─────────────────────────────────── */
+  var ING_ALIAS = {
+    'salted-butter':  'butter',
+    'unsalted-butter': 'butter',
+    'roasted-peanuts': 'peanuts',
+    'almond-flour':   'almond',
+    'oats-flour':     'rolled-oats'
+  };
+
+  function initIngredientImages() {
+    document.querySelectorAll('.pb-ing-cutout[data-slot]').forEach(function (el) {
+      var raw  = el.dataset.slot.replace('ingredient-', '');
+      var slug = ING_ALIAS[raw] || raw;
+      var nameEl = el.closest('.pb-ing-pill') && el.closest('.pb-ing-pill').querySelector('.pb-ing-name');
+      var img  = document.createElement('img');
+      img.src    = 'Assets/Product_ingredients_images/' + slug + '.webp';
+      img.alt    = nameEl ? nameEl.textContent.trim() : slug;
+      img.loading = 'lazy';
+      img.width  = 120;
+      img.height = 120;
+      img.onerror = function () { el.classList.add('is-placeholder'); };
+      el.classList.remove('is-placeholder', 'pb-placeholder');
+      el.appendChild(img);
+    });
+  }
+
   /* ── Init ──────────────────────────────────────────────────────── */
   document.addEventListener('DOMContentLoaded', function () {
     initReveals();
@@ -256,6 +282,7 @@
     initGallery();
     initGuaranteeSeal();
     initCtaPulse();
+    initIngredientImages();
   });
 
 })();
