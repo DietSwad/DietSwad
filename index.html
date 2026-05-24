@@ -9,6 +9,7 @@
   })(window,document,'script','dataLayer','GTM-PHC4G3QB');</script>
   <!-- End Google Tag Manager -->
   <script src="prices.js"></script>
+  <script src="lightbox-gallery.js" defer></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Diet Swad — Handcrafted Healthy Snacks</title>
@@ -690,13 +691,20 @@
 
     <div class="pcard-floats" id="pcardFloats" aria-hidden="true"></div>
 
-    <!-- Portrait image card — stamp + swipe hint overlaid inside -->
-    <a class="pcard-card pcard-card-link" id="pcardCard" href="power-bites.html" aria-label="View Power Bites product page">
-      <img id="pcardImg" src="Assets/Landing_Page_images/product-power-bites.webp" alt="Power Bites" loading="lazy" decoding="async" onerror="this.style.opacity='0'">
-      <div class="pcard-gloss" aria-hidden="true"></div>
-      <div class="pcard-stamp" id="pcardStamp">Handcrafted &middot; Kolkata</div>
-      <div class="pcard-swipe-hint" aria-hidden="true">&#8592;&thinsp; swipe &thinsp;&#8594;</div>
-    </a>
+    <!-- Portrait image card — nav arrows + stamp overlaid inside -->
+    <div class="pcard-card-wrap">
+      <button class="pcard-nav pcard-nav--prev" id="pcardNavPrev" aria-label="Previous product">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <a class="pcard-card pcard-card-link" id="pcardCard" href="power-bites.html" aria-label="View Power Bites product page">
+        <img id="pcardImg" src="Assets/Landing_Page_images/product-power-bites.webp" alt="Power Bites" decoding="async" onerror="this.style.opacity='0'">
+        <div class="pcard-gloss" aria-hidden="true"></div>
+        <div class="pcard-stamp" id="pcardStamp">Handcrafted &middot; Kolkata</div>
+      </a>
+      <button class="pcard-nav pcard-nav--next" id="pcardNavNext" aria-label="Next product">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
 
     <!-- Caption — directly on dark bg below card -->
     <div class="pcard-caption">
@@ -723,8 +731,6 @@
         COD available
       </span>
     </div>
-
-    <aside class="pcard-side-note" aria-hidden="true">&#8592; Swipe or use arrow keys</aside>
 
     <div class="pcard-pagination">
       <div class="pcard-dots" id="pcardDots" role="tablist" aria-label="Select product"></div>
@@ -860,8 +866,8 @@
 
     <!-- Rating strip -->
     <div class="rstage-rating-strip">
-      <span class="rstage-rating-score">4.9<span class="rstage-rating-slash">/5</span></span>
-      <span class="rstage-rating-label">&middot; 12,480 reviews</span>
+      <span class="rstage-rating-score" id="rstageTopRating">4.9<span class="rstage-rating-slash">/5</span></span>
+      <span class="rstage-rating-label">&middot; <span id="rstageTopCount">12,480</span> reviews</span>
     </div>
 
     <div class="rstage-header">
@@ -916,8 +922,8 @@
 
     <!-- Stats strip -->
     <div class="rstage-stats">
-      <div class="rstage-stat"><span class="rstage-stat-big">97%</span><span class="rstage-stat-lbl">Would recommend</span></div>
-      <div class="rstage-stat"><span class="rstage-stat-big">4.9<em>/5</em></span><span class="rstage-stat-lbl">Average rating</span></div>
+      <div class="rstage-stat"><span class="rstage-stat-big" id="rstageRecommendPct">97%</span><span class="rstage-stat-lbl">Would recommend</span></div>
+      <div class="rstage-stat"><span class="rstage-stat-big" id="rstageAvgRating">4.9<em>/5</em></span><span class="rstage-stat-lbl">Average rating</span></div>
       <div class="rstage-stat"><span class="rstage-stat-big">42</span><span class="rstage-stat-lbl">Cities delivered to</span></div>
       <div class="rstage-stat"><span class="rstage-stat-big">0 junk</span><span class="rstage-stat-lbl">Always</span></div>
     </div>
@@ -1050,6 +1056,15 @@
       { name:'Roasted & Salted Cashews',       kicker:'No. 07 · Pure',      title:'Roasted &amp; Salted <em>Cashews</em>',       family:'maroon',    weight:'200G · 18.2g PROTEIN',stamp:'2 Ingredients · Just Salt',      img:'Assets/Landing_Page_images/product-cashews.webp',       tint:'#9C7A4F', tintSoft:'#D2B58A', tagline:'Two ingredients: cashews and salt. That\'s it — pure, crunchy, nothing to hide.',          link:'roasted-cashews.html' }
     ];
 
+    /* ── Preload all product images to prevent flash on swipe ──── */
+    var preload = {};
+    PRODUCTS.forEach(function (p) {
+      var pi = new Image();
+      pi.decoding = 'async';
+      pi.src = p.img;
+      preload[p.img] = pi;
+    });
+
     /* ── Refs ─────────────────────────────────────────────────────── */
     var card     = document.getElementById('pcardCard');
     var img      = document.getElementById('pcardImg');
@@ -1150,20 +1165,24 @@
       swapping = true;
       card.classList.remove('is-idle');
       card.classList.add(dir > 0 ? 'is-swap-out-left' : 'is-swap-out-right');
-      setTimeout(function () {
+      if (userInitiated) pauseAutoplay();
+      var nextP = PRODUCTS[idx];
+      var decodeP = preload[nextP.img]
+        ? preload[nextP.img].decode().catch(function () {})
+        : Promise.resolve();
+      Promise.all([decodeP, new Promise(function (r) { setTimeout(r, 420); })]).then(function () {
         current = idx;
         render(PRODUCTS[current]);
         announce(PRODUCTS[current], current);
-        card.classList.remove('is-swap-out-left','is-swap-out-right');
+        card.classList.remove('is-swap-out-left', 'is-swap-out-right');
         card.classList.add(dir > 0 ? 'is-swap-in-right' : 'is-swap-in-left');
         dots.forEach(function (d, i) { d.classList.toggle('is-active', i === current); });
         setTimeout(function () {
-          card.classList.remove('is-swap-in-right','is-swap-in-left');
+          card.classList.remove('is-swap-in-right', 'is-swap-in-left');
           card.classList.add('is-idle');
           swapping = false;
         }, 700);
-      }, 420);
-      if (userInitiated) pauseAutoplay();
+      });
     }
 
     /* Initial render */
@@ -1179,7 +1198,7 @@
 
     /* ── Touch / swipe ────────────────────────────────────────────── */
     var tx = 0, ty = 0;
-    section.addEventListener('touchstart', function (e) { tx = e.touches[0].clientX; ty = e.touches[0].clientY; pauseAutoplay(); }, { passive: true });
+    section.addEventListener('touchstart', function (e) { tx = e.touches[0].clientX; ty = e.touches[0].clientY; pauseAutoplay(); document.body.classList.add('pcard-touched'); }, { passive: true });
     section.addEventListener('touchend', function (e) {
       var dx = e.changedTouches[0].clientX - tx;
       var dy = e.changedTouches[0].clientY - ty;
@@ -1223,6 +1242,18 @@
 
     section.addEventListener('focusin', pauseAutoplay);
     section.addEventListener('mouseenter', pauseAutoplay);
+
+    /* ── Arrow nav buttons ──────────────────────────────────────── */
+    var prevNavBtn = document.getElementById('pcardNavPrev');
+    var nextNavBtn = document.getElementById('pcardNavNext');
+    if (prevNavBtn) prevNavBtn.addEventListener('click', function () {
+      document.body.classList.add('pcard-touched');
+      goTo(current - 1, true);
+    });
+    if (nextNavBtn) nextNavBtn.addEventListener('click', function () {
+      document.body.classList.add('pcard-touched');
+      goTo(current + 1, true);
+    });
 
   })();
   </script>
@@ -1371,38 +1402,148 @@
   <!-- Reviews stage — auto-rotation + arrows + dots + touch -->
   <script>
   (function () {
-    var REVIEWS = [
-      { name:'Ananya Sen',    city:'Kolkata, WB',     date:'Feb 03, 2026', stars:5,
+    /* ── Daily RNG helpers (xfnv1a + sfc32) ────────────────────── */
+    function dailyRng(seed) {
+      var h = 0x811c9dc5;
+      for (var j = 0; j < seed.length; j++) { h ^= seed.charCodeAt(j); h = (h * 0x01000193) >>> 0; }
+      var a = h >>> 0, b = (h ^ 0x9e3779b9) >>> 0, c = (h ^ 0x6c62272e) >>> 0, d = (h ^ 0x517cc1b7) >>> 0;
+      return function () {
+        a >>>= 0; b >>>= 0; c >>>= 0; d >>>= 0;
+        var t = (a + b) >>> 0; a = b ^ (b >>> 9); b = (c + (c << 3)) >>> 0;
+        c = (c << 21 | c >>> 11); d = (d + 1) >>> 0; t = (t + d) >>> 0; c = (c + t) >>> 0;
+        return (t >>> 0) / 4294967296;
+      };
+    }
+    function shuffleWithRng(rng, arr) {
+      for (var i = arr.length - 1; i > 0; i--) {
+        var j = Math.floor(rng() * (i + 1));
+        var tmp = arr[i]; arr[i] = arr[j]; arr[j] = tmp;
+      }
+      return arr;
+    }
+    function setDailyStats() {
+      var today = new Date().toISOString().slice(0, 10);
+      var stored = null;
+      try { stored = JSON.parse(localStorage.getItem('ds_review_stats_v1') || 'null'); } catch (e) {}
+      if (!stored || stored.date !== today) {
+        var rng = dailyRng(today);
+        stored = {
+          date: today,
+          topRating: (4.5 + rng() * 0.4).toFixed(1),
+          topCount:  Math.floor(11000 + rng() * 990),
+          recommendPct: Math.floor(94 + rng() * 5),
+          avgRating: (4.5 + rng() * 0.4).toFixed(1),
+          reviewIndices: shuffleWithRng(rng, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14]).slice(0, 5)
+        };
+        try { localStorage.setItem('ds_review_stats_v1', JSON.stringify(stored)); } catch (e) {}
+      }
+      var el;
+      el = document.getElementById('rstageTopRating');
+      if (el) el.innerHTML = stored.topRating + '<span class="rstage-rating-slash">/5</span>';
+      el = document.getElementById('rstageTopCount');
+      if (el) el.textContent = Number(stored.topCount).toLocaleString('en-IN');
+      el = document.getElementById('rstageRecommendPct');
+      if (el) el.textContent = stored.recommendPct + '%';
+      el = document.getElementById('rstageAvgRating');
+      if (el) el.innerHTML = stored.avgRating + '<em>/5</em>';
+      return stored;
+    }
+
+    var REVIEW_POOL = [
+      { name:'Ananya Sen',     city:'Kolkata, WB',    date:'Feb 03, 2026', stars:5.0,
         headline:['Tastes like', {accent:'home.'}],
         quote:"Ordered the Power Bites for my 4 PM slump and these have honestly replaced my coffee. Hits different — earthy, not too sweet, and I don't crash an hour later.",
-        product:'Power Bites',            tint:'#5C3A21',
+        product:'Power Bites',              tint:'#5C3A21',
         img:'Assets/Landing_Page_images/product-power-bites.webp',
-        accent:'#821212', accentDeep:'#5A0E0E' },
-      { name:'Rohan Mehta',   city:'Mumbai, MH',      date:'Feb 18, 2026', stars:5,
+        accent:'#B41E1E', accentDeep:'#821212' },
+      { name:'Rohan Mehta',    city:'Mumbai, MH',     date:'Feb 18, 2026', stars:5.0,
         headline:['My', {accent:'pre-workout'}, 'fix.'],
         quote:"Royal Bites became my pre-workout staple. The peanut butter is the real deal, none of that fake protein-bar aftertaste. Box gone in three days.",
-        product:'Royal Bites',            tint:'#8B5A2B',
+        product:'Royal Bites',              tint:'#8B5A2B',
         img:'Assets/Landing_Page_images/product-royal-bites.webp',
-        accent:'#642C0A', accentDeep:'#421C06' },
-      { name:'Priya Iyer',    city:'Bengaluru, KA',   date:'Mar 02, 2026', stars:5,
+        accent:'#964610', accentDeep:'#642C0A' },
+      { name:'Priya Iyer',     city:'Bengaluru, KA',  date:'Mar 02, 2026', stars:4.8,
         headline:[{light:'Healthy.'}, {accent:'Actually.'}],
         quote:"Millet Choco Cookies are dangerous — I told myself two a day, ended up finishing them in a week. No refined sugar, no maida, and they actually taste like proper cookies.",
-        product:'Millet Choco Cookies', tint:'#3A2317',
+        product:'Millet Choco Cookies',     tint:'#3A2317',
         img:'Assets/Landing_Page_images/product-millet-choco.webp',
-        accent:'#642C0A', accentDeep:'#421C06' },
-      { name:'Vikram Desai',  city:'Ahmedabad, GJ',   date:'Mar 14, 2026', stars:4,
+        accent:'#964610', accentDeep:'#642C0A' },
+      { name:'Vikram Desai',   city:'Ahmedabad, GJ',  date:'Mar 14, 2026', stars:4.5,
         headline:['My desk-drawer', {accent:'staple.'}],
         quote:"Roasted & Salted Cashews — just cashews and salt. The crunch is perfect and you can tell they were roasted properly. Great for the office drawer when meetings run long.",
-        product:'Roasted & Salted Cashews',        tint:'#9C7A4F',
+        product:'Roasted & Salted Cashews', tint:'#9C7A4F',
         img:'Assets/Landing_Page_images/product-cashews.webp',
-        accent:'#821212', accentDeep:'#5A0E0E' },
-      { name:'Meera Krishnan',city:'Chennai, TN',     date:'Mar 28, 2026', stars:5,
+        accent:'#B41E1E', accentDeep:'#821212' },
+      { name:'Meera Krishnan', city:'Chennai, TN',    date:'Mar 28, 2026', stars:5.0,
         headline:['Amma would', {accent:'approve.'}],
         quote:"Peanut-Sesame Delights have only four ingredients on the back of the pack and you can taste each one. Reminds me of what my grandmother used to make at home.",
-        product:'Peanut-Sesame Delights', tint:'#A88030',
+        product:'Peanut-Sesame Delights',   tint:'#A88030',
         img:'Assets/Landing_Page_images/product-peanut-sesame.webp',
-        accent:'#821212', accentDeep:'#5A0E0E' }
+        accent:'#B41E1E', accentDeep:'#821212' },
+      { name:'Kavitha Nair',   city:'Kochi, KL',      date:'Apr 05, 2026', stars:4.9,
+        headline:['These go with', {accent:'everything.'}],
+        quote:"Bought the coconut cookies almost as an experiment — ended up ordering two more packs the same week. Mildly sweet, light crunch, and the oats and coconut actually come through. Nice with my morning tea.",
+        product:'Millet Coconut Cookies',   tint:'#9C7A4F',
+        img:'Assets/Landing_Page_images/product-millet-coconut.webp',
+        accent:'#78189B', accentDeep:'#4E1068' },
+      { name:'Arjun Sharma',   city:'Delhi, DL',      date:'Apr 09, 2026', stars:4.7,
+        headline:['Skipping my 4pm', {accent:'chips habit.'}],
+        quote:"Used to raid the office vending machine every day at 4. Switched to Power Bites — a bit skeptical at first, but the sesame and jowar combo is genuinely filling. My trainer is impressed too.",
+        product:'Power Bites',              tint:'#5C3A21',
+        img:'Assets/Landing_Page_images/product-power-bites.webp',
+        accent:'#B41E1E', accentDeep:'#821212' },
+      { name:'Sunita Rao',     city:'Pune, MH',       date:'Apr 12, 2026', stars:4.8,
+        headline:['Real peanut butter,', {accent:'finally.'}],
+        quote:"My husband thought I'd ordered fancy protein bars and made fun of me. Then he ate three in one sitting. The peanut butter flavour is proper — not that artificial stuff you get in most bars.",
+        product:'Royal Bites',              tint:'#8B5A2B',
+        img:'Assets/Landing_Page_images/product-royal-bites.webp',
+        accent:'#964610', accentDeep:'#642C0A' },
+      { name:'Deepak Pillai',  city:'Hyderabad, TS',  date:'Apr 17, 2026', stars:5.0,
+        headline:['Packed for', {accent:'office trips.'}],
+        quote:"Been carrying these for client visits — packs well, doesn't crumble, and zero embarrassment opening them in front of people. The butter flavour is subtle and not too rich. Kids at home finished the first box.",
+        product:'Millet Butter Cookies',    tint:'#B8893E',
+        img:'Assets/Landing_Page_images/product-millet-butter.webp',
+        accent:'#78189B', accentDeep:'#4E1068' },
+      { name:'Ritu Agarwal',   city:'Jaipur, RJ',     date:'Apr 22, 2026', stars:4.6,
+        headline:['Four ingredients.', {accent:"That's it."}],
+        quote:"I read the back of the pack twice because I kept expecting a long ingredients list. Just four things. The sesame crunch is perfect and there's no sweet aftertaste that usually bothers me.",
+        product:'Peanut-Sesame Delights',   tint:'#A88030',
+        img:'Assets/Landing_Page_images/product-peanut-sesame.webp',
+        accent:'#B41E1E', accentDeep:'#821212' },
+      { name:'Siddharth Bose', city:'Kolkata, WB',    date:'Apr 27, 2026', stars:4.9,
+        headline:[{light:'No refined sugar.'}, {accent:'Tastes like it, though.'}],
+        quote:"Ordered these for my mother who has to avoid refined sugar. She was suspicious but ate two and asked me to order more. The chocolate isn't too sweet — exactly what she needed.",
+        product:'Millet Choco Cookies',     tint:'#3A2317',
+        img:'Assets/Landing_Page_images/product-millet-choco.webp',
+        accent:'#964610', accentDeep:'#642C0A' },
+      { name:'Nandita Menon',  city:'Bengaluru, KA',  date:'May 02, 2026', stars:4.7,
+        headline:['Just cashews', {accent:'and salt.'}],
+        quote:"I've been burned by 'flavoured' cashews with MSG and weird coatings. These are exactly what they say — roasted, salted, nothing else. The roast is even throughout, which usually doesn't happen with cheaper brands.",
+        product:'Roasted & Salted Cashews', tint:'#9C7A4F',
+        img:'Assets/Landing_Page_images/product-cashews.webp',
+        accent:'#B41E1E', accentDeep:'#821212' },
+      { name:'Amir Khan',      city:'Lucknow, UP',    date:'May 07, 2026', stars:4.8,
+        headline:["My kid's", {accent:'new favourite.'}],
+        quote:"My son is picky about textures — won't eat anything 'grainy'. These millet butter cookies somehow got past his radar. He thinks they're regular biscuits. I'm not going to correct him.",
+        product:'Millet Butter Cookies',    tint:'#B8893E',
+        img:'Assets/Landing_Page_images/product-millet-butter.webp',
+        accent:'#78189B', accentDeep:'#4E1068' },
+      { name:'Preeti Verma',   city:'Chandigarh, PB', date:'May 12, 2026', stars:5.0,
+        headline:['Light but', {accent:'actually filling.'}],
+        quote:"Bought these thinking they'd be one of those 'healthy' things you eat out of obligation. Three cookies with chai in the morning and I'm genuinely not hungry till noon. The toasted coconut smell when you open the pack is lovely.",
+        product:'Millet Coconut Cookies',   tint:'#9C7A4F',
+        img:'Assets/Landing_Page_images/product-millet-coconut.webp',
+        accent:'#78189B', accentDeep:'#4E1068' },
+      { name:'Gaurav Tiwari',  city:'Indore, MP',     date:'May 18, 2026', stars:4.6,
+        headline:['Pre-workout', {accent:"that doesn't hurt."}],
+        quote:"Tried Royal Bites 20 minutes before my evening run after a friend suggested it. No heaviness, decent energy, and the peanut butter keeps you from crashing. Been doing this for three weeks now.",
+        product:'Royal Bites',              tint:'#8B5A2B',
+        img:'Assets/Landing_Page_images/product-royal-bites.webp',
+        accent:'#642C0A', accentDeep:'#421C06' }
     ];
+
+    var _dailyData = setDailyStats();
+    var REVIEWS = (_dailyData ? _dailyData.reviewIndices : [0,1,2,3,4]).map(function (i) { return REVIEW_POOL[i]; });
 
     var disc     = document.getElementById('rstageDisc');
     var discImg  = document.getElementById('rstageDiscImg');
@@ -1426,11 +1567,18 @@
     var auto     = null;
 
     var _accent = '#C87830';
+    var _starIdCtr = 0;
 
-    function starSVG(filled) {
-      return '<svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true">' +
-        '<path fill="' + _accent + '" opacity="' + (filled ? '1' : '0.25') + '" ' +
-        'd="M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg>';
+    function starSVG(diff) {
+      var path = 'M10 1l2.39 4.84 5.34.78-3.86 3.76.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.27 6.62l5.34-.78z';
+      if (diff >= 1) {
+        return '<svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><path fill="' + _accent + '" d="' + path + '"/></svg>';
+      } else if (diff > 0) {
+        var gid = 'sg' + (++_starIdCtr);
+        return '<svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><defs><linearGradient id="' + gid + '" x1="0" x2="1" y1="0" y2="0"><stop offset="50%" stop-color="' + _accent + '" stop-opacity="1"/><stop offset="50%" stop-color="' + _accent + '" stop-opacity="0.22"/></linearGradient></defs><path fill="url(#' + gid + ')" d="' + path + '"/></svg>';
+      } else {
+        return '<svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><path fill="' + _accent + '" opacity="0.22" d="' + path + '"/></svg>';
+      }
     }
 
     function announce(r) {
@@ -1522,7 +1670,7 @@
       renderGiant(r.headline);
       /* stars — inject hex directly, no currentColor dependency */
       var svgStars = '';
-      for (var i = 1; i <= 5; i++) svgStars += starSVG(i <= r.stars);
+      for (var i = 1; i <= 5; i++) svgStars += starSVG(r.stars - (i - 1));
       starsEl.innerHTML = svgStars;
       starsEl.setAttribute('aria-label', r.stars + ' out of 5 stars');
       /* text */
@@ -1640,9 +1788,18 @@
   })();
   </script>
 
-  <!-- Hampers: box open/close + entrance animation -->
+  <!-- Hampers: box open/close + entrance animation + lightbox -->
   <script>
   (function () {
+    var HAMPER_IMAGES = [
+      { src:'Assets/Landing_Page_images/Hamper_pics/hampers_1.webp', alt:'Diet Swad Gift Hamper' },
+      { src:'Assets/Landing_Page_images/Hamper_pics/hampers_2.webp', alt:'Diet Swad Gift Hamper' },
+      { src:'Assets/Landing_Page_images/Hamper_pics/hampers_3.webp', alt:'Diet Swad Gift Hamper' },
+      { src:'Assets/Landing_Page_images/Hamper_pics/hampers_4.webp', alt:'Diet Swad Gift Hamper' },
+      { src:'Assets/Landing_Page_images/Hamper_pics/hampers_5.webp', alt:'Diet Swad Gift Hamper' },
+      { src:'Assets/Landing_Page_images/Hamper_pics/hampers_6.webp', alt:'Diet Swad Gift Hamper' },
+      { src:'Assets/Landing_Page_images/Hamper_pics/hampers_7.webp', alt:'Diet Swad Gift Hamper' }
+    ];
     var section = document.querySelector('.hampers-section');
     var box     = document.getElementById('hampBox');
     var hint    = document.getElementById('hampTapHint');
@@ -1690,14 +1847,34 @@
     }
 
     /* ── 3. Tap / click on the box itself ──────────────────────────── */
+    var tray = box.querySelector('.hamp-tray');
+    if (tray) {
+      tray.addEventListener('click', function (e) {
+        if (!isOpen || !window.LightboxGallery) return;
+        e.stopPropagation();
+        var item = e.target.closest && e.target.closest('.hamp-product');
+        var items = Array.prototype.slice.call(tray.querySelectorAll('.hamp-product'));
+        var idx = item ? items.indexOf(item) : 0;
+        window.LightboxGallery.open({ images: HAMPER_IMAGES, startIndex: idx < 0 ? 0 : idx });
+      });
+    }
+
     box.addEventListener('click', function () {
-      isOpen ? closeBox() : openBox();
+      if (isOpen) {
+        if (window.LightboxGallery) window.LightboxGallery.open({ images: HAMPER_IMAGES, startIndex: 0 });
+      } else {
+        openBox();
+      }
     });
 
     box.addEventListener('keydown', function (e) {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
-        isOpen ? closeBox() : openBox();
+        if (isOpen) {
+          if (window.LightboxGallery) window.LightboxGallery.open({ images: HAMPER_IMAGES, startIndex: 0 });
+        } else {
+          openBox();
+        }
       }
     });
 

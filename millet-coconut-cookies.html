@@ -9,6 +9,7 @@
   })(window,document,'script','dataLayer','GTM-PHC4G3QB');</script>
   <!-- End Google Tag Manager -->
   <script src="prices.js"></script>
+  <script src="lightbox-gallery.js" defer></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Millet Coconut Cookies — Diet Swad</title>
@@ -715,6 +716,17 @@
   })();
   </script>
 
+  <!-- Gallery lightbox click handler -->
+  <script>
+  document.addEventListener('click', function (e) {
+    var img = e.target.closest && e.target.closest('.pb-gallery-card__img img');
+    if (!img || !window.LightboxGallery) return;
+    var rail = img.closest('.pb-gallery__scroll');
+    if (!rail) return;
+    var all = Array.prototype.slice.call(rail.querySelectorAll('.pb-gallery-card__img img'));
+    window.LightboxGallery.open({ images: all.map(function (el) { return { src: el.src, alt: el.alt }; }), startIndex: all.indexOf(img) });
+  });
+  </script>
 </body>
 </html>
 

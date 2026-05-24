@@ -855,7 +855,7 @@ body.pb-page { padding-bottom: 80px; }
   justify-content: center;
   background: linear-gradient(160deg, rgba(181,9,9,0.22) 0%, var(--bg-deep) 100%);
 }
-.pb-gallery-card__img img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.pb-gallery-card__img img { width: 100%; height: 100%; object-fit: contain; display: block; cursor: zoom-in; }
 .pb-gallery-card__img.is-placeholder::after {
   content: attr(data-slot);
   font-family: 'DM Sans', sans-serif;
@@ -1341,6 +1341,7 @@ body.pb-page { padding-bottom: 80px; }
   transform: scale(0.97);
   box-shadow: 0 2px 8px rgba(212,162,74,0.22);
 }
+
 
 /* ── Claim pill icon ── */
 .pb-claim-pill__icon {

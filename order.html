@@ -142,7 +142,7 @@
                    onerror="this.style.display='none'">
             </div>
             <div class="ord-prod-meta">
-              <div class="ord-prod-name">Peanut-Sesame</div>
+              <div class="ord-prod-name">Peanut-Sesame Delights</div>
               <div class="ord-prod-price ds-price-full">₹499</div>
             </div>
             <div class="ord-qty-wrap" aria-label="Peanut-Sesame Delights quantity">
@@ -159,7 +159,7 @@
                    onerror="this.style.display='none'">
             </div>
             <div class="ord-prod-meta">
-              <div class="ord-prod-name">Millet Butter</div>
+              <div class="ord-prod-name">Millet Butter Cookies</div>
               <div class="ord-prod-price ds-price-full">₹499</div>
             </div>
             <div class="ord-qty-wrap" aria-label="Millet Butter Cookies quantity">
@@ -176,7 +176,7 @@
                    onerror="this.style.display='none'">
             </div>
             <div class="ord-prod-meta">
-              <div class="ord-prod-name">Millet Coconut</div>
+              <div class="ord-prod-name">Millet Coconut Cookies</div>
               <div class="ord-prod-price ds-price-full">₹499</div>
             </div>
             <div class="ord-qty-wrap" aria-label="Millet Coconut Cookies quantity">
@@ -290,6 +290,32 @@
           <div class="ord-total-amt" id="ord-grand-total">₹499<small>INR</small></div>
         </div>
 
+        <!-- Payment-mode split summary (visible only when Partial COD is selected) -->
+        <div class="ord-paymode-summary" id="ord-paymode-summary" hidden>
+          <span class="ord-paymode-summary-item">Pay online: <strong id="ord-ps-online">₹0</strong></span>
+          <span class="ord-paymode-summary-sep">·</span>
+          <span class="ord-paymode-summary-item">Pay on delivery: <strong id="ord-ps-cod">₹0</strong></span>
+        </div>
+
+        <!-- Payment method selector -->
+        <fieldset class="ord-paymode" aria-label="Payment method">
+          <legend class="ord-sec-label">Payment Method</legend>
+          <label class="ord-paymode-opt">
+            <input type="radio" name="payment_mode" value="full" checked>
+            <div class="ord-paymode-content">
+              <span class="ord-paymode-title">Pay in full online</span>
+              <span class="ord-paymode-sub">Secure UPI / card / netbanking via Easebuzz</span>
+            </div>
+          </label>
+          <label class="ord-paymode-opt">
+            <input type="radio" name="payment_mode" value="partial_cod">
+            <div class="ord-paymode-content">
+              <span class="ord-paymode-title">Partial COD <span class="ord-paymode-tag">20% now · 80% on delivery</span></span>
+              <span class="ord-paymode-sub">Pay 20% online to confirm + ₹15 handling fee, rest in cash at your door</span>
+            </div>
+          </label>
+        </fieldset>
+
         <div class="ord-shipping-tag">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <rect x="1" y="3" width="15" height="13"></rect>
@@ -393,6 +419,32 @@
     </div><!-- /.ord-scroll -->
   </main>
 
+  <!-- ═══════════════════════════════════════════════════════════════════
+       PARTIAL COD CONFIRMATION MODAL
+       ═══════════════════════════════════════════════════════════════════ -->
+  <div class="ord-modal" id="ord-pcod-modal" aria-hidden="true" role="dialog"
+       aria-modal="true" aria-labelledby="ord-pcod-title">
+    <div class="ord-modal-backdrop" id="ord-modal-backdrop"></div>
+    <div class="ord-modal-panel">
+      <h3 class="ord-modal-title" id="ord-pcod-title">Confirm Partial COD</h3>
+      <div class="ord-modal-body">
+        <p>To confirm your order, pay <strong id="ord-pcod-online">₹0</strong> (20%) online now via Easebuzz.</p>
+        <p>The remaining <strong id="ord-pcod-cod">₹0</strong> (80%) is collected in cash when your parcel arrives.</p>
+        <ul class="ord-modal-fineprint">
+          <li>A flat ₹15 COD handling fee is included in your total.</li>
+          <li>If the parcel doesn't reach you, the 20% is fully refunded.</li>
+          <li>If you refuse the parcel at delivery, ₹50 is deducted and the rest refunded manually.</li>
+        </ul>
+      </div>
+      <div class="ord-modal-actions">
+        <button type="button" class="ord-modal-btn ord-modal-btn--ghost" id="ord-modal-cancel">Cancel</button>
+        <button type="button" class="ord-modal-btn ord-modal-btn--gold" id="ord-pcod-confirm">
+          Pay ₹<span id="ord-pcod-confirm-amt">0</span> now
+        </button>
+      </div>
+    </div>
+  </div>
+
 
   <!-- ═══════════════════════════════════════════════════════════════════
        STICKY PAY FOOTER
@@ -400,7 +452,7 @@
   <div class="ord-pay-footer" role="complementary" aria-label="Quick pay">
     <button class="ord-pay-btn" type="button"
             onclick="document.getElementById('orderForm').requestSubmit()">
-      <span>Pay Now</span>
+      <span id="ord-pay-label">Pay Now</span>
       <div class="ord-pay-btn-right">
         <span class="ord-pay-amt" id="ord-footer-total">₹499</span>
         <div class="ord-pay-arrow" aria-hidden="true">

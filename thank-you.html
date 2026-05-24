@@ -427,6 +427,20 @@
     }
     .ty-email-strip svg { flex-shrink: 0; opacity: 0.55; }
 
+    /* ── COD reminder (partial COD orders only) ── */
+    .ty-cod-reminder {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      color: var(--ink-muted, #7a5c3a);
+      background: rgba(212, 162, 74, 0.08);
+      border: 1px solid rgba(212, 162, 74, 0.22);
+      border-radius: 10px;
+      padding: 10px 14px;
+      line-height: 1.5;
+      margin-top: 4px;
+    }
+    .ty-cod-reminder strong { color: var(--gold-dark, #b8892a); }
+
     /* ── CTA row ── */
     .ty-cta-row {
       display: flex;
@@ -682,8 +696,15 @@
 
         <!-- Total (populated by JS) -->
         <div class="ty-order-total" id="tyTotal" style="display:none;">
-          <span class="label">Total Paid</span>
+          <span class="label" id="tyTotalLabel">Total Paid</span>
           <span class="amount" id="tyTotalAmount">₹0</span>
+        </div>
+        <div class="ty-order-total" id="tyCodRow" style="display:none;">
+          <span class="label">Pay on delivery</span>
+          <span class="amount" id="tyCodAmount">₹0</span>
+        </div>
+        <div class="ty-cod-reminder" id="tyCodReminder" style="display:none;">
+          Please keep <strong id="tyCodReminderAmt">₹0</strong> ready in cash when your parcel arrives.
         </div>
 
         <!-- Email strip -->
@@ -893,7 +914,20 @@
         </div>
       `).join('');
 
-      if (data.total_amount) {
+      if (data.payment_method === 'Partial COD' && data.online_amount_paid && data.cod_amount_due) {
+        const labelEl    = document.getElementById('tyTotalLabel');
+        const codRowEl   = document.getElementById('tyCodRow');
+        const codAmtEl   = document.getElementById('tyCodAmount');
+        const reminderEl = document.getElementById('tyCodReminder');
+        const reminderAmt = document.getElementById('tyCodReminderAmt');
+        if (labelEl)    labelEl.textContent   = 'Paid online';
+        amtEl.textContent = '₹' + Number(data.online_amount_paid).toLocaleString('en-IN');
+        totalEl.style.display = 'flex';
+        if (codAmtEl)   codAmtEl.textContent  = '₹' + Number(data.cod_amount_due).toLocaleString('en-IN');
+        if (codRowEl)   codRowEl.style.display = 'flex';
+        if (reminderAmt) reminderAmt.textContent = '₹' + Number(data.cod_amount_due).toLocaleString('en-IN');
+        if (reminderEl) reminderEl.style.display = '';
+      } else if (data.total_amount) {
         amtEl.textContent = '₹' + Number(data.total_amount).toLocaleString('en-IN');
         totalEl.style.display = 'flex';
       }
@@ -945,7 +979,7 @@
       try {
         const res  = await fetch(`https://dietswad-api.azurewebsites.net/api/order-status?order_id=${encodeURIComponent(orderId)}`);
         const data = await res.json();
-        if (data.payment_status === 'Paid') return data;
+        if (data.payment_status === 'Paid' || data.payment_status === 'Partial Paid') return data;
       } catch (e) {
         console.warn('[DietSwad] order-status fetch error:', e);
       }

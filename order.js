@@ -37,17 +37,39 @@
     if (row) {
       var slug = row.getAttribute('data-ord-slug');
       var cart = readCart();
-      if (val > 0) {
-        cart[slug] = val;
-        // Promote this row out of "extra" so "Show fewer" won't hide it again
-        row.classList.remove('ord-prod-row--extra');
-      } else {
-        delete cart[slug];
-      }
+      if (val > 0) { cart[slug] = val; } else { delete cart[slug]; }
       writeCart(cart);
     }
     updateSummary();
+    refreshExtras();
   };
+
+  function refreshExtras() {
+    var cart     = readCart();
+    var hasItems = Object.keys(cart).some(function (k) { return cart[k] > 0; });
+    var moreBtn  = document.getElementById('ord-more-btn');
+    var expanded = moreBtn && moreBtn.getAttribute('aria-expanded') === 'true';
+    var hasExtras = false;
+
+    document.querySelectorAll('.ord-prod-row').forEach(function (row) {
+      var slug     = row.getAttribute('data-ord-slug');
+      var hasQty   = (cart[slug] || 0) > 0;
+
+      if (!hasItems) {
+        row.classList.remove('ord-prod-row--extra');
+        row.style.display = '';
+      } else if (hasQty) {
+        row.classList.remove('ord-prod-row--extra');
+        row.style.display = 'flex';
+      } else {
+        row.classList.add('ord-prod-row--extra');
+        row.style.display = expanded ? 'flex' : 'none';
+        hasExtras = true;
+      }
+    });
+
+    if (moreBtn) moreBtn.hidden = !hasExtras;
+  }
 
   function updateSummary() {
     var spans = document.querySelectorAll('.ord-qty-val');
@@ -70,15 +92,73 @@
       }
     });
 
-    var grandEl  = document.getElementById('ord-grand-total');
-    var footerEl = document.getElementById('ord-footer-total');
+    var payMode = selectedPayMode();
+    var total   = payMode === 'partial_cod' ? grand + 15 : grand;
+    var online  = payMode === 'partial_cod' ? Math.round(total * 0.20) : total;
+    var cod     = total - online;
+
+    var grandEl   = document.getElementById('ord-grand-total');
+    var footerEl  = document.getElementById('ord-footer-total');
+    var summaryEl = document.getElementById('ord-paymode-summary');
+    var psOnline  = document.getElementById('ord-ps-online');
+    var psCod     = document.getElementById('ord-ps-cod');
+    var payLabel  = document.getElementById('ord-pay-label');
+
     if (grandEl) {
-      grandEl.innerHTML = fmt(grand) + '<small>INR</small>';
+      grandEl.innerHTML = fmt(total) + '<small>INR</small>';
       grandEl.classList.remove('is-popping');
-      void grandEl.offsetWidth; // reflow to restart animation
+      void grandEl.offsetWidth;
       grandEl.classList.add('is-popping');
     }
-    if (footerEl) footerEl.textContent = fmt(grand);
+    if (payMode === 'partial_cod') {
+      if (summaryEl) summaryEl.hidden = false;
+      if (psOnline)  psOnline.textContent  = fmt(online);
+      if (psCod)     psCod.textContent     = fmt(cod);
+      if (footerEl)  footerEl.textContent  = fmt(online);
+      if (payLabel)  payLabel.textContent  = 'Pay ' + fmt(online) + ' now';
+    } else {
+      if (summaryEl) summaryEl.hidden = true;
+      if (footerEl)  footerEl.textContent = fmt(grand);
+      if (payLabel)  payLabel.textContent = 'Pay Now';
+    }
+  }
+
+  function selectedPayMode() {
+    var radio = document.querySelector('input[name="payment_mode"]:checked');
+    return radio ? radio.value : 'full';
+  }
+
+  /* ── Partial COD modal ─────────────────────────────────────────────── */
+  function openPcodModal() {
+    var grand   = 0;
+    document.querySelectorAll('.ord-qty-val').forEach(function (s, i) {
+      grand += parseInt(s.textContent, 10) * PRODUCTS[i].price;
+    });
+    var total  = grand + 15;
+    var online = Math.round(total * 0.20);
+    var cod    = total - online;
+
+    var el = function (id) { return document.getElementById(id); };
+    el('ord-pcod-online').textContent      = fmt(online);
+    el('ord-pcod-cod').textContent         = fmt(cod);
+    el('ord-pcod-confirm-amt').textContent = online.toLocaleString('en-IN');
+
+    var modal = el('ord-pcod-modal');
+    if (modal) {
+      modal.setAttribute('aria-hidden', 'false');
+      modal.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+      el('ord-pcod-confirm').focus();
+    }
+  }
+
+  function closePcodModal() {
+    var modal = document.getElementById('ord-pcod-modal');
+    if (modal) {
+      modal.setAttribute('aria-hidden', 'true');
+      modal.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
   }
 
   function showError(msg) {
@@ -123,52 +203,28 @@
       if (qtyVal) qtyVal.textContent = cart[rowSlug] || 0;
     });
 
-    // If the cart has any items, hide zero-qty rows and reveal "Add more" button
-    var hasItems = Object.keys(cart).some(function (k) { return cart[k] > 0; });
-    if (hasItems) {
-      var hasExtras = false;
-      rows.forEach(function (row) {
-        var rowSlug = row.getAttribute('data-ord-slug');
-        if (!(cart[rowSlug] > 0)) {
-          row.classList.add('ord-prod-row--extra');
-          row.style.display = 'none';
-          hasExtras = true;
-        }
-      });
-      if (hasExtras) {
-        var moreBtn = document.getElementById('ord-more-btn');
-        if (moreBtn) moreBtn.hidden = false;
-      }
-    }
+    refreshExtras();
   }
 
   /* ── Toggle extra products expand/collapse ─────────────────────── */
   window.toggleMoreProducts = function (btn) {
-    var extras   = document.querySelectorAll('.ord-prod-row--extra');
     var expanded = btn.getAttribute('aria-expanded') === 'true';
     var label    = btn.querySelector('.ord-more-label');
     var icon     = btn.querySelector('.ord-more-icon');
 
-    if (expanded) {
-      extras.forEach(function (r) {
-        r.style.display = 'none';
+    btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+    if (label) label.textContent = expanded ? 'Add more products' : 'Show fewer products';
+    if (icon)  icon.textContent  = '+';
+
+    refreshExtras();
+
+    if (!expanded) {
+      document.querySelectorAll('.ord-prod-row--extra').forEach(function (r, i) {
         r.classList.remove('is-revealing');
-      });
-      btn.setAttribute('aria-expanded', 'false');
-      if (label) label.textContent = 'Add more products';
-      if (icon)  icon.textContent  = '+';
-    } else {
-      extras.forEach(function (r, i) {
-        r.style.display = 'flex';
-        r.classList.remove('is-revealing');
-        void r.offsetWidth; // reflow to restart animation
+        void r.offsetWidth;
         r.classList.add('is-revealing');
-        // stagger each row slightly
         r.style.animationDelay = (i * 0.055) + 's';
       });
-      btn.setAttribute('aria-expanded', 'true');
-      if (label) label.textContent = 'Show fewer products';
-      if (icon)  icon.textContent  = '+'; // CSS rotates it 45° via [aria-expanded="true"]
     }
   };
 
@@ -203,6 +259,14 @@
     var form = document.getElementById('orderForm');
     if (!form.reportValidity()) return;
 
+    // Partial COD: show confirmation modal before proceeding
+    var paymentMode = selectedPayMode();
+    if (paymentMode === 'partial_cod' && !window._pcodConfirmed) {
+      openPcodModal();
+      return;
+    }
+    window._pcodConfirmed = false;
+
     // Collect form data
     var fd      = new FormData(form);
     var address = (fd.get('address') || '').trim();
@@ -217,6 +281,7 @@
       pincode:        fd.get('pincode'),
       notes:          fd.get('notes') || '',
       items:          items,
+      payment_mode:   paymentMode,
       form_loaded_at: formLoadedAt,
       source:         'website',
       utm_source:     fd.get('utm_source')   || sessionStorage.getItem('utm_source')   || '',
@@ -367,4 +432,30 @@
       if (ev.key === 'Escape' && drawer.classList.contains('is-open')) closeDrawer();
     });
   }
+
+  // Payment mode radio — recompute summary on change
+  document.querySelectorAll('input[name="payment_mode"]').forEach(function (radio) {
+    radio.addEventListener('change', updateSummary);
+  });
+
+  // Partial COD modal wiring
+  var pcodModal    = document.getElementById('ord-pcod-modal');
+  var pcodBackdrop = document.getElementById('ord-modal-backdrop');
+  var pcodCancel   = document.getElementById('ord-modal-cancel');
+  var pcodConfirm  = document.getElementById('ord-pcod-confirm');
+
+  if (pcodCancel)   pcodCancel.addEventListener('click', closePcodModal);
+  if (pcodBackdrop) pcodBackdrop.addEventListener('click', closePcodModal);
+  if (pcodConfirm) {
+    pcodConfirm.addEventListener('click', function () {
+      closePcodModal();
+      window._pcodConfirmed = true;
+      document.getElementById('orderForm').requestSubmit();
+    });
+  }
+  document.addEventListener('keydown', function (ev) {
+    if (ev.key === 'Escape' && pcodModal && pcodModal.classList.contains('is-open')) {
+      closePcodModal();
+    }
+  });
 })();
