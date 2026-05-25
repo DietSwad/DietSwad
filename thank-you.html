@@ -258,6 +258,7 @@
       position: absolute;
       top: 50%; left: 50%;
       transform: translate(-50%,-50%);
+      overflow: visible;
       z-index: 10;
       animation: checkScale 0.3s ease-in-out 0.9s both, checkGlow 3s ease-in-out 1.2s infinite;
       filter: drop-shadow(0 0 12px rgba(201,168,76,0.4));
@@ -669,7 +670,7 @@
         <div class="rotating-halo"></div>
 
         <!-- SVG checkmark -->
-        <svg class="checkmark-svg" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="checkmark-svg" viewBox="-4 -4 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle class="checkmark-circle" cx="26" cy="26" r="25"/>
           <polyline class="checkmark-tick" points="14.1 27.2 21.1 34.2 37.9 17.8"/>
         </svg>
