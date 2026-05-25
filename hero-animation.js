@@ -65,11 +65,16 @@
   const INTRO_FADE_WINDOW = 0.14; // Intro fades out over 14% scroll
 
   // Stable viewport height — locked to the innerHeight at script evaluation.
-  // Never updated after that. Mobile URL-bar collapse fires resize events that
-  // grow innerHeight; accepting those updates changes the cover-fill scale and
-  // produces a visible zoom jump on every scroll-past-first interaction.
+  // Used ONLY by getScrollProgress() as the denominator, so URL-bar collapse
+  // doesn't shift the progress curve mid-scroll (which would cause a visible
+  // zoom jump on every scroll-past-first interaction).
+  //
+  // Canvas drawing dimensions are NOT taken from stableVh — they come from the
+  // live .hero-sticky size (see resize()), so the photo always fills its
+  // container edge-to-edge regardless of URL-bar state.
   let stableVh  = window.innerHeight;
   let resizeRaf = null;
+  let resizeObs = null;
 
   // ─── STATE ─────────────────────────────────────────────────────────────────
 
@@ -86,6 +91,7 @@
 
   const el = {
     section:  null, // Populated in init()
+    sticky:   null, // .hero-sticky — used to size the canvas to its live box
     canvas:   null,
     loadBar:  null,
     intro:    null, // .hero-intro   — initial question text block
@@ -119,15 +125,20 @@
   // ─── CANVAS ────────────────────────────────────────────────────────────────
 
   function resize() {
-    if (!el.canvas) return;
+    if (!el.canvas || !el.sticky) return;
     const dpr = window.devicePixelRatio || 1;
-    const vw  = window.innerWidth;
-    const vh  = window.innerHeight;
 
-    el.canvas.width  = vw * dpr;
-    el.canvas.height = stableVh * dpr;
-    el.canvas.style.width  = vw + 'px';
-    el.canvas.style.height = stableVh + 'px';
+    // Read the rendered size of the sticky container. .hero-sticky is sized
+    // to 100lvh (largest viewport, stable across URL-bar toggles), so this
+    // value stays constant during scroll — no scale recomputation, no
+    // perceived zoom. It only changes on real layout events (orientation
+    // rotation, window resize), which the ResizeObserver in init() catches.
+    const cw = el.sticky.clientWidth  || window.innerWidth;
+    const ch = el.sticky.clientHeight || window.innerHeight;
+
+    el.canvas.width  = cw * dpr;
+    el.canvas.height = ch * dpr;
+    // Do NOT set inline style.width/height — CSS handles layout sizing.
 
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     drawFrame(state.currentFrame);
@@ -438,6 +449,7 @@
   async function init() {
     // Resolve DOM refs
     el.section  = document.getElementById('hero');
+    el.sticky   = document.querySelector('.hero-sticky');
     el.canvas   = document.getElementById('hero-canvas');
     el.loadBar  = document.getElementById('hero-load-bar');
     el.intro    = document.querySelector('.hero-intro');
@@ -478,6 +490,13 @@
     // Setup canvas dimensions
     resize();
     window.addEventListener('resize', scheduleResize, { passive: true });
+
+    // Track the sticky box itself — fires on mobile URL-bar collapse/expand
+    // (which doesn't always fire window.resize) so the canvas stays full-bleed.
+    if ('ResizeObserver' in window && el.sticky) {
+      resizeObs = new ResizeObserver(scheduleResize);
+      resizeObs.observe(el.sticky);
+    }
 
     // Load critical frames then bind scroll
     await preloadCritical();

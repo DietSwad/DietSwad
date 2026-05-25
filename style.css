@@ -507,8 +507,12 @@
 
 
 
-/* Decorative ingredient floats */
+/* Decorative ingredient floats — disabled 2026-05-26 per user feedback
+   (the transparent background ingredient PNGs were distracting against the
+   dark product stage). The JS in index.html still builds them; toggle
+   display back to block to reinstate. */
 .pcard-floats {
+  display: none;
   position: absolute;
   inset: 0;
   pointer-events: none;

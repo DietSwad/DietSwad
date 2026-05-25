@@ -4,9 +4,9 @@
  * Companion to hero-animation.js.
  *
  * Element map (must match JS el refs exactly):
- *   #hero              — 250vh scroll container
- *   .hero-sticky       — 100svh sticky viewport
- *   #hero-canvas       — Canvas 2D drawing surface
+ *   #hero              — 150vh scroll container
+ *   .hero-sticky       — 100lvh sticky viewport (stable; URL-bar-safe)
+ *   #hero-canvas       — Canvas 2D drawing surface (sized to .hero-sticky)
  *   #hero-load-bar     — Thin gold progress line at top
  *   .hero-text         — Overlay container (holds both text states)
  *   .hero-intro        — Initial text block: "What if Snacks were just... Food?"
@@ -32,15 +32,21 @@
   background: #EDE5CF;
 }
 
-/* ─── Sticky viewport (100svh) ──────────────────────────────────────────── */
+/* ─── Sticky viewport (100lvh — stable across URL-bar toggles) ──────────── */
 
 .hero-sticky {
   position: sticky;
   top: 0;
-  height: 100svh;
-  /* overflow:hidden removed — nothing actually overflows (all children are
-     inset:0 absolute), and the hard clip creates a 1px rendering seam where
-     the sticky canvas meets the gap below */
+  height: 100vh;  /* fallback for browsers without lvh support */
+  height: 100lvh; /* largest viewport height — stable; does NOT change when
+                     the mobile URL bar collapses/expands. The canvas sized to
+                     100% of this stays constant too, so the cover-fill scale
+                     never recomputes → no perceived zoom on URL-bar toggle.
+                     When the URL bar is visible, the bottom of this sticky
+                     box extends below the viewport fold (hidden), and the top
+                     of the canvas fully covers the visible area → no cream
+                     strip. */
+  /* No background here — the canvas always fills this box edge-to-edge. */
 }
 
 /* ─── Canvas ─────────────────────────────────────────────────────────────── */
@@ -52,10 +58,9 @@
   width: 100%;
   height: 100%;
   z-index: 1;
-  /* Soft fade on the very bottom edge only — products remain fully visible.
-     92% start = ~60px fade on a 750px viewport, well below the date bites. */
-  -webkit-mask-image: linear-gradient(to bottom, black 92%, transparent 100%);
-  mask-image: linear-gradient(to bottom, black 92%, transparent 100%);
+  /* No mask-image: the photo butts cleanly into .why-thread. A transparent
+     bottom band exposed the cream sticky background on mobiles where URL-bar
+     height shifts (visible cream stripe bug, 2026-05-26 fix). */
 }
 
 /* ─── Loading progress bar ───────────────────────────────────────────────── */
@@ -209,13 +214,16 @@
   will-change: opacity, transform;
 }
 
-/* Two buttons side by side (stacks on very narrow screens) */
+/* Two buttons side by side — never stack on mobile.
+   Buttons flex-share the row so they always fit, even at 320px width. */
 .hero-cta-buttons {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
-  gap: 12px;
+  flex-wrap: nowrap;
+  gap: 10px;
   align-items: center;
+  width: 100%;
+  max-width: 360px;
 }
 
 /* Primary: gold fill */
@@ -233,9 +241,10 @@
   background: linear-gradient(135deg, #BF9B30 0%, #F5D17A 50%, #D4AF37 100%);
   border: none;
   border-radius: 100px;
-  padding: 0 28px;
+  padding: 0 18px;
   height: 48px;
-  min-width: 160px;
+  flex: 1 1 0;       /* share row width with the outline button on mobile */
+  min-width: 0;      /* allow shrink below intrinsic size if needed */
   cursor: pointer;
   white-space: nowrap;
   box-shadow: 0 6px 18px rgba(212,175,55,0.32);
@@ -260,9 +269,10 @@
   background: transparent;
   border: 1px solid rgba(212, 175, 55, 0.55);
   border-radius: 100px;
-  padding: 0 28px;
+  padding: 0 18px;
   height: 48px;
-  min-width: 160px;
+  flex: 1 1 0;       /* share row width with the primary button on mobile */
+  min-width: 0;      /* allow shrink below intrinsic size if needed */
   cursor: pointer;
   white-space: nowrap;
 }
@@ -391,11 +401,15 @@
 
   .hero-cta-buttons {
     gap: 16px;
+    width: auto;
+    max-width: none;
   }
 
   .btn-hero-primary,
   .btn-hero-outline {
+    flex: 0 0 auto;       /* desktop: natural sizing, not flex-share */
     min-width: 180px;
+    padding: 0 28px;
     font-size: 13px;
   }
 }
