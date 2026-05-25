@@ -122,6 +122,8 @@
       if (payLabel)  payLabel.textContent  = 'Pay ' + fmt(online) + ' now';
     } else {
       if (summaryEl) summaryEl.hidden = true;
+      if (psOnline)  psOnline.textContent = '₹0';
+      if (psCod)     psCod.textContent    = '₹0';
       if (footerEl)  footerEl.textContent = fmt(total);
       if (payLabel)  payLabel.textContent = 'Pay Now';
     }
@@ -133,7 +135,7 @@
   }
 
   /* ── Partial COD modal ─────────────────────────────────────────────── */
-  function openPcodModal() {
+  window.openPcodModal = function openPcodModal() {
     var grand   = 0;
     document.querySelectorAll('.ord-qty-val').forEach(function (s, i) {
       grand += parseInt(s.textContent, 10) * priceFor(i);
@@ -143,9 +145,8 @@
     var cod    = total - online;
 
     var el = function (id) { return document.getElementById(id); };
-    el('ord-pcod-online').textContent      = fmt(online);
-    el('ord-pcod-cod').textContent         = fmt(cod);
-    el('ord-pcod-confirm-amt').textContent = online.toLocaleString('en-IN');
+    el('ord-pcod-online').textContent = fmt(online);
+    el('ord-pcod-cod').textContent    = fmt(cod);
 
     var modal = el('ord-pcod-modal');
     if (modal) {
@@ -263,16 +264,9 @@
     var form = document.getElementById('orderForm');
     if (!form.reportValidity()) return;
 
-    // Partial COD: show confirmation modal before proceeding
-    var paymentMode = selectedPayMode();
-    if (paymentMode === 'partial_cod' && !window._pcodConfirmed) {
-      openPcodModal();
-      return;
-    }
-    window._pcodConfirmed = false;
-
     // Collect form data
-    var fd      = new FormData(form);
+    var paymentMode = selectedPayMode();
+    var fd          = new FormData(form);
     var address = (fd.get('address') || '').trim();
     var city    = (fd.get('city')    || '').trim();
     if (city) address += ', ' + city;
@@ -455,11 +449,7 @@
   if (pcodCancel)   pcodCancel.addEventListener('click', closePcodModal);
   if (pcodBackdrop) pcodBackdrop.addEventListener('click', closePcodModal);
   if (pcodConfirm) {
-    pcodConfirm.addEventListener('click', function () {
-      closePcodModal();
-      window._pcodConfirmed = true;
-      document.getElementById('orderForm').requestSubmit();
-    });
+    pcodConfirm.addEventListener('click', closePcodModal);
   }
   document.addEventListener('keydown', function (ev) {
     if (ev.key === 'Escape' && pcodModal && pcodModal.classList.contains('is-open')) {

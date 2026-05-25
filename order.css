@@ -584,6 +584,7 @@ body.ord-page .site-nav .nav-logo-text {
   background: rgba(212, 162, 74, 0.07);
   border: 1px solid rgba(212, 162, 74, 0.18);
 }
+.ord-paymode-summary[hidden] { display: none; }
 .ord-paymode-summary-item {
   font-family: 'DM Sans', sans-serif;
   font-size: 12px;
@@ -596,6 +597,13 @@ body.ord-page .site-nav .nav-logo-text {
 .ord-paymode-summary-sep {
   color: var(--ink-muted);
   opacity: 0.45;
+}
+.ord-pcod-knowmore {
+  color: var(--gold-dark);
+  font-size: 11px;
+  font-weight: 600;
+  text-decoration: underline;
+  white-space: nowrap;
 }
 
 /* ── Partial COD confirmation modal ───────────────────────────────────── */
