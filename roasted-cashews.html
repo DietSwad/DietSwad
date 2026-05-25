@@ -24,6 +24,7 @@
   <meta name="twitter:title" content="Roasted &amp; Salted Cashews — Diet Swad">
   <meta name="twitter:description" content="Roasted &amp; Salted Cashews by Diet Swad — only 2 ingredients, 18.2g protein, no oils added. Pure dry roast. No preservatives. No trans fat. Pure luxury.">
   <meta name="twitter:image" content="https://www.dietswad.in/Assets/Product_hero_image/Cashews_cascading_from_container_202605190327.webp">
+  <link rel="canonical" href="https://www.dietswad.in/roasted-cashews.html">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,17 +40,33 @@
     "image": "https://www.dietswad.in/Assets/Product_hero_image/Cashews_cascading_from_container_202605190327.webp",
     "description": "Roasted & Salted Cashews by Diet Swad — only 2 ingredients, 18.2g protein, no oils added. Pure dry roast. No preservatives. No trans fat. Pure luxury.",
     "brand": { "@type": "Brand", "name": "Diet Swad" },
+    "sku": "DS-ROASTED-CASHEWS-250G",
     "offers": {
       "@type": "Offer",
-      "price": "499",
+      "price": "499.00",
       "priceCurrency": "INR",
+      "priceValidUntil": "2026-12-31",
       "availability": "https://schema.org/InStock",
-      "url": "https://www.dietswad.in/roasted-cashews.html"
-    },
-    "hasMerchantReturnPolicy": {
-      "@type": "MerchantReturnPolicy",
-      "applicableCountry": "IN",
-      "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+      "itemCondition": "https://schema.org/NewCondition",
+      "url": "https://www.dietswad.in/roasted-cashews.html",
+      "shippingDetails": {
+        "@type": "OfferShippingDetails",
+        "shippingRate": { "@type": "MonetaryAmount", "value": "0", "currency": "INR" },
+        "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "IN" },
+        "deliveryTime": {
+          "@type": "ShippingDeliveryTime",
+          "handlingTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 1, "unitCode": "DAY" },
+          "transitTime": { "@type": "QuantitativeValue", "minValue": 5, "maxValue": 7, "unitCode": "DAY" }
+        }
+      },
+      "hasMerchantReturnPolicy": {
+        "@type": "MerchantReturnPolicy",
+        "applicableCountry": "IN",
+        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+        "merchantReturnDays": 2,
+        "returnMethod": "https://schema.org/ReturnByMail",
+        "returnFees": "https://schema.org/FreeReturn"
+      }
     }
   }
   </script>
@@ -114,7 +131,7 @@
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.dietswad.in" },
-      { "@type": "ListItem", "position": 2, "name": "Roasted Cashews", "item": "https://www.dietswad.in/roasted-cashews" }
+      { "@type": "ListItem", "position": 2, "name": "Roasted Cashews", "item": "https://www.dietswad.in/roasted-cashews.html" }
     ]
   }
   </script>

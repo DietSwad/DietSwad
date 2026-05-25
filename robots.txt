@@ -1,5 +1,8 @@
 User-agent: *
 Allow: /
+Disallow: /test-checkout.html
+Disallow: /test-thankyou.html
+Disallow: /blog/article-template.html
 
 # AI crawlers — explicitly allowed (all are allowed by default but stated for clarity)
 User-agent: GPTBot
