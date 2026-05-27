@@ -95,9 +95,20 @@
     });
 
     var payMode = selectedPayMode();
-    var total   = payMode === 'partial_cod' ? grand + 15 : grand;
-    var online  = payMode === 'partial_cod' ? Math.round(total * 0.20) : total;
-    var cod     = total - online;
+    var total, online, cod;
+    if (payMode === 'partial_cod') {
+      total  = grand + 15;
+      online = Math.round(total * 0.20);
+      cod    = total - online;
+    } else if (payMode === 'full_cod') {
+      total  = grand + 50;
+      online = 0;
+      cod    = total;
+    } else {
+      total  = grand;
+      online = total;
+      cod    = 0;
+    }
 
     var grandEl   = document.getElementById('ord-grand-total');
     var footerEl  = document.getElementById('ord-footer-total');
@@ -113,13 +124,22 @@
       void grandEl.offsetWidth;
       grandEl.classList.add('is-popping');
     }
-    if (codFeeRow) codFeeRow.style.display = (payMode === 'partial_cod' && grand > 0) ? '' : 'none';
+    var codFeeRowFull = document.getElementById('ord-fcod-fee-row');
+    if (codFeeRow)     codFeeRow.style.display     = (payMode === 'partial_cod' && grand > 0) ? '' : 'none';
+    if (codFeeRowFull) codFeeRowFull.style.display = (payMode === 'full_cod'    && grand > 0) ? '' : 'none';
+
     if (payMode === 'partial_cod') {
       if (summaryEl) summaryEl.hidden = false;
       if (psOnline)  psOnline.textContent  = fmt(online);
       if (psCod)     psCod.textContent     = fmt(cod);
       if (footerEl)  footerEl.textContent  = fmt(online);
       if (payLabel)  payLabel.textContent  = 'Pay ' + fmt(online) + ' now';
+    } else if (payMode === 'full_cod') {
+      if (summaryEl) summaryEl.hidden = false;
+      if (psOnline)  psOnline.textContent  = '₹0 (pay on delivery)';
+      if (psCod)     psCod.textContent     = fmt(cod);
+      if (footerEl)  footerEl.textContent  = fmt(total);
+      if (payLabel)  payLabel.textContent  = 'Place COD Order — Pay ' + fmt(total) + ' on delivery';
     } else {
       if (summaryEl) summaryEl.hidden = true;
       if (psOnline)  psOnline.textContent = '₹0';
@@ -133,6 +153,44 @@
     var radio = document.querySelector('input[name="payment_mode"]:checked');
     return radio ? radio.value : 'full';
   }
+
+  /* ── Full COD modal ────────────────────────────────────────────────── */
+  var fcodConfirmed = false;
+
+  window.openFcodModal = function openFcodModal() {
+    var modal = document.getElementById('ord-fcod-modal');
+    if (modal) {
+      modal.setAttribute('aria-hidden', 'false');
+      modal.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+      document.getElementById('ord-fcod-confirm').focus();
+    }
+  };
+
+  function closeFcodModal() {
+    var modal = document.getElementById('ord-fcod-modal');
+    if (modal) {
+      modal.setAttribute('aria-hidden', 'true');
+      modal.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var confirmBtn = document.getElementById('ord-fcod-confirm');
+    if (confirmBtn) {
+      confirmBtn.addEventListener('click', function () {
+        fcodConfirmed = true;
+        closeFcodModal();
+      });
+    }
+    // Reset confirmation when user switches away from full_cod
+    document.querySelectorAll('input[name="payment_mode"]').forEach(function (r) {
+      r.addEventListener('change', function () {
+        if (r.value !== 'full_cod') fcodConfirmed = false;
+      });
+    });
+  });
 
   /* ── Partial COD modal ─────────────────────────────────────────────── */
   window.openPcodModal = function openPcodModal() {
@@ -264,8 +322,14 @@
     var form = document.getElementById('orderForm');
     if (!form.reportValidity()) return;
 
-    // Collect form data
+    // Full COD — show confirmation modal if not yet acknowledged
     var paymentMode = selectedPayMode();
+    if (paymentMode === 'full_cod' && !fcodConfirmed) {
+      window.openFcodModal();
+      return;
+    }
+
+    // Collect form data
     var fd          = new FormData(form);
     var address = (fd.get('address') || '').trim();
     var city    = (fd.get('city')    || '').trim();
@@ -308,7 +372,7 @@
 
     function resetBtn() {
       if (payBtn)     { payBtn.disabled = false; }
-      if (payBtnSpan) { payBtnSpan.textContent = 'Pay Now'; }
+      if (payBtnSpan) { payBtnSpan.textContent = paymentMode === 'full_cod' ? 'Place COD Order' : 'Pay Now'; }
     }
 
     try {

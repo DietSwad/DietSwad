@@ -286,6 +286,10 @@
             <div class="ord-sum-name">COD fees</div>
             <div class="ord-sum-price">₹15</div>
           </div>
+          <div class="ord-sum-row" id="ord-fcod-fee-row" style="display:none">
+            <div class="ord-sum-name">COD service fee</div>
+            <div class="ord-sum-price">₹50</div>
+          </div>
 
         </div>
 
@@ -318,6 +322,13 @@
             <div class="ord-paymode-content">
               <span class="ord-paymode-title">Partial Cash On Delivery <span class="ord-paymode-tag">20% now · 80% on delivery</span></span>
               <span class="ord-paymode-sub">Pay 20% online to confirm + ₹15 COD fee, rest in cash at your door &nbsp;<a href="#" class="ord-pcod-knowmore" onclick="event.preventDefault();event.stopPropagation();window.openPcodModal();">Know more</a></span>
+            </div>
+          </label>
+          <label class="ord-paymode-opt">
+            <input type="radio" name="payment_mode" value="full_cod">
+            <div class="ord-paymode-content">
+              <span class="ord-paymode-title">Cash on Delivery <span class="ord-paymode-tag ord-paymode-tag--cod">Pay on delivery</span></span>
+              <span class="ord-paymode-sub">Pay the full amount in cash when your order arrives · + ₹50 COD fee &nbsp;<a href="#" class="ord-fcod-knowmore" onclick="event.preventDefault();event.stopPropagation();window.openFcodModal();">Know more</a></span>
             </div>
           </label>
         </fieldset>
@@ -444,6 +455,30 @@
       </div>
       <div class="ord-modal-actions">
         <button type="button" class="ord-modal-btn ord-modal-btn--gold" id="ord-pcod-confirm">Got it</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       FULL COD CONFIRMATION MODAL
+       ═══════════════════════════════════════════════════════════════════ -->
+  <div class="ord-modal" id="ord-fcod-modal" aria-hidden="true" role="dialog"
+       aria-modal="true" aria-labelledby="ord-fcod-title">
+    <div class="ord-modal-backdrop"></div>
+    <div class="ord-modal-panel">
+      <h3 class="ord-modal-title" id="ord-fcod-title">Cash on Delivery</h3>
+      <div class="ord-modal-body">
+        <p>Your order will be delivered to your door and you pay the full amount in cash on arrival.</p>
+        <ul class="ord-modal-fineprint">
+          <li>A flat ₹50 Cash On Delivery service fee is included in your total.</li>
+          <li>Please keep the exact amount ready in cash to hand to the delivery person.</li>
+          <li>Your order is reserved once you place it — please accept the parcel when it arrives.</li>
+          <li>All sales are final upon delivery. For quality issues, contact us within 24 hours of delivery.</li>
+        </ul>
+      </div>
+      <div class="ord-modal-actions">
+        <button type="button" class="ord-modal-btn ord-modal-btn--gold" id="ord-fcod-confirm">Got it, I'll pay on delivery</button>
       </div>
     </div>
   </div>

@@ -564,6 +564,11 @@ body.ord-page .site-nav .nav-logo-text {
   border-radius: 100px;
   padding: 2px 7px;
 }
+.ord-paymode-tag--cod {
+  color: #92400e;
+  background: rgba(217, 119, 6, 0.10);
+  border-color: rgba(217, 119, 6, 0.28);
+}
 .ord-paymode-sub {
   font-family: 'DM Sans', sans-serif;
   font-size: 11px;
