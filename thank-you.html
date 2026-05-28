@@ -684,13 +684,6 @@
       </div>
     </section>
 
-    <!-- COD badge (shown only for full COD orders) -->
-    <div id="tyCodBadge" style="display:none;text-align:center;margin:-8px 0 12px;">
-      <span style="display:inline-block;background:rgba(217,119,6,0.12);border:1px solid rgba(217,119,6,0.35);color:#92400e;border-radius:20px;padding:6px 18px;font-size:0.85rem;font-weight:600;letter-spacing:0.03em;">
-        💵 Cash on Delivery
-      </span>
-    </div>
-
     <!-- Order card -->
     <div class="ty-card-wrap">
       <div class="ty-card">
@@ -938,8 +931,6 @@
         if (reminderAmt) reminderAmt.textContent = '₹' + Number(data.cod_amount_due).toLocaleString('en-IN');
         if (reminderEl) reminderEl.style.display = '';
       } else if (data.payment_method === 'COD' && data.cod_amount_due) {
-        const codBadge = document.getElementById('tyCodBadge');
-        if (codBadge) codBadge.style.display = '';
         if (labelEl)    labelEl.textContent   = 'Payable on delivery';
         amtEl.textContent = '₹' + Number(data.cod_amount_due).toLocaleString('en-IN');
         totalEl.style.display = 'flex';
@@ -971,7 +962,7 @@
           content_ids:  data.product_ids || [],
           content_type: 'product',
           num_items:    data.quantity || 1
-        }, { eventID: orderId });
+        }, { eventID: data.order_id || orderId });
       } else {
         console.warn('[DietSwad] fbq not defined — Meta Pixel base tag not yet live in GTM. Purchase event skipped.');
       }
@@ -982,7 +973,7 @@
       window.dataLayer.push({
         event: 'purchase',
         ecommerce: {
-          transaction_id: orderId,
+          transaction_id: data.order_id || orderId,
           value:          data.total_amount || 0,
           currency:       'INR',
           items: [{
