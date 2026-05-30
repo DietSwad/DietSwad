@@ -6,13 +6,13 @@
   // and redeploy. Also update the corresponding row in the
   // backend products table via the internal app so charges match.
   var PRICES = {
-    'power-bites':            199,
-    'royal-bites':            99,
+    'power-bites':            499,
+    'royal-bites':            499,
     'peanut-sesame-delights': 2,
     'millet-butter-cookies':  499,
-    'millet-coconut-cookies': 399,
+    'millet-coconut-cookies': 499,
     'millet-choco-cookies':   3,
-    'roasted-cashews':        4
+    'roasted-cashews':        499
   };
   // ────────────────────────────────────────────────────────
 
