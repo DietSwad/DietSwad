@@ -21,9 +21,10 @@
   // so what we CHARGE matches what we SHOW. (The backend re-enforces totals, so
   // the table is authoritative for charges; this file only drives the checkout UI.)
   var FEES = {
-    full_cod:               50,  // ₹ added for full Cash-on-Delivery
-    partial_cod:            20,  // ₹ added for Partial COD
-    partial_cod_online_pct: 30   // % of total paid online for Partial COD
+    full_cod:               60,  // ₹ added for full Cash-on-Delivery
+    partial_cod:            25,  // ₹ added for Partial COD
+    partial_cod_online_pct: 35,  // % of total paid online for Partial COD
+    return_processing_fee:  70   // ₹ deducted for doorstep return/decline processing
   };
   // ────────────────────────────────────────────────────────
 

@@ -96,9 +96,9 @@
 
     var payMode = selectedPayMode();
     // COD fees come from prices.js (single source of truth); fall back to the
-    // historical defaults if prices.js hasn't loaded for any reason.
+    // current display defaults if prices.js hasn't loaded for any reason.
     var F = (window.DietSwadPrices && window.DietSwadPrices.FEES) ||
-            { full_cod: 50, partial_cod: 15, partial_cod_online_pct: 20 };
+            { full_cod: 50, partial_cod: 20, partial_cod_online_pct: 30, return_processing_fee: 50 };
     var total, online, cod;
     if (payMode === 'partial_cod') {
       total  = grand + F.partial_cod;
@@ -195,7 +195,7 @@
       grand += parseInt(s.textContent, 10) * priceFor(i);
     });
     var F = (window.DietSwadPrices && window.DietSwadPrices.FEES) ||
-            { full_cod: 50, partial_cod: 15, partial_cod_online_pct: 20 };
+            { full_cod: 50, partial_cod: 20, partial_cod_online_pct: 30, return_processing_fee: 50 };
     var total  = grand + F.partial_cod;
     var online = Math.round(total * F.partial_cod_online_pct / 100);
     var cod    = total - online;
