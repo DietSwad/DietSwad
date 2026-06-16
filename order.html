@@ -287,11 +287,11 @@
 
           <div class="ord-sum-row" id="ord-cod-fee-row" style="display:none">
             <div class="ord-sum-name">COD fees</div>
-            <div class="ord-sum-price">₹15</div>
+            <div class="ord-sum-price">₹<span class="ds-fee" data-ds-fee="partial_cod">15</span></div>
           </div>
           <div class="ord-sum-row" id="ord-fcod-fee-row" style="display:none">
             <div class="ord-sum-name">COD fees</div>
-            <div class="ord-sum-price">₹50</div>
+            <div class="ord-sum-price">₹<span class="ds-fee" data-ds-fee="full_cod">50</span></div>
           </div>
 
         </div>
@@ -324,14 +324,14 @@
             <input type="radio" name="payment_mode" value="partial_cod">
             <div class="ord-paymode-content">
               <span class="ord-paymode-title">Partial Cash On Delivery <span class="ord-paymode-tag">20% now · 80% on delivery</span></span>
-              <span class="ord-paymode-sub">Pay 20% online to confirm + ₹15 COD fee, rest in cash at your door &nbsp;<a href="#" class="ord-pcod-knowmore" onclick="event.preventDefault();event.stopPropagation();window.openPcodModal();">Know more</a></span>
+              <span class="ord-paymode-sub">Pay 20% online to confirm + ₹<span class="ds-fee" data-ds-fee="partial_cod">15</span> COD fee, rest in cash at your door &nbsp;<a href="#" class="ord-pcod-knowmore" onclick="event.preventDefault();event.stopPropagation();window.openPcodModal();">Know more</a></span>
             </div>
           </label>
           <label class="ord-paymode-opt">
             <input type="radio" name="payment_mode" value="full_cod">
             <div class="ord-paymode-content">
               <span class="ord-paymode-title">Cash on Delivery <span class="ord-paymode-tag ord-paymode-tag--cod">Pay on delivery</span></span>
-              <span class="ord-paymode-sub">Pay the full amount in cash when your order arrives · + ₹50 COD fee &nbsp;<a href="#" class="ord-fcod-knowmore" onclick="event.preventDefault();event.stopPropagation();window.openFcodModal();">Know more</a></span>
+              <span class="ord-paymode-sub">Pay the full amount in cash when your order arrives · + ₹<span class="ds-fee" data-ds-fee="full_cod">50</span> COD fee &nbsp;<a href="#" class="ord-fcod-knowmore" onclick="event.preventDefault();event.stopPropagation();window.openFcodModal();">Know more</a></span>
             </div>
           </label>
         </fieldset>
@@ -451,7 +451,7 @@
         <p>To confirm your order, pay <strong id="ord-pcod-online">₹0</strong> (20%) online now.</p>
         <p>The remaining <strong id="ord-pcod-cod">₹0</strong> (80%) is collected in cash when your parcel arrives.</p>
         <ul class="ord-modal-fineprint">
-          <li>A flat ₹15 Cash On Delivery fee is included in your total.</li>
+          <li>A flat ₹<span class="ds-fee" data-ds-fee="partial_cod">15</span> Cash On Delivery fee is included in your total.</li>
           <li>Your purchase is fully protected - enjoy a 100% refund of your 20% Prepayment in the unlikely event your parcel doesn't arrive.</li>
           <li>Easy returns at your doorstep - Simply decline the parcel for a ₹50 processing fee, and the balance will be refunded directly to your account.</li>
         </ul>
@@ -474,7 +474,7 @@
       <div class="ord-modal-body">
         <p>Your order will be delivered to your door and you pay the full amount in cash on arrival.</p>
         <ul class="ord-modal-fineprint">
-          <li>A flat ₹50 COD fees is included in your total.</li>
+          <li>A flat ₹<span class="ds-fee" data-ds-fee="full_cod">50</span> COD fees is included in your total.</li>
           <li>Please keep the exact amount ready in cash to hand to the delivery person.</li>
           <li>Your order is reserved once you place it — please accept the parcel when it arrives.</li>
           <li>All sales are final upon delivery. For quality issues, contact us within 24 hours of delivery.</li>

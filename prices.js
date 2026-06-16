@@ -14,6 +14,17 @@
     'millet-choco-cookies':   499,
     'roasted-cashews':        499
   };
+
+  // COD fees — SINGLE SOURCE OF TRUTH for the website (display only).
+  // To change a fee site-wide: edit a value below and redeploy. ALSO update the
+  // matching row in the backend products table via the internal PWA (Fees screen)
+  // so what we CHARGE matches what we SHOW. (The backend re-enforces totals, so
+  // the table is authoritative for charges; this file only drives the checkout UI.)
+  var FEES = {
+    full_cod:               50,  // ₹ added for full Cash-on-Delivery
+    partial_cod:            15,  // ₹ added for Partial COD
+    partial_cod_online_pct: 20   // % of total paid online for Partial COD
+  };
   // ────────────────────────────────────────────────────────
 
   function getPrice(slug) {
@@ -44,10 +55,16 @@
       var price = slug != null ? PRICES[slug] : null;
       if (price != null) el.textContent = '₹' + price;
     });
+    // COD fee placeholders: <span class="ds-fee" data-ds-fee="full_cod"></span>
+    document.querySelectorAll('.ds-fee').forEach(function (el) {
+      var key = el.dataset && el.dataset.dsFee;
+      if (key != null && FEES[key] != null) el.textContent = FEES[key];
+    });
   }
 
   window.DietSwadPrices = {
     PRICES:   PRICES,
+    FEES:     FEES,
     getPrice: getPrice,
     apply:    apply
   };

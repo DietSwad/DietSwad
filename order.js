@@ -95,13 +95,17 @@
     });
 
     var payMode = selectedPayMode();
+    // COD fees come from prices.js (single source of truth); fall back to the
+    // historical defaults if prices.js hasn't loaded for any reason.
+    var F = (window.DietSwadPrices && window.DietSwadPrices.FEES) ||
+            { full_cod: 50, partial_cod: 15, partial_cod_online_pct: 20 };
     var total, online, cod;
     if (payMode === 'partial_cod') {
-      total  = grand + 15;
-      online = Math.round(total * 0.20);
+      total  = grand + F.partial_cod;
+      online = Math.round(total * F.partial_cod_online_pct / 100);
       cod    = total - online;
     } else if (payMode === 'full_cod') {
-      total  = grand + 50;
+      total  = grand + F.full_cod;
       online = 0;
       cod    = total;
     } else {
