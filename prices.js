@@ -22,8 +22,8 @@
   // the table is authoritative for charges; this file only drives the checkout UI.)
   var FEES = {
     full_cod:               50,  // ₹ added for full Cash-on-Delivery
-    partial_cod:            15,  // ₹ added for Partial COD
-    partial_cod_online_pct: 20   // % of total paid online for Partial COD
+    partial_cod:            20,  // ₹ added for Partial COD
+    partial_cod_online_pct: 30   // % of total paid online for Partial COD
   };
   // ────────────────────────────────────────────────────────
 
