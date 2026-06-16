@@ -60,6 +60,17 @@
       var key = el.dataset && el.dataset.dsFee;
       if (key != null && FEES[key] != null) el.textContent = FEES[key];
     });
+    // Partial-COD split % placeholders:
+    //   <span class="ds-pct" data-ds-pct="online"></span>  -> online %
+    //   <span class="ds-pct" data-ds-pct="cod"></span>     -> on-delivery % (100 - online)
+    var onlinePct = FEES.partial_cod_online_pct;
+    if (onlinePct != null) {
+      document.querySelectorAll('.ds-pct').forEach(function (el) {
+        var which = el.dataset && el.dataset.dsPct;
+        if (which === 'online')   el.textContent = onlinePct;
+        else if (which === 'cod') el.textContent = 100 - onlinePct;
+      });
+    }
   }
 
   window.DietSwadPrices = {

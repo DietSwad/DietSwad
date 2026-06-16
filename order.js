@@ -194,8 +194,10 @@
     document.querySelectorAll('.ord-qty-val').forEach(function (s, i) {
       grand += parseInt(s.textContent, 10) * priceFor(i);
     });
-    var total  = grand + 15;
-    var online = Math.round(total * 0.20);
+    var F = (window.DietSwadPrices && window.DietSwadPrices.FEES) ||
+            { full_cod: 50, partial_cod: 15, partial_cod_online_pct: 20 };
+    var total  = grand + F.partial_cod;
+    var online = Math.round(total * F.partial_cod_online_pct / 100);
     var cod    = total - online;
 
     var el = function (id) { return document.getElementById(id); };
