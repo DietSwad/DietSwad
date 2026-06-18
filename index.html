@@ -413,8 +413,18 @@
           "availableLanguage": ["English", "Hindi", "Bengali"]
         },
         "sameAs": [
-          "https://www.instagram.com/dietswad"
+          "https://www.instagram.com/dietswad",
+          "https://www.facebook.com/people/Diet-Swad/61583353153908/"
         ],
+        "identifier": {
+          "@type": "PropertyValue",
+          "propertyID": "FSSAI License",
+          "value": "22825041000300"
+        },
+        "foundingLocation": {
+          "@type": "Place",
+          "name": "Kolkata, West Bengal, India"
+        },
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Kolkata",
@@ -1013,7 +1023,7 @@
       <p class="footer-fssai">
         FSSAI Lic. No: 22825041000300<br>
         Made with Love in Kolkata &middot; Radiant Twins Enterprise<br>
-        &copy; 2025 Diet Swad. All rights reserved.
+        &copy; <span id="copyright-year">2025</span> Diet Swad. All rights reserved.
       </p>
     </div>
   </footer>
@@ -1028,6 +1038,14 @@
     </svg>
   </a>
 
+
+  <!-- Auto-render current year in footer copyright (prevents stale "© 2025") -->
+  <script>
+    (function () {
+      var el = document.getElementById('copyright-year');
+      if (el) el.textContent = new Date().getFullYear();
+    })();
+  </script>
 
   <!-- Hero animation engine (deferred — loads after HTML is parsed) -->
   <script defer src="hero-animation.js"></script>

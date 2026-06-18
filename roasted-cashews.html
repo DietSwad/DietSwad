@@ -673,6 +673,9 @@
   </div>
 
 
+  <!-- Visible FAQ — rendered from this page's FAQPage JSON-LD by faq-accordion.js -->
+  <section id="faq"></section>
+
   <footer class="site-footer">
     <div class="footer-logo-wrap">
       <img src="Assets/Logo_and_icons/horizontal golden logo transparent.png" alt="Diet Swad" style="height: 56px; width: auto; margin-bottom: 12px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
@@ -694,7 +697,7 @@
       <a href="mailto:dietswad143@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></a>
     </div>
     <div class="footer-bottom">
-      <p class="footer-fssai">FSSAI Lic. No: 22825041000300<br>Made with Love in Kolkata &middot; Radiant Twins Enterprise<br>&copy; 2025 Diet Swad. All rights reserved.</p>
+      <p class="footer-fssai">FSSAI Lic. No: 22825041000300<br>Made with Love in Kolkata &middot; Radiant Twins Enterprise<br>&copy; <span id="copyright-year">2025</span> Diet Swad. All rights reserved.</p>
     </div>
   </footer>
 
@@ -755,6 +758,8 @@
     window.LightboxGallery.open({ images: all.map(function (el) { return { src: el.src, alt: el.alt }; }), startIndex: all.indexOf(img) });
   });
   </script>
+  <script src="faq-accordion.js" defer></script>
+  <script src="footer-year.js"></script>
 </body>
 </html>
 

@@ -830,6 +830,9 @@
   <!-- ═══════════════════════════════════════════════════════════════════
        FOOTER
        ═══════════════════════════════════════════════════════════════════ -->
+  <!-- Visible FAQ — rendered from this page's FAQPage JSON-LD by faq-accordion.js -->
+  <section id="faq"></section>
+
   <footer class="site-footer">
     <div class="footer-logo-wrap">
       <img
@@ -870,7 +873,7 @@
       <p class="footer-fssai">
         FSSAI Lic. No: 22825041000300<br>
         Made with Love in Kolkata &middot; Radiant Twins Enterprise<br>
-        &copy; 2025 Diet Swad. All rights reserved.
+        &copy; <span id="copyright-year">2025</span> Diet Swad. All rights reserved.
       </p>
     </div>
   </footer>
@@ -985,6 +988,8 @@
     window.LightboxGallery.open({ images: all.map(function (el) { return { src: el.src, alt: el.alt }; }), startIndex: all.indexOf(img) });
   });
   </script>
+  <script src="faq-accordion.js" defer></script>
+  <script src="footer-year.js"></script>
 </body>
 </html>
 

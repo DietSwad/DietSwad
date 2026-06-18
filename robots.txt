@@ -1,14 +1,19 @@
+# Diet Swad — robots.txt
+# AI-search policy: allow search, retrieval (RAG/grounding) and training crawlers.
+# Being readable by these bots is required to be cited in AI answers.
+# NOTE: This file is only authoritative if Cloudflare's "Block AI bots" /
+# AI Audit managed-robots.txt feature is turned OFF in the dashboard.
+# If that feature is ON, Cloudflare injects its own Disallow block ABOVE these
+# rules and silently blocks GPTBot/ClaudeBot/Google-Extended.
+
 User-agent: *
 Allow: /
 Disallow: /test-checkout.html
 Disallow: /test-thankyou.html
 Disallow: /blog/article-template.html
 
-# AI crawlers — explicitly allowed (all are allowed by default but stated for clarity)
+# --- AI training / general crawlers ---
 User-agent: GPTBot
-Allow: /
-
-User-agent: PerplexityBot
 Allow: /
 
 User-agent: ClaudeBot
@@ -20,6 +25,23 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
+User-agent: Applebot-Extended
+Allow: /
+
+# --- AI retrieval / live-answer bots (power ChatGPT Search, Perplexity citations) ---
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# --- Classic search ---
 User-agent: Bingbot
 Allow: /
 
