@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  var API_BASE     = 'https://dietswad-api.azurewebsites.net/api';
+  var API_BASE     = 'https://api.dietswad.in/api';
   var formLoadedAt = Date.now() / 1000;
 
   function readCart() {
