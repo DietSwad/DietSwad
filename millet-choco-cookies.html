@@ -35,6 +35,7 @@
 
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="product.css">
+  <link rel="preload" as="image" href="Assets/Product_hero_image/Millet_choco_cookies_hero_shot_02.webp" fetchpriority="high">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -74,37 +75,7 @@
         "http://purl.org/goodrelations/v1#ByInvoice",
         "http://purl.org/goodrelations/v1#Cash"
       ]
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5.0",
-      "reviewCount": "3",
-      "bestRating": "5",
-      "worstRating": "1"
-    },
-    "review": [
-      {
-        "@type": "Review",
-        "author": { "@type": "Person", "name": "Sanku Bose" },
-        "datePublished": "2026-05-05",
-        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-        "reviewBody": "Healthy without compromising the taste buds. I am sure others would love them as well."
-      },
-      {
-        "@type": "Review",
-        "author": { "@type": "Person", "name": "Tiyasha Mondal" },
-        "datePublished": "2026-03-31",
-        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-        "reviewBody": "Every item felt thoughtfully curated, keeping both health and taste perfectly in balance. The freshness and quality of the ingredients really stood out. Beautifully packed and ideal for gifting — highly recommended."
-      },
-      {
-        "@type": "Review",
-        "author": { "@type": "Person", "name": "Pragyna Chatterjee" },
-        "datePublished": "2026-02-02",
-        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-        "reviewBody": "It had mouthwatering taste and a fabulous presentation."
-      }
-    ]
+    }
   }
   </script>
 
@@ -213,7 +184,7 @@
     <section class="pb-hero" id="order" aria-label="Millet Choco Cookies product hero">
       <div class="pb-hero-bg" aria-hidden="true"></div>
       <div class="pb-hero-photo" data-slot="Millet Choco Cookies · Hero Shot">
-        <img src="Assets/Product_hero_image/Millet_choco_cookies_hero_shot_02.webp" alt="Millet Choco Cookies — dual-millet dark chocolate chip cookies" loading="eager" onerror="this.parentElement.classList.add('is-placeholder'); this.remove();">
+        <img src="Assets/Product_hero_image/Millet_choco_cookies_hero_shot_02.webp" alt="Millet Choco Cookies — dual-millet dark chocolate chip cookies" loading="eager" fetchpriority="high" width="800" height="800" onerror="this.parentElement.classList.add('is-placeholder'); this.remove();">
       </div>
       <div class="pb-hero-content">
         <p class="pb-hero-eyebrow section-label-gold reveal">Dual Millet &middot; Dark Choco Chips &middot; Jaggery-Sweetened</p>
@@ -571,6 +542,71 @@
           <div class="pb-vs__row"><span class="pb-vs__glyph pb-vs__glyph--yes" aria-hidden="true">&#10003;</span><span>13 real ingredients &mdash; zero additives</span></div>
           <div class="pb-vs__row"><span class="pb-vs__glyph pb-vs__glyph--yes" aria-hidden="true">&#10003;</span><span>0g trans fat &mdash; every single batch</span></div>
         </div>
+      </div>
+    </section>
+
+
+    <!-- ── CUSTOMER REVIEWS — real Google reviews ───────────────────── -->
+    <section class="pb-reviews" id="reviews" aria-label="Customer reviews from Google">
+      <div class="pb-reviews__inner">
+        <div class="pb-section-header reveal">
+          <span class="pb-section-kicker">Customer Reviews</span>
+          <h2 class="pb-section-heading">Straight from<br><em>Google.</em></h2>
+        </div>
+        <div class="pb-reviews__grid">
+          <article class="pb-review-card">
+            <div class="pb-review-card__who">
+              <span class="pb-review-card__avatar" aria-hidden="true">R</span>
+              <span class="pb-review-card__name">Rishab Chakraborty<span class="pb-review-card__meta">Google review &middot; Feb 2026</span></span>
+            </div>
+            <div class="pb-review-card__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote class="pb-review-card__quote">Amazing quality and taste!! Loved it &#10084;&#65039;</blockquote>
+          </article>
+          <article class="pb-review-card">
+            <div class="pb-review-card__who">
+              <span class="pb-review-card__avatar" aria-hidden="true">P</span>
+              <span class="pb-review-card__name">Pragyna Chatterjee<span class="pb-review-card__meta">Google review &middot; Feb 2026</span></span>
+            </div>
+            <div class="pb-review-card__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote class="pb-review-card__quote">It had mouthwatering taste and a fabulous presentation &#10084;&#65039;</blockquote>
+          </article>
+          <article class="pb-review-card">
+            <div class="pb-review-card__who">
+              <span class="pb-review-card__avatar" aria-hidden="true">B</span>
+              <span class="pb-review-card__name">Barnali Sikdar<span class="pb-review-card__meta">Google review &middot; Dec 2025</span></span>
+            </div>
+            <div class="pb-review-card__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote class="pb-review-card__quote">Very tasty and yummy as it is pure home-made with carefully chosen ingredients &mdash; guilt-free and healthy. I recommend everyone to taste it at least once, and then you can't resist trying more &#128578;</blockquote>
+          </article>
+          <article class="pb-review-card">
+            <div class="pb-review-card__photo"><img src="Assets/Review_images/sandip-paul-1.webp" alt="Order photo shared with Sandip Paul's Google review" loading="lazy" decoding="async"></div>
+            <div class="pb-review-card__who">
+              <span class="pb-review-card__avatar" aria-hidden="true">S</span>
+              <span class="pb-review-card__name">Sandip Paul<span class="pb-review-card__meta">Google review &middot; Feb 2026</span></span>
+            </div>
+            <div class="pb-review-card__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote class="pb-review-card__quote">I tried the red velvet muffins and was genuinely impressed. They're full of flavour, without being heavy or overly sweet. Paired with coffee, they feel both indulgent and comforting. Fresh, satisfying, and honestly hard to stop at just one.</blockquote>
+          </article>
+          <article class="pb-review-card">
+            <div class="pb-review-card__who">
+              <span class="pb-review-card__avatar" aria-hidden="true">M</span>
+              <span class="pb-review-card__name">Manjeer Adhikary<span class="pb-review-card__meta">Google review &middot; Dec 2025</span></span>
+            </div>
+            <div class="pb-review-card__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote class="pb-review-card__quote">What a delightful surprise! A zero-sugar cake that's unbelievably yummy and full of flavour. Every bite was pure swaaad &#128525; Totally awesome and a must-try.</blockquote>
+          </article>
+          <article class="pb-review-card">
+            <div class="pb-review-card__who">
+              <span class="pb-review-card__avatar" aria-hidden="true">M</span>
+              <span class="pb-review-card__name">Mamata Roy<span class="pb-review-card__meta">Google review &middot; Dec 2025</span></span>
+            </div>
+            <div class="pb-review-card__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote class="pb-review-card__quote">The plum cake was just awesome &mdash; super tasty and perfectly balanced in sweetness. Every bite felt just right. Thank you Diet Swad.</blockquote>
+          </article>
+        </div>
+        <p class="pb-reviews__foot">Rated <strong>5.0/5</strong> by 39 customers on Google &mdash;
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Diet+Swad+Kolkata" target="_blank" rel="noopener">read all reviews &rarr;</a>
+        </p>
       </div>
     </section>
 

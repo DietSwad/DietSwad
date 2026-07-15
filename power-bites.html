@@ -35,6 +35,7 @@
 
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="product.css">
+  <link rel="preload" as="image" href="Assets/Product_hero_image/Power_bites_hero_shot_46.webp" fetchpriority="high">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -74,37 +75,7 @@
         "http://purl.org/goodrelations/v1#ByInvoice",
         "http://purl.org/goodrelations/v1#Cash"
       ]
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5.0",
-      "reviewCount": "3",
-      "bestRating": "5",
-      "worstRating": "1"
-    },
-    "review": [
-      {
-        "@type": "Review",
-        "author": { "@type": "Person", "name": "Tiyasha Mondal" },
-        "datePublished": "2026-03-31",
-        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-        "reviewBody": "Every item felt thoughtfully curated, keeping both health and taste perfectly in balance. The freshness and quality of the ingredients really stood out. Beautifully packed and ideal for gifting — highly recommended."
-      },
-      {
-        "@type": "Review",
-        "author": { "@type": "Person", "name": "Pragyna Chatterjee" },
-        "datePublished": "2026-02-02",
-        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-        "reviewBody": "It had mouthwatering taste and a fabulous presentation."
-      },
-      {
-        "@type": "Review",
-        "author": { "@type": "Person", "name": "Pradeep Paul" },
-        "datePublished": "2026-01-05",
-        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-        "reviewBody": "Awesome products, delicious, pocket friendly and healthy too. Packaging is also attractive."
-      }
-    ]
+    }
   }
   </script>
 
@@ -243,7 +214,7 @@
       <div class="pb-hero-bg" aria-hidden="true"></div>
 
       <div class="pb-hero-photo">
-        <img src="Assets/Product_hero_image/Power_bites_hero_shot_46.webp" alt="Power Bites — heart-shaped energy bites with dates, almonds, cashews and sesame seeds" loading="eager">
+        <img src="Assets/Product_hero_image/Power_bites_hero_shot_46.webp" alt="Power Bites — heart-shaped energy bites with dates, almonds, cashews and sesame seeds" loading="eager" fetchpriority="high" width="800" height="800">
       </div>
 
       <div class="pb-hero-content">
@@ -683,6 +654,71 @@
           <div class="pb-vs__row"><span class="pb-vs__glyph pb-vs__glyph--yes" aria-hidden="true">&#10003;</span><span>0g trans fat &mdash; every single batch</span></div>
         </div>
 
+      </div>
+    </section>
+
+
+    <!-- ── 9.5 CUSTOMER REVIEWS — real Google reviews ──────────────── -->
+    <section class="pb-reviews" id="reviews" aria-label="Customer reviews from Google">
+      <div class="pb-reviews__inner">
+        <div class="pb-section-header reveal">
+          <span class="pb-section-kicker">Customer Reviews</span>
+          <h2 class="pb-section-heading">Straight from<br><em>Google.</em></h2>
+        </div>
+        <div class="pb-reviews__grid">
+          <article class="pb-review-card">
+            <div class="pb-review-card__photo"><img src="Assets/Review_images/gautam-guha-1.webp" alt="Diet Swad order photo shared with Gautam Guha's Google review" loading="lazy" decoding="async"></div>
+            <div class="pb-review-card__who">
+              <span class="pb-review-card__avatar" aria-hidden="true">G</span>
+              <span class="pb-review-card__name">Gautam Guha<span class="pb-review-card__meta">Google review &middot; Dec 2025</span></span>
+            </div>
+            <div class="pb-review-card__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote class="pb-review-card__quote">The best taste we have experienced, every time, on every Diet Swad product we purchased. We have tried almost all their products &mdash; the best combination of taste and quality, and the price is very reasonable. Will rate 5 stars or more &#10084;&#65039;</blockquote>
+          </article>
+          <article class="pb-review-card">
+            <div class="pb-review-card__who">
+              <span class="pb-review-card__avatar" aria-hidden="true">T</span>
+              <span class="pb-review-card__name">Tiyasha Mondal<span class="pb-review-card__meta">Google review &middot; Apr 2026</span></span>
+            </div>
+            <div class="pb-review-card__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote class="pb-review-card__quote">Every item felt thoughtfully curated, keeping both health and taste perfectly in balance. The freshness and quality of the ingredients really stood out. Beautifully packed and ideal for gifting &mdash; highly recommended &#10084;&#65039;</blockquote>
+          </article>
+          <article class="pb-review-card">
+            <div class="pb-review-card__who">
+              <span class="pb-review-card__avatar" aria-hidden="true">S</span>
+              <span class="pb-review-card__name">Sanku Bose<span class="pb-review-card__meta">Google review &middot; May 2026</span></span>
+            </div>
+            <div class="pb-review-card__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote class="pb-review-card__quote">Healthy without compromising the taste buds. I am sure others would love them as well.</blockquote>
+          </article>
+          <article class="pb-review-card">
+            <div class="pb-review-card__who">
+              <span class="pb-review-card__avatar" aria-hidden="true">S</span>
+              <span class="pb-review-card__name">Shounak Mitra<span class="pb-review-card__meta">Google review &middot; Dec 2025</span></span>
+            </div>
+            <div class="pb-review-card__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote class="pb-review-card__quote">I used to be a bhujia and mixture addict &mdash; it was my evening chai companion. But the oil and sodium were becoming a problem. Tried Diet Swad's Peri-Peri Protein Mix and it scratches that same itch! The spice level is just right, and it has actual protein from nuts and seeds. Now it's my permanent 4 PM snack.</blockquote>
+          </article>
+          <article class="pb-review-card">
+            <div class="pb-review-card__who">
+              <span class="pb-review-card__avatar" aria-hidden="true">S</span>
+              <span class="pb-review-card__name">Souvik Mukherjee<span class="pb-review-card__meta">Google review &middot; Dec 2025</span></span>
+            </div>
+            <div class="pb-review-card__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote class="pb-review-card__quote">The spicy mix is addictive. Already on my 2nd order.</blockquote>
+          </article>
+          <article class="pb-review-card">
+            <div class="pb-review-card__who">
+              <span class="pb-review-card__avatar" aria-hidden="true">B</span>
+              <span class="pb-review-card__name">Bobby Jacob<span class="pb-review-card__meta">Google review &middot; Dec 2025</span></span>
+            </div>
+            <div class="pb-review-card__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote class="pb-review-card__quote">Awesome! Maintain the quality and be consistent.</blockquote>
+          </article>
+        </div>
+        <p class="pb-reviews__foot">Rated <strong>5.0/5</strong> by 39 customers on Google &mdash;
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Diet+Swad+Kolkata" target="_blank" rel="noopener">read all reviews &rarr;</a>
+        </p>
       </div>
     </section>
 

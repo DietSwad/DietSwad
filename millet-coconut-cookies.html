@@ -35,6 +35,7 @@
 
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="product.css">
+  <link rel="preload" as="image" href="Assets/Product_hero_image/Millet_coconut_cookies_hero_shot_01.webp" fetchpriority="high">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -74,30 +75,7 @@
         "http://purl.org/goodrelations/v1#ByInvoice",
         "http://purl.org/goodrelations/v1#Cash"
       ]
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "reviewCount": "2",
-      "bestRating": "5",
-      "worstRating": "1"
-    },
-    "review": [
-      {
-        "@type": "Review",
-        "author": { "@type": "Person", "name": "Amit Chakraborty" },
-        "datePublished": "2026-01-19",
-        "reviewRating": { "@type": "Rating", "ratingValue": "4.8", "bestRating": "5" },
-        "reviewBody": "Presentation, delicacy, packaging is excellent. Variant is interesting. Everyone should try different cookies."
-      },
-      {
-        "@type": "Review",
-        "author": { "@type": "Person", "name": "Pradeep Paul" },
-        "datePublished": "2026-01-05",
-        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-        "reviewBody": "Awesome products, delicious, pocket friendly and healthy too. Packaging is also attractive."
-      }
-    ]
+    }
   }
   </script>
 
@@ -201,7 +179,7 @@
     <section class="pb-hero" id="order" aria-label="Millet Coconut Cookies product hero">
       <div class="pb-hero-bg" aria-hidden="true"></div>
       <div class="pb-hero-photo" data-slot="Millet Coconut Cookies · Hero Shot">
-        <img src="Assets/Product_hero_image/Millet_coconut_cookies_hero_shot_01.webp" alt="Millet Coconut Cookies — jowar and desiccated coconut cookies" loading="eager" onerror="this.parentElement.classList.add('is-placeholder'); this.remove();">
+        <img src="Assets/Product_hero_image/Millet_coconut_cookies_hero_shot_01.webp" alt="Millet Coconut Cookies — jowar and desiccated coconut cookies" loading="eager" fetchpriority="high" width="800" height="800" onerror="this.parentElement.classList.add('is-placeholder'); this.remove();">
       </div>
       <div class="pb-hero-content">
         <p class="pb-hero-eyebrow section-label-gold reveal">Jowar &amp; Coconut Cookies &middot; Naturally Sweetened</p>
@@ -512,7 +490,7 @@
           <div class="pb-usp-img" data-slot="usp-image-butter-milk" aria-hidden="true"><img src="Assets/Product_USP_card_images/Millet_Coconut_Cookies/Millet_Coconut_Cookie_Hero_Shots_05.webp" alt="" loading="lazy" decoding="async"></div>
           <div class="pb-usp-body">
             <h3 class="pb-usp-title">Real Butter + Milk. No Shortcuts.</h3>
-            <p class="pb-usp-desc">22.2% real butter and 16.7% fresh milk &mdash; the dairy richness that delivers true melt-in-mouth texture. No hydrogenated oils, no margarine, no artificial creamers. Real dairy, every time.</p>
+            <p class="pb-usp-desc">22.2% real butter and 16.7% fresh milk &mdash; the dairy richness that delivers true melt-in-mouth texture. No margarine, no processed oils, no artificial creamers. Real dairy, every time.</p>
           </div>
         </div>
         <div class="pb-usp-card reveal">
@@ -551,6 +529,71 @@
           <div class="pb-vs__row"><span class="pb-vs__glyph pb-vs__glyph--yes" aria-hidden="true">&#10003;</span><span>Zero preservatives, real vanilla</span></div>
           <div class="pb-vs__row"><span class="pb-vs__glyph pb-vs__glyph--yes" aria-hidden="true">&#10003;</span><span>0g trans fat &mdash; every single batch</span></div>
         </div>
+      </div>
+    </section>
+
+
+    <!-- ── CUSTOMER REVIEWS — real Google reviews ───────────────────── -->
+    <section class="pb-reviews" id="reviews" aria-label="Customer reviews from Google">
+      <div class="pb-reviews__inner">
+        <div class="pb-section-header reveal">
+          <span class="pb-section-kicker">Customer Reviews</span>
+          <h2 class="pb-section-heading">Straight from<br><em>Google.</em></h2>
+        </div>
+        <div class="pb-reviews__grid">
+          <article class="pb-review-card">
+            <div class="pb-review-card__who">
+              <span class="pb-review-card__avatar" aria-hidden="true">S</span>
+              <span class="pb-review-card__name">Subhra Khastagir<span class="pb-review-card__meta">Google review &middot; Dec 2025</span></span>
+            </div>
+            <div class="pb-review-card__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote class="pb-review-card__quote">The quality, freshness and hygiene is utmost.</blockquote>
+          </article>
+          <article class="pb-review-card">
+            <div class="pb-review-card__who">
+              <span class="pb-review-card__avatar" aria-hidden="true">D</span>
+              <span class="pb-review-card__name">Diptanil Chowdhury<span class="pb-review-card__meta">Google review &middot; Dec 2025</span></span>
+            </div>
+            <div class="pb-review-card__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote class="pb-review-card__quote">Amazing and excellent quality. Must try for everyone. The taste, quality and decor are just superb.</blockquote>
+          </article>
+          <article class="pb-review-card">
+            <div class="pb-review-card__who">
+              <span class="pb-review-card__avatar" aria-hidden="true">S</span>
+              <span class="pb-review-card__name">Smita Das<span class="pb-review-card__meta">Google review &middot; Dec 2025</span></span>
+            </div>
+            <div class="pb-review-card__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote class="pb-review-card__quote">Exquisite in taste and quality.</blockquote>
+          </article>
+          <article class="pb-review-card">
+            <div class="pb-review-card__photo"><img src="Assets/Review_images/debjani-sengupta-1.webp" alt="Order photo shared with Debjani Sengupta's Google review" loading="lazy" decoding="async"></div>
+            <div class="pb-review-card__who">
+              <span class="pb-review-card__avatar" aria-hidden="true">D</span>
+              <span class="pb-review-card__name">Debjani Sengupta<span class="pb-review-card__meta">Google review &middot; Dec 2025</span></span>
+            </div>
+            <div class="pb-review-card__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote class="pb-review-card__quote">Enjoyed the plum cake with my family over tea in the evening &mdash; they absolutely loved it. Also tried the fruit cake, it was even better. Thank you for bringing healthy options &mdash; at least we can have something guilt-free.</blockquote>
+          </article>
+          <article class="pb-review-card">
+            <div class="pb-review-card__who">
+              <span class="pb-review-card__avatar" aria-hidden="true">S</span>
+              <span class="pb-review-card__name">Sumit Kumar Singh<span class="pb-review-card__meta">Google review &middot; Dec 2025</span></span>
+            </div>
+            <div class="pb-review-card__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote class="pb-review-card__quote">I bought the fruit cake and it was very delicious. Most important, it was healthy &mdash; sugar-free and maida-free, loaded with dry fruits, almonds and munakka. Value for money and a healthy option.</blockquote>
+          </article>
+          <article class="pb-review-card">
+            <div class="pb-review-card__who">
+              <span class="pb-review-card__avatar" aria-hidden="true">B</span>
+              <span class="pb-review-card__name">Bhaswati Sen<span class="pb-review-card__meta">Google review &middot; Feb 2026</span></span>
+            </div>
+            <div class="pb-review-card__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote class="pb-review-card__quote">Very delicious.</blockquote>
+          </article>
+        </div>
+        <p class="pb-reviews__foot">Rated <strong>5.0/5</strong> by 39 customers on Google &mdash;
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Diet+Swad+Kolkata" target="_blank" rel="noopener">read all reviews &rarr;</a>
+        </p>
       </div>
     </section>
 

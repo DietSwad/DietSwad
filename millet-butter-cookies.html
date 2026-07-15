@@ -35,6 +35,7 @@
 
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="product.css">
+  <link rel="preload" as="image" href="Assets/Product_hero_image/Millet_butter_cookies_hero_shot_01.webp" fetchpriority="high">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -74,37 +75,7 @@
         "http://purl.org/goodrelations/v1#ByInvoice",
         "http://purl.org/goodrelations/v1#Cash"
       ]
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5.0",
-      "reviewCount": "3",
-      "bestRating": "5",
-      "worstRating": "1"
-    },
-    "review": [
-      {
-        "@type": "Review",
-        "author": { "@type": "Person", "name": "Sanku Bose" },
-        "datePublished": "2026-05-05",
-        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-        "reviewBody": "Healthy without compromising the taste buds. I am sure others would love them as well."
-      },
-      {
-        "@type": "Review",
-        "author": { "@type": "Person", "name": "Tiyasha Mondal" },
-        "datePublished": "2026-03-31",
-        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-        "reviewBody": "Every item felt thoughtfully curated, keeping both health and taste perfectly in balance. The freshness and quality of the ingredients really stood out. Beautifully packed and ideal for gifting — highly recommended."
-      },
-      {
-        "@type": "Review",
-        "author": { "@type": "Person", "name": "Pragyna Chatterjee" },
-        "datePublished": "2026-02-02",
-        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-        "reviewBody": "It had mouthwatering taste and a fabulous presentation."
-      }
-    ]
+    }
   }
   </script>
 
@@ -213,12 +184,12 @@
     <section class="pb-hero" id="order" aria-label="Millet Butter Cookies product hero">
       <div class="pb-hero-bg" aria-hidden="true"></div>
       <div class="pb-hero-photo" data-slot="Millet Butter Cookies · Hero Shot">
-        <img src="Assets/Product_hero_image/Millet_butter_cookies_hero_shot_01.webp" alt="Millet Butter Cookies — golden jowar and almond flour cookies" loading="eager" onerror="this.parentElement.classList.add('is-placeholder'); this.remove();">
+        <img src="Assets/Product_hero_image/Millet_butter_cookies_hero_shot_01.webp" alt="Millet Butter Cookies — golden jowar and almond flour cookies" loading="eager" fetchpriority="high" width="800" height="800" onerror="this.parentElement.classList.add('is-placeholder'); this.remove();">
       </div>
       <div class="pb-hero-content">
         <p class="pb-hero-eyebrow section-label-gold reveal">Jowar &amp; Almond Flour Cookies &middot; Naturally Sweetened</p>
         <h1 class="pb-hero-headline">MILLET BUTTER COOKIES</h1>
-        <p class="pb-hero-sub reveal">Golden-baked perfection. Made with Sorghum (Jowar) flour, real salted butter, almond flour, and desi khand. Classic taste, zero refined sugar &mdash; indulgence, redefined.</p>
+        <p class="pb-hero-sub reveal">Golden-baked perfection. Made with Sorghum (Jowar) flour, real salted butter, almond flour, and desi khand. Classic taste, zero refined sugar &mdash; the biscuit you grew up with, made better.</p>
         <p class="pb-hero-trust-micro reveal">
           <span>FSSAI Certified</span><span aria-hidden="true">&middot;</span>
           <span>Slow-Baked Fresh</span><span aria-hidden="true">&middot;</span>
@@ -507,7 +478,7 @@
           <div class="pb-usp-img" data-slot="usp-image-butter" aria-hidden="true"><img src="Assets/Product_USP_card_images/Millet_Butter_Cookies/Millet_Butter_Cookie_Hero_Shots_10.webp" alt="" loading="lazy" decoding="async"></div>
           <div class="pb-usp-body">
             <h3 class="pb-usp-title">Real Salted Butter. Authentic Taste.</h3>
-            <p class="pb-usp-desc">28.8% real salted butter &mdash; not hydrogenated vegetable oil, not margarine. The melt-in-mouth richness of Millet Butter Cookies comes from real dairy. You can tell the difference because it is different.</p>
+            <p class="pb-usp-desc">28.8% real salted butter &mdash; not margarine, not processed vegetable oil. The melt-in-mouth richness of Millet Butter Cookies comes from real dairy. You can tell the difference because it is different.</p>
           </div>
         </div>
         <div class="pb-usp-card reveal">
@@ -521,7 +492,7 @@
           <div class="pb-usp-img" data-slot="usp-image-zero-junk" aria-hidden="true"><img src="Assets/Product_USP_card_images/Millet_Butter_Cookies/Millet_Butter_Cookie_Hero_Shots_21.webp" alt="" loading="lazy" decoding="async"></div>
           <div class="pb-usp-body">
             <h3 class="pb-usp-title">Zero Trans Fat. Slow-Baked.</h3>
-            <p class="pb-usp-desc">Slow-baked in small batches for that perfect golden crunch &mdash; no industrial frying, no trans fat from hydrogenated oils. A biscuit that passes every label test.</p>
+            <p class="pb-usp-desc">Slow-baked in small batches for that perfect golden crunch &mdash; no industrial frying, no trans fat. A biscuit that passes every label test.</p>
           </div>
         </div>
       </div>
@@ -553,6 +524,71 @@
           <div class="pb-vs__row"><span class="pb-vs__glyph pb-vs__glyph--yes" aria-hidden="true">&#10003;</span><span>7 real ingredients &mdash; no additives</span></div>
           <div class="pb-vs__row"><span class="pb-vs__glyph pb-vs__glyph--yes" aria-hidden="true">&#10003;</span><span>0g trans fat &mdash; every single batch</span></div>
         </div>
+      </div>
+    </section>
+
+
+    <!-- ── CUSTOMER REVIEWS — real Google reviews ───────────────────── -->
+    <section class="pb-reviews" id="reviews" aria-label="Customer reviews from Google">
+      <div class="pb-reviews__inner">
+        <div class="pb-section-header reveal">
+          <span class="pb-section-kicker">Customer Reviews</span>
+          <h2 class="pb-section-heading">Straight from<br><em>Google.</em></h2>
+        </div>
+        <div class="pb-reviews__grid">
+          <article class="pb-review-card">
+            <div class="pb-review-card__who">
+              <span class="pb-review-card__avatar" aria-hidden="true">N</span>
+              <span class="pb-review-card__name">Naveen Rakhecha<span class="pb-review-card__meta">Google review &middot; Dec 2025</span></span>
+            </div>
+            <div class="pb-review-card__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote class="pb-review-card__quote">Swad bhi aur Swaasth bhi &mdash; really loved their products, a perfect balance of taste and health. I ordered Chocochip Muffins, Peanut Sesame Delights, Royal Bites and Butter Cookies. Ek baar khaogey toh khaate rah jayoge!</blockquote>
+          </article>
+          <article class="pb-review-card">
+            <div class="pb-review-card__who">
+              <span class="pb-review-card__avatar" aria-hidden="true">A</span>
+              <span class="pb-review-card__name">Amit Chakraborty<span class="pb-review-card__meta">Google review &middot; Jan 2026</span></span>
+            </div>
+            <div class="pb-review-card__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote class="pb-review-card__quote">Presentation, delicacy and packaging are excellent. The variety is interesting. Everyone should try the different cookies and cakes. &#128077;&#127996;</blockquote>
+          </article>
+          <article class="pb-review-card">
+            <div class="pb-review-card__who">
+              <span class="pb-review-card__avatar" aria-hidden="true">J</span>
+              <span class="pb-review-card__name">Jayita Ghosh<span class="pb-review-card__meta">Google review &middot; Dec 2025</span></span>
+            </div>
+            <div class="pb-review-card__stars" aria-label="4 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+            <blockquote class="pb-review-card__quote">I had ordered a dry fruit cake for Christmas from Diet Swad. Taste was good. They sent some sample cookies along with the cake &mdash; the cookies were really good &#10084;&#65039;</blockquote>
+          </article>
+          <article class="pb-review-card">
+            <div class="pb-review-card__photo"><img src="Assets/Review_images/payel-das-1.webp" alt="Order photo shared with Payel Das's Google review" loading="lazy" decoding="async"></div>
+            <div class="pb-review-card__who">
+              <span class="pb-review-card__avatar" aria-hidden="true">P</span>
+              <span class="pb-review-card__name">Payel Das<span class="pb-review-card__meta">Google review &middot; Feb 2026</span></span>
+            </div>
+            <div class="pb-review-card__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote class="pb-review-card__quote">The Mawa Almond Muffins were soft, rich and delicious, and the Butterscotch Chocolate with Cranberry was perfectly sweet with a lovely fruity touch &mdash; both were absolutely delightful! Must try &#128512;</blockquote>
+          </article>
+          <article class="pb-review-card">
+            <div class="pb-review-card__who">
+              <span class="pb-review-card__avatar" aria-hidden="true">P</span>
+              <span class="pb-review-card__name">Pradeep Paul<span class="pb-review-card__meta">Google review &middot; Jan 2026</span></span>
+            </div>
+            <div class="pb-review-card__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote class="pb-review-card__quote">Awesome products &mdash; delicious &#128523;, pocket-friendly and healthy too. Packaging is also attractive. My events can't be completed without Diet Swad chocolates. My students are big fans of your tasty cakes, chocolates and muffins &#10084;</blockquote>
+          </article>
+          <article class="pb-review-card">
+            <div class="pb-review-card__who">
+              <span class="pb-review-card__avatar" aria-hidden="true">S</span>
+              <span class="pb-review-card__name">Samya Khastagir<span class="pb-review-card__meta">Google review &middot; Feb 2026</span></span>
+            </div>
+            <div class="pb-review-card__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote class="pb-review-card__quote">The cake was extremely good &mdash; very soft, rich and soothing in taste. The flavour was well balanced and not too heavy. It felt fresh and premium.</blockquote>
+          </article>
+        </div>
+        <p class="pb-reviews__foot">Rated <strong>5.0/5</strong> by 39 customers on Google &mdash;
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Diet+Swad+Kolkata" target="_blank" rel="noopener">read all reviews &rarr;</a>
+        </p>
       </div>
     </section>
 

@@ -20,13 +20,13 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Diet Swad — Handcrafted Healthy Snacks">
   <meta property="og:description" content="Healthy snacks made with real ingredients. Power Bites, Royal Bites, Millet Cookies, Roasted Cashews. No preservatives. No trans fat. ₹499 flat, pan-India delivery.">
-  <meta property="og:image" content="https://www.dietswad.in/Assets/Product_hero_image/Power_bites_hero_shot_46.png">
+  <meta property="og:image" content="https://www.dietswad.in/Assets/Product_hero_image/Power_bites_hero_shot_46.webp">
   <meta property="og:url" content="https://www.dietswad.in/">
   <meta property="og:site_name" content="Diet Swad">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Diet Swad — Handcrafted Healthy Snacks">
   <meta name="twitter:description" content="Healthy snacks made with real ingredients. Power Bites, Royal Bites, Millet Cookies, Roasted Cashews. No preservatives. No trans fat. ₹499 flat.">
-  <meta name="twitter:image" content="https://www.dietswad.in/Assets/Product_hero_image/Power_bites_hero_shot_46.png">
+  <meta name="twitter:image" content="https://www.dietswad.in/Assets/Product_hero_image/Power_bites_hero_shot_46.webp">
   <link rel="canonical" href="https://www.dietswad.in/">
 
   <!-- Google Fonts: Cormorant Garamond + DM Sans -->
@@ -878,10 +878,12 @@
        ═══════════════════════════════════════════════════════════════════ -->
   <section class="rstage" id="reviews" aria-label="Customer reviews">
 
-    <!-- Rating strip -->
+    <!-- Rating strip — real Google Business rating -->
     <div class="rstage-rating-strip">
-      <span class="rstage-rating-score" id="rstageTopRating">4.9<span class="rstage-rating-slash">/5</span></span>
-      <span class="rstage-rating-label">&middot; <span id="rstageTopCount">12,480</span> reviews</span>
+      <span class="rstage-rating-score" id="rstageTopRating">5.0<span class="rstage-rating-slash">/5</span></span>
+      <span class="rstage-rating-label">&middot; <span id="rstageTopCount">39</span> Google reviews</span>
+      <a href="https://www.google.com/maps/search/?api=1&amp;query=Diet+Swad+Kolkata" target="_blank" rel="noopener"
+         style="font-size:.78em; margin-left:.6em; color:inherit; text-decoration:underline; text-underline-offset:3px; opacity:.85;">See all on Google &rarr;</a>
     </div>
 
     <div class="rstage-header">
@@ -936,8 +938,8 @@
 
     <!-- Stats strip -->
     <div class="rstage-stats">
-      <div class="rstage-stat"><span class="rstage-stat-big" id="rstageRecommendPct">97%</span><span class="rstage-stat-lbl">Would recommend</span></div>
-      <div class="rstage-stat"><span class="rstage-stat-big" id="rstageAvgRating">4.9<em>/5</em></span><span class="rstage-stat-lbl">Average rating</span></div>
+      <div class="rstage-stat"><span class="rstage-stat-big" id="rstageRecommendPct">97%</span><span class="rstage-stat-lbl">5-star reviews</span></div>
+      <div class="rstage-stat"><span class="rstage-stat-big" id="rstageAvgRating">5.0<em>/5</em></span><span class="rstage-stat-lbl">Google rating</span></div>
       <div class="rstage-stat"><span class="rstage-stat-big">42</span><span class="rstage-stat-lbl">Cities delivered to</span></div>
       <div class="rstage-stat"><span class="rstage-stat-big">0 junk</span><span class="rstage-stat-lbl">Always</span></div>
     </div>
@@ -1444,20 +1446,22 @@
       return arr;
     }
     function setDailyStats() {
+      /* Real Google Business figures (5.0★, 39 reviews, 38/39 five-star = 97%).
+         Only the pick of 5 displayed reviews rotates daily. */
       var today = new Date().toISOString().slice(0, 10);
       var stored = null;
-      try { stored = JSON.parse(localStorage.getItem('ds_review_stats_v1') || 'null'); } catch (e) {}
+      try { stored = JSON.parse(localStorage.getItem('ds_review_stats_v2') || 'null'); } catch (e) {}
       if (!stored || stored.date !== today) {
         var rng = dailyRng(today);
         stored = {
           date: today,
-          topRating: (4.5 + rng() * 0.4).toFixed(1),
-          topCount:  Math.floor(11000 + rng() * 990),
-          recommendPct: Math.floor(94 + rng() * 5),
-          avgRating: (4.5 + rng() * 0.4).toFixed(1),
-          reviewIndices: shuffleWithRng(rng, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14]).slice(0, 5)
+          topRating: '5.0',
+          topCount:  39,
+          recommendPct: 97,
+          avgRating: '5.0',
+          reviewIndices: shuffleWithRng(rng, [0,1,2,3,4,5,6,7,8,9]).slice(0, 5)
         };
-        try { localStorage.setItem('ds_review_stats_v1', JSON.stringify(stored)); } catch (e) {}
+        try { localStorage.setItem('ds_review_stats_v2', JSON.stringify(stored)); } catch (e) {}
       }
       var el;
       el = document.getElementById('rstageTopRating');
@@ -1471,97 +1475,70 @@
       return stored;
     }
 
+    /* Real Google Business reviews — "Diet Swad" Kolkata listing (5.0★ · 39 reviews).
+       Texts lightly copy-edited for spelling/length only; full originals in
+       website-revamp/reviews-data.md + GMB export CSV. */
     var REVIEW_POOL = [
-      { name:'Ananya Sen',     city:'Kolkata, WB',    date:'Feb 03, 2026', stars:5.0,
-        headline:['Tastes like', {accent:'home.'}],
-        quote:"Ordered the Power Bites for my 4 PM slump and these have honestly replaced my coffee. Hits different — earthy, not too sweet, and I don't crash an hour later.",
-        product:'Power Bites',              tint:'#5C3A21',
-        img:'Assets/Landing_Page_images/product-power-bites.webp',
-        accent:'#B41E1E', accentDeep:'#821212' },
-      { name:'Rohan Mehta',    city:'Mumbai, MH',     date:'Feb 18, 2026', stars:5.0,
-        headline:['My', {accent:'pre-workout'}, 'fix.'],
-        quote:"Royal Bites became my pre-workout staple. The peanut butter is the real deal, none of that fake protein-bar aftertaste. Box gone in three days.",
+      { name:'Kaustav Banerjee', city:'Google review', date:'Dec 21, 2025', stars:5.0,
+        headline:['Cut sugar,', {accent:'kept sweets.'}],
+        quote:"I've been trying to cut sugar but couldn't give up sweets. A friend recommended Diet Swad's Royal Bites and honestly, I was skeptical. But wow — the texture is perfect, and the sweetness from dates feels natural, not artificial. No weird aftertaste like those 'sugar-free' sweets from the market. My kids now ask for these instead of chocolate.",
         product:'Royal Bites',              tint:'#8B5A2B',
         img:'Assets/Landing_Page_images/product-royal-bites.webp',
         accent:'#964610', accentDeep:'#642C0A' },
-      { name:'Priya Iyer',     city:'Bengaluru, KA',  date:'Mar 02, 2026', stars:4.8,
-        headline:[{light:'Healthy.'}, {accent:'Actually.'}],
-        quote:"Millet Choco Cookies are dangerous — I told myself two a day, ended up finishing them in a week. No refined sugar, no maida, and they actually taste like proper cookies.",
-        product:'Millet Choco Cookies',     tint:'#3A2317',
-        img:'Assets/Landing_Page_images/product-millet-choco.webp',
-        accent:'#964610', accentDeep:'#642C0A' },
-      { name:'Vikram Desai',   city:'Ahmedabad, GJ',  date:'Mar 14, 2026', stars:4.5,
-        headline:['My desk-drawer', {accent:'staple.'}],
-        quote:"Roasted & Salted Cashews — just cashews and salt. The crunch is perfect and you can tell they were roasted properly. Great for the office drawer when meetings run long.",
-        product:'Roasted & Salted Cashews', tint:'#9C7A4F',
-        img:'Assets/Landing_Page_images/product-cashews.webp',
-        accent:'#B41E1E', accentDeep:'#821212' },
-      { name:'Meera Krishnan', city:'Chennai, TN',    date:'Mar 28, 2026', stars:5.0,
-        headline:['Amma would', {accent:'approve.'}],
-        quote:"Peanut-Sesame Delights have only four ingredients on the back of the pack and you can taste each one. Reminds me of what my grandmother used to make at home.",
+      { name:'Naveen Rakhecha',  city:'Google review', date:'Dec 21, 2025', stars:5.0,
+        headline:['Swad bhi,', {accent:'swaasth bhi.'}],
+        quote:"Swad bhi aur Swaasth bhi — really loved their products, a perfect balance of taste and health. I ordered Chocochip Muffins, Peanut Sesame Delights, Royal Bites and Butter Cookies. I would highly recommend trying them. Ek baar khaogey toh khaate rah jayoge!",
         product:'Peanut-Sesame Delights',   tint:'#A88030',
         img:'Assets/Landing_Page_images/product-peanut-sesame.webp',
         accent:'#B41E1E', accentDeep:'#821212' },
-      { name:'Kavitha Nair',   city:'Kochi, KL',      date:'Apr 05, 2026', stars:4.9,
-        headline:['These go with', {accent:'everything.'}],
-        quote:"Bought the coconut cookies almost as an experiment — ended up ordering two more packs the same week. Mildly sweet, light crunch, and the oats and coconut actually come through. Nice with my morning tea.",
-        product:'Millet Coconut Cookies',   tint:'#9C7A4F',
-        img:'Assets/Landing_Page_images/product-millet-coconut.webp',
-        accent:'#78189B', accentDeep:'#4E1068' },
-      { name:'Arjun Sharma',   city:'Delhi, DL',      date:'Apr 09, 2026', stars:4.7,
-        headline:['Skipping my 4pm', {accent:'chips habit.'}],
-        quote:"Used to raid the office vending machine every day at 4. Switched to Power Bites — a bit skeptical at first, but the sesame and jowar combo is genuinely filling. My trainer is impressed too.",
-        product:'Power Bites',              tint:'#5C3A21',
-        img:'Assets/Landing_Page_images/product-power-bites.webp',
-        accent:'#B41E1E', accentDeep:'#821212' },
-      { name:'Sunita Rao',     city:'Pune, MH',       date:'Apr 12, 2026', stars:4.8,
-        headline:['Real peanut butter,', {accent:'finally.'}],
-        quote:"My husband thought I'd ordered fancy protein bars and made fun of me. Then he ate three in one sitting. The peanut butter flavour is proper — not that artificial stuff you get in most bars.",
+      { name:'Mugdha Roy',       city:'Google review', date:'Dec 25, 2025', stars:5.0,
+        headline:['Tried many.', {accent:'Loved it all.'}],
+        quote:"I have tasted the chocolate muffin, Peanut Sesame Delights, Royal Bites, flavoured chocolate and many more items from Diet Swad. The taste is awesome. They use good quality ingredients and very nice hygienic packing too. I loved it 🤩 — you should try it once.",
         product:'Royal Bites',              tint:'#8B5A2B',
         img:'Assets/Landing_Page_images/product-royal-bites.webp',
-        accent:'#964610', accentDeep:'#642C0A' },
-      { name:'Deepak Pillai',  city:'Hyderabad, TS',  date:'Apr 17, 2026', stars:5.0,
-        headline:['Packed for', {accent:'office trips.'}],
-        quote:"Been carrying these for client visits — packs well, doesn't crumble, and zero embarrassment opening them in front of people. The butter flavour is subtle and not too rich. Kids at home finished the first box.",
-        product:'Millet Butter Cookies',    tint:'#B8893E',
-        img:'Assets/Landing_Page_images/product-millet-butter.webp',
-        accent:'#78189B', accentDeep:'#4E1068' },
-      { name:'Ritu Agarwal',   city:'Jaipur, RJ',     date:'Apr 22, 2026', stars:4.6,
-        headline:['Four ingredients.', {accent:"That's it."}],
-        quote:"I read the back of the pack twice because I kept expecting a long ingredients list. Just four things. The sesame crunch is perfect and there's no sweet aftertaste that usually bothers me.",
-        product:'Peanut-Sesame Delights',   tint:'#A88030',
-        img:'Assets/Landing_Page_images/product-peanut-sesame.webp',
+        accent:'#642C0A', accentDeep:'#421C06' },
+      { name:'Shounak Mitra',    city:'Google review', date:'Dec 21, 2025', stars:5.0,
+        headline:['My 4 PM snack,', {accent:'fixed.'}],
+        quote:"I used to be a bhujia and mixture addict — it was my evening chai companion. But the oil and sodium were becoming a problem. Tried Diet Swad's Peri-Peri Protein Mix and it scratches that same itch! The spice level is just right, and I love that it has actual protein from nuts and seeds, not some processed nonsense. Now it's my permanent 4 PM snack.",
+        product:'Peri-Peri Protein Mix',    tint:'#B41E1E',
+        img:'Assets/Product_galler_images/Power_Bites/all-in-one_shot_13_cleaned.webp',
         accent:'#B41E1E', accentDeep:'#821212' },
-      { name:'Siddharth Bose', city:'Kolkata, WB',    date:'Apr 27, 2026', stars:4.9,
-        headline:[{light:'No refined sugar.'}, {accent:'Tastes like it, though.'}],
-        quote:"Ordered these for my mother who has to avoid refined sugar. She was suspicious but ate two and asked me to order more. The chocolate isn't too sweet — exactly what she needed.",
-        product:'Millet Choco Cookies',     tint:'#3A2317',
-        img:'Assets/Landing_Page_images/product-millet-choco.webp',
+      { name:'Gautam Guha',      city:'Google review', date:'Dec 21, 2025', stars:5.0,
+        headline:['Best taste,', {accent:'every time.'}],
+        quote:"The best taste we have experienced, every time, on every Diet Swad product we purchased. We have tried almost all their products — really felt it is the best combination of taste and quality, and the price is very reasonable. Will rate 5 stars or more ❤️",
+        product:'All products',             tint:'#9C7A4F',
+        img:'Assets/Product_galler_images/Power_Bites/all-in-one_shot_13_cleaned.webp',
         accent:'#964610', accentDeep:'#642C0A' },
-      { name:'Nandita Menon',  city:'Bengaluru, KA',  date:'May 02, 2026', stars:4.7,
-        headline:['Just cashews', {accent:'and salt.'}],
-        quote:"I've been burned by 'flavoured' cashews with MSG and weird coatings. These are exactly what they say — roasted, salted, nothing else. The roast is even throughout, which usually doesn't happen with cheaper brands.",
-        product:'Roasted & Salted Cashews', tint:'#9C7A4F',
-        img:'Assets/Landing_Page_images/product-cashews.webp',
+      { name:'Tiyasha Mondal',   city:'Google review', date:'Apr 02, 2026', stars:5.0,
+        headline:['Made for', {accent:'gifting.'}],
+        quote:"Every item felt thoughtfully curated, keeping both health and taste perfectly in balance. The freshness and quality of the ingredients really stood out. Beautifully packed and ideal for gifting — highly recommended ❤️",
+        product:'All products',             tint:'#A88030',
+        img:'Assets/Product_galler_images/Power_Bites/all-in-one_shot_13_cleaned.webp',
+        accent:'#78189B', accentDeep:'#4E1068' },
+      { name:'Barnali Sikdar',   city:'Google review', date:'Dec 21, 2025', stars:5.0,
+        headline:['Guilt-free,', {accent:'home-made.'}],
+        quote:"Very tasty and yummy as it is pure home-made with carefully chosen ingredients — guilt-free and healthy to enjoy much more. I recommend everyone to taste it at least once, and then you can't resist trying more 🙂",
+        product:'All products',             tint:'#5C3A21',
+        img:'Assets/Product_galler_images/Power_Bites/all-in-one_shot_13_cleaned.webp',
         accent:'#B41E1E', accentDeep:'#821212' },
-      { name:'Amir Khan',      city:'Lucknow, UP',    date:'May 07, 2026', stars:4.8,
-        headline:["My kid's", {accent:'new favourite.'}],
-        quote:"My son is picky about textures — won't eat anything 'grainy'. These millet butter cookies somehow got past his radar. He thinks they're regular biscuits. I'm not going to correct him.",
-        product:'Millet Butter Cookies',    tint:'#B8893E',
-        img:'Assets/Landing_Page_images/product-millet-butter.webp',
+      { name:'Sumit Kumar Singh', city:'Google review', date:'Dec 25, 2025', stars:5.0,
+        headline:['Sugar-free.', {accent:'Maida-free.'}],
+        quote:"I bought the fruit cake and it was very delicious. Most important, it was healthy — sugar-free and maida-free, loaded with dry fruits, almonds and munakka, making it value for money and a healthy option.",
+        product:'Zero-sugar Fruit Cake',    tint:'#B8893E',
+        img:'Assets/Product_galler_images/Power_Bites/all-in-one_shot_13_cleaned.webp',
+        accent:'#964610', accentDeep:'#642C0A' },
+      { name:'Sandip Paul',      city:'Google review', date:'Feb 03, 2026', stars:5.0,
+        headline:['Hard to stop', {accent:'at one.'}],
+        quote:"I tried the red velvet muffins and was genuinely impressed. They're full of flavour, without being heavy or overly sweet. Paired with coffee, these muffins feel both indulgent and comforting. Fresh, satisfying, and honestly hard to stop at just one. Definitely something I'd come back for.",
+        product:'Red Velvet Muffins',       tint:'#3A2317',
+        img:'Assets/Product_galler_images/Power_Bites/all-in-one_shot_13_cleaned.webp',
         accent:'#78189B', accentDeep:'#4E1068' },
-      { name:'Preeti Verma',   city:'Chandigarh, PB', date:'May 12, 2026', stars:5.0,
-        headline:['Light but', {accent:'actually filling.'}],
-        quote:"Bought these thinking they'd be one of those 'healthy' things you eat out of obligation. Three cookies with chai in the morning and I'm genuinely not hungry till noon. The toasted coconut smell when you open the pack is lovely.",
-        product:'Millet Coconut Cookies',   tint:'#9C7A4F',
-        img:'Assets/Landing_Page_images/product-millet-coconut.webp',
-        accent:'#78189B', accentDeep:'#4E1068' },
-      { name:'Gaurav Tiwari',  city:'Indore, MP',     date:'May 18, 2026', stars:4.6,
-        headline:['Pre-workout', {accent:"that doesn't hurt."}],
-        quote:"Tried Royal Bites 20 minutes before my evening run after a friend suggested it. No heaviness, decent energy, and the peanut butter keeps you from crashing. Been doing this for three weeks now.",
-        product:'Royal Bites',              tint:'#8B5A2B',
-        img:'Assets/Landing_Page_images/product-royal-bites.webp',
-        accent:'#642C0A', accentDeep:'#421C06' }
+      { name:'Pradeep Paul',     city:'Google review', date:'Jan 09, 2026', stars:5.0,
+        headline:['Events run on', {accent:'Diet Swad.'}],
+        quote:"Awesome products — delicious 😋, pocket-friendly and healthy too. Packaging is also attractive. My events can't be completed without Diet Swad chocolates. My students are big fans of your tasty cakes, chocolates and muffins ❤",
+        product:'Chocolates & Muffins',     tint:'#9C7A4F',
+        img:'Assets/Product_galler_images/Power_Bites/all-in-one_shot_13_cleaned.webp',
+        accent:'#B41E1E', accentDeep:'#821212' }
     ];
 
     var _dailyData = setDailyStats();

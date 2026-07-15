@@ -1397,6 +1397,50 @@ body.pb-page .wa-fab {
 }
 
 
+/* ═══════════════════════════════════════════════════════════════════
+   CUSTOMER REVIEWS — real Google Business reviews (see reviews-data.md)
+   ═══════════════════════════════════════════════════════════════════ */
+.pb-reviews {
+  background: var(--bg-base);
+  padding: clamp(56px, 10vw, 88px) 24px;
+  border-top: 1px solid var(--gold-hairline);
+}
+.pb-reviews__inner { max-width: 1080px; margin: 0 auto; }
+.pb-reviews__grid { display: grid; gap: 18px; margin-top: clamp(28px, 5vw, 44px); }
+@media (min-width: 840px) { .pb-reviews__grid { grid-template-columns: repeat(3, 1fr); } }
+.pb-review-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--gold-hairline);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.pb-review-card__photo {
+  margin: -20px -20px 6px;
+  border-radius: 15px 15px 0 0;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: var(--p-tint-soft);
+}
+.pb-review-card__photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.pb-review-card__who { display: flex; align-items: center; gap: 10px; }
+.pb-review-card__avatar {
+  width: 38px; height: 38px; flex: 0 0 38px;
+  border-radius: 50%;
+  background: var(--p-tint);
+  color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 600; font-size: .95rem;
+}
+.pb-review-card__name { font-weight: 600; line-height: 1.3; }
+.pb-review-card__meta { display: block; font-size: .75rem; opacity: .62; font-weight: 400; }
+.pb-review-card__stars { color: #D9A31B; letter-spacing: 2.5px; font-size: .9rem; }
+.pb-review-card__quote { margin: 0; font-size: .92rem; line-height: 1.6; font-style: normal; }
+.pb-reviews__foot { margin-top: 26px; text-align: center; font-size: .88rem; opacity: .85; }
+.pb-reviews__foot a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+
 /* ── Reduced motion ── */
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }

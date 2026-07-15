@@ -35,6 +35,7 @@
 
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="product.css">
+  <link rel="preload" as="image" href="Assets/Product_hero_image/Peanut%20Sesame%20Delights-clean.webp" fetchpriority="high">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -74,37 +75,7 @@
         "http://purl.org/goodrelations/v1#ByInvoice",
         "http://purl.org/goodrelations/v1#Cash"
       ]
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "reviewCount": "3",
-      "bestRating": "5",
-      "worstRating": "1"
-    },
-    "review": [
-      {
-        "@type": "Review",
-        "author": { "@type": "Person", "name": "Sanku Bose" },
-        "datePublished": "2026-05-05",
-        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-        "reviewBody": "Healthy without compromising the taste buds. I am sure others would love them as well."
-      },
-      {
-        "@type": "Review",
-        "author": { "@type": "Person", "name": "Tiyasha Mondal" },
-        "datePublished": "2026-03-31",
-        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-        "reviewBody": "Every item felt thoughtfully curated, keeping both health and taste perfectly in balance. The freshness and quality of the ingredients really stood out. Beautifully packed and ideal for gifting — highly recommended."
-      },
-      {
-        "@type": "Review",
-        "author": { "@type": "Person", "name": "Rishab Chakraborty" },
-        "datePublished": "2026-02-02",
-        "reviewRating": { "@type": "Rating", "ratingValue": "4.5", "bestRating": "5" },
-        "reviewBody": "Amazing quality and taste!! Loved it."
-      }
-    ]
+    }
   }
   </script>
 
@@ -225,7 +196,7 @@
       <div class="pb-hero-bg" aria-hidden="true"></div>
 
       <div class="pb-hero-photo" data-slot="Peanut-Sesame Delights · Hero Shot">
-        <img src="Assets/Product_hero_image/Peanut%20Sesame%20Delights-clean.webp" alt="Peanut-Sesame Delights — heart-shaped bites coated with sesame seeds" loading="eager" onerror="this.parentElement.classList.add('is-placeholder'); this.remove();">
+        <img src="Assets/Product_hero_image/Peanut%20Sesame%20Delights-clean.webp" alt="Peanut-Sesame Delights — heart-shaped bites coated with sesame seeds" loading="eager" fetchpriority="high" width="800" height="800" onerror="this.parentElement.classList.add('is-placeholder'); this.remove();">
       </div>
 
       <div class="pb-hero-content">
@@ -526,7 +497,7 @@
           <div class="pb-usp-img" data-slot="usp-image-simplicity" aria-hidden="true"><img src="Assets/Product_USP_card_images/Peanut_sesame_delight/Peanut_sesame_delight_hero_shot_05.webp" alt="" loading="lazy" decoding="async"></div>
           <div class="pb-usp-body">
             <h3 class="pb-usp-title">Only 4 Ingredients. That&rsquo;s the Whole Label.</h3>
-            <p class="pb-usp-desc">Dates 50%. Peanuts 40%. Sesame 6%. Ghee 4%. We print the percentages on the pack because there&rsquo;s nothing to hide. Four real foods. No fillers. No emulsifiers. No &ldquo;permitted additives&rdquo;.</p>
+            <p class="pb-usp-desc">Dates 50%. Peanuts 40%. Sesame 6%. Ghee 4%. We print the percentages on the pack because there&rsquo;s nothing to hide. Four real foods. No fillers. No chemicals. No &ldquo;permitted additives&rdquo;.</p>
           </div>
         </div>
         <div class="pb-usp-card reveal">
@@ -579,6 +550,71 @@
           <div class="pb-vs__row"><span class="pb-vs__glyph pb-vs__glyph--yes" aria-hidden="true">&#10003;</span><span>Pure cow ghee &mdash; the only fat used</span></div>
           <div class="pb-vs__row"><span class="pb-vs__glyph pb-vs__glyph--yes" aria-hidden="true">&#10003;</span><span>0g trans fat &mdash; every single batch</span></div>
         </div>
+      </div>
+    </section>
+
+
+    <!-- ── CUSTOMER REVIEWS — real Google reviews ───────────────────── -->
+    <section class="pb-reviews" id="reviews" aria-label="Customer reviews from Google">
+      <div class="pb-reviews__inner">
+        <div class="pb-section-header reveal">
+          <span class="pb-section-kicker">Customer Reviews</span>
+          <h2 class="pb-section-heading">Straight from<br><em>Google.</em></h2>
+        </div>
+        <div class="pb-reviews__grid">
+          <article class="pb-review-card">
+            <div class="pb-review-card__photo"><img src="Assets/Review_images/naveen-rakhecha-2.webp" alt="Peanut-Sesame Delights photo shared with Naveen Rakhecha's Google review" loading="lazy" decoding="async"></div>
+            <div class="pb-review-card__who">
+              <span class="pb-review-card__avatar" aria-hidden="true">N</span>
+              <span class="pb-review-card__name">Naveen Rakhecha<span class="pb-review-card__meta">Google review &middot; Dec 2025</span></span>
+            </div>
+            <div class="pb-review-card__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote class="pb-review-card__quote">Swad bhi aur Swaasth bhi &mdash; really loved their products, a perfect balance of taste and health. I ordered Chocochip Muffins, Peanut Sesame Delights, Royal Bites and Butter Cookies. Ek baar khaogey toh khaate rah jayoge!</blockquote>
+          </article>
+          <article class="pb-review-card">
+            <div class="pb-review-card__who">
+              <span class="pb-review-card__avatar" aria-hidden="true">M</span>
+              <span class="pb-review-card__name">Mugdha Roy<span class="pb-review-card__meta">Google review &middot; Dec 2025</span></span>
+            </div>
+            <div class="pb-review-card__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote class="pb-review-card__quote">I have tasted the chocolate muffin, Peanut Sesame Delights, Royal Bites and many more items from Diet Swad. The taste is awesome. They use good quality ingredients and very nice hygienic packing too. You should try it once.</blockquote>
+          </article>
+          <article class="pb-review-card">
+            <div class="pb-review-card__who">
+              <span class="pb-review-card__avatar" aria-hidden="true">R</span>
+              <span class="pb-review-card__name">RG<span class="pb-review-card__meta">Google review &middot; Dec 2025</span></span>
+            </div>
+            <div class="pb-review-card__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote class="pb-review-card__quote">I am a foodie... and I love eating healthy treats. &#128515; Thanks for existing, Diet Swad. Great team, great efforts. Shall recommend to everyone looking for a healthy lifestyle &#129392;</blockquote>
+          </article>
+          <article class="pb-review-card">
+            <div class="pb-review-card__who">
+              <span class="pb-review-card__avatar" aria-hidden="true">A</span>
+              <span class="pb-review-card__name">Antik Ganguly<span class="pb-review-card__meta">Google review &middot; Dec 2025</span></span>
+            </div>
+            <div class="pb-review-card__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote class="pb-review-card__quote">This Peri-Peri mix is ADDICTIVE. Spicy, crunchy, and I don't have to feel bad about finishing the packet. Best office snack ever.</blockquote>
+          </article>
+          <article class="pb-review-card">
+            <div class="pb-review-card__who">
+              <span class="pb-review-card__avatar" aria-hidden="true">R</span>
+              <span class="pb-review-card__name">Ritu Sadarangani<span class="pb-review-card__meta">Google review &middot; Dec 2025</span></span>
+            </div>
+            <div class="pb-review-card__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote class="pb-review-card__quote">Superb! Everything is made with so much love &#10084;&#65039;</blockquote>
+          </article>
+          <article class="pb-review-card">
+            <div class="pb-review-card__who">
+              <span class="pb-review-card__avatar" aria-hidden="true">A</span>
+              <span class="pb-review-card__name">Aditi Khaitan<span class="pb-review-card__meta">Google review &middot; Dec 2025</span></span>
+            </div>
+            <div class="pb-review-card__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote class="pb-review-card__quote">What wonderful food with the perfect sweetener.</blockquote>
+          </article>
+        </div>
+        <p class="pb-reviews__foot">Rated <strong>5.0/5</strong> by 39 customers on Google &mdash;
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Diet+Swad+Kolkata" target="_blank" rel="noopener">read all reviews &rarr;</a>
+        </p>
       </div>
     </section>
 
