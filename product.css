@@ -1397,6 +1397,9 @@ body.pb-page .wa-fab {
 }
 
 
+/* ── MRP declaration (Legal Metrology) ── */
+.pb-hero-mrp { font-size: .78rem; opacity: .68; margin: -4px 0 16px; letter-spacing: .02em; }
+
 /* ═══════════════════════════════════════════════════════════════════
    CUSTOMER REVIEWS — real Google Business reviews (see reviews-data.md)
    ═══════════════════════════════════════════════════════════════════ */
