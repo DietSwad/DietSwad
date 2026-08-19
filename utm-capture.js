@@ -51,6 +51,50 @@
       if (sessionStorage.getItem(key)) continue;
       sessionStorage.setItem(key, value.slice(0, 300));
     }
+
+    // Referrer fallback — mirrors the GTM tag (§1b of Details/ANALYTICS_GTM_REFERENCE.md) so both
+    // writers agree. Without this, a GTM-blocked visitor who arrives with NO utm params stores
+    // nothing at all and the backend has to record the order as "unattributed". Real case: order
+    // #244 (Swapnil Sarkar, 2026-08-17) — a paid Website order that landed with source "manual"
+    // because sessionStorage was empty. Only runs when nothing is stored yet, so a real campaign
+    // tag is never downgraded to "direct".
+    if (sessionStorage.getItem('utm_source')) return;
+
+    // NOTE: the GTM version of this classifier derives the name with host.split('.')[0], which
+    // records Facebook's link-shim hosts as source "l" (l.facebook.com) and "lm"
+    // (lm.facebook.com) — meaningless values that fragment Facebook traffic across three names.
+    // Explicit host→platform mapping avoids that. The GTM tag should be updated to match;
+    // until it is, GTM wins when present, so this only takes effect when GTM is blocked.
+    var SEARCH = /^(google|bing|yahoo|duckduckgo|ecosia)(\.|$)/;
+    var SOCIAL = [
+      [/(^|\.)facebook\.com$|^fb\.(me|com)$/, 'facebook'],
+      [/(^|\.)instagram\.com$/,               'instagram'],
+      [/(^|\.)(twitter|x)\.com$|^t\.co$/,     'twitter'],
+      [/(^|\.)linkedin\.com$|^lnkd\.in$/,     'linkedin'],
+      [/(^|\.)youtube\.com$|^youtu\.be$/,     'youtube'],
+      [/(^|\.)pinterest\.[a-z.]+$/,           'pinterest'],
+      [/(^|\.)threads\.(net|com)$/,           'threads'],
+      [/(^|\.)whatsapp\.com$/,                'whatsapp']
+    ];
+
+    var src = 'direct', med = 'none';
+    var ref = document.referrer;
+    if (ref) {
+      var host = '';
+      try { host = new URL(ref).hostname.replace(/^www\./, '').toLowerCase(); } catch (e) {}
+      var self = window.location.hostname.replace(/^www\./, '').toLowerCase();
+      if (host && host !== self) {
+        var matched = null;
+        for (var j = 0; j < SOCIAL.length; j++) {
+          if (SOCIAL[j][0].test(host)) { matched = SOCIAL[j][1]; break; }
+        }
+        if (matched)                { src = matched;             med = 'social';   }
+        else if (SEARCH.test(host)) { src = host.split('.')[0];  med = 'organic';  }
+        else                        { src = host;                med = 'referral'; }
+      }
+    }
+    sessionStorage.setItem('utm_source', src);
+    sessionStorage.setItem('utm_medium', med);
   } catch (_) {
     // Private-mode / storage-disabled browsers throw on sessionStorage access.
     // Attribution is best-effort — never let it break the page.
