@@ -21,11 +21,18 @@
   // so what we CHARGE matches what we SHOW. (The backend re-enforces totals, so
   // the table is authoritative for charges; this file only drives the checkout UI.)
   var FEES = {
-    full_cod:               50,  // ₹ added for full Cash-on-Delivery
+    full_cod:               60,  // ₹ added for full Cash-on-Delivery
     partial_cod:            40,  // ₹ added for Partial COD
     partial_cod_online_pct: 30,  // % of total paid online for Partial COD
     return_processing_fee:  60   // ₹ deducted for doorstep return/decline processing
   };
+  // Reconciled against the live backend fee config (PWA → Settings → Fees) on 2026-08-19:
+  // full_cod 60, partial_cod 40, partial_cod_online_pct 30.
+  // d10bc30 (2026-08-05) set partial_cod 30 → 40 (correct) but also full_cod 60 → 50, which
+  // did NOT match the backend. Since create_order recomputes the total server-side from the
+  // backend config, full-COD customers were shown +₹50 and charged +₹60 — overcharged ₹10 —
+  // from 2026-08-05 until this commit. full_cod restored to 60; partial_cod 40 kept as-is.
+  // If you change a fee, change it in BOTH places on the same day.
   // ────────────────────────────────────────────────────────
 
   function getPrice(slug) {
