@@ -351,7 +351,9 @@
       utm_medium:     fd.get('utm_medium')   || sessionStorage.getItem('utm_medium')   || '',
       utm_campaign:   fd.get('utm_campaign') || sessionStorage.getItem('utm_campaign') || '',
       fbp:            fd.get('fbp')          || '',
-      fbc:            fd.get('fbc')          || '',
+      // ds_fbc is written by utm-capture.js when the Meta Pixel could not set its own _fbc cookie
+      // (GTM blocked). It is already in Meta's fb.1.<ts>.<fbclid> format — see utm-capture.js.
+      fbc:            fd.get('fbc')          || sessionStorage.getItem('ds_fbc') || '',
       ga_client_id:   fd.get('ga_client_id') || '',
     };
 

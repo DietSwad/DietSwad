@@ -39,8 +39,6 @@
 
     var params = new URLSearchParams(window.location.search);
 
-    // fbclid is stored too: order.js reads the _fbc cookie first and falls back to the
-    // fbclid param, which has the same cross-page problem.
     var KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'fbclid'];
 
     for (var i = 0; i < KEYS.length; i++) {
@@ -50,6 +48,22 @@
       // First-touch: never overwrite a value already captured this visit.
       if (sessionStorage.getItem(key)) continue;
       sessionStorage.setItem(key, value.slice(0, 300));
+    }
+
+    // Meta click id → a properly formatted `fbc` value, remembered for the visit.
+    //
+    // Normally the Meta Pixel turns ?fbclid=… into the `_fbc` cookie, and order.js reads that
+    // cookie. But the Pixel loads through GTM, so when GTM is blocked no cookie is ever written.
+    // order.js's last-resort fallback passes the RAW fbclid as `fbc`, which Meta does not accept —
+    // it expects `fb.<subdomainIndex>.<creationTime>.<fbclid>`. Building it here, at the moment we
+    // actually see the click, is the only place the real timestamp is known.
+    //
+    // Only written if the Pixel has not already set its own cookie, so the Pixel always wins.
+    if (!/(?:^|;)\s*_fbc=/.test(document.cookie) && !sessionStorage.getItem('ds_fbc')) {
+      var fbclid = params.get('fbclid');
+      if (fbclid) {
+        sessionStorage.setItem('ds_fbc', 'fb.1.' + Date.now() + '.' + fbclid.slice(0, 300));
+      }
     }
 
     // Referrer fallback — mirrors the GTM tag (§1b of Details/ANALYTICS_GTM_REFERENCE.md) so both
