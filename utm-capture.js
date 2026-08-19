@@ -1,23 +1,35 @@
-/* utm-capture.js — remember where a visitor came from, for the whole visit.
+/* utm-capture.js — no-GTM fallback for campaign attribution.
  *
- * Why this exists
- * ---------------
- * Campaign tags (?utm_source=…) arrive on whichever page the visitor lands on — usually
- * the homepage or a product page. But the order form is the only page that reads them,
- * and it reads them from ITS OWN url. Click through from the homepage and the tag is gone,
- * so a real Instagram/ChatGPT/GMB referral gets filed as a staff-entered order.
+ * READ THIS BEFORE CHANGING IT — the primary writer is GTM, not this file.
  *
- * order.js already has the second half of the fix (it falls back to sessionStorage when the
- * order-page url carries no tag) — but nothing ever WROTE those keys, so the fallback was
- * dead code. This file writes them.
+ * Campaign tags (?utm_source=…) arrive on whichever page the visitor lands on, but the
+ * order form reads them from ITS OWN url, so an internal click to the order page would
+ * lose them. That gap is already covered in production by a **GTM tag** which writes
+ * utm_source / utm_medium into sessionStorage on every pageview. Verified in a real
+ * browser on 2026-08-19:
+ *   - lands with ?utm_source=instagram  -> GTM stores "instagram"
+ *   - internal click to an untagged page -> GTM leaves "instagram" alone
+ *   - clean visit, nothing stored yet    -> GTM stores "direct" / "none"
+ * So order.js's sessionStorage fallback is NOT dead code — GTM feeds it. (This also
+ * explains the `direct` / `none` values seen on some orders; they are GTM's doing.)
  *
- * First-touch wins: a value is only stored if that key is not already set for this visit.
- * An internal click can therefore never overwrite the true origin. sessionStorage (not
- * localStorage) is deliberate — attribution should last the visit, not follow someone
- * around for weeks.
+ * This file exists for the case GTM cannot cover: **GTM is blocked.** Ad blockers and
+ * privacy browsers stop googletagmanager.com from loading, and a meaningful share of
+ * traffic runs one. When that happens GTM writes nothing and, without this file, the
+ * order would be recorded as unattributed. This script has no third-party dependency,
+ * so it still captures the tag.
  *
- * Load this on EVERY page, in <head>, WITHOUT defer, so it runs before order.js.
- * It touches no DOM and cannot block rendering meaningfully.
+ * When GTM IS present it wins — it runs after this and overwrites with last-touch. That
+ * is fine and intentional: GTM is the source of truth, this is the safety net. Do not
+ * "fix" the ordering to make this file win without deciding first-touch vs last-touch as
+ * a business question.
+ *
+ * The getItem guard below is first-touch for the GTM-blocked path only.
+ * sessionStorage (not localStorage) is deliberate — attribution should last the visit,
+ * not follow someone around for weeks.
+ *
+ * Load on EVERY page, in <head>, WITHOUT defer, so it runs before order.js.
+ * Touches no DOM and cannot meaningfully block rendering.
  */
 (function () {
   'use strict';
