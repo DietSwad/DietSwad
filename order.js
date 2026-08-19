@@ -252,8 +252,16 @@
         cart[slug] = (cart[slug] || 0) + 1;
         writeCart(cart);
       }
-      // Strip param so refresh doesn't re-add
-      history.replaceState({}, '', location.pathname);
+      // Strip ONLY the product param so a refresh doesn't re-add the item.
+      // This used to be history.replaceState({}, '', location.pathname), which threw away
+      // the WHOLE query string — including utm_* and fbclid — and it used to run BEFORE
+      // captureAnalytics(), so any order-page url carrying both ?product= and ?utm_source=
+      // lost its campaign tag before it could be read. Every internal "Order Now" link uses
+      // ?product=, so this hit constantly. captureAnalytics() now runs first (see the init
+      // sequence at the bottom of this file) and this only removes product.
+      params.delete('product');
+      var restQs = params.toString();
+      history.replaceState({}, '', location.pathname + (restQs ? '?' + restQs : ''));
     }
 
     // Populate all qty spans from cart
@@ -437,8 +445,11 @@
   }
 
   // Init sequence
-  initProductSelection();
+  // captureAnalytics() FIRST: it is the only reader of the campaign tags in the url, and
+  // initProductSelection() rewrites the url via history.replaceState. Reading before any
+  // rewrite means the tags cannot be lost even if that rewrite changes again later.
   captureAnalytics();
+  initProductSelection();
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', updateSummary);
   } else {
