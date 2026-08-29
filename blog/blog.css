@@ -163,8 +163,11 @@
   color: var(--ink, #2a1a0f);
   opacity: .6;
 }
+/* width:calc(100% - 44px) keeps the same 22px side gutter the article
+   body uses, so a rounded block never sits flush against the screen
+   edge on mobile. On desktop max-width still wins and it stays centred. */
 .post-cover {
-  width: 100%;
+  width: calc(100% - 44px);
   max-width: 960px;
   margin: 22px auto;
   display: block;
@@ -310,12 +313,13 @@
 
 /* product CTA inside an article */
 .post-cta {
+  width: calc(100% - 44px);      /* same 22px gutter as the article body */
   max-width: var(--blog-maxw);
   margin: 8px auto 48px;
-  padding: 26px 22px;
+  padding: 28px 22px 30px;
   text-align: center;
   background: var(--bg-dark, #4A0000);
-  border-radius: 16px;
+  border-radius: 14px;           /* matches .post-cover and the cards */
 }
 .post-cta h3 {
   font-family: 'Cormorant Garamond', serif;
