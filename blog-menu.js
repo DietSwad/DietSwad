@@ -19,6 +19,18 @@
 
   var ARTICLES = [
     {
+      slug: 'arabian-dates-vs-local-dates.html',
+      title: 'Arabian Dates vs Local Dates'
+    },
+    {
+      slug: 'is-ghee-healthy-myths-vs-science.html',
+      title: 'Is Ghee Actually Healthy?'
+    },
+    {
+      slug: 'are-millet-cookies-healthy.html',
+      title: 'Are Millet Cookies Actually Healthy?'
+    },
+    {
       slug: 'jaggery-vs-refined-sugar-vs-desi-khand.html',
       title: 'Jaggery vs Refined Sugar vs Desi Khand'
     }
