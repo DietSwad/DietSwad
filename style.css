@@ -2130,6 +2130,34 @@ a   { color: inherit; }
   .nav-hamburger { display: none; }
 }
 
+/* ─── Nav right cluster (desktop menu links + Order CTA) ───
+   The hamburger is mobile-only, so on desktop the drawer is unreachable.
+   .nav-link is the mirror image of that: hidden on mobile (the drawer
+   already carries these links), shown from 768px up as the desktop menu. */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+.nav-link {
+  display: none;
+  font-family: 'DM Sans', sans-serif;
+  font-size: var(--type-button);
+  font-weight: 600;
+  letter-spacing: var(--ls-button);
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--ink);
+  white-space: nowrap;
+  transition: color 0.3s ease, opacity 0.2s ease;
+}
+.site-nav.is-scrolled .nav-link { color: var(--gold-light); }
+.nav-link:hover { opacity: 0.72; }
+
+@media (min-width: 768px) {
+  .nav-link { display: inline-block; }
+}
+
 
 /* ─── Mobile drawer ─── */
 .mobile-drawer {
