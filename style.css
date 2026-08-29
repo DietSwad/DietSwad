@@ -2297,6 +2297,38 @@ a   { color: inherit; }
 .drawer-sub-link:last-child { border-bottom: none; }
 .drawer-sub-link:hover { color: var(--gold); }
 
+/* ─── Drawer accordion (Blog section) ───
+   Same visual language as .drawer-section, but collapsible. Uses
+   <details>/<summary> so it works with zero JS; the chevron is a CSS
+   caret rather than an icon file. */
+.drawer-accordion { margin-top: 6px; }
+.drawer-accordion__summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+.drawer-accordion__summary::-webkit-details-marker { display: none; }
+.drawer-accordion__summary::after {
+  content: '';
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  margin-bottom: 2px;
+  border-right: 1.5px solid rgba(212, 175, 55, 0.55);
+  border-bottom: 1.5px solid rgba(212, 175, 55, 0.55);
+  transform: rotate(45deg);
+  transition: transform 0.22s ease;
+}
+.drawer-accordion[open] .drawer-accordion__summary::after {
+  transform: rotate(-135deg);
+  margin-bottom: -2px;
+}
+.drawer-accordion__summary:hover { color: rgba(245, 237, 212, 0.72); }
+
 
 /* ─── Footer ─── */
 .site-footer {

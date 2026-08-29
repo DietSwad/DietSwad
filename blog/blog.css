@@ -232,6 +232,82 @@
 }
 .post-box p:last-child { margin-bottom: 0; }
 
+/* ─── In-article product strip ───────────────────────────────────
+   Products shown where the article actually discusses them, rather
+   than only as inline links. Cards match .blog-card's visual language
+   (white surface, hairline gold border, 14px radius, lift on hover). */
+.post-products {
+  max-width: var(--blog-maxw);
+  margin: 26px auto 30px;
+  padding: 0 22px;
+}
+/* when the strip sits inside the article body, that wrapper already
+   supplies the measure and gutters — don't apply them twice */
+.post-body .post-products { max-width: none; padding: 0; }
+.post-products__label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--gold, #B0903D);
+  margin: 0 0 14px;
+}
+.post-products__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+@media (min-width: 680px) { .post-products__grid { grid-template-columns: repeat(4, 1fr); } }
+
+.post-product {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid rgba(176, 144, 61, .22);
+  border-radius: 14px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.post-product:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px -14px rgba(74, 0, 0, .35);
+}
+.post-product img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  background: #f1e9da;
+  margin: 0;
+  border-radius: 0;
+}
+.post-product__body { padding: 12px 13px 14px; display: flex; flex-direction: column; flex: 1; }
+.post-product__name {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: 1.05rem;
+  line-height: 1.2;
+  color: var(--ink, #2a1a0f);
+  margin: 0 0 5px;
+}
+.post-product__note {
+  font-family: 'DM Sans', sans-serif;
+  font-size: .78rem;
+  line-height: 1.45;
+  color: var(--ink, #2a1a0f);
+  opacity: .72;
+  margin: 0 0 10px;
+}
+.post-product__price {
+  margin-top: auto;
+  font-family: 'DM Sans', sans-serif;
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  color: var(--gold-dark, #BF9B30);
+}
+
 /* product CTA inside an article */
 .post-cta {
   max-width: var(--blog-maxw);
@@ -254,17 +330,32 @@
   font-size: .95rem;
   margin: 0 0 16px;
 }
+/* Match the site's canonical button (.nav-order-btn / .drawer-cta-btn):
+   gold GRADIENT, uppercase, letter-spaced, 100px radius, soft shadow.
+   The old flat-solid sentence-case pill was the one control on the site
+   that did not look like the others. */
 .post-cta a {
-  display: inline-block;
-  background: var(--gold, #B0903D);
-  color: #2a1a0f;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--gold-dark, #BF9B30) 0%, #d4a24a 50%, var(--gold-light, #F5D17A) 100%);
+  color: #1a0918;
   font-family: 'DM Sans', sans-serif;
   font-weight: 600;
-  font-size: .95rem;
+  font-size: 13px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
   text-decoration: none;
   padding: 12px 28px;
-  border-radius: 999px;
+  border-radius: 100px;
+  box-shadow: 0 6px 16px rgba(212, 175, 55, 0.28);
+  transition: transform .18s, box-shadow .18s;
 }
+.post-cta a:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(212, 175, 55, 0.36);
+}
+.post-cta a:active { transform: scale(.98); }
 
 /* back-to-blog link */
 .post-back {
