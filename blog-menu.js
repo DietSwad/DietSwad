@@ -47,13 +47,20 @@
   var here = window.location.pathname.split('/').pop();
 
   ARTICLES.forEach(function (article) {
-    // Don't link the article the reader is already on.
-    if (inBlogDir && here === article.slug) return;
-
+    // Every article is listed on every page, including the one being
+    // read: the menu is the blog's table of contents, so a title going
+    // missing depending on where you stand is more confusing than the
+    // redundant self-link it avoids. The current one is marked instead.
     var link = document.createElement('a');
     link.className = 'drawer-sub-link';
     link.href = prefix + article.slug;
     link.textContent = article.title;
+
+    if (inBlogDir && here === article.slug) {
+      link.classList.add('is-current');
+      link.setAttribute('aria-current', 'page');
+    }
+
     panel.appendChild(link);
   });
 

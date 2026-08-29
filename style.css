@@ -2310,6 +2310,9 @@ a   { color: inherit; }
   margin-bottom: -2px;
 }
 .drawer-accordion__summary:hover { color: rgba(245, 237, 212, 0.72); }
+/* the article currently being read, marked rather than hidden */
+.drawer-sub-link.is-current { color: var(--gold); }
+.drawer-sub-link.is-current::before { content: '\2022\00a0'; }
 
 
 /* ─── Footer ─── */

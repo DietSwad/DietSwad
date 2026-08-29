@@ -276,28 +276,93 @@
   margin: 0 0 16px;
 }
 .post-magnet__btn {
-  display: inline-flex;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  display: flex;
   align-items: center;
   justify-content: center;
-  gap: 9px;
-  background: linear-gradient(135deg, var(--gold-dark, #BF9B30) 0%, #d4a24a 50%, var(--gold-light, #F5D17A) 100%);
+  gap: 10px;
+  width: 100%;
+  background: linear-gradient(135deg, var(--gold-dark, #BF9B30) 0%, #d4a24a 45%, var(--gold-light, #F5D17A) 100%);
   color: #1a0918;
   font-family: 'DM Sans', sans-serif;
   font-weight: 600;
-  font-size: 13px;
-  letter-spacing: .08em;
+  font-size: 14.5px;
+  letter-spacing: .09em;
   text-transform: uppercase;
   text-decoration: none;
-  padding: 12px 26px;
+  padding: 18px 30px;
   border-radius: 100px;
-  box-shadow: 0 6px 16px rgba(212, 175, 55, 0.28);
-  transition: transform .18s, box-shadow .18s;
+  box-shadow:
+    0 10px 26px rgba(191, 155, 48, 0.36),
+    0 2px 6px rgba(74, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  transition: transform .18s ease, box-shadow .18s ease, background .3s ease;
+}
+@media (min-width: 520px) { .post-magnet__btn { width: auto; min-width: 300px; margin: 0 auto; } }
+
+/* slow gloss sweep, so the button reads as the thing to press */
+.post-magnet__btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 45%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent 0%, rgba(255, 255, 255, .55) 50%, transparent 100%);
+  transform: skewX(-18deg);
+  animation: magnetShine 4.5s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes magnetShine {
+  0%, 62% { left: -60%; }
+  100%    { left: 135%; }
 }
 .post-magnet__btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 10px 22px rgba(212, 175, 55, 0.36);
+  transform: translateY(-2px);
+  box-shadow:
+    0 16px 34px rgba(191, 155, 48, 0.46),
+    0 3px 8px rgba(74, 0, 0, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
 }
-.post-magnet__btn:active { transform: scale(.98); }
+.post-magnet__btn:active { transform: translateY(0) scale(.985); }
+.post-magnet__btn svg { flex-shrink: 0; }
+
+/* post-download confirmation state */
+.post-magnet__btn.is-done {
+  background: linear-gradient(135deg, #2f7d4f 0%, #3f9d63 55%, #56b87b 100%);
+  color: #fff;
+  box-shadow: 0 10px 26px rgba(47, 125, 79, 0.36), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+.post-magnet__btn.is-done::after { display: none; }
+
+/* confetti burst — appended to <body>, cleaned up by the script */
+.ds-confetti {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 9999;
+}
+.ds-confetti i {
+  position: absolute;
+  width: 9px;
+  height: 15px;
+  border-radius: 2px;
+  opacity: 0;
+  animation: dsConfetti 1.6s cubic-bezier(.18, .7, .35, 1) forwards;
+}
+@keyframes dsConfetti {
+  0%   { opacity: 1; transform: translate3d(0, 0, 0) rotate(0deg) scale(1); }
+  100% { opacity: 0; transform: translate3d(var(--dx), var(--dy), 0) rotate(var(--rot)) scale(.7); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .post-magnet__btn::after { animation: none; }
+  .post-magnet__btn { transition: none; }
+  .ds-confetti { display: none; }
+}
 .post-magnet__note {
   font-family: 'DM Sans', sans-serif;
   font-size: .78rem;
