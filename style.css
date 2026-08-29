@@ -2126,36 +2126,18 @@ a   { color: inherit; }
 }
 .nav-hamburger:active span { opacity: 0.6; }
 
-@media (min-width: 768px) {
-  .nav-hamburger { display: none; }
-}
+/* The hamburger now shows at EVERY width. It used to be hidden from
+   768px up, which left desktop with no menu at all — and therefore no
+   route to /blog/ once the header link was removed. The drawer is a
+   fixed 280px panel, so it reads correctly on large screens too. */
 
-/* ─── Nav right cluster (desktop menu links + Order CTA) ───
-   The hamburger is mobile-only, so on desktop the drawer is unreachable.
-   .nav-link is the mirror image of that: hidden on mobile (the drawer
-   already carries these links), shown from 768px up as the desktop menu. */
+/* ─── Nav right cluster ───
+   Wraps the Order CTA. Kept as a cluster so further nav items can be
+   added later without disturbing the nav's space-between layout. */
 .nav-right {
   display: flex;
   align-items: center;
   gap: 22px;
-}
-.nav-link {
-  display: none;
-  font-family: 'DM Sans', sans-serif;
-  font-size: var(--type-button);
-  font-weight: 600;
-  letter-spacing: var(--ls-button);
-  text-transform: uppercase;
-  text-decoration: none;
-  color: var(--ink);
-  white-space: nowrap;
-  transition: color 0.3s ease, opacity 0.2s ease;
-}
-.site-nav.is-scrolled .nav-link { color: var(--gold-light); }
-.nav-link:hover { opacity: 0.72; }
-
-@media (min-width: 768px) {
-  .nav-link { display: inline-block; }
 }
 
 

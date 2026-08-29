@@ -11,6 +11,12 @@ Allow: /
 Disallow: /test-checkout.html
 Disallow: /test-thankyou.html
 Disallow: /blog/article-template.html
+# Lead-magnet PDFs. Kept out of CLASSIC search only, so each guide's blog
+# page takes the ranking instead of the PDF competing with it (a PDF is the
+# worse landing page: no nav, no products, no way to buy). This does NOT
+# affect downloads — anyone with the link still gets the file. AI retrieval
+# bots below are deliberately NOT blocked: a cited guide still credits us.
+Disallow: /guides/
 
 # --- AI training / general crawlers ---
 User-agent: GPTBot
@@ -42,7 +48,10 @@ User-agent: Perplexity-User
 Allow: /
 
 # --- Classic search ---
+# robots.txt groups do NOT inherit: a named agent obeys only its own block,
+# so the /guides/ rule from User-agent: * has to be repeated here.
 User-agent: Bingbot
 Allow: /
+Disallow: /guides/
 
 Sitemap: https://www.dietswad.in/sitemap.xml
