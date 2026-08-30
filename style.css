@@ -2173,6 +2173,21 @@ a   { color: inherit; }
   flex-direction: column;
   padding: 64px 32px 48px;
   animation: drawerSlideIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  /* The panel is a fixed-height column, so anything past the viewport
+     used to be simply unreachable — the Blog accordion pushed the social
+     row and the last links off the bottom with no way to scroll to them.
+     overscroll-behavior stops the page behind from scrolling instead. */
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(212, 175, 55, 0.4) transparent;
+}
+.drawer-panel::-webkit-scrollbar { width: 4px; }
+.drawer-panel::-webkit-scrollbar-track { background: transparent; }
+.drawer-panel::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.35);
+  border-radius: 4px;
 }
 @keyframes drawerSlideIn { from { transform: translateX(100%); } to { transform: translateX(0); } }
 
@@ -2308,6 +2323,25 @@ a   { color: inherit; }
 .drawer-accordion[open] .drawer-accordion__summary::after {
   transform: rotate(-135deg);
   margin-bottom: -2px;
+}
+/* The article list is the one part of the drawer that grows without
+   limit — every published article is listed on every page. Cap it and
+   let it scroll on its own, so opening Blog never pushes Products or
+   the social row out of reach. The whole panel scrolls too, but the
+   inner cap is what keeps the rest of the menu on screen. */
+.drawer-accordion__panel {
+  max-height: 44vh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(212, 175, 55, 0.4) transparent;
+}
+.drawer-accordion__panel::-webkit-scrollbar { width: 4px; }
+.drawer-accordion__panel::-webkit-scrollbar-track { background: transparent; }
+.drawer-accordion__panel::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.35);
+  border-radius: 4px;
 }
 .drawer-accordion__summary:hover { color: rgba(245, 237, 212, 0.72); }
 /* the article currently being read, marked rather than hidden */

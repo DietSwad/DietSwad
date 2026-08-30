@@ -337,6 +337,19 @@
 }
 .post-magnet__btn.is-done::after { display: none; }
 
+/* ⚠️ Specificity trap — do not delete these two rules.
+   The magnet button is an <a> inside <article class="post-body">, and
+   `.post-body a { color: var(--gold) }` scores 0-1-1 while
+   `.post-magnet__btn` scores only 0-1-0. The article rule therefore won
+   and painted the label AND the download arrow (stroke: currentColor)
+   in gold, on top of the gold gradient — near-invisible. The green
+   `.is-done` state scores 0-2-0, which is why the button only looked
+   correct after it had been clicked.
+   #1a0918 is the same dark ink .nav-order-btn and .drawer-cta-btn use,
+   so this also keeps the button matching the site's canonical control. */
+.post-body a.post-magnet__btn { color: #1a0918; }
+.post-body a.post-magnet__btn.is-done { color: #fff; }
+
 /* confetti burst — appended to <body>, cleaned up by the script */
 .ds-confetti {
   position: fixed;
