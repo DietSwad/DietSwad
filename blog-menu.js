@@ -19,6 +19,26 @@
 
   var ARTICLES = [
     {
+      slug: 'are-peanuts-healthy.html',
+      title: 'Are Peanuts Healthy?'
+    },
+    {
+      slug: 'natural-pre-workout-food-india.html',
+      title: 'What to Eat Before a Workout'
+    },
+    {
+      slug: 'late-night-snacking-what-to-eat.html',
+      title: 'Late-Night Cravings'
+    },
+    {
+      slug: 'healthy-snacks-for-kids-tiffin.html',
+      title: "Healthy Snacks for Kids' Tiffin"
+    },
+    {
+      slug: 'what-is-really-inside-packaged-snacks.html',
+      title: "What's Really Inside Packaged Snacks"
+    },
+    {
       slug: 'arabian-dates-vs-local-dates.html',
       title: 'Arabian Dates vs Local Dates'
     },
