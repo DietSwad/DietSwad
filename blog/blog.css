@@ -384,6 +384,31 @@
   margin: 12px 0 0;
 }
 
+/* ─── References + short note ────────────────────────────────────
+   Outbound citations are deliberate: they let a reader fact-check a
+   claim, and they are one of the strongest signals AI search uses when
+   deciding whether a page is worth citing. Set smaller than body copy
+   so a long list never competes with the article itself. */
+.post-refs {
+  font-size: .88rem;
+  line-height: 1.5;
+  opacity: .82;
+}
+.post-refs li { margin-bottom: 9px; }
+.post-refs a { word-break: break-word; }
+
+/* one-line disclaimer / provenance note, used sparingly */
+.post-note {
+  font-family: 'DM Sans', sans-serif;
+  font-size: .82rem;
+  line-height: 1.55;
+  color: var(--ink, #2a1a0f);
+  opacity: .68;
+  margin: 18px 0 0;
+  padding-top: 14px;
+  border-top: 1px solid rgba(176, 144, 61, .22);
+}
+
 /* ─── In-article product strip ───────────────────────────────────
    Products shown where the article actually discusses them, rather
    than only as inline links. Cards match .blog-card's visual language
