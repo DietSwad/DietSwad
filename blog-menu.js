@@ -19,6 +19,26 @@
 
   var ARTICLES = [
     {
+      slug: 'dadi-nani-ka-khana-food-wisdom.html',
+      title: 'Five Things Dadi Got Right'
+    },
+    {
+      slug: 'how-diet-swad-started.html',
+      title: 'How Diet Swad Started'
+    },
+    {
+      slug: 'india-vs-europe-food-standards.html',
+      title: 'Why Recipes Differ by Country'
+    },
+    {
+      slug: '7-day-snack-swap-challenge.html',
+      title: 'The 7-Day Snack Swap'
+    },
+    {
+      slug: 'preservatives-in-indian-food-explained.html',
+      title: 'What Preservatives Do'
+    },
+    {
       slug: 'ginger-cinnamon-fennel-what-research-says.html',
       title: 'Ginger, Cinnamon and Fennel'
     },
