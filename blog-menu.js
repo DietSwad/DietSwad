@@ -19,6 +19,46 @@
 
   var ARTICLES = [
     {
+      slug: 'ginger-cinnamon-fennel-what-research-says.html',
+      title: 'Ginger, Cinnamon and Fennel'
+    },
+    {
+      slug: 'magnesium-rich-foods-india.html',
+      title: 'Magnesium: What It Does'
+    },
+    {
+      slug: 'iron-rich-foods-for-periods.html',
+      title: 'Iron-Rich Indian Foods'
+    },
+    {
+      slug: 'why-period-cramps-happen.html',
+      title: 'Why Period Cramps Happen'
+    },
+    {
+      slug: 'india-packaged-food-health-numbers.html',
+      title: "How India's Snacking Changed"
+    },
+    {
+      slug: 'do-dates-spike-blood-sugar.html',
+      title: 'Dates and Blood Sugar'
+    },
+    {
+      slug: 'nolen-gur-khejur-gur-bengal.html',
+      title: 'Nolen Gur, Explained'
+    },
+    {
+      slug: 'methuselah-2000-year-old-date-seed.html',
+      title: 'A Seed That Grew After 2,000 Years'
+    },
+    {
+      slug: 'why-packaged-food-is-so-cheap.html',
+      title: 'Why Packaged Food Is So Cheap'
+    },
+    {
+      slug: 'what-does-ultra-processed-food-mean.html',
+      title: 'What "Ultra-Processed" Means'
+    },
+    {
       slug: 'are-peanuts-healthy.html',
       title: 'Are Peanuts Healthy?'
     },
