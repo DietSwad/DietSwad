@@ -19,6 +19,38 @@
 
   var ARTICLES = [
     {
+      slug: 'bringing-back-old-food-habits.html',
+      title: 'Old Food Habits, Modern Week'
+    },
+    {
+      slug: 'how-to-spot-sugar-coated-dates.html',
+      title: 'Spotting Sugar-Coated Dates'
+    },
+    {
+      slug: 'date-sweets-vs-sugar-mithai.html',
+      title: 'Date Sweets vs Sugar Mithai'
+    },
+    {
+      slug: 'healthy-snack-schedule-india.html',
+      title: 'When to Snack, and How Much'
+    },
+    {
+      slug: 'why-healthy-eating-is-hard-in-india.html',
+      title: 'Why Eating Well Is Hard in India'
+    },
+    {
+      slug: 'what-is-really-inside-your-daily-biscuit.html',
+      title: 'What Is Inside Your Daily Biscuit'
+    },
+    {
+      slug: '10-everyday-indian-foods-label-check.html',
+      title: '10 Kitchen Foods, Label by Label'
+    },
+    {
+      slug: 'how-to-read-a-food-label-in-60-seconds.html',
+      title: 'Read Any Label in 60 Seconds'
+    },
+    {
       slug: 'dadi-nani-ka-khana-food-wisdom.html',
       title: 'Five Things Dadi Got Right'
     },

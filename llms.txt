@@ -20,7 +20,7 @@ Educational articles on ingredients, food labelling and everyday nutrition, writ
 
 Ingredients and sweeteners
 - [Jaggery vs Refined Sugar vs Desi Khand](https://www.dietswad.in/blog/jaggery-vs-refined-sugar-vs-desi-khand): How all three are made from one plant and what processing actually changes.
-- [Arabian Dates vs Local Dates](https://www.dietswad.in/blog/arabian-dates-vs-local-dates): Telling good dates from cheap glucose-syrup-coated ones, with four buying checks.
+- [Arabian Dates vs Local Dates](https://www.dietswad.in/blog/arabian-dates-vs-local-dates): How imported and local dates differ in moisture, sweetness and how they are sold.
 - [Dates Are 70% Sugar. So Why Is Their GI Low?](https://www.dietswad.in/blog/do-dates-spike-blood-sugar): Glycaemic index explained; a 2011 Nutrition Journal study measured five date varieties at GI 46.3-55.1.
 - [Is Ghee Actually Healthy?](https://www.dietswad.in/blog/is-ghee-healthy-myths-vs-science): Five common ghee myths answered.
 - [Are Millet Cookies Actually Healthy?](https://www.dietswad.in/blog/are-millet-cookies-healthy): How to tell a millet cookie from a maida cookie wearing a millet label.
@@ -53,6 +53,14 @@ Women's health (educational only, not medical advice)
 - [Iron-Rich Indian Foods](https://www.dietswad.in/blog/iron-rich-foods-for-periods): Non-heme iron, the vitamin C pairing that improves absorption, and what blocks it.
 - [Magnesium: What It Does and Where to Find It](https://www.dietswad.in/blog/magnesium-rich-foods-india): Magnesium's role in muscle relaxation and the Indian foods that supply it.
 - [Ginger, Cinnamon and Fennel: What Studies Show](https://www.dietswad.in/blog/ginger-cinnamon-fennel-what-research-says): What clinical trials report about four kitchen spices for menstrual pain, with evidence quality stated.
+- [Bringing Your Grandparents' Food Habits Into a 2026 Week](https://www.dietswad.in/blog/bringing-back-old-food-habits): How to actually reinstate five traditional Indian eating habits inside a modern working week.
+- [How to Spot a Sugar-Coated Date Before You Buy It](https://www.dietswad.in/blog/how-to-spot-sugar-coated-dates): Four checks for spotting glucose-syrup-coated dates before buying, and what the label should say.
+- [Why Two Date Bites Satisfy When Six Mithai Do Not](https://www.dietswad.in/blog/date-sweets-vs-sugar-mithai): Why whole-date sweets produce satiety that sugar-syrup sweets do not; fibre, chewing and bulk.
+- [When to Snack, and How Much: A Simple Schedule](https://www.dietswad.in/blog/healthy-snack-schedule-india): The three windows when hunger actually arrives, and portion anchors instead of calorie counting.
+- [Why Healthy Eating Is So Hard in India](https://www.dietswad.in/blog/why-healthy-eating-is-hard-in-india): The three structural reasons eating well is hard in India: availability, social pressure and labels.
+- [What Is Really Inside Your Daily Biscuit](https://www.dietswad.in/blog/what-is-really-inside-your-daily-biscuit): Biscuit composition explained: maida, sugar and palm oil, the INS codes, and acrylamide; IARC classifications and a 2007 Lancet trial on colours are attributed with evidence quality stated.
+- [10 Everyday Kitchen Foods, and What Their Labels Say](https://www.dietswad.in/blog/10-everyday-indian-foods-label-check): Ten common Indian kitchen items and what their ingredient lists commonly reveal.
+- [How to Read a Food Label in 60 Seconds](https://www.dietswad.in/blog/how-to-read-a-food-label-in-60-seconds): A repeatable five-step order for reading any Indian food label in about a minute.
 
 ## Ordering
 
