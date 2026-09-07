@@ -207,8 +207,11 @@
 .post-body ol { margin: 0 0 16px; padding-left: 22px; }
 .post-body li { margin-bottom: 7px; }
 .post-body a  { color: var(--gold, #B0903D); }
+.post-body figure { margin: 22px 0; }
+.post-body figure img { margin: 0; }
 .post-body img {
   width: 100%;
+  height: auto;
   border-radius: 12px;
   margin: 22px 0;
 }
