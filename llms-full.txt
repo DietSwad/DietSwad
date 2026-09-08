@@ -1,0 +1,736 @@
+# Diet Swad — full site reference for AI assistants
+
+> This is the expanded companion to https://www.dietswad.in/llms.txt.
+> Short catalogue: llms.txt. Agent rules and what you may and may not do with
+> this content: https://www.dietswad.in/agents.md.
+>
+> Diet Swad is an Indian D2C healthy-snacks brand based in Kolkata, West Bengal,
+> operated by Radiant Twins Enterprise. Everything is handmade in small batches
+> without preservatives. Every product costs Rs 499 with free shipping anywhere
+> in India.
+
+## How to use this file
+
+Each article below lists its URL, what it covers, its section headings (the
+article's actual argument, in order) and the questions it answers directly.
+Fetch the article itself when you need the wording, the numbers or the sources;
+this file is for deciding which one to fetch.
+
+Every article cites its sources at the bottom under "Sources", linked. Health
+and nutrition articles are educational: research claims are attributed to named
+studies with the evidence quality stated, readers are told to see a doctor, and
+no Diet Swad product is presented as helping any medical condition.
+
+## Products
+
+All seven products are Rs 499 each with free pan-India shipping. Order at
+https://www.dietswad.in/order or on WhatsApp at https://wa.me/918910725854.
+There is no programmatic checkout endpoint.
+
+- Power Bites - https://www.dietswad.in/power-bites
+  Date-and-nut heart-shaped bites, 180 g. Arabian dates 53.8%, 11 ingredients,
+  1.1 g protein per 15 g bite. No refined sugars.
+- Royal Bites - https://www.dietswad.in/royal-bites
+  Roasted gram flour and peanut butter bites with jaggery and cocoa, 180 g.
+  2.2 g protein per 15 g bite. No refined sugars.
+- Peanut-Sesame Delights - https://www.dietswad.in/peanut-sesame-delights
+  Four ingredients, 180 g: dates 50%, roasted peanuts 40%, sesame 6%, ghee 4%.
+  2.0 g protein per 15 g bite. No refined sugars.
+- Millet Butter Cookies - https://www.dietswad.in/millet-butter-cookies
+  Sorghum millet 30.8% with salted butter, 240 g. No maida.
+- Millet Coconut Cookies - https://www.dietswad.in/millet-coconut-cookies
+  Jowar millet, desiccated coconut and oats, 240 g. No maida.
+- Millet Choco Cookies - https://www.dietswad.in/millet-choco-cookies
+  Jowar and ragi millet with almond flour and cocoa, 240 g. No maida.
+- Roasted Cashews - https://www.dietswad.in/roasted-cashews
+  Two ingredients, 250 g: cashews and salt. Dry-roasted, no oil.
+  18.2 g protein per 100 g.
+
+## About the company
+
+- About Diet Swad - https://www.dietswad.in/about.html
+  Who runs the brand (Radiant Twins Enterprise, Bhowanipore, Kolkata,
+  FSSAI licence 22825041000300), the four ingredient choices that define the
+  range - ghee not palm oil, dates and jaggery not refined sugar, jowar and ragi
+  not maida, no preservatives - and the costs those choices carry: the Rs 499
+  price and a short shelf life.
+
+## Policies
+
+- Refund policy - https://www.dietswad.in/refund-policy
+  Food products cannot be returned for hygiene reasons. Quality complaints are
+  handled case by case.
+- Shipping policy - https://www.dietswad.in/shipping-policy
+  Pan-India, 5-7 business days. Cash on delivery available, fee shown at checkout.
+- Privacy policy - https://www.dietswad.in/privacy-policy
+
+## Contact
+
+- Email: dietswad143@gmail.com
+- Phone / WhatsApp: +91 8910725854
+- Instagram: @dietswad
+
+# Blog articles
+
+
+## Ingredients and sweeteners
+
+
+### Jaggery vs Refined Sugar vs Desi Khand
+
+URL: https://www.dietswad.in/blog/jaggery-vs-refined-sugar-vs-desi-khand
+Covers: Jaggery, desi khand and refined sugar all come from sugarcane. Here is what actually separates them, and what it means for everyday snacking in India.
+Has a free downloadable PDF guide on the page (no email required).
+Sections:
+  - White Sugar vs Jaggery vs Desi Khand
+  - All three start as the same ganna
+  - So is jaggery actually healthier than sugar?
+  - Where khajoor comes in
+  - What we use at Diet Swad, and why
+  - How to read the label yourself
+  - Frequently asked questions
+  - Seedhi baat, no lecture
+Answers directly:
+  - Is jaggery better than refined sugar?
+  - What is desi khand?
+  - Is desi khand the same as jaggery?
+  - Are date-sweetened snacks low in sugar?
+  - Which sweetener does Diet Swad use?
+
+### Arabian Dates vs Local Dates
+
+URL: https://www.dietswad.in/blog/arabian-dates-vs-local-dates
+Covers: Dates are healthy, but the word dates covers plump Arabian khajoor and dry local ones bathed in glucose syrup. Here is how to tell them apart.
+Has a free downloadable PDF guide on the page (no email required).
+Sections:
+  - Arabian Dates vs Local Dates
+  - Two very different things, one name
+  - Why would anyone coat a date in syrup?
+  - What is actually inside a good date
+  - Four checks before you buy
+  - Why we import Arabian dates
+  - Frequently asked questions
+  - Read one word on the packet
+Answers directly:
+  - What is the difference between Arabian dates and local dates?
+  - How can I tell if dates are sugar-coated?
+  - Are dates good for weight management?
+  - How many dates should I eat in a day?
+  - Which dates does Diet Swad use?
+
+### Dates Are 70% Sugar. So Why Is Their GI Low?
+
+URL: https://www.dietswad.in/blog/do-dates-spike-blood-sugar
+Covers: What glycaemic index means in plain English, what a 2011 study found when it measured dates, and why a high sugar number and a low GI can both be true at once.
+Sections:
+  - First, what glycaemic index actually is
+  - What the study found
+  - So why is it slow?
+  - Now the part most articles skip
+  - What this is actually useful for
+  - Frequently asked questions
+  - Two numbers, two different questions
+Answers directly:
+  - What is glycaemic index in simple terms?
+  - Do dates have a low glycaemic index?
+  - How can something 70% sugar have a low GI?
+  - Can people with diabetes eat dates?
+  - Does glycaemic index still apply when dates are in a snack?
+
+### How to Spot Sugar-Coated Dates
+
+URL: https://www.dietswad.in/blog/how-to-spot-sugar-coated-dates
+Covers: Some cheaper dates are given a glucose syrup coating to look plump and taste sweet. Four checks at the shop, and the one word on the label that gives it away.
+Has a free downloadable PDF guide on the page (no email required).
+Sections:
+  - Asli vs Nakli Khajoor
+  - Why anyone coats a date at all
+  - The four checks, in the shop
+  - What a good date is actually bringing you
+  - Storing them so they stay good
+  - Frequently asked questions
+  - Thirty seconds at the counter
+Answers directly:
+  - How can you tell if dates are coated in sugar syrup?
+  - Why are some dates coated with glucose syrup?
+  - What should the ingredient list on a pack of dates say?
+  - How many dates should I eat in a day?
+  - How should dates be stored?
+
+### Nolen Gur: Bengal's Winter Sweetener, Explained
+
+URL: https://www.dietswad.in/blog/nolen-gur-khejur-gur-bengal
+Covers: Nolen gur is date-palm sap, tapped in winter and boiled the same day. What it is, why it exists for only a few weeks, and how to spot the real thing.
+Sections:
+  - How it is actually made
+  - The history is older than you would guess
+  - Is it healthier than white sugar?
+  - How to buy the real thing
+  - Frequently asked questions
+  - Eight weeks a year
+Answers directly:
+  - What is nolen gur?
+  - What is the difference between nolen gur and ordinary jaggery?
+  - Why is nolen gur only available in winter?
+  - Is nolen gur healthier than white sugar?
+  - How can I tell if nolen gur is real?
+
+### The Date Seed That Grew After 2,000 Years
+
+URL: https://www.dietswad.in/blog/methuselah-2000-year-old-date-seed
+Covers: Scientists planted a date seed from Masada that was around 2,000 years old, and it grew. The story of Methuselah, and why the date palm has outlasted empires.
+Sections:
+  - What actually happened
+  - A tree that has been with us the whole time
+  - Why a date, of all things?
+  - What this does not mean
+  - Frequently asked questions
+  - Two thousand years is a long wait
+Answers directly:
+  - What is the Methuselah date palm?
+  - Can a 2,000-year-old seed really grow?
+  - How old is date farming?
+  - Why were dates so important to ancient travellers?
+  - Are ancient date varieties different from modern ones?
+
+### Is Ghee Actually Healthy? Five Myths
+
+URL: https://www.dietswad.in/blog/is-ghee-healthy-myths-vs-science
+Covers: Ghee never changed, the advice did, twice. Here is the middle position: what ghee actually is, what it is not, and how much is a sensible amount.
+Has a free downloadable PDF guide on the page (no email required).
+Sections:
+  - Ghee Ka Poora Sach
+  - What ghee actually is, in one paragraph
+  - The five myths
+  - How to actually use it
+  - Why there is real ghee in our bites
+  - Frequently asked questions
+  - Neither villain nor superfood
+Answers directly:
+  - Is ghee healthy?
+  - How much ghee is too much?
+  - Is ghee better than refined oil?
+  - Can I eat ghee if I am lactose intolerant?
+  - How do I tell real ghee from fake?
+
+### Are Peanuts Healthy? Four Myths, Answered
+
+URL: https://www.dietswad.in/blog/are-peanuts-healthy
+Covers: Peanuts are a legume, not a nut, and that one fact explains most of the confusion. What they give you, four myths dropped, portions, and peanut allergy safety.
+Has a free downloadable PDF guide on the page (no email required).
+Sections:
+  - Peanuts Ka Poora Sach
+  - Legume, not nut, and why that matters
+  - What peanuts actually give you
+  - Four myths worth dropping
+  - How to eat them sensibly
+  - Frequently asked questions
+  - An ordinary food, treated fairly
+Answers directly:
+  - Are peanuts actually healthy?
+  - Are peanuts nuts or legumes?
+  - Do peanuts make you gain weight?
+  - How many peanuts should I eat in a day?
+  - How serious is a peanut allergy?
+
+### Are Millet Cookies Actually Healthy?
+
+URL: https://www.dietswad.in/blog/are-millet-cookies-healthy
+Covers: A cookie is judged by its ingredient list, not by the word healthy on the front. Here is how to read one in 30 seconds, and what our own labels say.
+Has a free downloadable PDF guide on the page (no email required).
+Sections:
+  - Healthy Cookie Ka Sach
+  - Front of pack is marketing. Back of pack is law.
+  - What actually makes a cookie worth eating
+  - And what gives a fake one away
+  - Our own label, printed in full
+  - Frequently asked questions
+  - Thirty seconds, that is all it takes
+Answers directly:
+  - Are millet cookies actually healthy?
+  - How do I check a cookie in a shop?
+  - Is maida really that bad?
+  - Are Diet Swad cookies gluten-free?
+  - What sweetener is used in Diet Swad cookies?
+
+## Reading labels, and how the packaged-food industry works
+
+
+### How to Read a Food Label in 60 Seconds
+
+URL: https://www.dietswad.in/blog/how-to-read-a-food-label-in-60-seconds
+Covers: A fixed five-step order for reading any Indian food label in about a minute: the first three ingredients, sugar's many names, the additive count and one line.
+Has a free downloadable PDF guide on the page (no email required).
+Sections:
+  - Label 60 Seconds Mein: The Cheat Sheet
+  - Step 1 (0–15 seconds): read only the first three ingredients
+  - Step 2 (15–30 seconds): find all the sugar, not just the word "sugar"
+  - Step 3 (30–40 seconds): what a "flavour" is telling you
+  - Step 4 (40–50 seconds): do not decode the INS numbers. Count them.
+  - Step 5 (50–60 seconds): one line in the nutrition table
+  - The whole thing, as a pocket list
+  - Frequently asked questions
+  - Practise it five times and it is yours
+Answers directly:
+  - How do I read a food label quickly?
+  - Why are the first three ingredients so important?
+  - What names does sugar hide under on Indian labels?
+  - Do I need to memorise INS numbers?
+  - What counts as a high sugar content per 100g?
+
+### What Is Really Inside Packaged Snacks?
+
+URL: https://www.dietswad.in/blog/what-is-really-inside-packaged-snacks
+Covers: How to read an Indian food label from scratch: what the ingredient order means, the many names for sugar, what INS numbers are, and a 30-second check.
+Has a free downloadable PDF guide on the page (no email required).
+Sections:
+  - Packaged Snacks: What's Really Inside
+  - Rule one: the order is the information
+  - Rule two: sugar travels under many names
+  - Rule three: the four words that hide the most
+  - Rule four: front-of-pack words are not regulated the way you think
+  - The 30-second routine
+  - Frequently asked questions
+  - You only have to learn this once
+Answers directly:
+  - How do I read a snack label if I know nothing about nutrition?
+  - What does the ingredient order on a food label actually mean?
+  - What are the INS numbers on Indian food packets?
+  - Why does sugar appear under so many different names?
+  - Is a shorter ingredient list always better?
+
+### 10 Kitchen Foods: What Their Labels Say
+
+URL: https://www.dietswad.in/blog/10-everyday-indian-foods-label-check
+Covers: Bread, ketchup, juice, health-drink powder, noodles and five more: what the back of each pack commonly reveals, and the smarter buy for each one.
+Has a free downloadable PDF guide on the page (no email required).
+Sections:
+  - Kitchen Ki 10 Cheezein: Honest Breakdown
+  - The ten, one by one
+  - Three patterns you just watched repeat
+  - The five-minute smarter shopping routine
+  - Frequently asked questions
+  - Knowing beats fearing
+Answers directly:
+  - Is brown bread actually healthier than white bread?
+  - How much sugar is in tomato ketchup?
+  - Are health drink powders good for children?
+  - What is the difference between fruit juice and a fruit drink?
+  - Do I need to stop buying all of these foods?
+
+### What Is Really Inside Your Daily Biscuit
+
+URL: https://www.dietswad.in/blog/what-is-really-inside-your-daily-biscuit
+Covers: Maida, sugar and palm oil make up most of a biscuit. Here is what the rest of the label means, what the research actually says, and how honest the evidence is.
+Has a free downloadable PDF guide on the page (no email required).
+Sections:
+  - What's Really Inside Your Daily Biscuit
+  - The big three, which are most of the biscuit
+  - The codes: what they are for, and how worried to be
+  - Acrylamide: the one that is on no ingredient list
+  - Why any of this is worth knowing
+  - What to look for instead
+  - Frequently asked questions
+  - Count them, do not fear them
+Answers directly:
+  - What are biscuits actually made of?
+  - What is acrylamide and should I worry about it in biscuits?
+  - How much acrylamide is in Indian biscuits?
+  - Which food colours require a warning label in Europe?
+  - Are emulsifiers in biscuits bad for your gut?
+  - Is palm oil in biscuits harmful?
+
+### What Does "Ultra-Processed" Actually Mean?
+
+URL: https://www.dietswad.in/blog/what-does-ultra-processed-food-mean
+Covers: Processed and ultra-processed are not the same thing. The NOVA groups explained simply, the one-line test that sorts them, and what the research actually found.
+Sections:
+  - The four groups, in plain language
+  - Why "hyper-palatable" is the point
+  - What the research actually found
+  - What India's own guidance says
+  - So is all packaged food bad?
+  - Frequently asked questions
+  - One word, used properly
+Answers directly:
+  - What does ultra-processed food actually mean?
+  - What is the difference between processed and ultra-processed food?
+  - How can I tell if a food is ultra-processed?
+  - Does the research prove ultra-processed food is harmful?
+  - What does the Indian government say about ultra-processed food?
+
+### What Preservatives Are, and What They Do
+
+URL: https://www.dietswad.in/blog/preservatives-in-indian-food-explained
+Covers: What food preservatives actually do, why food spoils without them, and a plain decoder for the INS numbers you see most often on Indian labels.
+Has a free downloadable PDF guide on the page (no email required).
+Sections:
+  - Preservative Decoder: Kitchen Cheat Sheet
+  - Why food goes bad in the first place
+  - Reading the code: what INS actually is
+  - The ones you will actually meet
+  - So are they bad for you?
+  - What a short shelf life really costs
+  - Frequently asked questions
+  - Count them, do not fear them
+Answers directly:
+  - What do preservatives actually do in food?
+  - Are preservatives in food harmful?
+  - What do the INS numbers on Indian food labels mean?
+  - Which preservatives are most common in Indian packaged food?
+  - Does preservative-free mean the food is better?
+
+### Why Is Packaged Food So Cheap? A Cost Breakdown
+
+URL: https://www.dietswad.in/blog/why-packaged-food-is-so-cheap
+Covers: A ₹10 biscuit packet is not magic, it is arithmetic. What ingredients cost per kg in India, why palm oil changes everything, and where the money goes.
+Sections:
+  - Start with what things cost per kilogram
+  - Why palm oil is the pivot
+  - Then scale does the rest
+  - The part of the trade-off nobody advertises
+  - So what should you actually do with this?
+  - Frequently asked questions
+  - Cheap is a recipe decision
+Answers directly:
+  - Why is packaged food so much cheaper than homemade?
+  - Why is palm oil used in so many packaged foods?
+  - How much do snack ingredients actually cost in India?
+  - Does a higher price mean better food?
+  - Why do handmade snacks have a shorter shelf life?
+
+### Why the Same Brand Differs by Country
+
+URL: https://www.dietswad.in/blog/india-vs-europe-food-standards
+Covers: The same product can carry a different recipe in different countries. Why that happens, what drives it, and the quick checks that work in an Indian shop.
+Has a free downloadable PDF guide on the page (no email required).
+Sections:
+  - India vs Europe: A Parent's Survival Guide
+  - Four reasons a recipe changes at a border
+  - Where India is actually stricter
+  - Where India is currently behind
+  - What to actually do in an Indian shop
+  - Frequently asked questions
+  - The label is the leverage
+Answers directly:
+  - Why does the same product have a different recipe in different countries?
+  - Are Indian food standards weaker than European ones?
+  - How can I check what is actually in a product sold in India?
+  - Do baby and children's foods differ between markets?
+  - Does front-of-pack labelling exist in India?
+
+### How India's Snacking Changed: Six Numbers
+
+URL: https://www.dietswad.in/blog/india-packaged-food-health-numbers
+Covers: Packaged food sales, edible oil use, the ICMR-INDIAB survey and front-of-pack labelling. Six figures that explain how Indian snacking changed in twenty years.
+Sections:
+  - 1. From USD 0.9 billion to USD 37.9 billion in thirteen years
+  - 2. Edible oil: 8.2 kg to 23.5 kg a year, per person
+  - 3. 11.4% diabetes, 35.5% hypertension
+  - 4. Guideline 15 names the foods
+  - 5. Trans fat capped at 2%, since January 2022
+  - 6. Front-of-pack labels: still not here
+  - What to take from all this
+  - Frequently asked questions
+  - Twenty years is not very long
+Answers directly:
+  - How fast is packaged food growing in India?
+  - How much edible oil does an average Indian consume?
+  - What did the ICMR-INDIAB survey find?
+  - Does India have front-of-pack warning labels?
+  - What is the legal limit on trans fat in India?
+
+## Everyday eating
+
+
+### Healthy Snacks for Kids' Tiffin: 5-Day Plan
+
+URL: https://www.dietswad.in/blog/healthy-snacks-for-kids-tiffin
+Covers: What to actually pack in a child's tiffin box, without a fight. Red flags on kids' snack packs, a 5-day plan, portion sizes by age, and how to switch slowly.
+Has a free downloadable PDF guide on the page (no email required).
+Sections:
+  - Bacche Ka Clean Tiffin: 5-Day Guide
+  - Why the mid-morning slump happens
+  - What to actually look for on a kids' snack pack
+  - A five-day tiffin plan that is not exhausting
+  - Changing the box without a daily fight
+  - Frequently asked questions
+  - Good enough, five days a week
+Answers directly:
+  - What are healthy snacks to pack in a child's tiffin box?
+  - How do I know if a kids' snack pack is actually healthy?
+  - How much should a child eat in a snack?
+  - My child refuses anything healthy. How do I change the tiffin without a fight?
+  - Are cookies ever acceptable in a school tiffin?
+
+### Late-Night Cravings: Why, and What to Eat
+
+URL: https://www.dietswad.in/blog/late-night-snacking-what-to-eat
+Covers: Why midnight hunger hits, what your craving type is telling you, five clean late-night snacks that will not wreck your sleep, and when hunger is worth ignoring.
+Has a free downloadable PDF guide on the page (no email required).
+Sections:
+  - Smart Late-Night Snacking Guide
+  - Six ordinary reasons midnight hunger shows up
+  - What your craving is asking for
+  - Five things worth reaching for
+  - The part that actually fixes it
+  - Frequently asked questions
+  - Stop treating it as a failure
+Answers directly:
+  - Why do I get hungry late at night?
+  - Is eating at night bad for you?
+  - What is a good late-night snack?
+  - How do I know if I am actually hungry or just bored?
+  - Does sugar before bed affect sleep?
+
+### What to Eat Before a Workout: Natural Fuel
+
+URL: https://www.dietswad.in/blog/natural-pre-workout-food-india
+Covers: What to eat before a workout and when, using everyday Indian food. Timing for 3 hours, 1 hour and 15 minutes before, five natural options, and what to skip.
+Has a free downloadable PDF guide on the page (no email required).
+Sections:
+  - Natural Pre-Workout Fuel Guide
+  - Why timing decides everything
+  - Five natural options that work
+  - What to leave alone before training
+  - Frequently asked questions
+  - Test it on yourself
+Answers directly:
+  - What should I eat before a workout?
+  - Do I need a pre-workout supplement?
+  - Is it better to work out on an empty stomach?
+  - Are dates good before a workout?
+  - What should I avoid eating before exercise?
+
+### When to Snack and How Much
+
+URL: https://www.dietswad.in/blog/healthy-snack-schedule-india
+Covers: Most people get hungry at three predictable times. Give each one a default and portion anchor, and random eating mostly stops without any calorie counting.
+Has a free downloadable PDF guide on the page (no email required).
+Sections:
+  - The Diet Swad Snacking Plan
+  - The three windows when hunger actually turns up
+  - What suits each window
+  - Portion anchors, not calorie counting
+  - Reading your own signals
+  - Making it survive a real week
+  - Frequently asked questions
+  - Structure beats willpower
+Answers directly:
+  - When do most people actually get hungry between meals?
+  - How much is one portion of a date-based bite or nuts?
+  - Do I need to count calories to snack sensibly?
+  - What should I eat before and after a workout?
+  - Why am I hungry again an hour after snacking?
+
+### The 7-Day Snack Swap Challenge
+
+URL: https://www.dietswad.in/blog/7-day-snack-swap-challenge
+Covers: One swap a day for seven days. What to change, what to expect by day seven, and roughly what it costs. No overhaul, and nothing to give up entirely.
+Has a free downloadable PDF guide on the page (no email required).
+Sections:
+  - The 7-Day Snack Swap Challenge
+  - Why one a day, and not all of them
+  - The seven days
+  - What actually changes by day seven
+  - The cost question
+  - Frequently asked questions
+  - Keep the two that stuck
+Answers directly:
+  - What is a snack swap?
+  - Why change one snack a day instead of everything at once?
+  - What can I expect after a week of snack swaps?
+  - Does eating healthier snacks cost more?
+  - What if I miss a day?
+
+### Why Healthy Eating Is So Hard in India
+
+URL: https://www.dietswad.in/blog/why-healthy-eating-is-hard-in-india
+Covers: It is not willpower. Three things make India genuinely hard mode: what is sold everywhere, what family and office life demand, and labels nobody can read.
+Has a free downloadable PDF guide on the page (no email required).
+Sections:
+  - Healthy Eating In India, Made EASY
+  - Problem one: availability
+  - Problem two: social pressure
+  - Problem three: information
+  - Five changes that survive all three
+  - Change defaults, not diet
+  - Frequently asked questions
+  - It was never willpower
+Answers directly:
+  - Why is it harder to eat healthily in India than the advice suggests?
+  - How do I refuse food at a family function without offending anyone?
+  - Does processed food actually make you eat more?
+  - What is the single easiest change to make first?
+  - Do I need to read labels on everything I buy?
+
+### Date Sweets vs Sugar Mithai
+
+URL: https://www.dietswad.in/blog/date-sweets-vs-sugar-mithai
+Covers: The difference is not virtue, it is fibre. Why a date-based sweet stops you at two pieces while a syrup-based one keeps inviting the next one.
+Has a free downloadable PDF guide on the page (no email required).
+Sections:
+  - Meetha Bhi Khao, Healthy Bhi Raho
+  - Sweetness with brakes, and sweetness without
+  - The part that actually stops you at two
+  - Dates specifically
+  - The honest part: natural is not unlimited
+  - Upgrading, practically
+  - Frequently asked questions
+  - You do not have to quit meetha
+Answers directly:
+  - Why do date-based sweets fill you up faster than sugar-based ones?
+  - Are dates and jaggery healthier than refined sugar?
+  - How many dates can I eat in a day?
+  - Do dates raise blood sugar?
+  - What is the best time to eat something sweet?
+
+### Five Things Dadi Got Right About Food
+
+URL: https://www.dietswad.in/blog/dadi-nani-ka-khana-food-wisdom
+Covers: Seasonal eating, fermenting, ghee, short ingredient lists and no all-day snacking. What modern nutrition says about five habits that were simply normal.
+Has a free downloadable PDF guide on the page (no email required).
+Sections:
+  - Dadi Nani Ka Khana: 5 Timeless Lessons
+  - 1. Eating what the season gave you
+  - 2. Fermenting almost everything
+  - 3. Ghee, without the argument
+  - 4. Food you could name
+  - 5. Meals, not grazing
+  - What was not better
+  - Frequently asked questions
+  - Take the habits, skip the nostalgia
+Answers directly:
+  - Was traditional Indian food healthier than what we eat now?
+  - Why is fermented food good for you?
+  - Should I go back to eating millets instead of rice and wheat?
+  - Is ghee actually good for you?
+  - Is eating at fixed times better than snacking through the day?
+
+### Old Food Habits, Modern Week
+
+URL: https://www.dietswad.in/blog/bringing-back-old-food-habits
+Covers: Knowing what your dadi did is the easy part. Here is the honest, scaled-down version of each of the five habits that survives a job and a commute.
+Has a free downloadable PDF guide on the page (no email required).
+Sections:
+  - Purani Peedhi Ka Raaz: 5 Habits
+  - Seasonal eating: buy one thing, not a philosophy
+  - Fermented food: attach it to a meal you already eat
+  - Ghee: the amount was always the point
+  - Cooking from scratch: twice a week, and khichdi counts
+  - Not grazing: give snacking a time instead of banning it
+  - What genuinely does not transfer
+  - The order to try them in
+  - Frequently asked questions
+  - Take the habits, leave the nostalgia
+Answers directly:
+  - What is the easiest traditional eating habit to start with?
+  - Do I really need to cook everything from scratch?
+  - Is ghee healthy, or is that just nostalgia?
+  - Was food in previous generations actually better?
+  - Why is it harder to avoid snacking now than it used to be?
+
+## Women's health — educational only, not medical advice
+
+
+### Why Period Cramps Happen, Explained Simply
+
+URL: https://www.dietswad.in/blog/why-period-cramps-happen
+Covers: What causes menstrual cramps, in plain language: prostaglandins, the uterine muscle, why nausea comes too, and when pain is worth seeing a doctor about.
+Sections:
+  - The sequence, step by step
+  - Why it is not only your stomach that hurts
+  - The vocabulary, decoded
+  - Where the tiredness comes from
+  - When to stop putting up with it
+  - Frequently asked questions
+  - Knowing why does help
+Answers directly:
+  - What causes period cramps?
+  - What does dysmenorrhea mean?
+  - Why do periods cause nausea and loose motions?
+  - Why am I so tired during my period?
+  - When should I see a doctor about period pain?
+
+### Iron-Rich Indian Foods, and the Vitamin C Trick
+
+URL: https://www.dietswad.in/blog/iron-rich-foods-for-periods
+Covers: Plant iron absorbs poorly on its own. Which everyday Indian foods carry it, what blocks it, and the vitamin C pairing that changes how much you take in.
+Sections:
+  - Two kinds of iron
+  - Where the iron actually is
+  - What helps, and what quietly blocks
+  - Why this comes up around periods
+  - What a day could look like
+  - Frequently asked questions
+  - Small changes, same food
+Answers directly:
+  - Which Indian foods are highest in iron?
+  - Why is iron from vegetarian food harder to absorb?
+  - Does vitamin C help iron absorption?
+  - Does tea reduce iron absorption?
+  - Should I take an iron supplement?
+
+### Magnesium: What It Does and Where to Find It
+
+URL: https://www.dietswad.in/blog/magnesium-rich-foods-india
+Covers: Magnesium helps muscles relax after they contract. What that means, the everyday Indian foods that supply it, and why refining removes so much of it.
+Sections:
+  - Where it is, in ordinary Indian food
+  - Magnesium, cramps and PMS: what the research says
+  - Why intake tends to slip
+  - Practical, without a shopping trip
+  - Frequently asked questions
+  - It was already in the food
+Answers directly:
+  - What does magnesium do in the body?
+  - Which Indian foods are rich in magnesium?
+  - Why do refined grains have less magnesium?
+  - Does magnesium help with PMS?
+  - Should I take a magnesium supplement?
+
+### Ginger, Cinnamon and Fennel: What Studies Show
+
+URL: https://www.dietswad.in/blog/ginger-cinnamon-fennel-what-research-says
+Covers: Four kitchen spices have been studied for period pain. An honest look at what the trials found, how strong the evidence is, and where the caveats are.
+Sections:
+  - First, why a spice could plausibly do anything
+  - Ginger, the most studied
+  - Cinnamon, and the bleeding finding
+  - Fennel, strong numbers and a taste problem
+  - Chamomile, working on two fronts
+  - The part to take seriously before you try anything
+  - Frequently asked questions
+  - Promising is not the same as proven
+Answers directly:
+  - Does ginger help with period pain?
+  - What does the research say about cinnamon and menstrual pain?
+  - Are these spices as effective as painkillers?
+  - How much ginger was used in these studies?
+  - Is it safe to take these spices in large amounts?
+
+## About the brand
+
+
+### How Diet Swad Started: Seven Honest Lessons
+
+URL: https://www.dietswad.in/blog/how-diet-swad-started
+Covers: A small Kolkata kitchen, seven questions that were harder than expected, and the answers we actually landed on. Written without the usual founder-story polish.
+Has a free downloadable PDF guide on the page (no email required).
+Sections:
+  - Ghar Se Brand Tak: 7 Honest Lessons
+  - 1. Does the world need another snack brand?
+  - 2. What do you do when the shortcut is offered?
+  - 3. How do you price something honestly?
+  - 4. Do you tell people the awkward numbers?
+  - 5. What happens when you cannot fake shelf life?
+  - 6. Does family make it easier or harder?
+  - 7. How do you earn trust with no track record?
+  - Frequently asked questions
+  - The part that has not changed
+Answers directly:
+  - Who makes Diet Swad?
+  - Why does everything cost ₹499?
+  - Why is the shelf life shorter than other packaged snacks?
+  - Are the ingredient percentages on the pack real?
+  - Where is Diet Swad made?

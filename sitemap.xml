@@ -14,6 +14,12 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://www.dietswad.in/about.html</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.dietswad.in/blog/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
