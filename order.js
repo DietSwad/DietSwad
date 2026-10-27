@@ -235,6 +235,24 @@
     if (err) { err.hidden = true; err.textContent = ''; }
   }
 
+  // Our server failed (error status or a reply that isn't JSON), not the customer's connection.
+  // During the 2026-10-19 outage every order hit this and was told "check your connection".
+  // Offer a way to still place the order instead.
+  function showServiceError() {
+    var err = document.getElementById('ord-error');
+    if (!err) return;
+    err.textContent = "Sorry, we couldn't place your order just now. Send us a WhatsApp message and we'll take your order there. ";
+    var link = document.createElement('a');
+    link.href = 'https://wa.me/918910725854?text=' +
+      encodeURIComponent("Hi Diet Swad, the website wouldn't take my order. I'd like to order:");
+    link.target = '_blank';
+    link.rel = 'noopener';
+    link.textContent = 'Message us on WhatsApp';
+    err.appendChild(link);
+    err.hidden = false;
+    err.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
   /* ── Smart product selection ───────────────────────────────────────
      If ?product=<slug> is in the URL: show only that product,
      hide others, reveal "Add more products" button.
@@ -384,7 +402,17 @@
         headers: { 'Content-Type': 'application/json' },
         body:    JSON.stringify(payload),
       });
-      var result = await resp.json();
+      var result = null;
+      try { result = await resp.json(); } catch (_) { /* empty or non-JSON reply */ }
+
+      // No JSON at all (e.g. the API is down) or a 5xx: it's on us. 5xx bodies carry internal codes
+      // like "order_creation_failed" that used to be shown to the customer verbatim. 4xx replies
+      // (bad phone number, rate limit) keep their own customer-facing message below.
+      if (!result || resp.status >= 500) {
+        showServiceError();
+        resetBtn();
+        return;
+      }
 
       if (!resp.ok || !result.success) {
         showError(result.error || 'Something went wrong. Please try again.');
